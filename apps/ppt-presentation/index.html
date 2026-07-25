@@ -11,7 +11,43 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   
   <!-- Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/lucide@latest">
+    // ===== 📱 移动端滑动手势支持 (Mobile Touch Swipe Support) =====
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchEndX = 0;
+    let touchEndY = 0;
+
+    document.addEventListener('touchstart', function(e) {
+      if (e.touches && e.touches.length > 0) {
+        touchStartX = e.touches[0].screenX;
+        touchStartY = e.touches[0].screenY;
+      }
+    }, { passive: true });
+
+    document.addEventListener('touchend', function(e) {
+      if (e.changedTouches && e.changedTouches.length > 0) {
+        touchEndX = e.changedTouches[0].screenX;
+        touchEndY = e.changedTouches[0].screenY;
+        handleSwipe();
+      }
+    }, { passive: true });
+
+    function handleSwipe() {
+      const diffX = touchEndX - touchStartX;
+      const diffY = touchEndY - touchStartY;
+      
+      // 仅在水平滑动距离大于垂直滑动，且滑动距离大于 40px 时触发切页
+      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+        if (diffX < 0) {
+          nextSlide(); // 向左滑 -> 下一页
+        } else {
+          prevSlide(); // 向右滑 -> 上一页
+        }
+      }
+    }
+
+  </script>
 
   <style>
     /* 1080P 大屏精准演示设计系统 (1920 x 1080 Standard PPT Stage) */
@@ -637,6 +673,205 @@
         display: none !important;
       }
     }
+  
+    
+
+  
+    /* ===== 📱 移动端自适应全量重构 CSS (Mobile Responsive Design v2) ===== */
+    @media (max-width: 900px), (max-device-width: 900px) {
+      html {
+        font-size: 14px !important;
+      }
+      body {
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        height: auto !important;
+        min-height: 100vh !important;
+        background-color: #020408 !important;
+      }
+      #stage-wrapper, #presentation-stage {
+        height: auto !important;
+        min-height: 100vh !important;
+        overflow-x: hidden !important;
+        overflow-y: visible !important;
+        position: relative !important;
+      }
+
+      /* 顶部 Header 栏微调 */
+      header {
+        height: 54px !important;
+        padding: 0 1rem !important;
+      }
+      .brand-title {
+        font-size: 1.05rem !important;
+      }
+      .system-badge {
+        display: none !important;
+      }
+
+      /* Slide 主视口 */
+      #presentation {
+        height: auto !important;
+        min-height: calc(100vh - 114px) !important;
+        overflow-y: visible !important;
+        padding-bottom: 70px !important;
+      }
+      .slide {
+        position: relative !important;
+        inset: auto !important;
+        min-height: auto !important;
+        padding: 1.15rem 1rem !important;
+        transform: none !important;
+        display: none !important;
+        opacity: 0;
+      }
+      .slide.active {
+        display: flex !important;
+        flex-direction: column !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+      }
+
+      /* 标题字号适配 */
+      .slide-title-container {
+        margin-bottom: 0.85rem !important;
+      }
+      .slide-main-title {
+        font-size: 1.4rem !important;
+        line-height: 1.3 !important;
+      }
+      .slide-subtitle {
+        font-size: 0.9rem !important;
+        line-height: 1.45 !important;
+        margin-top: 0.25rem !important;
+      }
+
+      /* 网格全排布为单列布局 */
+      .slide-grid-2, .slide-grid-3, .slide-grid-4 {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0.85rem !important;
+        flex: none !important;
+        min-height: auto !important;
+      }
+
+      /* 玻璃卡片 Padding 缩减 */
+      .glass-card {
+        padding: 1.1rem !important;
+        border-radius: 14px !important;
+      }
+      .card-title {
+        font-size: 1.1rem !important;
+        margin-bottom: 0.35rem !important;
+      }
+      .card-text {
+        font-size: 0.88rem !important;
+        line-height: 1.55 !important;
+      }
+      .neon-list-item {
+        font-size: 0.9rem !important;
+      }
+
+      /* Slide 1: 封面排布微调 */
+      #slide-1 h1 {
+        font-size: 1.85rem !important;
+        line-height: 1.25 !important;
+      }
+      #slide-1 p {
+        font-size: 0.95rem !important;
+        line-height: 1.55 !important;
+      }
+      #slide-1 .slide-grid-3 {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+      }
+
+      /* Slide 2: 痛点与破局卡片单列化 */
+      #slide-2 .slide-grid-2 {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+      }
+      #slide-2 .neon-item {
+        font-size: 0.92rem !important;
+        padding: 10px 12px !important;
+      }
+      #slide-2 h3 {
+        font-size: 1.25rem !important;
+      }
+
+      /* Slide 3: 业务流闭环图单列响应式 */
+      #slide-3 .loop-viewport {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+        height: auto !important;
+        padding: 0.5rem 0 !important;
+      }
+      #slide-3 .arrow-box, #slide-3 .loop-connector {
+        display: none !important;
+      }
+
+      /* Slide 8: 材料价格看板单列化 */
+      #slide-8 .material-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0.75rem !important;
+      }
+      #slide-8 .mat-header {
+        font-size: 0.95rem !important;
+      }
+      #slide-8 .mat-metrics {
+        font-size: 0.82rem !important;
+      }
+
+      /* 截图容器自适应 */
+      .screenshot-frame, .screenshot-frame-large {
+        width: 100% !important;
+        max-height: 45vh !important;
+        overflow: hidden !important;
+        border-radius: 12px !important;
+        margin-top: 0.5rem !important;
+      }
+      .screenshot-frame img, .screenshot-frame-large img {
+        width: 100% !important;
+        height: auto !important;
+        max-height: 45vh !important;
+        object-fit: contain !important;
+      }
+
+      /* 底部固定控制条 */
+      footer {
+        position: fixed !important;
+        bottom: 0 !important; left: 0 !important; right: 0 !important;
+        height: 56px !important;
+        padding: 0 1rem !important;
+        background: rgba(7, 10, 19, 0.96) !important;
+        backdrop-filter: blur(20px) !important;
+        border-top: 1px solid rgba(148, 163, 184, 0.25) !important;
+        z-index: 1000 !important;
+      }
+      .slide-counter {
+        font-size: 0.88rem !important;
+      }
+      .progress-track {
+        width: 80px !important;
+      }
+      .btn-ctrl {
+        width: 38px !important;
+        height: 38px !important;
+      }
+      .ctrl-btns {
+        gap: 0.6rem !important;
+      }
+
+      /* 目录抽屉自适应 */
+      .index-drawer {
+        width: 85vw !important;
+        right: -85vw !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -2036,6 +2271,42 @@
         clearAllSlideAnimations();
       }
     }
+  
+    // ===== 📱 移动端滑动手势支持 (Mobile Touch Swipe Support) =====
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchEndX = 0;
+    let touchEndY = 0;
+
+    document.addEventListener('touchstart', function(e) {
+      if (e.touches && e.touches.length > 0) {
+        touchStartX = e.touches[0].screenX;
+        touchStartY = e.touches[0].screenY;
+      }
+    }, { passive: true });
+
+    document.addEventListener('touchend', function(e) {
+      if (e.changedTouches && e.changedTouches.length > 0) {
+        touchEndX = e.changedTouches[0].screenX;
+        touchEndY = e.changedTouches[0].screenY;
+        handleSwipe();
+      }
+    }, { passive: true });
+
+    function handleSwipe() {
+      const diffX = touchEndX - touchStartX;
+      const diffY = touchEndY - touchStartY;
+      
+      // 仅在水平滑动距离大于垂直滑动，且滑动距离大于 40px 时触发切页
+      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+        if (diffX < 0) {
+          nextSlide(); // 向左滑 -> 下一页
+        } else {
+          prevSlide(); // 向右滑 -> 上一页
+        }
+      }
+    }
+
   </script>
 </body>
 </html>
