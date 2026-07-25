@@ -3,21 +3,17 @@
 *.pptx
 *.mov
 *.drawio
-*.md
 .DS_Store
 
-# 排除临时截图文件夹
+# 排除临时截图与构建文件夹
 cropped_screenshots/
 .pdf-export-720p/
 .pdf-export-720p-pages/
 .pdf-preview-720p/
+.pptx-build/
+output/
+tmp/
 
 # 排除Python脚本
 *.py
 
-# 排除 SaaS 开发目录
-procurement-saas/
-
-# 保留HTML和系统截图
-# 智能采购比价与合同管理系统介绍 PPT.html  ← 包含
-# system_screenshots/                         ← 包含
