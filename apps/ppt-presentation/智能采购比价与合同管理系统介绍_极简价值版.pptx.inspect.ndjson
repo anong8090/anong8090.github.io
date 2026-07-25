@@ -1,0 +1,48 @@
+{"kind":"deck","id":"pr/7haa9f","name":"Deck"}
+{"kind":"layout","layoutId":"a2e59c23-17ec-4657-8b93-e7cfbbd9f3b3","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"eee025cd-272e-4d26-a308-a223f9eaf157","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/a1a9zo","slide":1,"title":"Slide 1","textShapes":0}
+{"kind":"image","id":"im/axkru5kf","slide":1,"name":"","alt":"HTML rendered slide 1","bbox":[0,0,1920,1080]}
+{"kind":"notes","id":"nt/a1a9zo","slide":1,"text":""}
+{"kind":"slide","id":"sl/ckfgqb","slide":2,"title":"Slide 2","textShapes":0}
+{"kind":"image","id":"im/5wnuhoz6","slide":2,"name":"","alt":"HTML rendered slide 2","bbox":[0,0,1920,1080]}
+{"kind":"notes","id":"nt/ckfgqb","slide":2,"text":""}
+{"kind":"slide","id":"sl/rtwkd7","slide":3,"title":"Slide 3","textShapes":0}
+{"kind":"image","id":"im/cvu9wnu5","slide":3,"name":"","alt":"HTML rendered slide 3","bbox":[0,0,1920,1080]}
+{"kind":"notes","id":"nt/rtwkd7","slide":3,"text":""}
+{"kind":"slide","id":"sl/kzmgod","slide":4,"title":"Slide 4","textShapes":0}
+{"kind":"image","id":"im/hgvqdsba","slide":4,"name":"","alt":"HTML rendered slide 4","bbox":[0,0,1920,1080]}
+{"kind":"notes","id":"nt/kzmgod","slide":4,"text":""}
+{"kind":"slide","id":"sl/khd8lk","slide":5,"title":"Slide 5","textShapes":0}
+{"kind":"image","id":"im/9g3u1wza","slide":5,"name":"","alt":"HTML rendered slide 5","bbox":[0,0,1920,1080]}
+{"kind":"notes","id":"nt/khd8lk","slide":5,"text":""}
+{"kind":"slide","id":"sl/4dmu0q","slide":6,"title":"Slide 6","textShapes":0}
+{"kind":"image","id":"im/w365sb6l","slide":6,"name":"","alt":"HTML rendered slide 6","bbox":[0,0,1920,1080]}
+{"kind":"notes","id":"nt/4dmu0q","slide":6,"text":""}
+{"kind":"slide","id":"sl/hz62gg","slide":7,"title":"Slide 7","textShapes":0}
+{"kind":"image","id":"im/naxsza1c","slide":7,"name":"","alt":"HTML rendered slide 7","bbox":[0,0,1920,1080]}
+{"kind":"notes","id":"nt/hz62gg","slide":7,"text":""}
+{"kind":"slide","id":"sl/pbxqhw","slide":8,"title":"Slide 8","textShapes":0}
+{"kind":"image","id":"im/ju1c729w","slide":8,"name":"","alt":"HTML rendered slide 8","bbox":[0,0,1920,1080]}
+{"kind":"notes","id":"nt/pbxqhw","slide":8,"text":""}
+{"kind":"slide","id":"sl/pd04st","slide":9,"title":"Slide 9","textShapes":0}
+{"kind":"image","id":"im/i547qt4j","slide":9,"name":"","alt":"HTML rendered slide 9","bbox":[0,0,1920,1080]}
+{"kind":"notes","id":"nt/pd04st","slide":9,"text":""}
+{"kind":"slide","id":"sl/om65q5","slide":10,"title":"Slide 10","textShapes":0}
+{"kind":"image","id":"im/mxwzmxsr","slide":10,"name":"","alt":"HTML rendered slide 10","bbox":[0,0,1920,1080]}
+{"kind":"notes","id":"nt/om65q5","slide":10,"text":""}
+{"kind":"slide","id":"sl/mb1chi","slide":11,"title":"Slide 11","textShapes":0}
+{"kind":"image","id":"im/vmdgn29o","slide":11,"name":"","alt":"HTML rendered slide 11","bbox":[0,0,1920,1080]}
+{"kind":"notes","id":"nt/mb1chi","slide":11,"text":""}
+{"kind":"slide","id":"sl/bze8th","slide":12,"title":"Slide 12","textShapes":0}
+{"kind":"image","id":"im/kze14ni1","slide":12,"name":"","alt":"HTML rendered slide 12","bbox":[0,0,1920,1080]}
+{"kind":"notes","id":"nt/bze8th","slide":12,"text":""}
+{"kind":"slide","id":"sl/9h7jsl","slide":13,"title":"Slide 13","textShapes":0}
+{"kind":"image","id":"im/mp4n6dkj","slide":13,"name":"","alt":"HTML rendered slide 13","bbox":[0,0,1920,1080]}
+{"kind":"notes","id":"nt/9h7jsl","slide":13,"text":""}
+{"kind":"slide","id":"sl/z6bwq6","slide":14,"title":"Slide 14","textShapes":0}
+{"kind":"image","id":"im/3yhcnedo","slide":14,"name":"","alt":"HTML rendered slide 14","bbox":[0,0,1920,1080]}
+{"kind":"notes","id":"nt/z6bwq6","slide":14,"text":""}
+{"kind":"slide","id":"sl/woctf9","slide":15,"title":"Slide 15","textShapes":0}
+{"kind":"image","id":"im/3y18zud8","slide":15,"name":"","alt":"HTML rendered slide 15","bbox":[0,0,1920,1080]}
+{"kind":"notes","id":"nt/woctf9","slide":15,"text":""}

@@ -1975,6 +1975,17 @@
       renderMatDashboard(idx);
     }
 
+    function ensureMatDashboardForPrint() {
+      const container = document.getElementById('matCardsGrid');
+      if (!container) return;
+      if (!container.children.length) {
+        renderMatDashboard(0);
+      }
+    }
+
+    window.addEventListener('beforeprint', ensureMatDashboardForPrint);
+    ensureMatDashboardForPrint();
+
     // --- Slide 10: TCO calculator dynamic animation ---
     function startSlide10TcoAnimation() {
       let dist = 320;

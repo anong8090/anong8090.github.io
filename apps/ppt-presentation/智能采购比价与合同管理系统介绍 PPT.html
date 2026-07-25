@@ -596,6 +596,47 @@
       height: calc(100% - 90px);
       padding: 1.5rem 1rem;
     }
+
+    /* Print / PDF Export Styling */
+    @media print {
+      @page {
+        size: 1920px 1080px;
+        margin: 0;
+      }
+      html, body {
+        background: #0B0F19 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        width: 1920px !important;
+        height: auto !important;
+        overflow: visible !important;
+      }
+      #stage-wrapper {
+        transform: none !important;
+        width: 1920px !important;
+        height: auto !important;
+        position: static !important;
+      }
+      #presentation-stage {
+        width: 1920px !important;
+        height: auto !important;
+        position: static !important;
+      }
+      .slide {
+        display: flex !important;
+        opacity: 1 !important;
+        transform: none !important;
+        position: relative !important;
+        width: 1920px !important;
+        height: 1080px !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        box-sizing: border-box !important;
+      }
+      footer, .ctrl-btns, .index-drawer {
+        display: none !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -613,7 +654,7 @@
       <!-- 顶栏 Header（与浅色版 PPT 一致） -->
       <header>
         <div class="brand-logo-area">
-          <div class="brand-icon"><img src="system_screenshots/logo.png" alt="智采云 Logo"></div>
+          <div class="brand-icon"><img src="../../assets/system_screenshots/logo.png" alt="智采云 Logo"></div>
           <div class="brand-title">智能采购比价与合同管理系统</div>
         </div>
         <div class="system-badge" id="sectionTag">VALUE PRESENTATION</div>
@@ -941,7 +982,7 @@
 
             <!-- Right Screenshot -->
             <div class="shot-frame">
-              <img src="system_screenshots/contract.png" alt="AI 合同智能解析界面">
+              <img src="../../assets/system_screenshots/contract.png" alt="AI 合同智能解析界面">
             </div>
           </div>
         </section>
@@ -1117,7 +1158,7 @@
 
             <!-- Right Screenshot -->
             <div class="shot-frame">
-              <img src="system_screenshots/materials.png" alt="价格大库水位看板">
+              <img src="../../assets/system_screenshots/materials.png" alt="价格大库水位看板">
             </div>
           </div>
         </section>
@@ -1132,7 +1173,7 @@
           <div class="slide-grid-2" style="grid-template-columns: 1.15fr 0.85fr;">
             <!-- Left Screenshot -->
             <div class="shot-frame">
-              <img src="system_screenshots/forecast_dash.png" alt="控制价预测界面">
+              <img src="../../assets/system_screenshots/forecast_dash.png" alt="控制价预测界面">
             </div>
 
             <!-- Right Step Cards -->
@@ -1213,7 +1254,7 @@
 
             <!-- Right Screenshot -->
             <div class="shot-frame">
-              <img src="system_screenshots/matrix_dash.png" alt="多商平铺比价大表">
+              <img src="../../assets/system_screenshots/matrix_dash.png" alt="多商平铺比价大表">
             </div>
           </div>
         </section>
