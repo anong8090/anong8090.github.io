@@ -677,10 +677,13 @@
     
 
   
-    /* ===== 📱 移动端自适应全量重构 CSS (Mobile Responsive Design v2) ===== */
+    
+
+  
+    /* ===== 📱 移动端瀑布流长图浏览模式 CSS (Mobile Waterfall Feed Mode) ===== */
     @media (max-width: 900px), (max-device-width: 900px) {
       html {
-        font-size: 14px !important;
+        font-size: 15px !important;
       }
       body {
         overflow-x: hidden !important;
@@ -695,117 +698,145 @@
         overflow-x: hidden !important;
         overflow-y: visible !important;
         position: relative !important;
+        display: block !important;
       }
 
-      /* 顶部 Header 栏微调 */
+      /* 顶部 Sticky Header 栏 */
       header {
-        height: 54px !important;
-        padding: 0 1rem !important;
+        position: sticky !important;
+        top: 0 !important;
+        height: 52px !important;
+        padding: 0 1.2rem !important;
+        z-index: 1000 !important;
+        background: rgba(7, 10, 19, 0.95) !important;
+        backdrop-filter: blur(16px) !important;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.2) !important;
       }
       .brand-title {
-        font-size: 1.05rem !important;
+        font-size: 1.1rem !important;
       }
       .system-badge {
         display: none !important;
       }
 
-      /* Slide 主视口 */
+      /* 彻底隐藏底部翻页按钮与导航条 (NO SWITCHER BUTTONS ON MOBILE) */
+      footer, .ctrl-btns, .progress-track, .slide-counter {
+        display: none !important;
+      }
+
+      /* Slide 瀑布流纵向平铺重构 */
       #presentation {
         height: auto !important;
-        min-height: calc(100vh - 114px) !important;
+        min-height: auto !important;
         overflow-y: visible !important;
-        padding-bottom: 70px !important;
+        padding: 1.25rem 1rem 3rem 1rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2.2rem !important;
       }
       .slide {
         position: relative !important;
         inset: auto !important;
+        width: 100% !important;
         min-height: auto !important;
-        padding: 1.15rem 1rem !important;
+        padding: 1.5rem 1.2rem !important;
         transform: none !important;
-        display: none !important;
-        opacity: 0;
-      }
-      .slide.active {
         display: flex !important;
         flex-direction: column !important;
         opacity: 1 !important;
         pointer-events: auto !important;
+        background: rgba(15, 23, 42, 0.7) !important;
+        border: 1px solid rgba(148, 163, 184, 0.18) !important;
+        border-radius: 20px !important;
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55) !important;
       }
 
-      /* 标题字号适配 */
+      /* 每页顶部序号角标 */
+      .slide::before {
+        content: attr(data-slide-index);
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 900;
+        letter-spacing: 1.2px;
+        color: #38BDF8;
+        background: rgba(56, 189, 248, 0.14);
+        border: 1px solid rgba(56, 189, 248, 0.35);
+        padding: 4px 12px;
+        border-radius: 99px;
+        margin-bottom: 1rem;
+        align-self: flex-start;
+      }
+
+      /* 标题与副标题适配 */
       .slide-title-container {
-        margin-bottom: 0.85rem !important;
+        margin-bottom: 1.15rem !important;
       }
       .slide-main-title {
-        font-size: 1.4rem !important;
+        font-size: 1.5rem !important;
         line-height: 1.3 !important;
+        color: #FFFFFF !important;
       }
       .slide-subtitle {
-        font-size: 0.9rem !important;
-        line-height: 1.45 !important;
-        margin-top: 0.25rem !important;
+        font-size: 0.95rem !important;
+        line-height: 1.5 !important;
+        margin-top: 0.35rem !important;
+        color: #CBD5E1 !important;
       }
 
-      /* 网格全排布为单列布局 */
+      /* 所有网格排布单列化 */
       .slide-grid-2, .slide-grid-3, .slide-grid-4 {
         display: flex !important;
         flex-direction: column !important;
-        gap: 0.85rem !important;
+        gap: 1rem !important;
         flex: none !important;
         min-height: auto !important;
       }
 
-      /* 玻璃卡片 Padding 缩减 */
+      /* 暗黑卡片细节优化 */
       .glass-card {
-        padding: 1.1rem !important;
+        padding: 1.25rem !important;
         border-radius: 14px !important;
+        background: rgba(30, 41, 59, 0.65) !important;
       }
       .card-title {
-        font-size: 1.1rem !important;
-        margin-bottom: 0.35rem !important;
+        font-size: 1.15rem !important;
+        margin-bottom: 0.4rem !important;
+        color: #FFFFFF !important;
       }
       .card-text {
-        font-size: 0.88rem !important;
-        line-height: 1.55 !important;
+        font-size: 0.92rem !important;
+        line-height: 1.6 !important;
+        color: #E2E8F0 !important;
       }
       .neon-list-item {
-        font-size: 0.9rem !important;
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
       }
 
-      /* Slide 1: 封面排布微调 */
+      /* Slide 1 封面 */
       #slide-1 h1 {
-        font-size: 1.85rem !important;
+        font-size: 1.95rem !important;
         line-height: 1.25 !important;
       }
       #slide-1 p {
-        font-size: 0.95rem !important;
-        line-height: 1.55 !important;
-      }
-      #slide-1 .slide-grid-3 {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 0.75rem !important;
+        font-size: 0.98rem !important;
+        line-height: 1.6 !important;
       }
 
-      /* Slide 2: 痛点与破局卡片单列化 */
-      #slide-2 .slide-grid-2 {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 1rem !important;
-      }
+      /* Slide 2 痛点 */
       #slide-2 .neon-item {
-        font-size: 0.92rem !important;
-        padding: 10px 12px !important;
+        font-size: 0.95rem !important;
+        padding: 12px 14px !important;
       }
       #slide-2 h3 {
-        font-size: 1.25rem !important;
+        font-size: 1.3rem !important;
       }
 
-      /* Slide 3: 业务流闭环图单列响应式 */
+      /* Slide 3 闭环图 */
       #slide-3 .loop-viewport {
         display: flex !important;
         flex-direction: column !important;
-        gap: 0.75rem !important;
+        gap: 0.85rem !important;
         height: auto !important;
         padding: 0.5rem 0 !important;
       }
@@ -813,59 +844,38 @@
         display: none !important;
       }
 
-      /* Slide 8: 材料价格看板单列化 */
+      /* Slide 8 材料看板 */
       #slide-8 .material-grid {
-        grid-template-columns: 1fr !important;
-        gap: 0.75rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0.85rem !important;
       }
       #slide-8 .mat-header {
-        font-size: 0.95rem !important;
+        font-size: 1rem !important;
       }
       #slide-8 .mat-metrics {
-        font-size: 0.82rem !important;
+        font-size: 0.88rem !important;
       }
 
-      /* 截图容器自适应 */
+      /* 截图大图全展开模式 */
       .screenshot-frame, .screenshot-frame-large {
         width: 100% !important;
-        max-height: 45vh !important;
+        height: auto !important;
+        max-height: none !important;
         overflow: hidden !important;
         border-radius: 12px !important;
-        margin-top: 0.5rem !important;
+        margin-top: 0.75rem !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
       }
       .screenshot-frame img, .screenshot-frame-large img {
         width: 100% !important;
         height: auto !important;
-        max-height: 45vh !important;
+        max-height: none !important;
         object-fit: contain !important;
+        display: block !important;
       }
 
-      /* 底部固定控制条 */
-      footer {
-        position: fixed !important;
-        bottom: 0 !important; left: 0 !important; right: 0 !important;
-        height: 56px !important;
-        padding: 0 1rem !important;
-        background: rgba(7, 10, 19, 0.96) !important;
-        backdrop-filter: blur(20px) !important;
-        border-top: 1px solid rgba(148, 163, 184, 0.25) !important;
-        z-index: 1000 !important;
-      }
-      .slide-counter {
-        font-size: 0.88rem !important;
-      }
-      .progress-track {
-        width: 80px !important;
-      }
-      .btn-ctrl {
-        width: 38px !important;
-        height: 38px !important;
-      }
-      .ctrl-btns {
-        gap: 0.6rem !important;
-      }
-
-      /* 目录抽屉自适应 */
+      /* 目录抽屉 */
       .index-drawer {
         width: 85vw !important;
         right: -85vw !important;
@@ -899,7 +909,7 @@
       <div id="presentation">
 
         <!-- SLIDE 1: 封面 (Cover) -->
-        <section class="slide active" id="slide-1" style="justify-content: center; align-items: center; text-align: center;">
+        <section class="slide active" id="slide-1" data-slide-index="PAGE 01 / 15" style="justify-content: center; align-items: center; text-align: center;">
           <div style="max-width: 1000px; display: flex; flex-direction: column; align-items: center; gap: 2rem; z-index: 5;">
             <div class="cover-badge" style="background: rgba(6, 182, 212, 0.08); border: 1px solid rgba(6, 182, 212, 0.25); color: var(--color-cyan); padding: 0.5rem 1.5rem; border-radius: 9999px; font-size: 0.9rem; font-weight: 700; letter-spacing: 1.5px; display: flex; align-items: center; gap: 0.5rem;">
               <i data-lucide="sparkles" size="16"></i>
