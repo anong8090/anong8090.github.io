@@ -1,19 +1,20 @@
-# 排除大文件和非部署文件
-*.pdf
-*.pptx
-*.mov
-*.drawio
-.DS_Store
-
-# 排除临时截图与构建文件夹
+# 排除本地文档与非部署资料
+docs/
+会议纪要/
+.workbuddy/
+presentations/
+output/
+tmp/
 cropped_screenshots/
 .pdf-export-720p/
 .pdf-export-720p-pages/
 .pdf-preview-720p/
 .pptx-build/
-output/
-tmp/
 
-# 排除Python脚本
+# 排除二进制/脚本
+*.pdf
+*.pptx
+*.mov
+*.drawio
 *.py
-
+.DS_Store
