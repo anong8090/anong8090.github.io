@@ -159,7 +159,7 @@
                 linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
             background-size: 60px 60px;
         }
-        .hero-content { position: relative; z-index: 1; max-width: 860px; }
+        .hero-content { position: relative; z-index: 1; max-width: 1200px; }
         .hero-badge {
             display: inline-flex;
             align-items: center;
@@ -248,16 +248,17 @@
         .btn-outline:hover { border-color: rgba(99,179,237,0.4); color: var(--text-1); background: rgba(255,255,255,0.04); }
         .hero-screenshot {
             position: relative;
-            max-width: 900px;
+            max-width: 1180px;
             width: 100%;
-            margin: 0 auto;
+            margin: 2.5rem auto 0;
         }
         .hero-screenshot-frame {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 10px;
-            box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
+            background: rgba(15, 23, 42, 0.6);
+            border: 1.5px solid rgba(59, 130, 246, 0.35);
+            border-radius: 18px;
+            padding: 12px;
+            box-shadow: 0 30px 90px rgba(6, 182, 212, 0.2), 0 0 40px rgba(59, 130, 246, 0.15);
+            backdrop-filter: blur(12px);
         }
         .hero-screenshot-bar {
             display: flex;
@@ -1175,21 +1176,7 @@
     </div>
 </section>
 
-<!-- ========================================================
-     ARCHITECTURE
-======================================================== -->
-<section id="architecture">
-    <div class="section-inner">
-        <div class="section-header" style="text-align:center; max-width:760px; margin-left:auto; margin-right:auto;">
-            <div class="section-eyebrow reveal" style="justify-content:center;">业务闭环全景</div>
-            <h2 class="section-title reveal reveal-delay-1">智能采购核心业务闭环图</h2>
-            <p class="section-desc reveal reveal-delay-2" style="max-width:100%;">从历史数据沉淀价格资产，到招标控价与智能比价，实现采购全过程数字化管理。</p>
-        </div>
-        <div class="arch-screenshot reveal reveal-delay-1" style="box-shadow: 0 10px 40px rgba(6,182,212,0.15); border: 1.5px solid rgba(6,182,212,0.3); border-radius: 18px; overflow: hidden; margin-bottom: 2rem;">
-            <img src="../../assets/system_screenshots/business_loop.png" alt="智能采购核心业务闭环图" style="width:100%; display:block;">
-        </div>
-    </div>
-</section>
+
 
 <!-- ========================================================
      TECHNICAL ARCHITECTURE
