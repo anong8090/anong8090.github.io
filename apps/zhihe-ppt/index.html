@@ -607,55 +607,68 @@
           <h2 class="slide-main-title">5 阶段智能初审与穿透勾稽流水线（~60秒闭环）</h2>
           <p class="slide-subtitle">从单据接收、OCR 版面切片、确定性算术碰撞到制度向量对标与终审决策，全时序实测 71.9 秒闭环。</p>
         </div>
-        <!-- 上：5张阶段卡片 -->
-        <div style="display:grid; grid-template-columns:repeat(5, 1fr); gap:1rem; flex-shrink:0; margin-bottom:1rem;">
-          <div class="glass-card">
-            <div style="font-size:1.8rem; font-weight:900; color:#38BDF8; margin-bottom:0.2rem;">01</div>
-            <div style="font-size:0.95rem; font-weight:bold; color:#fff;">接入与要素提取</div>
-            <div style="font-size:0.75rem; color:#38BDF8; font-weight:bold; margin:0.3rem 0;">时效：~10.5s</div>
-            <p class="desc-text" style="font-size:0.78rem;">Webhook 异步接收 OA 呈批单与随附附件包，提炼 10 项审查要素网格，剥离 20+ 项无关行政杂质。</p>
-          </div>
-
-          <div class="glass-card">
-            <div style="font-size:1.8rem; font-weight:900; color:#38BDF8; margin-bottom:0.2rem;">02</div>
-            <div style="font-size:0.95rem; font-weight:bold; color:#fff;">多模态 OCR 切片</div>
-            <div style="font-size:0.75rem; color:#38BDF8; font-weight:bold; margin:0.3rem 0;">时效：~24.6s</div>
-            <p class="desc-text" style="font-size:0.78rem;">本地私有化 OCR 引擎对扫描合同进行表格还原与条款切片，精准还原数十页货物清单明细与税率条款。</p>
-          </div>
-
-          <div class="glass-card" style="border-top:3px solid #F59E0B;">
-            <div style="font-size:1.8rem; font-weight:900; color:#FBBF24; margin-bottom:0.2rem;">03</div>
-            <div style="font-size:0.95rem; font-weight:bold; color:#fff;">双向交叉勾稽碰撞</div>
-            <div style="font-size:0.75rem; color:#FBBF24; font-weight:bold; margin:0.3rem 0;">时效：~12.8s</div>
-            <p class="desc-text" style="font-size:0.78rem;">确定性代码严格算术校验：总金额明细求和比对、增值税率校验、相对方征信穿透及大额前置文号匹配。</p>
-          </div>
-
-          <div class="glass-card" style="border-top:3px solid #C4B5FD;">
-            <div style="font-size:1.8rem; font-weight:900; color:#C4B5FD; margin-bottom:0.2rem;">04</div>
-            <div style="font-size:0.95rem; font-weight:bold; color:#fff;">现行制度向量对标</div>
-            <div style="font-size:0.75rem; color:#C4B5FD; font-weight:bold; margin:0.3rem 0;">时效：~14.2s</div>
-            <p class="desc-text" style="font-size:0.78rem;">企业自有规章制度向量数据库 RAG 语义检索，精准对标《大额资金办法》《食品质量规范》等现行制度，形成证据链。</p>
-          </div>
-
-          <div class="glass-card" style="border-top:3px solid #10B981;">
-            <div style="font-size:1.8rem; font-weight:900; color:#34D399; margin-bottom:0.2rem;">05</div>
-            <div style="font-size:0.95rem; font-weight:bold; color:#fff;">领导决策与存证</div>
-            <div style="font-size:0.75rem; color:#34D399; font-weight:bold; margin:0.3rem 0;">时效：~9.8s</div>
-            <p class="desc-text" style="font-size:0.78rem;">领导亲手裁决：准予/补正/否决，规范批语原路回写泛微 OA，生成 SM2 国密防伪电子凭单入库不可篡改。</p>
-          </div>
-        </div>
-
-        <!-- 下：实机截图 FDE Engine 4.0 多模态深度合规审查管道 -->
-        <div class="screenshot-frame">
-          <div class="mockup-top-bar">
-            <div class="window-dots">
-              <span class="dot dot-red"></span><span class="dot dot-amber"></span><span class="dot dot-green"></span>
-              <span class="window-title">FDE ENGINE 4.0 · 国资全要素多模态深度合规审查管道</span>
+        <!-- 左右结构：左实机截图 / 右 5 阶段卡片 -->
+        <div style="display:grid; grid-template-columns:1.5fr 0.8fr; gap:1.5rem; flex:1; min-height:0; align-items:stretch;">
+          <!-- 左：实机截图 FDE Engine 4.0 多模态深度合规审查管道 -->
+          <div class="screenshot-frame">
+            <div class="mockup-top-bar">
+              <div class="window-dots">
+                <span class="dot dot-red"></span><span class="dot dot-amber"></span><span class="dot dot-green"></span>
+                <span class="window-title">FDE ENGINE 4.0 · 国资全要素多模态深度合规审查管道</span>
+              </div>
+              <span style="font-size:0.72rem; color:#FBBF24; font-weight:600;">实机截图 09</span>
             </div>
-            <span style="font-size:0.72rem; color:#FBBF24; font-weight:600;">实机截图 09</span>
+            <div class="screenshot-view">
+              <img src="screenshots/09_engine_pipeline_trace.png" alt="FDE Engine 4.0 多模态审查管道" class="screenshot-img">
+            </div>
           </div>
-          <div class="screenshot-view">
-            <img src="screenshots/09_engine_pipeline_trace.png" alt="FDE Engine 4.0 多模态审查管道" class="screenshot-img">
+
+          <!-- 右：5 张阶段卡片纵向均分 -->
+          <div style="display:flex; flex-direction:column; gap:0.7rem; min-height:0;">
+            <div class="glass-card" style="flex-direction:row; align-items:flex-start; gap:0.85rem; padding:0.85rem 1rem; flex:1; min-height:0;">
+              <div style="font-size:1.7rem; font-weight:900; color:#38BDF8; line-height:1; flex-shrink:0;">01</div>
+              <div style="min-width:0;">
+                <div style="font-size:0.92rem; font-weight:bold; color:#fff;">接入与要素提取</div>
+                <div style="font-size:0.7rem; color:#38BDF8; font-weight:bold; margin:0.18rem 0;">时效：~10.5s</div>
+                <p class="desc-text" style="font-size:0.72rem;">Webhook 异步接收 OA 呈批单与附件包，提炼 10 项审查要素，剥离 20+ 项行政杂质。</p>
+              </div>
+            </div>
+
+            <div class="glass-card" style="flex-direction:row; align-items:flex-start; gap:0.85rem; padding:0.85rem 1rem; flex:1; min-height:0;">
+              <div style="font-size:1.7rem; font-weight:900; color:#38BDF8; line-height:1; flex-shrink:0;">02</div>
+              <div style="min-width:0;">
+                <div style="font-size:0.92rem; font-weight:bold; color:#fff;">多模态 OCR 切片</div>
+                <div style="font-size:0.7rem; color:#38BDF8; font-weight:bold; margin:0.18rem 0;">时效：~24.6s</div>
+                <p class="desc-text" style="font-size:0.72rem;">本地私有化 OCR 对扫描合同做表格还原与条款切片，精准还原数十页清单明细与税率条款。</p>
+              </div>
+            </div>
+
+            <div class="glass-card" style="flex-direction:row; align-items:flex-start; gap:0.85rem; padding:0.85rem 1rem; flex:1; min-height:0; border-top:3px solid #F59E0B;">
+              <div style="font-size:1.7rem; font-weight:900; color:#FBBF24; line-height:1; flex-shrink:0;">03</div>
+              <div style="min-width:0;">
+                <div style="font-size:0.92rem; font-weight:bold; color:#fff;">双向交叉勾稽碰撞</div>
+                <div style="font-size:0.7rem; color:#FBBF24; font-weight:bold; margin:0.18rem 0;">时效：~12.8s</div>
+                <p class="desc-text" style="font-size:0.72rem;">确定性代码严格算术校验：总额明细求和、增值税率、相对方征信及大额前置文号匹配。</p>
+              </div>
+            </div>
+
+            <div class="glass-card" style="flex-direction:row; align-items:flex-start; gap:0.85rem; padding:0.85rem 1rem; flex:1; min-height:0; border-top:3px solid #C4B5FD;">
+              <div style="font-size:1.7rem; font-weight:900; color:#C4B5FD; line-height:1; flex-shrink:0;">04</div>
+              <div style="min-width:0;">
+                <div style="font-size:0.92rem; font-weight:bold; color:#fff;">现行制度向量对标</div>
+                <div style="font-size:0.7rem; color:#C4B5FD; font-weight:bold; margin:0.18rem 0;">时效：~14.2s</div>
+                <p class="desc-text" style="font-size:0.72rem;">企业规章向量库 RAG 语义检索，对标《大额资金办法》《食品质量规范》等现行制度，形成证据链。</p>
+              </div>
+            </div>
+
+            <div class="glass-card" style="flex-direction:row; align-items:flex-start; gap:0.85rem; padding:0.85rem 1rem; flex:1; min-height:0; border-top:3px solid #10B981;">
+              <div style="font-size:1.7rem; font-weight:900; color:#34D399; line-height:1; flex-shrink:0;">05</div>
+              <div style="min-width:0;">
+                <div style="font-size:0.92rem; font-weight:bold; color:#fff;">领导决策与存证</div>
+                <div style="font-size:0.7rem; color:#34D399; font-weight:bold; margin:0.18rem 0;">时效：~9.8s</div>
+                <p class="desc-text" style="font-size:0.72rem;">领导亲手裁决：准予/补正/否决，批语原路回写泛微 OA，生成 SM2 国密防伪凭单入库。</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
