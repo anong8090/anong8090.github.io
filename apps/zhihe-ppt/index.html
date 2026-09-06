@@ -74,6 +74,20 @@
       box-shadow: 0 0 50px rgba(0,0,0,0.8);
     }
 
+    /* ── 全屏 Fullscreen 适配 ── */
+    :fullscreen, :-webkit-full-screen, :-moz-full-screen {
+      background: #020408 !important;
+    }
+    :fullscreen #stage-wrapper,
+    :-webkit-full-screen #stage-wrapper,
+    :-moz-full-screen #stage-wrapper {
+      width: 100vw; height: 100vh;
+    }
+    :fullscreen html,
+    :-webkit-full-screen html {
+      font-size: min(calc(100vw / 108), calc(100vh / 60.75)) !important;
+    }
+
     /* 装饰网格与光晕 */
     .bg-grid {
       position: absolute; inset: 0;
@@ -495,11 +509,11 @@
           </div>
 
           <div class="glass-card" style="border-top:3px solid #F59E0B;">
-            <div style="font-size:2.4rem; font-weight:900; color:#FBBF24; line-height:1; margin-bottom:0.4rem;">11部</div>
+            <div style="font-size:1.85rem; font-weight:900; color:#FBBF24; line-height:1; margin-bottom:0.4rem;">私有<br>规章库</div>
             <div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:0.8rem;">私有制度智核 ｜ 一票否决违规</div>
             <h3 class="h3-title">穿透式红线硬拦截</h3>
             <p class="desc-text">
-              本地私有化对标 11 部现行规章。大宗采购缺少党委会“三重一大”文号刚性提示补正；食品合格率触碰 99.8% 底线直接触发一票否决。
+              本地私有化对标企业自有现行规章。大宗采购缺少党委会“三重一大”文号刚性提示补正；食品合格率触碰 99.8% 底线直接触发一票否决。
             </p>
           </div>
 
@@ -537,7 +551,7 @@
             <h3 class="h3-title">确定性代码 + 语义向量</h3>
             <p class="desc-text" style="margin-top:0.4rem;">
               ● <strong>确定性代码引擎</strong>：算术总分求和、税率计算、天眼查征信穿透及大额资金前置文号校验，程序零差错；<br>
-              ● <strong>现行制度向量 RAG</strong>：对标《大额资金管理办法》《食品安全质量规范》等 11 部规章，秒级出具制度条文依据；<br>
+              ● <strong>现行制度向量 RAG</strong>：对标《大额资金管理办法》《食品安全质量规范》等现行规章，秒级出具制度条文依据；<br>
               ● <strong>~60s 极速研判</strong>：全流程流水线平均耗时仅 71.9 秒，输出“准予/补正/否决”初审建议。
             </p>
           </div>
@@ -619,7 +633,7 @@
             <div style="font-size:1.8rem; font-weight:900; color:#C4B5FD; margin-bottom:0.2rem;">04</div>
             <div style="font-size:0.95rem; font-weight:bold; color:#fff;">现行制度向量对标</div>
             <div style="font-size:0.75rem; color:#C4B5FD; font-weight:bold; margin:0.3rem 0;">时效：~14.2s</div>
-            <p class="desc-text" style="font-size:0.78rem;">11 部规章制度向量数据库 RAG 语义检索，精准对标《大额资金办法》《食品质量规范》，形成证据链。</p>
+            <p class="desc-text" style="font-size:0.78rem;">企业自有规章制度向量数据库 RAG 语义检索，精准对标《大额资金办法》《食品质量规范》等现行制度，形成证据链。</p>
           </div>
 
           <div class="glass-card" style="border-top:3px solid #10B981;">
@@ -872,7 +886,7 @@
               ● <strong>00:10.512</strong> 业务单据 10 项要素提炼完成<br>
               ● <strong>00:35.124</strong> OCR 多页版面分析与条款切片还原<br>
               ● <strong>00:48.002</strong> 双向交叉勾稽检出 5 万差额与税率差异<br>
-              ● <strong>01:02.215</strong> 11 部规章向量 RAG 命中《大额资金办法》<br>
+              ● <strong>01:02.215</strong> 企业规章向量 RAG 命中《大额资金办法》<br>
               ● <strong>01:11.900</strong> 领导审签决策采纳，ACK 回执凭单生成
             </div>
             <div style="background:rgba(255,255,255,0.03); border:1px solid var(--border-glass); border-radius:0.5rem; padding:0.7rem;">
@@ -887,8 +901,8 @@
       <section class="slide" id="slide-13">
         <div class="slide-title-container">
           <div class="slide-tag tag-violet"><i data-lucide="image" style="width:0.8rem;height:0.8rem;"></i> 五、核心场景穿透实机核验（图 7）</div>
-          <h2 class="slide-main-title">内控合规资产：现行规章制度与国家标准向量知识库（11 部在行规章）</h2>
-          <p class="slide-subtitle">沉淀企业 11 部现行制度与国家强制规范，毫秒级向量检索，确保制度刚性执行与合规资产传承。</p>
+          <h2 class="slide-main-title">内控合规资产：现行规章制度与国家标准向量知识库（企业自有规章 + 国家标准）</h2>
+          <p class="slide-subtitle">沉淀企业全套现行制度与国家强制规范，毫秒级向量检索，确保制度刚性执行与合规资产传承。</p>
         </div>
         <div class="slide-grid-screenshot">
           <div class="screenshot-frame">
@@ -907,7 +921,7 @@
           <div class="glass-card" style="gap:1rem;">
             <span class="card-badge" style="background:rgba(139,92,246,0.2); color:#C4B5FD;">合规资产管理</span>
             <div>
-              <h4 style="color:#fff; font-size:1.05rem; margin-bottom:0.4rem;">1. 11 部国企现行规章全覆盖</h4>
+              <h4 style="color:#fff; font-size:1.05rem; margin-bottom:0.4rem;">1. 企业自有规章与国家标准全覆盖</h4>
               <p class="desc-text">涵盖《大额资金管理办法》《食品安全质量控制规范》《合同审查管理规定》《“三重一大”决策细则》等制度真源。</p>
             </div>
             <div>
@@ -967,8 +981,86 @@
         </div>
       </section>
 
-      <!-- SLIDE 15: 终身存证架构 -->
+      <!-- SLIDE 15: 实机截图 9：合同合规与内控审查意见书 -->
       <section class="slide" id="slide-15">
+        <div class="slide-title-container">
+          <div class="slide-tag tag-blue"><i data-lucide="image" style="width:0.8rem;height:0.8rem;"></i> 五、核心场景穿透实机核验（图 9）</div>
+          <h2 class="slide-main-title">合同合规审查意见书：正式公文红头模版一键生成</h2>
+          <p class="slide-subtitle">符合党政机关国企标准公文格式（GB/T 9704-2012）｜ 包含审查依据、数字签名与留痕引用，巡视调阅立等可取。</p>
+        </div>
+        <div class="slide-grid-screenshot">
+          <div class="screenshot-frame">
+            <div class="mockup-top-bar">
+              <div class="window-dots">
+                <span class="dot dot-red"></span><span class="dot dot-amber"></span><span class="dot dot-green"></span>
+                <span class="window-title">合同合规与内控审查意见书 · 正式公文输出</span>
+              </div>
+              <span style="font-size:0.72rem; color:#38BDF8; font-weight:600;">实机截图 09</span>
+            </div>
+            <div class="screenshot-view">
+              <img src="screenshots/08_contract_review_opinion.png" alt="合同合规审查意见书" class="screenshot-img">
+            </div>
+          </div>
+
+          <div class="glass-card" style="gap:1rem;">
+            <span class="card-badge" style="background:rgba(2,132,199,0.2); color:#38BDF8;">红头公文输出</span>
+            <div>
+              <h4 style="color:#fff; font-size:1.05rem; margin-bottom:0.4rem;">1. 国企标准红头公文格式</h4>
+              <p class="desc-text">严格遵循 GB/T 9704-2012 正式公文印发规范，包含发文字号、签章、密级、紧急程度等要素，可直接打印存档。</p>
+            </div>
+            <div>
+              <h4 style="color:#fff; font-size:1.05rem; margin-bottom:0.4rem;">2. 四大审查结论结构化输出</h4>
+              <p class="desc-text">涵盖签约资质、商务结算勾稽、技术质量底线与综合审查结论四大章节，层次清晰、依据完整，消除"口头审批"风险。</p>
+            </div>
+            <div>
+              <h4 style="color:#fff; font-size:1.05rem; margin-bottom:0.4rem;">3. 一键导出 PDF/打印</h4>
+              <p class="desc-text">支持直接打印或导出为受保护 PDF，附带 SM2 数字签名哈希防伪水印，内置打印对话框一键触达。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 16: 实机截图 10：FDE Engine 多模态深度合规审查管道 -->
+      <section class="slide" id="slide-16">
+        <div class="slide-title-container">
+          <div class="slide-tag tag-sky"><i data-lucide="image" style="width:0.8rem;height:0.8rem;"></i> 五、核心场景穿透实机核验（图 10）</div>
+          <h2 class="slide-main-title">FDE Engine 4.0：国资全要素多模态深度合规审查管道（实时推演看板）</h2>
+          <p class="slide-subtitle">5 阶段多模态并行引擎 · 实时流式进度 · SM3 哈希累加器激活 · 对标企业内控规章向量库全量碰撞</p>
+        </div>
+        <div class="slide-grid-screenshot">
+          <div class="screenshot-frame">
+            <div class="mockup-top-bar">
+              <div class="window-dots">
+                <span class="dot dot-red"></span><span class="dot dot-amber"></span><span class="dot dot-green"></span>
+                <span class="window-title">FDE ENGINE 4.0 · 国资全要素多模态深度合规审查管道</span>
+              </div>
+              <span style="font-size:0.72rem; color:#F59E0B; font-weight:600;">实机截图 10</span>
+            </div>
+            <div class="screenshot-view">
+              <img src="screenshots/09_engine_pipeline_trace.png" alt="FDE Engine 4.0 多模态审查管道" class="screenshot-img">
+            </div>
+          </div>
+
+          <div class="glass-card" style="gap:1rem;">
+            <span class="card-badge" style="background:rgba(245,158,11,0.2); color:#FBBF24;">引擎管道架构</span>
+            <div>
+              <h4 style="color:#fff; font-size:1.05rem; margin-bottom:0.4rem;">1. 5 阶段多模态并行执行</h4>
+              <p class="desc-text">报文接入与要素析出 → 多页原件多模态 OCR → 双向全要素交叉勾稽 → 现行规章向量库碰撞 → 三维研判聚合与存证环，全链路约 71.9s 闭环。</p>
+            </div>
+            <div>
+              <h4 style="color:#fff; font-size:1.05rem; margin-bottom:0.4rem;">2. 企业内控规章向量库全量碰撞</h4>
+              <p class="desc-text">将企业自有内控制度与国家强制规范统一向量化入库，RAG 实时语义穿透，精准命中三重一大、质量底线等刚性条款。</p>
+            </div>
+            <div>
+              <h4 style="color:#fff; font-size:1.05rem; margin-bottom:0.4rem;">3. SM3 哈希累加器实时存证</h4>
+              <p class="desc-text">ENGINE TRACE STREAM 实时记录勾稽核验日志，结合 SM3 哈希步进签名，形成不可篡改的多模态分析过程证据链。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 17: 终身存证架构 -->
+      <section class="slide" id="slide-17">
         <div class="slide-title-container">
           <div class="slide-tag tag-green"><i data-lucide="shield" style="width:0.8rem;height:0.8rem;"></i> 四、合规防火墙</div>
           <h2 class="slide-main-title">国企领导干部终身履职免责存证与全生命周期台账闭环架构</h2>
@@ -1005,7 +1097,7 @@
       </section>
 
       <!-- SLIDE 16: 信创底座与投产落地 -->
-      <section class="slide" id="slide-16">
+      <section class="slide" id="slide-18">
         <div class="slide-title-container">
           <div class="slide-tag tag-blue"><i data-lucide="cpu" style="width:0.8rem;height:0.8rem;"></i> 六、信创安全底座</div>
           <h2 class="slide-main-title">系统投产落地与国产信创安全保障</h2>
@@ -1051,7 +1143,7 @@
       </section>
 
       <!-- SLIDE 17: 领导高频关切 5 问 5 答 (FAQ) -->
-      <section class="slide" id="slide-17">
+      <section class="slide" id="slide-19">
         <div class="slide-title-container">
           <div class="slide-tag tag-amber"><i data-lucide="help-circle" style="width:0.8rem;height:0.8rem;"></i> 七、领导高频关切</div>
           <h2 class="slide-main-title">国企领导高频关切 5 问 5 答 (FAQ)</h2>
@@ -1086,7 +1178,7 @@
       </section>
 
       <!-- SLIDE 18: 总结与 DEMO 引导 -->
-      <section class="slide" id="slide-18" style="justify-content:center; align-items:center; text-align:center; padding:0 6rem;">
+      <section class="slide" id="slide-20" style="justify-content:center; align-items:center; text-align:center; padding:0 6rem;">
         <div style="max-width:55rem;">
           <div class="slide-tag tag-green" style="margin-bottom:1.5rem; font-size:0.9rem; padding:0.4rem 1.2rem;">
             <i data-lucide="check" style="width:1rem;height:1rem;"></i> 价值落地 · 护航合规
@@ -1157,7 +1249,7 @@
     console.warn('Lucide icon init warning:', e);
   }
 
-  const totalSlides = 18;
+  const totalSlides = 20;
   let currentSlide = 1;
 
   const titles = [
@@ -1175,6 +1267,8 @@
     "实机核验⑥：标准化时序节点树审计日志",
     "实机核验⑦：内控合规资产 · 现行规章知识库",
     "实机核验⑧：国企合同签批审计终身台账",
+    "实机核验⑨：合同合规审查意见书（红头公文）",
+    "实机核验⑩：FDE Engine 4.0 多模态审查管道",
     "四、国企领导终身履职免责存证闭环体系",
     "六、系统投产落地与国产信创安全底座",
     "七、国企领导高频关切 5 问 5 答 (FAQ)",
@@ -1255,12 +1349,25 @@
   }
 
   function toggleFullScreen() {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen().catch(() => {});
+    const el = document.getElementById('stage-wrapper') || document.documentElement;
+    if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+      (el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen).call(el).catch(() => {});
     } else {
-      if (document.exitFullscreen) document.exitFullscreen();
+      (document.exitFullscreen || document.webkitExitFullscreen || document.mozCancelFullScreen).call(document);
     }
   }
+
+  // 全屏状态变化时更新图标
+  document.addEventListener('fullscreenchange', () => {
+    const btn = document.querySelector('[onclick="toggleFullScreen()"] i');
+    if (!btn) return;
+    if (document.fullscreenElement) {
+      btn.setAttribute('data-lucide', 'minimize-2');
+    } else {
+      btn.setAttribute('data-lucide', 'maximize-2');
+    }
+    try { lucide.createIcons(); } catch(e) {}
+  });
 
   // 键盘快捷键支持
   window.addEventListener('keydown', (e) => {
