@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="0; url=../fde/index.html">
+  <title>智核云 · 国企智能审批合规审查系统 DEMO 体验中心</title>
+  <style>
+    body {
+      background: #070a13;
+      color: #f1f5f9;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      text-align: center;
+      padding: 20px;
+    }
+    .card {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 520px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    h1 { font-size: 1.5rem; margin-bottom: 12px; color: #38bdf8; }
+    p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px; }
+    a.btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #0284c7, #0369a1);
+      color: #ffffff;
+      padding: 12px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+    a.btn:hover { opacity: 0.9; }
+    .spinner {
+      width: 32px;
+      height: 32px;
+      border: 3px solid rgba(56, 189, 248, 0.2);
+      border-top-color: #38bdf8;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 20px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="spinner"></div>
+    <h1>智核云 · 演示中心加载中</h1>
+    <p>正在为您跳转至【智核云 · 国企智能审批合规审查系统】全交互式在线 DEMO...</p>
+    <a href="../fde/index.html" class="btn">立即直接进入 DEMO →</a>
+  </div>
+  <script>
+    window.location.replace('../fde/index.html');
+  </script>
+</body>
+</html>

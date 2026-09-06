@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>智核云 · 国企智能审批合规审查系统 (1080P 大屏精准演示版 · 业务全景与实机核验)</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* 1080P 大屏精准演示设计系统 (1920 x 1080 Standard PPT Stage) */
+    :root {
+      --bg-dark: #070A13;
+      --bg-card: rgba(15, 23, 42, 0.75);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --border-glass-hover: rgba(56, 189, 248, 0.35);
+      
+      --text-white: #FFFFFF;
+      --text-primary: #F1F5F9;
+      --text-secondary: #CBD5E1;
+      --text-muted: #94A3B8;
+      
+      --color-sky: #0284C7;
+      --color-blue: #3B82F6;
+      --color-cyan: #06B6D4;
+      --color-emerald: #10B981;
+      --color-amber: #F59E0B;
+      --color-rose: #EF4444;
+      --color-violet: #8B5CF6;
+      
+      --grad-sky-blue: linear-gradient(135deg, #0284C7 0%, #3B82F6 100%);
+      --grad-emerald-teal: linear-gradient(135deg, #10B981 0%, #0D9488 100%);
+      --grad-amber-orange: linear-gradient(135deg, #F59E0B 0%, #EA580C 100%);
+      --grad-rose-orange: linear-gradient(135deg, #EF4444 0%, #F97316 100%);
+      --grad-violet-blue: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; user-select: none; }
+
+    /* 视口映射 rem：1920x1080 下 1rem ≈ 17.8px */
+    html {
+      font-size: min(calc(100vw / 108), calc(100vh / 60.75));
+    }
+
+    body {
+      background-color: #020408;
+      color: var(--text-white);
+      font-family: 'Outfit', 'Noto Sans SC', sans-serif;
+      width: 100vw; height: 100vh;
+      overflow: hidden;
+    }
+
+    /* 全屏视口 Stage Wrapper */
+    #stage-wrapper {
+      position: relative; width: 100vw; height: 100vh;
+      overflow: hidden;
+    }
+
+    #stage {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 108rem; height: 60.75rem;
+      background: radial-gradient(circle at 50% 20%, #0d1527 0%, var(--bg-dark) 70%);
+      display: flex; flex-direction: column;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.05);
+      box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    }
+
+    /* 装饰网格与光晕 */
+    .bg-grid {
+      position: absolute; inset: 0;
+      background-image: 
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 3rem 3rem;
+      pointer-events: none;
+    }
+    .bg-glow-1 {
+      position: absolute; top: -15rem; left: -10rem; width: 40rem; height: 40rem;
+      background: radial-gradient(circle, rgba(2, 132, 199, 0.15) 0%, transparent 70%);
+      filter: blur(50px); pointer-events: none;
+    }
+    .bg-glow-2 {
+      position: absolute; bottom: -15rem; right: -10rem; width: 45rem; height: 45rem;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
+      filter: blur(60px); pointer-events: none;
+    }
+
+    /* 顶部导航 Header */
+    #header {
+      height: 4.5rem; padding: 0 3.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      border-bottom: 1px solid var(--border-glass);
+      z-index: 20; flex-shrink: 0;
+      background: rgba(7, 10, 19, 0.6);
+      backdrop-filter: blur(10px);
+    }
+    .logo-container { display: flex; align-items: center; gap: 1rem; }
+    .logo-icon {
+      width: 2.4rem; height: 2.4rem; border-radius: 0.6rem;
+      background: var(--grad-sky-blue);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1.15rem; color: #fff;
+      box-shadow: 0 0 15px rgba(2, 132, 199, 0.5);
+    }
+    .logo-text { font-size: 1.35rem; font-weight: 800; letter-spacing: 0.5px; }
+    .logo-badge {
+      font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 99px;
+      background: rgba(2, 132, 199, 0.2); border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #38BDF8; font-weight: 600;
+    }
+    .header-info { display: flex; align-items: center; gap: 1.5rem; }
+    .btn-header-link {
+      font-size: 0.85rem; color: #38BDF8; text-decoration: none;
+      display: flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.8rem;
+      background: rgba(2, 132, 199, 0.15); border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 0.5rem; font-weight: 600; transition: all 0.2s ease;
+    }
+    .btn-header-link:hover { background: rgba(2, 132, 199, 0.3); color: #fff; }
+
+    /* 底部控制栏 Footer */
+    #footer {
+      height: 4.2rem; padding: 0 3.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      border-top: 1px solid var(--border-glass);
+      z-index: 20; flex-shrink: 0;
+      background: rgba(7, 10, 19, 0.6);
+      backdrop-filter: blur(10px);
+    }
+    .footer-left { display: flex; align-items: center; gap: 1.5rem; }
+    .slide-counter { font-size: 1.05rem; font-weight: 800; color: var(--text-primary); }
+    .progress-track {
+      width: 18rem; height: 0.35rem; background: rgba(255, 255, 255, 0.1);
+      border-radius: 99px; overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%; background: var(--grad-sky-blue);
+      width: 5.55%; transition: width 0.3s ease;
+    }
+    .ctrl-btns { display: flex; gap: 1rem; align-items: center; }
+    .btn-ctrl {
+      width: 2.4rem; height: 2.4rem; border-radius: 50%;
+      background: rgba(15, 23, 42, 0.8); border: 1px solid var(--border-glass);
+      color: var(--text-primary); display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: all 0.2s ease;
+    }
+    .btn-ctrl:hover {
+      background: rgba(2, 132, 199, 0.25); border-color: rgba(56, 189, 248, 0.5);
+      color: #38BDF8; transform: scale(1.05);
+    }
+
+    /* 目录抽屉 */
+    .index-drawer {
+      position: fixed; top: 0; right: -24rem; width: 24rem; height: 100%;
+      background: rgba(7, 10, 19, 0.98); border-left: 1px solid var(--border-glass);
+      z-index: 400; padding: 2rem 1.5rem;
+      transition: right 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+      display: flex; flex-direction: column;
+      box-shadow: -10px 0 30px rgba(0,0,0,0.6);
+    }
+    .index-drawer.open { right: 0; }
+    .drawer-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 1.2rem; border-bottom: 1px solid var(--border-glass); padding-bottom: 1rem;
+    }
+    .drawer-title { font-size: 1.15rem; font-weight: 800; color: var(--text-white); }
+    .btn-close-drawer { background: transparent; border: none; color: var(--text-secondary); cursor: pointer; }
+    .drawer-list {
+      list-style: none; overflow-y: auto; flex-grow: 1;
+      display: flex; flex-direction: column; gap: 0.35rem;
+    }
+    .drawer-item {
+      padding: 0.55rem 0.85rem; border-radius: 0.5rem;
+      font-size: 0.85rem; color: var(--text-secondary); cursor: pointer;
+      transition: all 0.2s ease; display: flex; align-items: center; gap: 0.6rem;
+    }
+    .drawer-item:hover, .drawer-item.active { background: rgba(2, 132, 199, 0.18); color: #fff; }
+    .drawer-item.active {
+      border-left: 3px solid #0284C7; font-weight: bold; color: #38BDF8;
+    }
+
+    /* Slide 视图容器 */
+    #presentation {
+      position: relative; flex-grow: 1;
+      overflow: hidden; z-index: 10;
+    }
+    .slide {
+      position: absolute; inset: 0;
+      padding: 2rem 3.5rem 1.8rem;
+      opacity: 0; pointer-events: none;
+      transform: translateY(15px) scale(0.98);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      display: flex; flex-direction: column; justify-content: flex-start;
+    }
+    .slide.active { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; z-index: 10; }
+    .slide.prev { transform: translateY(-15px) scale(0.98); }
+
+    /* 标题容器 */
+    .slide-title-container { margin-bottom: 1.1rem; flex-shrink: 0; }
+    .slide-tag {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.18rem 0.65rem; border-radius: 99px;
+      font-size: 0.76rem; font-weight: 700; text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+    .tag-blue { background: rgba(2, 132, 199, 0.2); border: 1px solid rgba(56, 189, 248, 0.3); color: #38BDF8; }
+    .tag-green { background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.3); color: #34D399; }
+    .tag-amber { background: rgba(245, 158, 11, 0.2); border: 1px solid rgba(245, 158, 11, 0.3); color: #FBBF24; }
+    .tag-rose { background: rgba(239, 68, 68, 0.2); border: 1px solid rgba(239, 68, 68, 0.3); color: #F87171; }
+    .tag-violet { background: rgba(139, 92, 246, 0.2); border: 1px solid rgba(139, 92, 246, 0.3); color: #C4B5FD; }
+    
+    .slide-main-title {
+      font-size: 2.1rem; font-weight: 800; line-height: 1.2;
+      color: var(--text-primary); letter-spacing: -0.5px;
+    }
+    .slide-subtitle {
+      font-size: 0.96rem; color: var(--text-muted); margin-top: 0.3rem; font-weight: 400; line-height: 1.4;
+    }
+
+    /* 网格布局系统 */
+    .slide-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; flex: 1; min-height: 0; }
+    .slide-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.3rem; flex: 1; min-height: 0; }
+    .slide-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; flex: 1; min-height: 0; }
+    .slide-grid-split { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 1.6rem; flex: 1; min-height: 0; }
+    .slide-grid-screenshot { display: grid; grid-template-columns: 1.35fr 0.85fr; gap: 1.5rem; flex: 1; min-height: 0; align-items: stretch; }
+
+    /* Bento 玻璃卡片 */
+    .glass-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: 1rem;
+      padding: 1.3rem;
+      backdrop-filter: blur(12px);
+      display: flex; flex-direction: column;
+      position: relative; overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    }
+    .glass-card-hover:hover {
+      border-color: var(--border-glass-hover);
+      transform: translateY(-2px);
+      transition: all 0.25s ease;
+    }
+    .card-badge {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.6rem;
+      border-radius: 0.4rem; margin-bottom: 0.7rem; width: fit-content;
+    }
+
+    /* 实机截图容器 */
+    .screenshot-frame {
+      background: rgba(10, 15, 29, 0.9);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 0.9rem;
+      padding: 0.6rem 0.8rem 0.8rem;
+      display: flex; flex-direction: column;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      flex: 1; min-height: 0;
+    }
+    .mockup-top-bar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-glass);
+      margin-bottom: 0.5rem; flex-shrink: 0;
+    }
+    .window-dots { display: flex; align-items: center; gap: 0.35rem; }
+    .dot { width: 0.55rem; height: 0.55rem; border-radius: 50%; display: inline-block; }
+    .dot-red { background: #EF4444; }
+    .dot-amber { background: #F59E0B; }
+    .dot-green { background: #10B981; }
+    .window-title { font-size: 0.75rem; color: var(--text-muted); font-family: monospace; margin-left: 0.5rem; }
+    .screenshot-view {
+      flex: 1; min-height: 0;
+      background: #030712;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .screenshot-img {
+      width: 100%; height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* 文本与排版 */
+    .h3-title { font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 0.35rem; }
+    .desc-text { font-size: 0.86rem; color: var(--text-secondary); line-height: 1.55; }
+    .highlight-red { color: #F87171; font-weight: 700; }
+    .highlight-green { color: #34D399; font-weight: 700; }
+    .highlight-blue { color: #38BDF8; font-weight: 700; }
+    .highlight-amber { color: #FBBF24; font-weight: 700; }
+
+    /* 数据指标卡片 */
+    .stat-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 0.8rem; padding: 0.8rem 1rem;
+    }
+    .stat-number { font-size: 2.2rem; font-weight: 900; line-height: 1; margin-bottom: 0.3rem; }
+    .stat-label { font-size: 0.8rem; color: var(--text-muted); }
+
+    /* 按钮 */
+    .btn-ppt-primary {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 0.8rem 1.8rem; border-radius: 0.75rem;
+      background: var(--grad-sky-blue); color: #fff;
+      font-size: 0.95rem; font-weight: 700; text-decoration: none;
+      box-shadow: 0 4px 20px rgba(2, 132, 199, 0.4);
+      cursor: pointer; transition: all 0.2s ease;
+    }
+    .btn-ppt-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(2, 132, 199, 0.6); }
+
+    /* FAQ 卡片 */
+    .faq-card {
+      background: var(--bg-card); border: 1px solid var(--border-glass);
+      border-radius: 0.9rem; padding: 1.1rem 1.3rem;
+    }
+    .faq-q { font-size: 0.96rem; font-weight: 700; color: #38BDF8; margin-bottom: 0.45rem; display: flex; align-items: center; gap: 0.5rem; }
+    .faq-a { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.55; }
+
+    /* 自定义滚动条 */
+    ::-webkit-scrollbar { width: 4px; height: 4px; }
+    ::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
+    ::-webkit-scrollbar-thumb { background: rgba(56,189,248,0.3); border-radius: 2px; }
+  </style>
+</head>
+<body>
+
+<div id="stage-wrapper">
+  <div id="stage">
+    <div class="bg-grid"></div>
+    <div class="bg-glow-1"></div>
+    <div class="bg-glow-2"></div>
+
+    <!-- 顶部导航 Header -->
+    <header id="header">
+      <div class="logo-container">
+        <div class="logo-icon">核</div>
+        <div>
+          <div style="display:flex; align-items:center; gap:0.6rem;">
+            <span class="logo-text">智核云</span>
+            <span class="logo-badge">国企智能审批合规审查系统</span>
+          </div>
+          <div style="font-size:0.75rem; color:var(--text-muted);">SmartAudit Cloud · FDE 业务全景与实机核验</div>
+        </div>
+      </div>
+      <div class="header-info">
+        <a href="../../fde/index.html" target="_blank" class="btn-header-link">
+          <i data-lucide="play-circle" style="width:1rem;height:1rem;"></i> 体验在线 DEMO
+        </a>
+        <button class="btn-ctrl" onclick="toggleDrawer()" title="打开目录大纲 (M)">
+          <i data-lucide="list" style="width:1.2rem;height:1.2rem;"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- 主幻灯片展示区 Presentation Stage -->
+    <main id="presentation">
+
+      <!-- SLIDE 1: 封面 -->
+      <section class="slide active" id="slide-1" style="justify-content:center; align-items:center; text-align:center; padding:0 6rem;">
+        <div style="max-width:58rem;">
+          <div class="slide-tag tag-blue" style="margin-bottom:1.4rem; font-size:0.88rem; padding:0.35rem 1.1rem;">
+            <i data-lucide="shield-check" style="width:1rem;height:1rem;"></i> 国资央企信创合规 · 零摩擦旁路协同 · 终身履职免责
+          </div>
+          <h1 style="font-size:3.5rem; font-weight:900; line-height:1.15; margin-bottom:1.2rem; letter-spacing:-1px;">
+            智核云 · 国企智能审批合规审查系统<br>
+            <span style="background:var(--grad-sky-blue); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">业务全景与实机核验汇报</span>
+          </h1>
+          <p style="font-size:1.12rem; color:var(--text-secondary); line-height:1.7; margin-bottom:2.2rem; max-width:48rem; margin-left:auto; margin-right:auto;">
+            面向大型制造企业、食品粮油与国资央企领导岗位的智能审批副驾。
+            机器承担 90% 机械繁重核验，1 分钟全要素穿透勾稽，确定性代码阻断阴阳差额，为领导干部铸牢经得起国资审计检验的履职免责护栏。
+          </p>
+
+          <!-- 核心管理价值速览 3 卡片 -->
+          <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:1.2rem; margin-bottom:2.5rem; text-align:left;">
+            <div class="glass-card" style="border-top:3px solid #0284C7; padding:1.1rem;">
+              <div style="font-size:0.95rem; font-weight:bold; color:#38BDF8; margin-bottom:0.4rem;">1. 零摩擦旁路挂接</div>
+              <div style="font-size:0.82rem; color:var(--text-secondary); line-height:1.5;">定位为既有 OA/ERP 外部协同副驾，保护既有 IT 投资，经办人与领导无需改变原有使用习惯。</div>
+            </div>
+            <div class="glass-card" style="border-top:3px solid #10B981; padding:1.1rem;">
+              <div style="font-size:0.95rem; font-weight:bold; color:#34D399; margin-bottom:0.4rem;">2. 确定性计算零差错</div>
+              <div style="font-size:0.82rem; color:var(--text-secondary); line-height:1.5;">机器承担 90% 机械核验，71.9s 完成穿透勾稽，严拒大模型幻觉，审批裁决权牢牢由领导掌握。</div>
+            </div>
+            <div class="glass-card" style="border-top:3px solid #8B5CF6; padding:1.1rem;">
+              <div style="font-size:0.95rem; font-weight:bold; color:#C4B5FD; margin-bottom:0.4rem;">3. 全时序推演终身存证</div>
+              <div style="font-size:0.82rem; color:var(--text-secondary); line-height:1.5;">0~71.9s 毫秒级推演痕迹树，附具 SM2 国密防伪验签与 ACK 回执，为领导筑牢审计免责护栏。</div>
+            </div>
+          </div>
+
+          <div style="display:flex; justify-content:center; gap:1.2rem;">
+            <button class="btn-ppt-primary" onclick="nextSlide()">
+              开始演示汇报 <i data-lucide="arrow-right" style="width:1.1rem;height:1.1rem;"></i>
+            </button>
+            <a href="../../fde/index.html" target="_blank" class="btn-ppt-primary" style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); box-shadow:none;">
+              <i data-lucide="external-link" style="width:1.1rem;height:1.1rem;"></i> 在线体验 DEMO
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 2: 痛点分析 -->
+      <section class="slide" id="slide-2">
+        <div class="slide-title-container">
+          <div class="slide-tag tag-rose"><i data-lucide="alert-triangle" style="width:0.8rem;height:0.8rem;"></i> 一、现实管理困境</div>
+          <h2 class="slide-main-title">国企高管审批面临的 4 大核心痛点与不可承受之重</h2>
+          <p class="slide-subtitle">传统依靠人工肉眼翻阅数十页附件，面对终身追责制与国资巡视巡察，领导干部面临深层被动与履职风险。</p>
+        </div>
+        <div class="slide-grid-4">
+          <!-- 痛点 1 -->
+          <div class="glass-card glass-card-hover" style="border-top:3px solid #EF4444;">
+            <span class="card-badge" style="background:rgba(239,68,68,0.2); color:#F87171;">痛点 1 · 时间倒挂</span>
+            <h3 class="h3-title">审签负荷高、时间紧迫<br>领导被迫“闭眼签字”</h3>
+            <p class="desc-text" style="margin-top:0.5rem; flex:1;">
+              <strong>传统现状：</strong>大宗采购动辄数十页附件，人工细审一份耗时 45~60 分钟。<br><br>
+              <strong>高管困局：</strong>分管领导每天面对几十份呈批单，只能“信任经办人草率签字”，埋下巨大个人问责隐患。
+            </p>
+            <div style="background:rgba(239,68,68,0.1); border-radius:0.5rem; padding:0.6rem; font-size:0.78rem; color:#FCA5A5;">
+              ⚠️ 问责风险：重大差错“已批已知情”，签字即担责。
+            </div>
+          </div>
+
+          <!-- 痛点 2 -->
+          <div class="glass-card glass-card-hover" style="border-top:3px solid #F59E0B;">
+            <span class="card-badge" style="background:rgba(245,158,11,0.2); color:#FBBF24;">痛点 2 · 隐蔽差额</span>
+            <h3 class="h3-title">阴阳合同与抽屉差额<br>肉眼核对防不胜防</h3>
+            <p class="desc-text" style="margin-top:0.5rem; flex:1;">
+              <strong>传统现状：</strong>OA 表单申报 120 万，附件货物明细逐项累加实际只有 115 万；<br><br>
+              <strong>隐蔽漏洞：</strong>单据税率填报 13% 但附件写 9%，隐蔽差额 5 万元肉眼极难一眼察觉，成为贪腐与利益输送温床。
+            </p>
+            <div style="background:rgba(245,158,11,0.1); border-radius:0.5rem; padding:0.6rem; font-size:0.78rem; color:#FCD34D;">
+              ⚠️ 问责风险：合同与预算脱节，形成国资跑冒滴漏。
+            </div>
+          </div>
+
+          <!-- 痛点 3 -->
+          <div class="glass-card glass-card-hover" style="border-top:3px solid #8B5CF6;">
+            <span class="card-badge" style="background:rgba(139,92,246,0.2); color:#C4B5FD;">痛点 3 · 规章庞杂</span>
+            <h3 class="h3-title">内控规章庞杂更新滞后<br>经办人容易违规踩雷</h3>
+            <p class="desc-text" style="margin-top:0.5rem; flex:1;">
+              <strong>传统现状：</strong>国企有上百部管理规范、“三重一大”要求及国家食品强制标准；<br><br>
+              <strong>业务盲区：</strong>经办人常照搬供应商格式合同，大宗项目漏附党委会纪要文号，甚至擅自降低合格率验收。
+            </p>
+            <div style="background:rgba(139,92,246,0.1); border-radius:0.5rem; padding:0.6rem; font-size:0.78rem; color:#DDD6FE;">
+              ⚠️ 问责风险：触碰质量与合规红线，直接触发硬性违规。
+            </div>
+          </div>
+
+          <!-- 痛点 4 -->
+          <div class="glass-card glass-card-hover" style="border-top:3px solid #0284C7;">
+            <span class="card-badge" style="background:rgba(2,132,199,0.2); color:#38BDF8;">痛点 4 · 终身追责</span>
+            <h3 class="h3-title">国资终身追责制严密<br>若干年后“查无可溯”</h3>
+            <p class="desc-text" style="margin-top:0.5rem; flex:1;">
+              <strong>传统现状：</strong>既有 OA 仅有一条“同意”签名，若干年后巡视审计“回头看”，无法证明当时审慎尽责；<br><br>
+              <strong>防卫真空：</strong>缺乏核验计算过程与即时制度依据，领导干部处于极其被动的问责境地。
+            </p>
+            <div style="background:rgba(2,132,199,0.1); border-radius:0.5rem; padding:0.6rem; font-size:0.78rem; color:#BAE6FD;">
+              ⚠️ 问责风险：历史档案信息孤岛，无法支撑依法免责。
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 3: 破局价值效益 -->
+      <section class="slide" id="slide-3">
+        <div class="slide-title-container">
+          <div class="slide-tag tag-green"><i data-lucide="check-circle" style="width:0.8rem;height:0.8rem;"></i> 破局方案</div>
+          <h2 class="slide-main-title">智核云破局之道：四大核心管理效益全景</h2>
+          <p class="slide-subtitle">从“人盯人、疲劳签批、责任不可承受”走向“机器穿透勾稽、领导从容定夺、终身履职免责”。</p>
+        </div>
+        <div class="slide-grid-4">
+          <div class="glass-card" style="border-top:3px solid #10B981;">
+            <div style="font-size:2.4rem; font-weight:900; color:#34D399; line-height:1; margin-bottom:0.4rem;">95%</div>
+            <div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:0.8rem;">审签时间锐减 ｜ 告别盲目签字</div>
+            <h3 class="h3-title">1 分钟全要素预审</h3>
+            <p class="desc-text">
+              传统 45~60 分钟人工翻阅压缩至约 1 分钟（71.9s 实测）。机器承担 90% 机械繁重核验，分管领导只需把关最后 10% 关键合规风险。
+            </p>
+          </div>
+
+          <div class="glass-card" style="border-top:3px solid #0284C7;">
+            <div style="font-size:2.4rem; font-weight:900; color:#38BDF8; line-height:1; margin-bottom:0.4rem;">100%</div>
+            <div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:0.8rem;">确定性算术碰撞 ｜ 阻断阴阳差额</div>
+            <h3 class="h3-title">代码交叉勾稽零差错</h3>
+            <p class="desc-text">
+              申报总额与附件多页原件逐行逐项算术核验，确定性代码计算绝无大模型幻觉，毫秒级标红“¥50,000 元未列明差额”与“13% vs 9% 税率差异”。
+            </p>
+          </div>
+
+          <div class="glass-card" style="border-top:3px solid #F59E0B;">
+            <div style="font-size:2.4rem; font-weight:900; color:#FBBF24; line-height:1; margin-bottom:0.4rem;">11部</div>
+            <div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:0.8rem;">私有制度智核 ｜ 一票否决违规</div>
+            <h3 class="h3-title">穿透式红线硬拦截</h3>
+            <p class="desc-text">
+              本地私有化对标 11 部现行规章。大宗采购缺少党委会“三重一大”文号刚性提示补正；食品合格率触碰 99.8% 底线直接触发一票否决。
+            </p>
+          </div>
+
+          <div class="glass-card" style="border-top:3px solid #8B5CF6;">
+            <div style="font-size:2.4rem; font-weight:900; color:#C4B5FD; line-height:1; margin-bottom:0.4rem;">71.9s</div>
+            <div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:0.8rem;">全时序推演痕迹 ｜ 终身合规护栏</div>
+            <h3 class="h3-title">国密防伪时序存证</h3>
+            <p class="desc-text">
+              完整留存 0~71.9s 毫秒级推演节点树，审签权牢牢掌握在领导手中，生成带电子印章与唯一 ACK 回执凭单，为领导筑牢履职免责护栏。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 4: 微架构 -->
+      <section class="slide" id="slide-4">
+        <div class="slide-title-container">
+          <div class="slide-tag tag-blue"><i data-lucide="layers" style="width:0.8rem;height:0.8rem;"></i> 二、系统微架构</div>
+          <h2 class="slide-main-title">总体业务协同微架构（零侵入旁路协同）</h2>
+          <p class="slide-subtitle">旁路挂接、静默初审、主权在人、回写闭环。完全保护既有 IT 投资，经办人员与审批领导无需改变原有习惯。</p>
+        </div>
+        <div class="slide-grid-3">
+          <div class="glass-card" style="border-top:3px solid #0284C7;">
+            <span class="card-badge" style="background:rgba(2,132,199,0.2); color:#38BDF8;">输入层 · 零侵入接入</span>
+            <h3 class="h3-title">异构单据无感接入中枢</h3>
+            <p class="desc-text" style="margin-top:0.4rem;">
+              ● <strong>标准 Webhook 直连</strong>：无缝旁路挂接泛微 OA、致远协同、ERP 供应链及 SAP 系统；<br>
+              ● <strong>无需改动业务表单</strong>：经办人员照常在原有系统提交流程，系统后台静默捕获呈批报文与随附附件；<br>
+              ● <strong>多附件格式支持</strong>：原生支持扫描件 PDF、高清图片、Excel 报价清单与 Word 合同版本对比。
+            </p>
+          </div>
+
+          <div class="glass-card" style="border-top:3px solid #10B981;">
+            <span class="card-badge" style="background:rgba(16,185,129,0.2); color:#34D399;">计算层 · 双引擎协同研判</span>
+            <h3 class="h3-title">确定性代码 + 语义向量</h3>
+            <p class="desc-text" style="margin-top:0.4rem;">
+              ● <strong>确定性代码引擎</strong>：算术总分求和、税率计算、天眼查征信穿透及大额资金前置文号校验，程序零差错；<br>
+              ● <strong>现行制度向量 RAG</strong>：对标《大额资金管理办法》《食品安全质量规范》等 11 部规章，秒级出具制度条文依据；<br>
+              ● <strong>~60s 极速研判</strong>：全流程流水线平均耗时仅 71.9 秒，输出“准予/补正/否决”初审建议。
+            </p>
+          </div>
+
+          <div class="glass-card" style="border-top:3px solid #8B5CF6;">
+            <span class="card-badge" style="background:rgba(139,92,246,0.2); color:#C4B5FD;">闭环层 · 审签权在人与存证</span>
+            <h3 class="h3-title">反写回传与终身存证台账</h3>
+            <p class="desc-text" style="margin-top:0.4rem;">
+              ● <strong>领导亲自裁决</strong>：一键采纳或调整合规审查意见，规范公文批语原路自动反写回传泛微 OA；<br>
+              ● <strong>SM2 国密数字验签</strong>：加盖「中润农垦已签署·合同审查专用」电子印章，生成唯一防伪 ACK 回执单号；<br>
+              ● <strong>全局已办归档台账</strong>：沉淀 18 笔历史审查全量事实，任期审计与巡视调阅即查即出。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 5: 审查舱交互 -->
+      <section class="slide" id="slide-5">
+        <div class="slide-title-container">
+          <div class="slide-tag tag-cyan"><i data-lucide="monitor" style="width:0.8rem;height:0.8rem;"></i> 三、核心交互舱</div>
+          <h2 class="slide-main-title">首屏左右双栏拟真审查舱与 10 项要素网格设计</h2>
+          <p class="slide-subtitle">左侧拟真合同原件预览 ｜ 右侧标准化要素网格 ｜ 视线零切换，彻底解决高管多附件反复翻页核验痛点。</p>
+        </div>
+        <div class="slide-grid-split">
+          <div class="glass-card">
+            <span class="card-badge" style="background:rgba(6,182,212,0.2); color:#22D3EE;">左栏 · 拟真原件舱</span>
+            <h3 class="h3-title">合同扫描件拟真视口与条款高亮</h3>
+            <p class="desc-text" style="margin-top:0.4rem; line-height:1.6;">
+              ● <strong>多附件无缝切换</strong>：主合同文本、供货明细清单、补充协议一键即时切换；<br>
+              ● <strong>高保真版面还原</strong>：保留原件印章、骑缝章与手写签名，加注商业密级动态水印；<br>
+              ● <strong>风险条款精准框选</strong>：检出违规条款（如 95% 合格率、未列明单价）时，在原件版面直接施加<strong>红色呼吸虚线高亮框</strong>；<br>
+              ● <strong>点击即联动</strong>：点击右侧疑点要素，左侧原件瞬间平滑定位至对应条款段落。
+            </p>
+          </div>
+
+          <div class="glass-card">
+            <span class="card-badge" style="background:rgba(59,130,246,0.2); color:#60A5FA;">右栏 · 标准化要素</span>
+            <h3 class="h3-title">10 项核心把关网格（剔除 20+ 行政杂质）</h3>
+            <p class="desc-text" style="margin-top:0.4rem; line-height:1.6;">
+              经办人呈批单中常夹杂数十个流程性字段，智核云自动剥离行政杂音，精准聚焦高管最关心的 10 大合规把关点：<br><br>
+              ① 申报总金额 ｜ ② 附件汇总金额 ｜ ③ 增值税率 ｜ ④ 履约主体资质<br>
+              ⑤ 货物标的物 ｜ ⑥ 验收合格率标准 ｜ ⑦ 付款账期节点 ｜ ⑧ 争议管辖条款<br>
+              ⑨ “三重一大”纪要文号 ｜ ⑩ 供应商征信红线
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 6: 勾稽流水线 -->
+      <section class="slide" id="slide-6">
+        <div class="slide-title-container">
+          <div class="slide-tag tag-green"><i data-lucide="clock" style="width:0.8rem;height:0.8rem;"></i> 全时序链路</div>
+          <h2 class="slide-main-title">5 阶段智能初审与穿透勾稽流水线（~60秒闭环）</h2>
+          <p class="slide-subtitle">从单据接收、OCR 版面切片、确定性算术碰撞到制度向量对标与终审决策，全时序实测 71.9 秒闭环。</p>
+        </div>
+        <div class="slide-grid-4" style="grid-template-columns:repeat(5, 1fr); gap:1rem;">
+          <div class="glass-card">
+            <div style="font-size:1.8rem; font-weight:900; color:#38BDF8; margin-bottom:0.2rem;">01</div>
+            <div style="font-size:0.95rem; font-weight:bold; color:#fff;">接入与要素提取</div>
+            <div style="font-size:0.75rem; color:#38BDF8; font-weight:bold; margin:0.3rem 0;">时效：~10.5s</div>
+            <p class="desc-text" style="font-size:0.78rem;">Webhook 异步接收 OA 呈批单与随附附件包，提炼 10 项审查要素网格，剥离 20+ 项无关行政杂质。</p>
+          </div>
+
+          <div class="glass-card">
+            <div style="font-size:1.8rem; font-weight:900; color:#38BDF8; margin-bottom:0.2rem;">02</div>
+            <div style="font-size:0.95rem; font-weight:bold; color:#fff;">多模态 OCR 切片</div>
+            <div style="font-size:0.75rem; color:#38BDF8; font-weight:bold; margin:0.3rem 0;">时效：~24.6s</div>
+            <p class="desc-text" style="font-size:0.78rem;">本地私有化 OCR 引擎对扫描合同进行表格还原与条款切片，精准还原数十页货物清单明细与税率条款。</p>
+          </div>
+
+          <div class="glass-card" style="border-top:3px solid #F59E0B;">
+            <div style="font-size:1.8rem; font-weight:900; color:#FBBF24; margin-bottom:0.2rem;">03</div>
+            <div style="font-size:0.95rem; font-weight:bold; color:#fff;">双向交叉勾稽碰撞</div>
+            <div style="font-size:0.75rem; color:#FBBF24; font-weight:bold; margin:0.3rem 0;">时效：~12.8s</div>
+            <p class="desc-text" style="font-size:0.78rem;">确定性代码严格算术校验：总金额明细求和比对、增值税率校验、相对方征信穿透及大额前置文号匹配。</p>
+          </div>
+
+          <div class="glass-card" style="border-top:3px solid #C4B5FD;">
+            <div style="font-size:1.8rem; font-weight:900; color:#C4B5FD; margin-bottom:0.2rem;">04</div>
+            <div style="font-size:0.95rem; font-weight:bold; color:#fff;">现行制度向量对标</div>
+            <div style="font-size:0.75rem; color:#C4B5FD; font-weight:bold; margin:0.3rem 0;">时效：~14.2s</div>
+            <p class="desc-text" style="font-size:0.78rem;">11 部规章制度向量数据库 RAG 语义检索，精准对标《大额资金办法》《食品质量规范》，形成证据链。</p>
+          </div>
+
+          <div class="glass-card" style="border-top:3px solid #10B981;">
+            <div style="font-size:1.8rem; font-weight:900; color:#34D399; margin-bottom:0.2rem;">05</div>
+            <div style="font-size:0.95rem; font-weight:bold; color:#fff;">领导决策与存证</div>
+            <div style="font-size:0.75rem; color:#34D399; font-weight:bold; margin:0.3rem 0;">时效：~9.8s</div>
+            <p class="desc-text" style="font-size:0.78rem;">领导亲手裁决：准予/补正/否决，规范批语原路回写泛微 OA，生成 SM2 国密防伪电子凭单入库不可篡改。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 7: 实机截图 1：待办任务池 -->
+      <section class="slide" id="slide-7">
+        <div class="slide-title-container">
+          <div class="slide-tag tag-blue"><i data-lucide="image" style="width:0.8rem;height:0.8rem;"></i> 五、核心场景穿透实机核验（图 1）</div>
+          <h2 class="slide-main-title">协同单据待办审批池（分管副总经理·赵志远专属视图）</h2>
+          <p class="slide-subtitle">汇聚泛微 OA、ERP 供应链及 SAP 待审事项，3 秒快速识别轻重缓急与风险等级。</p>
+        </div>
+        <div class="slide-grid-screenshot">
+          <div class="screenshot-frame">
+            <div class="mockup-top-bar">
+              <div class="window-dots">
+                <span class="dot dot-red"></span><span class="dot dot-amber"></span><span class="dot dot-green"></span>
+                <span class="window-title">FDE 生产环境 · 领导专属协同单据池</span>
+              </div>
+              <span style="font-size:0.72rem; color:#38BDF8; font-weight:600;">实机截图 01</span>
+            </div>
+            <div class="screenshot-view">
+              <img src="screenshots/01_task_pool.png" alt="协同单据待办审批池" class="screenshot-img">
+            </div>
+          </div>
+
+          <div class="glass-card" style="gap:1rem;">
+            <span class="card-badge" style="background:rgba(2,132,199,0.2); color:#38BDF8;">业务管理亮点</span>
+            <div>
+              <h4 style="color:#fff; font-size:1.05rem; margin-bottom:0.4rem;">1. 多源异构待办智能汇聚</h4>
+              <p class="desc-text">跨越泛微 OA、致远协同与 SAP 供应链多系统边界，为分管领导提供全局统一的工作审批总入口。</p>
+            </div>
+            <div>
+              <h4 style="color:#fff; font-size:1.05rem; margin-bottom:0.4rem;">2. 三级风险直观警示标签</h4>
+              <p class="desc-text">
+                ● <strong class="highlight-amber">黄色【待补正】</strong>：单据存在 5 万差额或缺少文号；<br>
+                ● <strong class="highlight-red">红色【阻断否决】</strong>：触犯食品质量或合规强制红线；<br>
+                ● <strong class="highlight-green">绿色【合规免检】</strong>：要素完全勾稽无误，建议快速放行。
+              </p>
+            </div>
+            <div>
+              <h4 style="color:#fff; font-size:1.05rem; margin-bottom:0.4rem;">3. 穿透式时效与置信度</h4>
+              <p class="desc-text">实时呈现各单据审查耗时（71.9s）与置信度（98.8%），高管审签一目了然。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 8: 实机截图 2：双栏拟真原件舱与要素网格 -->
+      <section class="slide" id="slide-8">
+        <div class="slide-title-container">
+          <div class="slide-tag tag-blue"><i data-lucide="image" style="width:0.8rem;height:0.8rem;"></i> 五、核心场景穿透实机核验（图 2）</div>
+          <h2 class="slide-main-title">双栏拟真原件舱（左侧）与业务单据 10 项要素网格（右侧）</h2>
+          <p class="slide-subtitle">左看原件、右对要素，视线零切换，彻底解决高管多附件反复翻页核验痛点。</p>
+        </div>
+        <div class="slide-grid-screenshot">
+          <div class="screenshot-frame">
+            <div class="mockup-top-bar">
+              <div class="window-dots">
+                <span class="dot dot-red"></span><span class="dot dot-amber"></span><span class="dot dot-green"></span>
+                <span class="window-title">FDE 拟真原件舱 · 首屏左右双栏核验交互</span>
+              </div>
+              <span style="font-size:0.72rem; color:#38BDF8; font-weight:600;">实机截图 02</span>
+            </div>
+            <div class="screenshot-view">
+              <img src="screenshots/02_review_detail.png" alt="双栏拟真原件舱与要素网格" class="screenshot-img">
+            </div>
+          </div>
+
+          <div class="glass-card" style="gap:1rem;">
+            <span class="card-badge" style="background:rgba(6,182,212,0.2); color:#22D3EE;">核心设计价值</span>
+            <div>
+              <h4 style="color:#fff; font-size:1.05rem; margin-bottom:0.4rem;">1. 左侧拟真原件与呼吸虚线框</h4>
+              <p class="desc-text">完整还原合同原件扫描版面，支持附件无缝切换。违规及疑点条款施加红色呼吸虚线高亮标注。</p>
+            </div>
+            <div>
+              <h4 style="color:#fff; font-size:1.05rem; margin-bottom:0.4rem;">2. 右侧提炼 10 项核心把关网格</h4>
+              <p class="desc-text">自动剥离经办人电话、流程路由等 20+ 项无关行政流程杂质，将申报总额、税率、标的、争议管辖规范归拢。</p>
+            </div>
+            <div>
+              <h4 style="color:#fff; font-size:1.05rem; margin-bottom:0.4rem;">3. 商业密级安全水印防护</h4>
+              <p class="desc-text">原件版面动态加注登录领导专属工号与密级水印，从源头防止手机拍照与商业涉密外泄。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 9: 实机截图 3：案例一算术勾稽与差额排查 -->
+      <section class="slide" id="slide-9">
+        <div class="slide-title-container">
+          <div class="slide-tag tag-amber"><i data-lucide="image" style="width:0.8rem;height:0.8rem;"></i> 五、核心场景穿透实机核验（图 3）</div>
+          <h2 class="slide-main-title">典型案例一实战：4 维要素交叉勾稽与命中现行制度依据</h2>
+          <p class="slide-subtitle">标红 ¥50,000 元未列明差额 ｜ 标红 13% vs 9% 税率差异 ｜ 拦截超百万缺失“三重一大”前置纪要文号。</p>
+        </div>
+        <div class="slide-grid-screenshot">
+          <div class="screenshot-frame">
+            <div class="mockup-top-bar">
+              <div class="window-dots">
+                <span class="dot dot-red"></span><span class="dot dot-amber"></span><span class="dot dot-green"></span>
+                <span class="window-title">智能审查结论 · 算术勾稽与制度对标实机</span>
+              </div>
+              <span style="font-size:0.72rem; color:#FBBF24; font-weight:600;">实机截图 03</span>
+            </div>
+            <div class="screenshot-view">
+              <img src="screenshots/02_review_crosscheck.png" alt="交叉勾稽与制度对标" class="screenshot-img">
+            </div>
+          </div>
+
+          <div class="glass-card" style="gap:0.9rem;">
+            <span class="card-badge" style="background:rgba(245,158,11,0.2); color:#FBBF24;">案例一穿透诊断细节</span>
+            <div>
+              <h4 style="color:#fff; font-size:1rem; margin-bottom:0.3rem;">《万吨大豆毛油采购框架协议》</h4>
+              <p class="desc-text" style="font-size:0.82rem;">申报金额：¥1,200,000 ｜ 经办部门：大宗原料采购部</p>
+            </div>
+            <div style="background:rgba(239,68,68,0.1); border-left:3px solid #EF4444; padding:0.5rem 0.7rem; border-radius:0.4rem;">
+              <div style="font-size:0.82rem; font-weight:bold; color:#F87171;">⚠️ 算术碰撞：检出 5 万元抽屉差额</div>
+              <div style="font-size:0.76rem; color:var(--text-secondary); margin-top:0.2rem;">表单申报 120 万 vs 附件货物清单逐项累加 115 万，税率 13% vs 9%。</div>
+            </div>
+            <div style="background:rgba(245,158,11,0.1); border-left:3px solid #F59E0B; padding:0.5rem 0.7rem; border-radius:0.4rem;">
+              <div style="font-size:0.82rem; font-weight:bold; color:#FBBF24;">📜 制度依据：《大额资金管理办法》第14条</div>
+              <div style="font-size:0.76rem; color:var(--text-secondary); margin-top:0.2rem;">超过 100 万元未附党委会“三重一大”前置纪要文号，强制刚性预警。</div>
+            </div>
+            <div style="background:rgba(16,185,129,0.1); border-left:3px solid #10B981; padding:0.5rem 0.7rem; border-radius:0.4rem;">
+              <div style="font-size:0.82rem; font-weight:bold; color:#34D399;">✓ 处置建议：退回补正</div>
+              <div style="font-size:0.76rem; color:var(--text-secondary); margin-top:0.2rem;">自动带出规范批注：“请采购部补齐 5 万差额说明及党委会纪要”。</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 10: 实机截图 4：审签反馈与 Webhook 回执闭环 -->
+      <section class="slide" id="slide-10">
+        <div class="slide-title-container">
+          <div class="slide-tag tag-green"><i data-lucide="image" style="width:0.8rem;height:0.8rem;"></i> 五、核心场景穿透实机核验（图 4）</div>
+          <h2 class="slide-main-title">审批意见反馈、SM2 国密验签与业务系统 Webhook 回执凭单</h2>
+          <p class="slide-subtitle">领导亲手裁决 ｜ 自动回写泛微 OA ｜ 加盖专用电子印章 ｜ 赋予唯一防伪 ACK 单号与国密哈希。</p>
+        </div>
+        <div class="slide-grid-screenshot">
+          <div class="screenshot-frame">
+            <div class="mockup-top-bar">
+              <div class="window-dots">
+                <span class="dot dot-red"></span><span class="dot dot-amber"></span><span class="dot dot-green"></span>
+                <span class="window-title">SM2 国密验签与 ACK 回执凭单 · 实机闭环</span>
+              </div>
+              <span style="font-size:0.72rem; color:#34D399; font-weight:600;">实机截图 04</span>
+            </div>
+            <div class="screenshot-view">
+              <img src="screenshots/06_signed_feedback_full.png" alt="SM2验签与回执凭单" class="screenshot-img">
+            </div>
+          </div>
+
+          <div class="glass-card" style="gap:1rem;">
+            <span class="card-badge" style="background:rgba(16,185,129,0.2); color:#34D399;">闭环合规依据</span>
+            <div>
+              <h4 style="color:#fff; font-size:1.05rem; margin-bottom:0.4rem;">1. 审签权牢牢掌握在领导手中</h4>
+              <p class="desc-text">支持领导一键选择“准予通过 / 退回补正 / 坚决否决”，并可直接引用或修改系统生成的标准批示。</p>
+            </div>
+            <div>
+              <h4 style="color:#fff; font-size:1.05rem; margin-bottom:0.4rem;">2. Webhook 异步反写原系统</h4>
+              <p class="desc-text">审批决议即刻回传泛微 OA 待办流程，经办人员无需登录本系统即可收到退回补正通知。</p>
+            </div>
+            <div>
+              <h4 style="color:#fff; font-size:1.05rem; margin-bottom:0.4rem;">3. SM2 国密凭单与不可篡改存证</h4>
+              <p class="desc-text">生成回执单号 <code>ACK-OA-20260905-202609-001</code>，加盖「中润农垦·合同审查专用」印章，具备防篡改法律效力。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 11: 实机截图 5：案例二食品质量底线拦截 -->
+      <section class="slide" id="slide-11">
+        <div class="slide-title-container">
+          <div class="slide-tag tag-rose"><i data-lucide="image" style="width:0.8rem;height:0.8rem;"></i> 五、核心场景穿透实机核验（图 5）</div>
+          <h2 class="slide-main-title">案例二深入实战：食品质量底线冲突与致命合规拦截</h2>
+          <p class="slide-subtitle">合同约定 95.0% 合格率免检 CMA vs 集团制度 99.8% 底线 ｜ 触发致命违规红线，刚性一票否决。</p>
+        </div>
+        <div class="slide-grid-screenshot">
+          <div class="screenshot-frame">
+            <div class="mockup-top-bar">
+              <div class="window-dots">
+                <span class="dot dot-red"></span><span class="dot dot-amber"></span><span class="dot dot-green"></span>
+                <span class="window-title">致命合规拦截 · 案例二质量底线冲突实机</span>
+              </div>
+              <span style="font-size:0.72rem; color:#F87171; font-weight:600;">实机截图 05</span>
+            </div>
+            <div class="screenshot-view">
+              <img src="screenshots/07_case_quality_conflict.png" alt="食品质量底线冲突拦截" class="screenshot-img">
+            </div>
+          </div>
+
+          <div class="glass-card" style="gap:1rem;">
+            <span class="card-badge" style="background:rgba(239,68,68,0.2); color:#F87171;">案例二致命合规细节</span>
+            <div>
+              <h4 style="color:#fff; font-size:1.05rem; margin-bottom:0.3rem;">《复合面包改良剂战略直供协议》</h4>
+              <p class="desc-text" style="font-size:0.82rem;">呈批金额：¥380,000 ｜ 经办人：研发品控中心 · 李晓雅</p>
+            </div>
+            <div style="background:rgba(239,68,68,0.1); border-left:3px solid #EF4444; padding:0.6rem; border-radius:0.4rem;">
+              <div style="font-size:0.85rem; font-weight:bold; color:#F87171;">🚫 供方格式条款击穿集团食品安全底线</div>
+              <div style="font-size:0.78rem; color:var(--text-secondary); margin-top:0.2rem;">
+                合同约定“出厂合格率 95.0% 验收即视为合格，免除每批次第三方 CMA 报告”。
+              </div>
+            </div>
+            <div style="background:rgba(139,92,246,0.1); border-left:3px solid #8B5CF6; padding:0.6rem; border-radius:0.4rem;">
+              <div style="font-size:0.85rem; font-weight:bold; color:#C4B5FD;">📜 触犯《食品安全质量控制规范》第9条</div>
+              <div style="font-size:0.78rem; color:var(--text-secondary); margin-top:0.2rem;">
+                直接入口原料合格率强制必须达 99.8% 且随附 CMA 报告，触犯一票否决红线。
+              </div>
+            </div>
+            <div style="background:rgba(239,68,68,0.12); padding:0.6rem; border-radius:0.4rem;">
+              <div style="font-size:0.82rem; font-weight:bold; color:#EF4444;">⚡️ 处置结果：坚决否决</div>
+              <div style="font-size:0.76rem; color:var(--text-secondary); margin-top:0.2rem;">
+                领导签署否决批复，彻底阻断潜在重大生产事故与品牌召回危机。
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 12: 实机截图 6：时序节点树审计日志 -->
+      <section class="slide" id="slide-12">
+        <div class="slide-title-container">
+          <div class="slide-tag tag-blue"><i data-lucide="image" style="width:0.8rem;height:0.8rem;"></i> 五、核心场景穿透实机核验（图 6）</div>
+          <h2 class="slide-main-title">标准化时序节点树审计日志看板（0~71.9s 全生命周期推演留痕）</h2>
+          <p class="slide-subtitle">将每一次审查拆解为 6 个标准时序节点，精确到毫秒级的时间戳与 Payload 报文，满足纪检审计穿透追溯。</p>
+        </div>
+        <div class="slide-grid-screenshot">
+          <div class="screenshot-frame">
+            <div class="mockup-top-bar">
+              <div class="window-dots">
+                <span class="dot dot-red"></span><span class="dot dot-amber"></span><span class="dot dot-green"></span>
+                <span class="window-title">标准化时序节点树 · 毫秒级审计日志看板</span>
+              </div>
+              <span style="font-size:0.72rem; color:#38BDF8; font-weight:600;">实机截图 06</span>
+            </div>
+            <div class="screenshot-view">
+              <img src="screenshots/03_audit_node_tree.png" alt="标准化时序节点树审计日志" class="screenshot-img">
+            </div>
+          </div>
+
+          <div class="glass-card" style="gap:1rem;">
+            <span class="card-badge" style="background:rgba(2,132,199,0.2); color:#38BDF8;">时序节点追溯链</span>
+            <div style="font-size:0.84rem; color:var(--text-secondary); line-height:1.7;">
+              ● <strong>00:00.000</strong> OA Webhook 报文验签接收<br>
+              ● <strong>00:10.512</strong> 业务单据 10 项要素提炼完成<br>
+              ● <strong>00:35.124</strong> OCR 多页版面分析与条款切片还原<br>
+              ● <strong>00:48.002</strong> 双向交叉勾稽检出 5 万差额与税率差异<br>
+              ● <strong>01:02.215</strong> 11 部规章向量 RAG 命中《大额资金办法》<br>
+              ● <strong>01:11.900</strong> 领导审签决策采纳，ACK 回执凭单生成
+            </div>
+            <div style="background:rgba(255,255,255,0.03); border:1px solid var(--border-glass); border-radius:0.5rem; padding:0.7rem;">
+              <div style="font-size:0.82rem; font-weight:bold; color:#38BDF8;">彻底杜绝“后置补签与篡改”</div>
+              <div style="font-size:0.76rem; color:var(--text-muted); margin-top:0.2rem;">精确到毫秒的时间轴与底层签名哈希，具备不可篡改证据效力。</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 13: 实机截图 7：现行规章知识库 -->
+      <section class="slide" id="slide-13">
+        <div class="slide-title-container">
+          <div class="slide-tag tag-violet"><i data-lucide="image" style="width:0.8rem;height:0.8rem;"></i> 五、核心场景穿透实机核验（图 7）</div>
+          <h2 class="slide-main-title">内控合规资产：现行规章制度与国家标准向量知识库（11 部在行规章）</h2>
+          <p class="slide-subtitle">沉淀企业 11 部现行制度与国家强制规范，毫秒级向量检索，确保制度刚性执行与合规资产传承。</p>
+        </div>
+        <div class="slide-grid-screenshot">
+          <div class="screenshot-frame">
+            <div class="mockup-top-bar">
+              <div class="window-dots">
+                <span class="dot dot-red"></span><span class="dot dot-amber"></span><span class="dot dot-green"></span>
+                <span class="window-title">现行规章制度与国家标准向量库 · 知识资产</span>
+              </div>
+              <span style="font-size:0.72rem; color:#C4B5FD; font-weight:600;">实机截图 07</span>
+            </div>
+            <div class="screenshot-view">
+              <img src="screenshots/04_knowledge_base.png" alt="现行规章制度知识库" class="screenshot-img">
+            </div>
+          </div>
+
+          <div class="glass-card" style="gap:1rem;">
+            <span class="card-badge" style="background:rgba(139,92,246,0.2); color:#C4B5FD;">合规资产管理</span>
+            <div>
+              <h4 style="color:#fff; font-size:1.05rem; margin-bottom:0.4rem;">1. 11 部国企现行规章全覆盖</h4>
+              <p class="desc-text">涵盖《大额资金管理办法》《食品安全质量控制规范》《合同审查管理规定》《“三重一大”决策细则》等制度真源。</p>
+            </div>
+            <div>
+              <h4 style="color:#fff; font-size:1.05rem; margin-bottom:0.4rem;">2. 毫秒级语义向量检索 RAG</h4>
+              <p class="desc-text">对合同文本段落进行多维语义匹配，精准定位管理办法条款号与刚性硬指标，直接提取条款原文出具审查依据。</p>
+            </div>
+            <div>
+              <h4 style="color:#fff; font-size:1.05rem; margin-bottom:0.4rem;">3. 红头制度一键动态更新</h4>
+              <p class="desc-text">支持法务与风控部门一键上传红头文件 PDF/Word，自动切片向量化入库，保障制度时效性。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 14: 实机截图 8：合同签批审计终身台账 -->
+      <section class="slide" id="slide-14">
+        <div class="slide-title-container">
+          <div class="slide-tag tag-green"><i data-lucide="image" style="width:0.8rem;height:0.8rem;"></i> 五、核心场景穿透实机核验（图 8）</div>
+          <h2 class="slide-main-title">国企合同签批审计与终身留痕台账（18 笔历史数据，挽损 ¥393.5 万）</h2>
+          <p class="slide-subtitle">全生命周期数据资产沉淀 ｜ 累计审查标的 ¥26,730,000 ｜ 专设红头《合同合规审查意见书》一键导出。</p>
+        </div>
+        <div class="slide-grid-screenshot">
+          <div class="screenshot-frame">
+            <div class="mockup-top-bar">
+              <div class="window-dots">
+                <span class="dot dot-red"></span><span class="dot dot-amber"></span><span class="dot dot-green"></span>
+                <span class="window-title">国企合同签批审计与终身留痕台账 · 历史闭环</span>
+              </div>
+              <span style="font-size:0.72rem; color:#34D399; font-weight:600;">实机截图 08</span>
+            </div>
+            <div class="screenshot-view">
+              <img src="screenshots/05_audit_ledger.png" alt="合同签批终身留痕台账" class="screenshot-img">
+            </div>
+          </div>
+
+          <div class="glass-card" style="gap:0.9rem;">
+            <span class="card-badge" style="background:rgba(16,185,129,0.2); color:#34D399;">台账管理战绩</span>
+            <div class="slide-grid-2" style="gap:0.8rem; flex:0;">
+              <div class="stat-box">
+                <div class="stat-number" style="color:#38BDF8; font-size:1.8rem;">¥2,673万</div>
+                <div class="stat-label">累计审查标的总额</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-number" style="color:#34D399; font-size:1.8rem;">¥393.5万</div>
+                <div class="stat-label">直接挽回潜在损失</div>
+              </div>
+            </div>
+            <div>
+              <h4 style="color:#fff; font-size:1rem; margin-bottom:0.3rem;">1. 多维穿透检索与调阅</h4>
+              <p class="desc-text" style="font-size:0.82rem;">支持按经办部门、合同金额、风险等级与签约主体多维过滤，秒级调出当时核验快照。</p>
+            </div>
+            <div>
+              <h4 style="color:#fff; font-size:1rem; margin-bottom:0.3rem;">2. 红头审查意见书一键导出</h4>
+              <p class="desc-text" style="font-size:0.82rem;">符合党政机关国企公文格式，完整附具比对明细、命中规章与领导批语，巡视审计调阅立等可取。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 15: 终身存证架构 -->
+      <section class="slide" id="slide-15">
+        <div class="slide-title-container">
+          <div class="slide-tag tag-green"><i data-lucide="shield" style="width:0.8rem;height:0.8rem;"></i> 四、合规防火墙</div>
+          <h2 class="slide-main-title">国企领导干部终身履职免责存证与全生命周期台账闭环架构</h2>
+          <p class="slide-subtitle">构建经得起国资委巡视、纪检监察巡察与任期审计历史检验的数字化合规防火墙。</p>
+        </div>
+        <div class="slide-grid-3">
+          <div class="glass-card" style="border-top:3px solid #0284C7;">
+            <span class="card-badge" style="background:rgba(2,132,199,0.2); color:#38BDF8;">存证支柱 1</span>
+            <h3 class="h3-title">毫秒级推演节点树</h3>
+            <p class="desc-text" style="margin-top:0.4rem;">
+              ● <strong>全时序痕迹入库</strong>：从报文接收、字段剥离、OCR 切片、算术比对到规章对标，毫秒级日志流水不可篡改；<br>
+              ● <strong>排除后置篡改伪造</strong>：时间戳与 Payload 报文签名锁定，证明审签行为真实发生在签批当下，彻底化解后置倒签嫌疑。
+            </p>
+          </div>
+
+          <div class="glass-card" style="border-top:3px solid #10B981;">
+            <span class="card-badge" style="background:rgba(16,185,129,0.2); color:#34D399;">存证支柱 2</span>
+            <h3 class="h3-title">SM2 国密防伪验签凭单</h3>
+            <p class="desc-text" style="margin-top:0.4rem;">
+              ● <strong>电子印章与公钥签名</strong>：加盖「合同审查专用」红色电子印章，生成国家标准 CFCA 认证哈希凭证；<br>
+              ● <strong>唯一防伪 ACK 回执单号</strong>：每笔审批赋予唯一凭证编码（如 <code>ACK-OA-20260905-202609-001</code>），反写原 OA 与本地双向存证。
+            </p>
+          </div>
+
+          <div class="glass-card" style="border-top:3px solid #8B5CF6;">
+            <span class="card-badge" style="background:rgba(139,92,246,0.2); color:#C4B5FD;">存证支柱 3</span>
+            <h3 class="h3-title">全局已办穿透台账与公文导出</h3>
+            <p class="desc-text" style="margin-top:0.4rem;">
+              ● <strong>任期审计与巡视“回头看”</strong>：无论调任离职还是若干年后审计抽查，领导干部可随时调阅当时完整举证链；<br>
+              ● <strong>红头《审查意见书》立等可取</strong>：一键打印导出符合国企公文规范的标准意见书，真正实现依法合规免责。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 16: 信创底座与投产落地 -->
+      <section class="slide" id="slide-16">
+        <div class="slide-title-container">
+          <div class="slide-tag tag-blue"><i data-lucide="cpu" style="width:0.8rem;height:0.8rem;"></i> 六、信创安全底座</div>
+          <h2 class="slide-main-title">系统投产落地与国产信创安全保障</h2>
+          <p class="slide-subtitle">完全符合央国企信创安全验收规范，纯局域网物理脱网运行，企业商业机密与物料单价绝对不出机房。</p>
+        </div>
+        <div class="slide-grid-4">
+          <div class="glass-card" style="text-align:center; align-items:center;">
+            <div style="width:3rem; height:3rem; border-radius:0.75rem; background:rgba(2,132,199,0.2); color:#38BDF8; display:grid; place-items:center; margin-bottom:0.7rem;">
+              <i data-lucide="server" style="width:1.5rem;height:1.5rem;"></i>
+            </div>
+            <h4 style="color:#fff; font-size:1rem; margin-bottom:0.3rem;">信创芯片与算力</h4>
+            <div style="font-size:0.8rem; color:#38BDF8; font-weight:bold; margin-bottom:0.4rem;">鲲鹏 920 ｜ 海光 7000 ｜ 飞腾</div>
+            <p class="desc-text" style="font-size:0.76rem;">原生兼容 ARM64 与 x86 国产指令集架构，自主可控稳定高效。</p>
+          </div>
+
+          <div class="glass-card" style="text-align:center; align-items:center;">
+            <div style="width:3rem; height:3rem; border-radius:0.75rem; background:rgba(16,185,129,0.2); color:#34D399; display:grid; place-items:center; margin-bottom:0.7rem;">
+              <i data-lucide="laptop" style="width:1.5rem;height:1.5rem;"></i>
+            </div>
+            <h4 style="color:#fff; font-size:1rem; margin-bottom:0.3rem;">国产操作系统</h4>
+            <div style="font-size:0.8rem; color:#34D399; font-weight:bold; margin-bottom:0.4rem;">统信 UOS ｜ 银河麒麟 V10</div>
+            <p class="desc-text" style="font-size:0.76rem;">完全适配国产 Linux 内核，通过公安部等保三级认证标准。</p>
+          </div>
+
+          <div class="glass-card" style="text-align:center; align-items:center;">
+            <div style="width:3rem; height:3rem; border-radius:0.75rem; background:rgba(245,158,11,0.2); color:#FBBF24; display:grid; place-items:center; margin-bottom:0.7rem;">
+              <i data-lucide="database" style="width:1.5rem;height:1.5rem;"></i>
+            </div>
+            <h4 style="color:#fff; font-size:1rem; margin-bottom:0.3rem;">国产数据库</h4>
+            <div style="font-size:0.8rem; color:#FBBF24; font-weight:bold; margin-bottom:0.4rem;">达梦 DM8 ｜ 人大金仓 Kingbase</div>
+            <p class="desc-text" style="font-size:0.76rem;">支持国密 SM4 全库透明加密与高可用主备集群容灾保障。</p>
+          </div>
+
+          <div class="glass-card" style="text-align:center; align-items:center;">
+            <div style="width:3rem; height:3rem; border-radius:0.75rem; background:rgba(139,92,246,0.2); color:#C4B5FD; display:grid; place-items:center; margin-bottom:0.7rem;">
+              <i data-lucide="shield-alert" style="width:1.5rem;height:1.5rem;"></i>
+            </div>
+            <h4 style="color:#fff; font-size:1rem; margin-bottom:0.3rem;">极速交付集成</h4>
+            <div style="font-size:0.8rem; color:#C4B5FD; font-weight:bold; margin-bottom:0.4rem;">3 工作日快速轻量部署</div>
+            <p class="desc-text" style="font-size:0.76rem;">标准 Webhook 接口 3 天完成 OA/ERP 联调；双机热备保障 7×24h 连续运行。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 17: 领导高频关切 5 问 5 答 (FAQ) -->
+      <section class="slide" id="slide-17">
+        <div class="slide-title-container">
+          <div class="slide-tag tag-amber"><i data-lucide="help-circle" style="width:0.8rem;height:0.8rem;"></i> 七、领导高频关切</div>
+          <h2 class="slide-main-title">国企领导高频关切 5 问 5 答 (FAQ)</h2>
+          <p class="slide-subtitle">彻底解答关于 OA 兼容、裁决权归属、商业保密、巡视举证与实施周期的所有顾虑。</p>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:0.75rem; overflow-y:auto; flex:1;">
+          <div class="faq-card">
+            <div class="faq-q"><span>Q1</span> 是否需要我们废弃或大改现有的泛微/致远 OA 系统？</div>
+            <div class="faq-a"><strong>A1：绝对不需要。</strong>系统采用纯“旁路协同”模式，不对原 OA/ERP 进行侵入式改造。经办人依然在原 OA 起草提交流程，仅在审批人审阅环节，系统提供极简穿透核验与辅助签批，审批意见一键自动回写原系统，原有投资与流转习惯完全保留。</div>
+          </div>
+
+          <div class="faq-card">
+            <div class="faq-q"><span>Q2</span> AI 给出建议后，审批决议到底是 AI 说了算还是领导说了算？</div>
+            <div class="faq-a"><strong>A2：完全由领导亲自审定行使裁决权。</strong>系统定位于“智能参谋助手”，AI 的核心作用是把大宗采购中繁复的数字乘积、发票税率差异以及所触碰的规章条款客观、清晰地整理呈报，并提供合规批语建议。最终的审签决议（准予通过 / 退回补正 / 坚决否决）全权由分管领导把关定夺，系统坚决不越位。</div>
+          </div>
+
+          <div class="faq-card">
+            <div class="faq-q"><span>Q3</span> 合同扫描件与涉及的商业机密，是否存在上传到公网被泄露的风险？</div>
+            <div class="faq-a"><strong>A3：绝无泄露风险。</strong>本系统支持物理隔离的纯离线局域网私有化部署。从 OCR 识别、向量检索到模型推理全部在企业本地机房完成，网络策略上完全阻断任何外网出口连接，确保大宗物资采购价格与供应商底牌绝对保密。</div>
+          </div>
+
+          <div class="faq-card">
+            <div class="faq-q"><span>Q4</span> 面对上级纪检监察、国资委巡视或日常审计时，系统如何提供证明？</div>
+            <div class="faq-a"><strong>A4：即查即验、全链举证。</strong>系统记录了 6 大时序节点日志流水，并为每一次审批赋予唯一防伪 ACK 回执单号与 SM2 国密哈希。审计人员可随时调阅全过程证据链，并支持一键导出标准红头《合同合规审查意见书》，彻底化解“凭据难溯源、条文对不上”的被动局面。</div>
+          </div>
+
+          <div class="faq-card">
+            <div class="faq-q"><span>Q5</span> 系统实施周期多久？能否按我们企业特殊的规章进行个性化定制？</div>
+            <div class="faq-a"><strong>A5：标准化轻量实施仅需 3 个工作日。</strong>系统采用模块化容器技术，可快速完成与泛微/致远 OA、ERP 的 Webhook 接口对接。企业私有规章（如特定投资限额、大宗商品行业质量红线）支持法务人员直接上传红头文件，系统半天内即可完成制度向量化冷启动。</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 18: 总结与 DEMO 引导 -->
+      <section class="slide" id="slide-18" style="justify-content:center; align-items:center; text-align:center; padding:0 6rem;">
+        <div style="max-width:55rem;">
+          <div class="slide-tag tag-green" style="margin-bottom:1.5rem; font-size:0.9rem; padding:0.4rem 1.2rem;">
+            <i data-lucide="check" style="width:1rem;height:1rem;"></i> 价值落地 · 护航合规
+          </div>
+          <h1 style="font-size:3.2rem; font-weight:900; line-height:1.2; margin-bottom:1.5rem;">
+            赋能国企领导干部从容定夺<br>
+            <span style="background:var(--grad-sky-blue); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">铸牢审批合规与终身履职免责坚固护栏</span>
+          </h1>
+          <p style="font-size:1.12rem; color:var(--text-secondary); line-height:1.7; margin-bottom:2.5rem; max-width:46rem; margin-left:auto; margin-right:auto;">
+            智核云现已在生产一线环境完成全流程真实业务数据拟真推演。
+            零侵入旁路协同、1分钟全要素穿透勾稽、国密防伪时序存证，即刻在线上手体验！
+          </p>
+          <div style="display:flex; justify-content:center; gap:1.5rem; align-items:center;">
+            <a href="../../fde/index.html" target="_blank" class="btn-ppt-primary" style="font-size:1.05rem; padding:0.9rem 2.2rem;">
+              <i data-lucide="play-circle" style="width:1.2rem;height:1.2rem;"></i> 立即进入【智核云在线 DEMO】
+            </a>
+            <a href="../../index.html#zhihe" class="btn-ppt-primary" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.15); box-shadow:none;">
+              <i data-lucide="home" style="width:1.1rem;height:1.1rem;"></i> 返回智增云官网首页
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- 底部控制栏 Footer -->
+    <footer id="footer">
+      <div class="footer-left">
+        <span class="slide-counter" id="slideCounter">01 / 18</span>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressBar"></div>
+        </div>
+      </div>
+      <div class="ctrl-btns">
+        <button class="btn-ctrl" onclick="prevSlide()" title="上一页 (←)">
+          <i data-lucide="chevron-left" style="width:1.2rem;height:1.2rem;"></i>
+        </button>
+        <button class="btn-ctrl" onclick="nextSlide()" title="下一页 (→ / 空格)">
+          <i data-lucide="chevron-right" style="width:1.2rem;height:1.2rem;"></i>
+        </button>
+        <button class="btn-ctrl" onclick="toggleFullScreen()" title="全屏演示 (F11)">
+          <i data-lucide="maximize-2" style="width:1.15rem;height:1.15rem;"></i>
+        </button>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<!-- 幻灯片目录抽屉 -->
+<aside class="index-drawer" id="indexDrawer">
+  <div class="drawer-header">
+    <span class="drawer-title">幻灯片大纲目录</span>
+    <button class="btn-close-drawer" onclick="toggleDrawer()">
+      <i data-lucide="x" style="width:1.2rem;height:1.2rem;"></i>
+    </button>
+  </div>
+  <ul class="drawer-list" id="drawerList">
+    <!-- JS 动态生成 -->
+  </ul>
+</aside>
+
+<script>
+  try {
+    if (typeof lucide !== 'undefined' && lucide.createIcons) {
+      lucide.createIcons();
+    }
+  } catch (e) {
+    console.warn('Lucide icon init warning:', e);
+  }
+
+  const totalSlides = 18;
+  let currentSlide = 1;
+
+  const titles = [
+    "封面：智核云 · 业务全景与核心价值",
+    "一、国企高管审批 4 大核心痛点与挑战",
+    "智核云破局之道：四大核心管理效益",
+    "二、总体业务协同微架构（零侵入旁路）",
+    "三、首屏双栏拟真原件舱与要素网格",
+    "5 阶段智能初审与穿透勾稽流水线 (~60s)",
+    "实机核验①：协同系统推送待办审批池",
+    "实机核验②：双栏拟真原件与 10 要素网格",
+    "实机核验③：案例一 · 算术交叉勾稽排查",
+    "实机核验④：审批意见反馈与 SM2 验签凭单",
+    "实机核验⑤：案例二 · 食品质量底线冲突拦截",
+    "实机核验⑥：标准化时序节点树审计日志",
+    "实机核验⑦：内控合规资产 · 现行规章知识库",
+    "实机核验⑧：国企合同签批审计终身台账",
+    "四、国企领导终身履职免责存证闭环体系",
+    "六、系统投产落地与国产信创安全底座",
+    "七、国企领导高频关切 5 问 5 答 (FAQ)",
+    "价值总结与在线 DEMO 体验引导"
+  ];
+
+  // 构建抽屉列表
+  const drawerList = document.getElementById('drawerList');
+  titles.forEach((t, i) => {
+    const li = document.createElement('li');
+    li.className = `drawer-item ${i === 0 ? 'active' : ''}`;
+    li.innerHTML = `<span style="font-weight:bold; width:1.5rem; opacity:0.6;">${String(i+1).padStart(2,'0')}</span> <span>${t}</span>`;
+    li.onclick = () => { goToSlide(i + 1); toggleDrawer(); };
+    drawerList.appendChild(li);
+  });
+
+  // 支持 URL 参数和 Hash 初始化：如 ?slide=7 或 #slide-7
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const paramSlide = urlParams.get('slide');
+    if (paramSlide) {
+      const s = parseInt(paramSlide, 10);
+      if (s >= 1 && s <= totalSlides) currentSlide = s;
+    } else if (window.location.hash) {
+      const match = window.location.hash.match(/\d+/);
+      if (match) {
+        const s = parseInt(match[0], 10);
+        if (s >= 1 && s <= totalSlides) currentSlide = s;
+      }
+    }
+  } catch (e) {}
+
+  updateSlideView();
+
+  function updateSlideView() {
+    for (let i = 1; i <= totalSlides; i++) {
+      const el = document.getElementById(`slide-${i}`);
+      if (el) {
+        el.classList.remove('active', 'prev');
+        if (i === currentSlide) el.classList.add('active');
+        else if (i < currentSlide) el.classList.add('prev');
+      }
+    }
+    document.getElementById('slideCounter').innerText = `${String(currentSlide).padStart(2,'0')} / ${String(totalSlides).padStart(2,'0')}`;
+    document.getElementById('progressBar').style.width = `${(currentSlide / totalSlides) * 100}%`;
+
+    // 更新大纲 active
+    const items = drawerList.querySelectorAll('.drawer-item');
+    items.forEach((item, idx) => {
+      if (idx + 1 === currentSlide) item.classList.add('active');
+      else item.classList.remove('active');
+    });
+  }
+
+  function nextSlide() {
+    if (currentSlide < totalSlides) {
+      currentSlide++;
+      updateSlideView();
+    }
+  }
+
+  function prevSlide() {
+    if (currentSlide > 1) {
+      currentSlide--;
+      updateSlideView();
+    }
+  }
+
+  function goToSlide(num) {
+    if (num >= 1 && num <= totalSlides) {
+      currentSlide = num;
+      updateSlideView();
+    }
+  }
+
+  function toggleDrawer() {
+    document.getElementById('indexDrawer').classList.toggle('open');
+  }
+
+  function toggleFullScreen() {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(() => {});
+    } else {
+      if (document.exitFullscreen) document.exitFullscreen();
+    }
+  }
+
+  // 键盘快捷键支持
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+      nextSlide();
+    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp' || e.key === 'Backspace') {
+      prevSlide();
+    } else if (e.key === 'Escape') {
+      document.getElementById('indexDrawer').classList.remove('open');
+    }
+  });
+
+  // 移动端触摸滑动手势支持
+  let touchStartX = 0, touchEndX = 0;
+  document.addEventListener('touchstart', e => {
+    if (e.touches && e.touches.length > 0) touchStartX = e.touches[0].screenX;
+  }, { passive: true });
+  document.addEventListener('touchend', e => {
+    if (e.changedTouches && e.changedTouches.length > 0) {
+      touchEndX = e.changedTouches[0].screenX;
+      if (touchEndX - touchStartX < -40) nextSlide();
+      else if (touchEndX - touchStartX > 40) prevSlide();
+    }
+  }, { passive: true });
+
+</script>
+</body>
+</html>

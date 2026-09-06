@@ -1,0 +1,7 @@
+2:I[9107,[],"ClientPageRoot"]
+3:I[7277,["931","static/chunks/app/page-29d468237bc25e91.js"],"default",1]
+4:I[4707,[],""]
+5:I[6423,[],""]
+0:["L9bh4r4puR7QOMvmsFZ7q",[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],["",{"children":["__PAGE__",{},[["$L1",["$","$L2",null,{"props":{"params":{},"searchParams":{}},"Component":"$3"}],null],null],null]},[[[["$","link","0",{"rel":"stylesheet","href":"/fde/_next/static/css/bbb9e6fc52e6833d.css","precedence":"next","crossOrigin":"$undefined"}]],["$","html",null,{"lang":"zh-CN","children":["$","body",null,{"children":["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","div",null,{"style":{"padding":"40px","textAlign":"center","fontFamily":"sans-serif"},"children":[["$","h2",null,{"children":"页面未找到 (404)"}],["$","p",null,{"style":{"color":"#64748b"},"children":"您请求的页面不存在或已被移除。"}],["$","a",null,{"href":"/","style":{"color":"#0284c7"},"children":"返回首页"}]]}],"notFoundStyles":[]}]}]}]],null],null],["$L6",null]]]]
+6:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"FDE 国企智能审批提效平台 · 中润农垦演示中心"}],["$","meta","3",{"name":"description","content":"面向国企食品加工厂业务场景的 AI 合规穿透与审批风控协同演示系统"}]]
+1:null
