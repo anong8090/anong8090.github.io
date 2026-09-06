@@ -607,7 +607,8 @@
           <h2 class="slide-main-title">5 阶段智能初审与穿透勾稽流水线（~60秒闭环）</h2>
           <p class="slide-subtitle">从单据接收、OCR 版面切片、确定性算术碰撞到制度向量对标与终审决策，全时序实测 71.9 秒闭环。</p>
         </div>
-        <div class="slide-grid-4" style="grid-template-columns:repeat(5, 1fr); gap:1rem;">
+        <!-- 上：5张阶段卡片 -->
+        <div style="display:grid; grid-template-columns:repeat(5, 1fr); gap:1rem; flex-shrink:0; margin-bottom:1rem;">
           <div class="glass-card">
             <div style="font-size:1.8rem; font-weight:900; color:#38BDF8; margin-bottom:0.2rem;">01</div>
             <div style="font-size:0.95rem; font-weight:bold; color:#fff;">接入与要素提取</div>
@@ -642,6 +643,27 @@
             <div style="font-size:0.75rem; color:#34D399; font-weight:bold; margin:0.3rem 0;">时效：~9.8s</div>
             <p class="desc-text" style="font-size:0.78rem;">领导亲手裁决：准予/补正/否决，规范批语原路回写泛微 OA，生成 SM2 国密防伪电子凭单入库不可篡改。</p>
           </div>
+        </div>
+
+        <!-- 下：ENGINE TRACE 时序推演条 -->
+        <div style="background:rgba(7,10,19,0.95); border:1px solid rgba(56,189,248,0.18); border-radius:0.75rem; padding:1rem 1.4rem; flex:1; min-height:0; overflow:hidden; font-family:monospace; display:flex; flex-direction:column; gap:0.4rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem; flex-shrink:0;">
+            <div style="display:flex; align-items:center; gap:0.6rem;">
+              <span style="width:0.55rem; height:0.55rem; border-radius:50%; background:#10B981; display:inline-block; box-shadow:0 0 6px #10B981;"></span>
+              <span style="font-size:0.78rem; font-weight:700; color:#38BDF8; letter-spacing:0.05em;">ENGINE TRACE STREAM · 实时全时序多模态分析日志</span>
+            </div>
+            <span style="font-size:0.72rem; color:#64748b; font-weight:600;">SM3 HASH ACCUMULATOR ACTIVE &nbsp; ■ 71.9s</span>
+          </div>
+          <div style="font-size:0.78rem; color:#10B981; opacity:0.9;">[00:00] <span style="color:#94a3b8;">OA Webhook 接收报文，SM3 验签通过，单据初始化</span></div>
+          <div style="font-size:0.78rem; color:#38BDF8; opacity:0.9;">[00:10] <span style="color:#94a3b8;">提炼 10 项核心业务要素，剔除 24 项行政杂质字段</span></div>
+          <div style="font-size:0.78rem; color:#38BDF8; opacity:0.9;">[00:24] <span style="color:#94a3b8;">多页 OCR 切片完成：货物清单 3 页 · 合同正文 1 页</span></div>
+          <div style="font-size:0.78rem; color:#FBBF24; opacity:0.9;">[00:37] <span style="color:#94a3b8;">启动全要素双向勾稽引擎 (Cross-Reconciliation)…</span></div>
+          <div style="font-size:0.78rem; color:#FBBF24; opacity:0.9;">[00:40] <span style="color:#ef4444; font-weight:bold;">⚠ 勾稽异常 [1/5]：申报总额 ¥1,200,000 vs 附件累计 ¥1,150,000 — 差额 ¥50,000 标红</span></div>
+          <div style="font-size:0.78rem; color:#FBBF24; opacity:0.9;">[00:43] <span style="color:#ef4444; font-weight:bold;">⚠ 勾稽异常 [2/5]：税率申报 13% vs 附件 9% — 增值税率冲突</span></div>
+          <div style="font-size:0.78rem; color:#C4B5FD; opacity:0.9;">[00:47] <span style="color:#94a3b8;">企业规章向量 RAG 碰撞 — 命中《大额资金管理办法》第 14 条</span></div>
+          <div style="font-size:0.78rem; color:#ef4444; opacity:0.9;">[00:52] <span style="color:#ef4444; font-weight:bold;">⛔ 硬拦截 [三重一大]：超 100 万元大额资金缺失党委会前置审议纪要文号</span></div>
+          <div style="font-size:0.78rem; color:#34D399; opacity:0.9;">[01:02] <span style="color:#94a3b8;">综合研判完成 — 处置建议：要素存疑，退回大宗采购部补正</span></div>
+          <div style="font-size:0.78rem; color:#34D399; opacity:0.9;">[01:11] <span style="color:#94a3b8;">领导采纳退回建议 → SM2 验签凭单生成 → Webhook 回写 OA 完成 ✓</span></div>
         </div>
       </section>
 
@@ -1135,9 +1157,9 @@
             <div style="width:3rem; height:3rem; border-radius:0.75rem; background:rgba(139,92,246,0.2); color:#C4B5FD; display:grid; place-items:center; margin-bottom:0.7rem;">
               <i data-lucide="shield-alert" style="width:1.5rem;height:1.5rem;"></i>
             </div>
-            <h4 style="color:#fff; font-size:1rem; margin-bottom:0.3rem;">极速交付集成</h4>
-            <div style="font-size:0.8rem; color:#C4B5FD; font-weight:bold; margin-bottom:0.4rem;">3 工作日快速轻量部署</div>
-            <p class="desc-text" style="font-size:0.76rem;">标准 Webhook 接口 3 天完成 OA/ERP 联调；双机热备保障 7×24h 连续运行。</p>
+            <h4 style="color:#fff; font-size:1rem; margin-bottom:0.3rem;">专业实施交付</h4>
+            <div style="font-size:0.8rem; color:#C4B5FD; font-weight:bold; margin-bottom:0.4rem;">约 1 个月定制化实施部署</div>
+            <p class="desc-text" style="font-size:0.76rem;">含企业规章知识库整理入库、本地大模型适配调优、OA/ERP Webhook 对接联调与验收；双机热备保障 7×24h 连续运行。</p>
           </div>
         </div>
       </section>
@@ -1172,7 +1194,7 @@
 
           <div class="faq-card">
             <div class="faq-q"><span>Q5</span> 系统实施周期多久？能否按我们企业特殊的规章进行个性化定制？</div>
-            <div class="faq-a"><strong>A5：标准化轻量实施仅需 3 个工作日。</strong>系统采用模块化容器技术，可快速完成与泛微/致远 OA、ERP 的 Webhook 接口对接。企业私有规章（如特定投资限额、大宗商品行业质量红线）支持法务人员直接上传红头文件，系统半天内即可完成制度向量化冷启动。</div>
+            <div class="faq-a"><strong>A5：完整实施周期约 1 个月。</strong>其中包含：企业现行规章制度的梳理与向量知识库整理（约 2 周）、本地大模型适配调优与测试（约 1 周）、OA/ERP Webhook 接口对接联调与上线验收（约 1 周）。企业私有规章（如特定投资限额、行业质量红线）由法务人员上传红头文件后向量化入库，支持随时动态追加更新。</div>
           </div>
         </div>
       </section>
