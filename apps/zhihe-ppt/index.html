@@ -645,25 +645,18 @@
           </div>
         </div>
 
-        <!-- 下：ENGINE TRACE 时序推演条 -->
-        <div style="background:rgba(7,10,19,0.95); border:1px solid rgba(56,189,248,0.18); border-radius:0.75rem; padding:1rem 1.4rem; flex:1; min-height:0; overflow:hidden; font-family:monospace; display:flex; flex-direction:column; gap:0.4rem;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem; flex-shrink:0;">
-            <div style="display:flex; align-items:center; gap:0.6rem;">
-              <span style="width:0.55rem; height:0.55rem; border-radius:50%; background:#10B981; display:inline-block; box-shadow:0 0 6px #10B981;"></span>
-              <span style="font-size:0.78rem; font-weight:700; color:#38BDF8; letter-spacing:0.05em;">ENGINE TRACE STREAM · 实时全时序多模态分析日志</span>
+        <!-- 下：实机截图 FDE Engine 4.0 多模态深度合规审查管道 -->
+        <div class="screenshot-frame">
+          <div class="mockup-top-bar">
+            <div class="window-dots">
+              <span class="dot dot-red"></span><span class="dot dot-amber"></span><span class="dot dot-green"></span>
+              <span class="window-title">FDE ENGINE 4.0 · 国资全要素多模态深度合规审查管道</span>
             </div>
-            <span style="font-size:0.72rem; color:#64748b; font-weight:600;">SM3 HASH ACCUMULATOR ACTIVE &nbsp; ■ 71.9s</span>
+            <span style="font-size:0.72rem; color:#FBBF24; font-weight:600;">实机截图 09</span>
           </div>
-          <div style="font-size:0.78rem; color:#10B981; opacity:0.9;">[00:00] <span style="color:#94a3b8;">OA Webhook 接收报文，SM3 验签通过，单据初始化</span></div>
-          <div style="font-size:0.78rem; color:#38BDF8; opacity:0.9;">[00:10] <span style="color:#94a3b8;">提炼 10 项核心业务要素，剔除 24 项行政杂质字段</span></div>
-          <div style="font-size:0.78rem; color:#38BDF8; opacity:0.9;">[00:24] <span style="color:#94a3b8;">多页 OCR 切片完成：货物清单 3 页 · 合同正文 1 页</span></div>
-          <div style="font-size:0.78rem; color:#FBBF24; opacity:0.9;">[00:37] <span style="color:#94a3b8;">启动全要素双向勾稽引擎 (Cross-Reconciliation)…</span></div>
-          <div style="font-size:0.78rem; color:#FBBF24; opacity:0.9;">[00:40] <span style="color:#ef4444; font-weight:bold;">⚠ 勾稽异常 [1/5]：申报总额 ¥1,200,000 vs 附件累计 ¥1,150,000 — 差额 ¥50,000 标红</span></div>
-          <div style="font-size:0.78rem; color:#FBBF24; opacity:0.9;">[00:43] <span style="color:#ef4444; font-weight:bold;">⚠ 勾稽异常 [2/5]：税率申报 13% vs 附件 9% — 增值税率冲突</span></div>
-          <div style="font-size:0.78rem; color:#C4B5FD; opacity:0.9;">[00:47] <span style="color:#94a3b8;">企业规章向量 RAG 碰撞 — 命中《大额资金管理办法》第 14 条</span></div>
-          <div style="font-size:0.78rem; color:#ef4444; opacity:0.9;">[00:52] <span style="color:#ef4444; font-weight:bold;">⛔ 硬拦截 [三重一大]：超 100 万元大额资金缺失党委会前置审议纪要文号</span></div>
-          <div style="font-size:0.78rem; color:#34D399; opacity:0.9;">[01:02] <span style="color:#94a3b8;">综合研判完成 — 处置建议：要素存疑，退回大宗采购部补正</span></div>
-          <div style="font-size:0.78rem; color:#34D399; opacity:0.9;">[01:11] <span style="color:#94a3b8;">领导采纳退回建议 → SM2 验签凭单生成 → Webhook 回写 OA 完成 ✓</span></div>
+          <div class="screenshot-view">
+            <img src="screenshots/09_engine_pipeline_trace.png" alt="FDE Engine 4.0 多模态审查管道" class="screenshot-img">
+          </div>
         </div>
       </section>
 
