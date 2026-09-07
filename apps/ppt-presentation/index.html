@@ -11,7 +11,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   
   <!-- Icons -->
-  <script src="https://unpkg.com/lucide@latest">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
     // ===== 📱 移动端滑动手势支持 (Mobile Touch Swipe Support) =====
     let touchStartX = 0;
     let touchStartY = 0;
@@ -433,9 +434,9 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      color: #A5F3FC;
-      background: rgba(6, 182, 212, 0.1);
-      border: 1px solid rgba(6, 182, 212, 0.22);
+      color: #0284C7;
+      background: #F0F9FF;
+      border: 1px solid #BAE6FD;
     }
     .mat-name { font-weight: 700; font-size: 1.15rem; flex-grow: 1; color: var(--text-primary); }
     .mat-trend { font-weight: 700; font-size: 1.0rem; font-family: 'Outfit'; }
@@ -481,21 +482,22 @@
     /* Slide 11: 防围标雷达大盘 */
     .collusion-radar-screen {
       height: 18rem;
-      background: #090D16;
+      background: #F8FAFC;
       border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid #E2E8F0;
       position: relative;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 1rem;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
     }
     .radar-sweep {
       position: absolute;
       width: 100%;
       height: 100%;
-      background: conic-gradient(from 0deg at 50% 50%, rgba(244, 63, 94, 0.15) 0deg, transparent 90deg, transparent 360deg);
+      background: conic-gradient(from 0deg at 50% 50%, rgba(225, 29, 72, 0.08) 0deg, transparent 90deg, transparent 360deg);
       border-radius: 50%;
       animation: sweep 3s linear infinite;
       pointer-events: none;
@@ -514,26 +516,28 @@
       justify-content: center;
     }
     .radar-log-item {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
       border-radius: 12px;
       padding: 1rem 1.25rem;
       font-size: 0.9rem;
       line-height: 1.5;
       display: block;
+      color: var(--text-primary);
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
     }
     .radar-log-item strong {
       font-weight: 700;
     }
     .radar-log-item.danger {
-      border-color: rgba(244, 63, 94, 0.35);
-      background: rgba(244, 63, 94, 0.12);
-      color: #FDA4AF;
+      border-color: #FECACA;
+      background: #FEF2F2;
+      color: #991B1B;
     }
     .radar-log-item.warning {
-      border-color: rgba(245, 158, 11, 0.35);
-      background: rgba(245, 158, 11, 0.12);
-      color: #FDE047;
+      border-color: #FDE68A;
+      background: #FFFBEB;
+      color: #92400E;
     }
 
     /* Slide 12: AI 智能小助理对话窗口 */
@@ -541,16 +545,16 @@
       display: flex;
       flex-direction: column;
       height: 100%;
-      background: #090D16;
+      background: #FFFFFF;
       border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid #E2E8F0;
       overflow: hidden;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.55);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
     }
     .chat-header {
-      background: #0D1321;
+      background: #F8FAFC;
       padding: 14px 20px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid #E2E8F0;
       display: flex;
       align-items: center;
       gap: 10px;
@@ -566,7 +570,7 @@
       color: white;
       font-weight: 900;
       font-size: 0.85rem;
-      box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
     }
     .chat-body {
       flex-grow: 1;
@@ -575,7 +579,7 @@
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      background: #090D16;
+      background: #F8FAFC;
     }
     .chat-bubble {
       max-width: 85%;
@@ -585,18 +589,20 @@
       line-height: 1.55;
     }
     .chat-bubble-user {
-      background: rgba(59, 130, 246, 0.15);
-      color: var(--text-white);
+      background: #1D4ED8;
+      color: #FFFFFF;
       align-self: flex-end;
       border-bottom-right-radius: 2px;
-      border: 1px solid rgba(59, 130, 246, 0.35);
+      border: 1px solid #1E40AF;
+      box-shadow: 0 2px 8px rgba(29, 78, 216, 0.2);
     }
     .chat-bubble-ai {
-      background: #F1F5F9;
+      background: #FFFFFF;
       border: 1px solid #E2E8F0;
       color: var(--text-primary);
       align-self: flex-start;
       border-top-left-radius: 2px;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
     }
     .question-chips-container {
       display: flex;
@@ -605,9 +611,9 @@
       margin-top: 12px;
     }
     .chip-question {
-      background: rgba(6, 182, 212, 0.08);
-      border: 1px solid rgba(6, 182, 212, 0.25);
-      color: var(--color-cyan);
+      background: #F0F9FF;
+      border: 1px solid #BAE6FD;
+      color: #0284C7;
       padding: 8px 18px;
       border-radius: 99px;
       font-size: 0.85rem;
@@ -616,8 +622,8 @@
       transition: all 0.2s ease;
     }
     .chip-question:hover {
-      background: rgba(6, 182, 212, 0.18);
-      border-color: var(--color-cyan);
+      background: #E0F2FE;
+      border-color: #0284C7;
       transform: translateY(-1px);
     }
 
@@ -689,7 +695,7 @@
         overflow-y: auto !important;
         height: auto !important;
         min-height: 100vh !important;
-        background-color: #020408 !important;
+        background-color: #F1F5F9 !important;
       }
       #stage-wrapper, #presentation-stage {
         height: auto !important;
@@ -698,6 +704,7 @@
         overflow-y: visible !important;
         position: relative !important;
         display: block !important;
+        background-color: #F1F5F9 !important;
       }
 
       /* 顶部 Sticky Header 栏 */
@@ -707,12 +714,14 @@
         height: 52px !important;
         padding: 0 1.2rem !important;
         z-index: 1000 !important;
-        background: rgba(7, 10, 19, 0.95) !important;
+        background: rgba(255, 255, 255, 0.96) !important;
         backdrop-filter: blur(16px) !important;
-        border-bottom: 1px solid rgba(148, 163, 184, 0.2) !important;
+        border-bottom: 1px solid #E2E8F0 !important;
+        box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04) !important;
       }
       .brand-title {
         font-size: 1.1rem !important;
+        color: #0F172A !important;
       }
       .system-badge {
         display: none !important;
@@ -757,9 +766,9 @@
         font-size: 0.75rem;
         font-weight: 900;
         letter-spacing: 1.2px;
-        color: #38BDF8;
-        background: rgba(56, 189, 248, 0.14);
-        border: 1px solid rgba(56, 189, 248, 0.35);
+        color: #0284C7;
+        background: #F0F9FF;
+        border: 1px solid #BAE6FD;
         padding: 4px 12px;
         border-radius: 99px;
         margin-bottom: 1rem;
@@ -773,13 +782,13 @@
       .slide-main-title {
         font-size: 1.5rem !important;
         line-height: 1.3 !important;
-        color: #FFFFFF !important;
+        color: #0F172A !important;
       }
       .slide-subtitle {
         font-size: 0.95rem !important;
         line-height: 1.5 !important;
         margin-top: 0.35rem !important;
-        color: #CBD5E1 !important;
+        color: #475569 !important;
       }
 
       /* 所有网格排布单列化 */
@@ -791,21 +800,23 @@
         min-height: auto !important;
       }
 
-      /* 暗黑卡片细节优化 */
+      /* 卡片细节优化 */
       .glass-card {
         padding: 1.25rem !important;
         border-radius: 14px !important;
-        background: rgba(30, 41, 59, 0.65) !important;
+        background: #F8FAFC !important;
+        border: 1px solid #E2E8F0 !important;
+        box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04) !important;
       }
       .card-title {
         font-size: 1.15rem !important;
         margin-bottom: 0.4rem !important;
-        color: #FFFFFF !important;
+        color: #0F172A !important;
       }
       .card-text {
         font-size: 0.92rem !important;
         line-height: 1.6 !important;
-        color: #E2E8F0 !important;
+        color: #475569 !important;
       }
       .neon-list-item {
         font-size: 0.95rem !important;
@@ -864,7 +875,7 @@
         overflow: hidden !important;
         border-radius: 12px !important;
         margin-top: 0.75rem !important;
-        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        border: 1px solid #E2E8F0 !important;
       }
       .screenshot-frame img, .screenshot-frame-large img {
         width: 100% !important;
@@ -938,8 +949,8 @@
                 <div style="font-size: 0.95rem; color: var(--text-secondary); margin-top: 0.5rem; line-height: 1.5;">比价出表时间<br><strong style="color:var(--text-white)">从此不用加班套 Excel</strong></div>
               </div>
               <div class="glass-card" style="padding: 1.75rem; text-align: center;">
-                <div style="font-size: 2.5rem; font-weight: 900; color: var(--color-violet); font-family: Outfit;">100%</div>
-                <div style="font-size: 0.95rem; color: var(--text-secondary); margin-top: 0.5rem; line-height: 1.5;">历史价格全入库<br><strong style="color:var(--text-white)">采购老手离职经验不丢</strong></div>
+                <div style="font-size: 2.5rem; font-weight: 900; color: var(--color-violet); font-family: Outfit;">全覆盖</div>
+                <div style="font-size: 0.95rem; color: var(--text-secondary); margin-top: 0.5rem; line-height: 1.5;">历史价格结构化<br><strong style="color:var(--text-white)">采购老手离职经验不丢</strong></div>
               </div>
             </div>
 
@@ -966,40 +977,40 @@
                   <span>采购部的四大头疼事</span>
                 </h3>
                 <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                  <div class="neon-item" style="padding: 12px 16px; border-color: rgba(254, 202, 202, 0.15); display: flex; align-items: flex-start; gap: 10px;">
+                  <div class="neon-item" style="padding: 12px 16px; border-color: rgba(254, 202, 202, 0.4); display: flex; align-items: flex-start; gap: 10px;">
                     <span style="font-size: 1.1rem; flex-shrink: 0; margin-top: 2px;">🛑</span>
                     <div style="display: flex; flex-direction: column; gap: 4px;">
-                      <div style="font-size: 1.05rem; font-weight: 800; color: #FECDD3;">翻不到去年的价格</div>
+                      <div style="font-size: 1.05rem; font-weight: 800; color: #0F172A;">翻不到去年的价格</div>
                       <div style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.45;">签过的合同锁在柜子里，去年买的钢材多少钱一吨？没人记得。</div>
                     </div>
                   </div>
 
-                  <div class="neon-item" style="padding: 12px 16px; border-color: rgba(254, 202, 202, 0.15); display: flex; align-items: flex-start; gap: 10px;">
+                  <div class="neon-item" style="padding: 12px 16px; border-color: rgba(254, 202, 202, 0.4); display: flex; align-items: flex-start; gap: 10px;">
                     <span style="font-size: 1.1rem; flex-shrink: 0; margin-top: 2px;">🛑</span>
                     <div style="display: flex; flex-direction: column; gap: 4px;">
-                      <div style="font-size: 1.05rem; font-weight: 800; color: #FECDD3;">供应商报价没法直接比</div>
+                      <div style="font-size: 1.05rem; font-weight: 800; color: #0F172A;">供应商报价没法直接比</div>
                       <div style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.45;">名称规格繁乱，甲叫"镀锌管"乙叫"圆管"，Excel里对不上。</div>
                     </div>
                   </div>
 
-                  <div class="neon-item" style="padding: 12px 16px; border-color: rgba(254, 202, 202, 0.15); display: flex; align-items: flex-start; gap: 10px;">
+                  <div class="neon-item" style="padding: 12px 16px; border-color: rgba(254, 202, 202, 0.4); display: flex; align-items: flex-start; gap: 10px;">
                     <span style="font-size: 1.1rem; flex-shrink: 0; margin-top: 2px;">🛑</span>
                     <div style="display: flex; flex-direction: column; gap: 4px;">
-                      <div style="font-size: 1.05rem; font-weight: 800; color: #FECDD3;">比价做三天还出错</div>
+                      <div style="font-size: 1.05rem; font-weight: 800; color: #0F172A;">比价做三天还出错</div>
                       <div style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.45;">手动在 Excel 里拉平对准，折算含税运费，做完三天还算错。</div>
                     </div>
                   </div>
 
-                  <div class="neon-item" style="padding: 12px 16px; border-color: rgba(254, 202, 202, 0.15); display: flex; align-items: flex-start; gap: 10px;">
+                  <div class="neon-item" style="padding: 12px 16px; border-color: rgba(254, 202, 202, 0.4); display: flex; align-items: flex-start; gap: 10px;">
                     <span style="font-size: 1.1rem; flex-shrink: 0; margin-top: 2px;">🛑</span>
                     <div style="display: flex; flex-direction: column; gap: 4px;">
-                      <div style="font-size: 1.05rem; font-weight: 800; color: #FECDD3;">围标串标查不出来</div>
+                      <div style="font-size: 1.05rem; font-weight: 800; color: #0F172A;">围标串标查不出来</div>
                       <div style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.45;">三家供应商报价差 3%，像商量好的，但你没有审计证据。</div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div style="background: rgba(244, 63, 94, 0.12); padding: 14px 20px; border-radius: 12px; color: #FDA4AF; font-size: 0.95rem; font-weight: 700; margin-top: 1rem;">
+              <div style="background: #FEF2F2; border: 1px solid #FECACA; padding: 14px 20px; border-radius: 12px; color: #991B1B; font-size: 0.95rem; font-weight: 700; margin-top: 1rem;">
                 ⚠️ 后果：每年白白多花 5%~12% 的采购资金，审计时说不清楚
               </div>
             </div>
@@ -1012,40 +1023,40 @@
                   <span>智采云帮你解决</span>
                 </h3>
                 <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                  <div class="neon-item" style="padding: 12px 16px; border-color: rgba(167, 243, 208, 0.15); display: flex; align-items: flex-start; gap: 10px;">
+                  <div class="neon-item" style="padding: 12px 16px; border-color: rgba(167, 243, 208, 0.4); display: flex; align-items: flex-start; gap: 10px;">
                     <span style="font-size: 1.1rem; flex-shrink: 0; margin-top: 2px;">✅</span>
                     <div style="display: flex; flex-direction: column; gap: 4px;">
-                      <div style="font-size: 1.05rem; font-weight: 800; color: #A7F3D0;">合同拖进来，价格自动入库</div>
+                      <div style="font-size: 1.05rem; font-weight: 800; color: #0F172A;">合同拖进来，价格自动入库</div>
                       <div style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.45;">AI 分钟级自动提取全要素，批量建立价格数据库。</div>
                     </div>
                   </div>
 
-                  <div class="neon-item" style="padding: 12px 16px; border-color: rgba(167, 243, 208, 0.15); display: flex; align-items: flex-start; gap: 10px;">
+                  <div class="neon-item" style="padding: 12px 16px; border-color: rgba(167, 243, 208, 0.4); display: flex; align-items: flex-start; gap: 10px;">
                     <span style="font-size: 1.1rem; flex-shrink: 0; margin-top: 2px;">✅</span>
                     <div style="display: flex; flex-direction: column; gap: 4px;">
-                      <div style="font-size: 1.05rem; font-weight: 800; color: #A7F3D0;">不管叫什么名字，系统都能认出来</div>
+                      <div style="font-size: 1.05rem; font-weight: 800; color: #0F172A;">不管叫什么名字，系统都能认出来</div>
                       <div style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.45;">标准物料智能库映射，解决非标名字混乱。</div>
                     </div>
                   </div>
 
-                  <div class="neon-item" style="padding: 12px 16px; border-color: rgba(167, 243, 208, 0.15); display: flex; align-items: flex-start; gap: 10px;">
+                  <div class="neon-item" style="padding: 12px 16px; border-color: rgba(167, 243, 208, 0.4); display: flex; align-items: flex-start; gap: 10px;">
                     <span style="font-size: 1.1rem; flex-shrink: 0; margin-top: 2px;">✅</span>
                     <div style="display: flex; flex-direction: column; gap: 4px;">
-                      <div style="font-size: 1.05rem; font-weight: 800; color: #A7F3D0;">报价丢进来，3分钟出比价表</div>
+                      <div style="font-size: 1.05rem; font-weight: 800; color: #0F172A;">报价丢进来，3分钟出比价表</div>
                       <div style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.45;">一键对齐、拉平税率发票，全场最低价高亮。</div>
                     </div>
                   </div>
 
-                  <div class="neon-item" style="padding: 12px 16px; border-color: rgba(167, 243, 208, 0.15); display: flex; align-items: flex-start; gap: 10px;">
+                  <div class="neon-item" style="padding: 12px 16px; border-color: rgba(167, 243, 208, 0.4); display: flex; align-items: flex-start; gap: 10px;">
                     <span style="font-size: 1.1rem; flex-shrink: 0; margin-top: 2px;">✅</span>
                     <div style="display: flex; flex-direction: column; gap: 4px;">
-                      <div style="font-size: 1.05rem; font-weight: 800; color: #A7F3D0;">超过历史价格自动亮红灯</div>
+                      <div style="font-size: 1.05rem; font-weight: 800; color: #0F172A;">超过历史价格自动亮红灯</div>
                       <div style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.45;">自动横向与纵向大库水位比对，阻断预算溢出。</div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div style="background: rgba(16, 185, 129, 0.12); padding: 14px 20px; border-radius: 12px; color: #6EE7B7; font-size: 0.95rem; font-weight: 700; margin-top: 1rem;">
+              <div style="background: #ECFDF5; border: 1px solid #A7F3D0; padding: 14px 20px; border-radius: 12px; color: #065F46; font-size: 0.95rem; font-weight: 700; margin-top: 1rem;">
                 🎉 结果：采购成本直降 2%~5%，比价时间缩短 80%+
               </div>
             </div>
@@ -1071,7 +1082,7 @@
                 </div>
                 
                 <div style="display: flex; flex-direction: column; gap: 0.6rem; flex: 1; justify-content: center;">
-                  <div style="background: rgba(15,23,42,0.7); border: 1px solid var(--border-glass); border-radius: 10px; padding: 0.65rem 0.9rem; display: flex; align-items: center; gap: 10px;">
+                  <div style="background: #FFFFFF; border: 1px solid #E2E8F0; box-shadow: 0 2px 6px rgba(15,23,42,0.04); border-radius: 10px; padding: 0.65rem 0.9rem; display: flex; align-items: center; gap: 10px;">
                     <span style="font-size: 1.3rem;">📄</span>
                     <div>
                       <div style="font-size: 0.9rem; font-weight: 700; color: var(--text-white);">历史纸质/电子合同</div>
@@ -1079,7 +1090,7 @@
                     </div>
                   </div>
 
-                  <div style="background: rgba(15,23,42,0.7); border: 1px solid var(--border-glass); border-radius: 10px; padding: 0.65rem 0.9rem; display: flex; align-items: center; gap: 10px;">
+                  <div style="background: #FFFFFF; border: 1px solid #E2E8F0; box-shadow: 0 2px 6px rgba(15,23,42,0.04); border-radius: 10px; padding: 0.65rem 0.9rem; display: flex; align-items: center; gap: 10px;">
                     <span style="font-size: 1.3rem;">📦</span>
                     <div>
                       <div style="font-size: 0.9rem; font-weight: 700; color: var(--text-white);">采购订单与送货单据</div>
@@ -1088,7 +1099,7 @@
                   </div>
                 </div>
 
-                <div style="background: rgba(6,182,212,0.12); border: 1px solid rgba(6,182,212,0.3); color: var(--color-cyan); padding: 0.6rem 0.8rem; border-radius: 10px; font-size: 0.82rem; font-weight: 800; text-align: center; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                <div style="background: #F0F9FF; border: 1px solid #BAE6FD; color: #0284C7; padding: 0.6rem 0.8rem; border-radius: 10px; font-size: 0.82rem; font-weight: 800; text-align: center; display: flex; align-items: center; justify-content: center; gap: 6px;">
                   <i data-lucide="sparkles" size="16"></i>
                   <span>AI 全要素识别 + SKU 标准归类</span>
                 </div>
@@ -1112,26 +1123,26 @@
                 </div>
 
                 <!-- Metrics Grid -->
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; background: rgba(15,23,42,0.5); padding: 10px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
-                  <div style="background: rgba(15,23,42,0.8); padding: 8px 10px; border-radius: 8px; border: 1px solid rgba(6,182,212,0.2); text-align: left;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; background: #F8FAFC; padding: 10px; border-radius: 12px; border: 1px solid #E2E8F0;">
+                  <div style="background: #FFFFFF; padding: 8px 10px; border-radius: 8px; border: 1px solid #E2E8F0; box-shadow: 0 1px 4px rgba(15,23,42,0.04); text-align: left;">
                     <div style="font-size: 0.75rem; color: var(--text-secondary);">最新成交价</div>
                     <div style="font-size: 1.15rem; font-weight: 900; color: var(--color-cyan); margin-top: 2px;">¥ 3,850</div>
                   </div>
-                  <div style="background: rgba(15,23,42,0.8); padding: 8px 10px; border-radius: 8px; border: 1px solid rgba(16,185,129,0.2); text-align: left;">
+                  <div style="background: #FFFFFF; padding: 8px 10px; border-radius: 8px; border: 1px solid #E2E8F0; box-shadow: 0 1px 4px rgba(15,23,42,0.04); text-align: left;">
                     <div style="font-size: 0.75rem; color: var(--text-secondary);">90天加权均价</div>
                     <div style="font-size: 1.15rem; font-weight: 900; color: var(--color-emerald); margin-top: 2px;">¥ 3,820</div>
                   </div>
-                  <div style="background: rgba(15,23,42,0.8); padding: 8px 10px; border-radius: 8px; border: 1px solid rgba(59,130,246,0.2); text-align: left;">
+                  <div style="background: #FFFFFF; padding: 8px 10px; border-radius: 8px; border: 1px solid #E2E8F0; box-shadow: 0 1px 4px rgba(15,23,42,0.04); text-align: left;">
                     <div style="font-size: 0.75rem; color: var(--text-secondary);">历史最低买价</div>
                     <div style="font-size: 1.15rem; font-weight: 900; color: var(--color-indigo); margin-top: 2px;">¥ 3,700</div>
                   </div>
-                  <div style="background: rgba(15,23,42,0.8); padding: 8px 10px; border-radius: 8px; border: 1px solid rgba(244,63,94,0.2); text-align: left;">
+                  <div style="background: #FFFFFF; padding: 8px 10px; border-radius: 8px; border: 1px solid #E2E8F0; box-shadow: 0 1px 4px rgba(15,23,42,0.04); text-align: left;">
                     <div style="font-size: 0.75rem; color: var(--text-secondary);">历史最高买价</div>
                     <div style="font-size: 1.15rem; font-weight: 900; color: var(--color-rose); margin-top: 2px;">¥ 4,120</div>
                   </div>
                 </div>
 
-                <div style="display: flex; justify-content: space-around; font-size: 0.78rem; color: var(--text-secondary); background: rgba(255,255,255,0.03); padding: 6px 10px; border-radius: 8px;">
+                <div style="display: flex; justify-content: space-around; font-size: 0.78rem; color: var(--text-secondary); background: #F1F5F9; border: 1px solid #E2E8F0; padding: 6px 10px; border-radius: 8px;">
                   <span>🔍 支持穿透溯源底层合同</span>
                   <span>📊 四维水位动态测算</span>
                 </div>
@@ -1150,18 +1161,18 @@
                 </div>
 
                 <div style="display: flex; flex-direction: column; gap: 0.6rem; flex: 1; justify-content: center;">
-                  <div style="background: rgba(15,23,42,0.7); border: 1px solid var(--border-glass); border-radius: 10px; padding: 0.65rem 0.9rem;">
+                  <div style="background: #FFFFFF; border: 1px solid #E2E8F0; box-shadow: 0 2px 6px rgba(15,23,42,0.04); border-radius: 10px; padding: 0.65rem 0.9rem;">
                     <div style="font-size: 0.88rem; font-weight: 800; color: var(--color-cyan); margin-bottom: 2px;">🎯 招标前：控制价预测</div>
                     <div style="font-size: 0.78rem; color: var(--text-secondary);">自动调取历史底价，设定控制价线并预警高溢价</div>
                   </div>
 
-                  <div style="background: rgba(15,23,42,0.7); border: 1px solid var(--border-glass); border-radius: 10px; padding: 0.65rem 0.9rem;">
+                  <div style="background: #FFFFFF; border: 1px solid #E2E8F0; box-shadow: 0 2px 6px rgba(15,23,42,0.04); border-radius: 10px; padding: 0.65rem 0.9rem;">
                     <div style="font-size: 0.88rem; font-weight: 800; color: var(--color-emerald); margin-bottom: 2px;">📋 回标后：平铺自动比价</div>
                     <div style="font-size: 0.78rem; color: var(--text-secondary);">多家报价自动对齐拉平，税费运费换算，最低价亮明</div>
                   </div>
                 </div>
 
-                <div style="background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3); color: var(--color-emerald); padding: 0.6rem 0.8rem; border-radius: 10px; font-size: 0.82rem; font-weight: 800; text-align: center; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                <div style="background: #ECFDF5; border: 1px solid #A7F3D0; color: #047857; padding: 0.6rem 0.8rem; border-radius: 10px; font-size: 0.82rem; font-weight: 800; text-align: center; display: flex; align-items: center; justify-content: center; gap: 6px;">
                   <i data-lucide="bot" size="16"></i>
                   <span>AI 采购小助理随时自然语言问答查价</span>
                 </div>
@@ -1180,7 +1191,7 @@
         <section class="slide" id="slide-4">
           <div class="slide-title-container">
             <h2 class="slide-main-title">场景一：<span class="text-gradient grad-cyan-blue">历史合同变资产，分钟级建好价格库</span></h2>
-            <p class="slide-subtitle">把柜子里的静态合同变成下次谈判的底牌，10秒读取关键信息</p>
+            <p class="slide-subtitle">把柜子里的静态合同变成下次谈判的底牌，智能提取关键物料信息</p>
           </div>
 
           <div class="slide-grid-2" style="grid-template-columns: 0.85fr 1.15fr;">
@@ -1256,16 +1267,16 @@
                 </div>
 
                 <!-- Search Simulation -->
-                <div style="background: rgba(0,0,0,0.2); border: 1px solid var(--border-glass); border-radius: 8px; padding: 0.65rem 1rem; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">
+                <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 0.65rem 1rem; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">
                   <i data-lucide="search" style="width:16px;height:16px;color:var(--text-muted);"></i>
                   <span>输入“螺纹钢”、“华南建材”或“厦门港项目”...</span>
                 </div>
 
                 <!-- Contract Table -->
-                <div style="border: 1px solid var(--border-glass); border-radius: 10px; overflow: hidden; font-size: 0.9rem; margin-bottom: 0.5rem;">
+                <div style="border: 1px solid #E2E8F0; border-radius: 10px; overflow: hidden; font-size: 0.9rem; margin-bottom: 0.5rem;">
                   <table style="width: 100%; border-collapse: collapse; text-align: left;">
                     <thead>
-                      <tr style="background: rgba(255,255,255,0.03); border-bottom: 1px solid var(--border-glass); font-weight: 700; color: var(--text-primary);">
+                      <tr style="background: #F8FAFC; border-bottom: 1px solid #E2E8F0; font-weight: 700; color: var(--text-primary);">
                         <th style="padding: 0.75rem 1rem;">合同编号/名称</th>
                         <th style="padding: 0.75rem 1rem;">项目维度</th>
                         <th style="padding: 0.75rem 1rem;">供应商</th>
@@ -1273,19 +1284,19 @@
                       </tr>
                     </thead>
                     <tbody style="color: var(--text-secondary); font-weight: 500;">
-                      <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                      <tr style="border-bottom: 1px solid #F1F5F9;">
                         <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);">CON-2026-0045<br><span style="font-size:0.75rem; color:var(--text-muted); font-weight:normal;">刘五店包件7安装工程合同</span></td>
                         <td style="padding: 0.75rem 1rem;">厦门港刘五店项目</td>
                         <td style="padding: 0.75rem 1rem;">华南建材设备厂</td>
                         <td style="padding: 0.75rem 1rem; text-align: right; font-weight: 700; color: var(--color-indigo);">¥ 1,685,000</td>
                       </tr>
-                      <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                      <tr style="border-bottom: 1px solid #F1F5F9;">
                         <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);">CON-2026-0038<br><span style="font-size:0.75rem; color:var(--text-muted); font-weight:normal;">前海商投大厦幕墙采购合同</span></td>
                         <td style="padding: 0.75rem 1rem;">前海商投大厦</td>
                         <td style="padding: 0.75rem 1rem;">深圳大无缝钢管公司</td>
                         <td style="padding: 0.75rem 1rem; text-align: right; font-weight: 700; color: var(--color-indigo);">¥ 2,450,000</td>
                       </tr>
-                      <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                      <tr style="border-bottom: 1px solid #F1F5F9;">
                         <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);">CON-2026-0012<br><span style="font-size:0.75rem; color:var(--text-muted); font-weight:normal;">轨道交通一期钢材采购合同</span></td>
                         <td style="padding: 0.75rem 1rem;">轨道交通一期工程</td>
                         <td style="padding: 0.75rem 1rem;">中铁二局物资公司</td>
@@ -1314,7 +1325,7 @@
                     自动以工程项目为维度归集历史合同。支持按项目汇总累计采购额、执行偏差曲线与大库价格水位比对。
                   </p>
                 </div>
-                <div style="background: rgba(0,0,0,0.25); border-radius: 8px; padding: 0.65rem 1rem; font-size: 0.82rem; display: flex; flex-direction: column; gap: 8px; line-height: 1.5; border: 1px solid var(--border-glass);">
+                <div style="background: #F8FAFC; border-radius: 8px; padding: 0.65rem 1rem; font-size: 0.82rem; display: flex; flex-direction: column; gap: 8px; line-height: 1.5; border: 1px solid #E2E8F0;">
                   <div style="display:flex; justify-content:space-between; font-weight:700; color:var(--text-primary);">
                     <span>厦门港刘五店项目</span>
                     <span style="color:var(--color-teal);">已签 15 份 | 累计 ¥4,260 万</span>
@@ -1337,7 +1348,7 @@
                     建立供应商历史报价数据库档案。统计该商户历史合作总额、单价波动走势以及履约价格偏离警告状态。
                   </p>
                 </div>
-                <div style="background: rgba(0,0,0,0.25); border-radius: 8px; padding: 0.65rem 1rem; font-size: 0.82rem; display: flex; flex-direction: column; gap: 8px; line-height: 1.5; border: 1px solid var(--border-glass);">
+                <div style="background: #F8FAFC; border-radius: 8px; padding: 0.65rem 1rem; font-size: 0.82rem; display: flex; flex-direction: column; gap: 8px; line-height: 1.5; border: 1px solid #E2E8F0;">
                   <div style="display:flex; justify-content:space-between; font-weight:700; color:var(--text-primary);">
                     <span>华南建材设备厂</span>
                     <span style="color:var(--color-indigo);">合作 12 次 | 履约合理率: 98.5% (优)</span>
@@ -1424,33 +1435,33 @@
             </div>
 
             <!-- Right Step Cards -->
-            <div style="display: flex; flex-direction: column; gap: 1rem; height: 100%; justify-content: center;">
-              <div class="glass-card" style="padding: 1.25rem;">
-                <h3 class="card-title" style="color: var(--color-cyan); display: flex; align-items: center; gap: 0.5rem; font-size: 1.05rem; margin-bottom: 0.5rem;">
-                  <span style="background: rgba(6,182,212,0.15); border: 1px solid var(--color-cyan); width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 900;">1</span>
+            <div style="display: flex; flex-direction: column; gap: 1.25rem; height: 100%; justify-content: space-between;">
+              <div class="glass-card" style="padding: 1.5rem 1.6rem; flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                <h3 class="card-title" style="color: var(--color-cyan); display: flex; align-items: center; gap: 0.5rem; font-size: 1.1rem; margin-bottom: 0.5rem;">
+                  <span style="background: rgba(6,182,212,0.15); border: 1px solid var(--color-cyan); width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 900;">1</span>
                   <span>第1步：导入采购需求清单</span>
                 </h3>
-                <p class="card-text" style="font-size: 0.88rem; line-height: 1.5; color: var(--text-secondary);">
+                <p class="card-text" style="font-size: 0.92rem; line-height: 1.6; color: var(--text-secondary);">
                   把本次要采购的材料清单 Excel 直接丢进来，不需要填价格，系统会自动匹配大库帮您调取。
                 </p>
               </div>
               
-              <div class="glass-card" style="padding: 1.25rem;">
-                <h3 class="card-title" style="color: var(--color-teal); display: flex; align-items: center; gap: 0.5rem; font-size: 1.05rem; margin-bottom: 0.5rem;">
-                  <span style="background: rgba(20,184,166,0.15); border: 1px solid var(--color-teal); width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 900;">2</span>
+              <div class="glass-card" style="padding: 1.5rem 1.6rem; flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                <h3 class="card-title" style="color: var(--color-teal); display: flex; align-items: center; gap: 0.5rem; font-size: 1.1rem; margin-bottom: 0.5rem;">
+                  <span style="background: rgba(20,184,166,0.15); border: 1px solid var(--color-teal); width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 900;">2</span>
                   <span>第2步：系统自动调取历史底价</span>
                 </h3>
-                <p class="card-text" style="font-size: 0.88rem; line-height: 1.5; color: var(--text-secondary);">
+                <p class="card-text" style="font-size: 0.92rem; line-height: 1.6; color: var(--text-secondary);">
                   每种材料自动检索过去 30/90/180 天的成交记录：最新价、均价、最高与历史最低买价全览。
                 </p>
               </div>
               
-              <div class="glass-card" style="padding: 1.25rem;">
-                <h3 class="card-title" style="color: var(--color-rose); display: flex; align-items: center; gap: 0.5rem; font-size: 1.05rem; margin-bottom: 0.5rem;">
-                  <span style="background: rgba(244,63,94,0.15); border: 1px solid var(--color-rose); width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 900;">3</span>
+              <div class="glass-card" style="padding: 1.5rem 1.6rem; flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                <h3 class="card-title" style="color: var(--color-rose); display: flex; align-items: center; gap: 0.5rem; font-size: 1.1rem; margin-bottom: 0.5rem;">
+                  <span style="background: rgba(244,63,94,0.15); border: 1px solid var(--color-rose); width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 900;">3</span>
                   <span>第3步：超过历史价自动亮红灯</span>
                 </h3>
-                <p class="card-text" style="font-size: 0.88rem; line-height: 1.5; color: var(--text-secondary);">
+                <p class="card-text" style="font-size: 0.92rem; line-height: 1.6; color: var(--text-secondary);">
                   若申报控制价高于历史均价 15% 以上，整行高亮预警拦截，避免盲目定高价挤干预算水分。
                 </p>
               </div>
@@ -1467,33 +1478,33 @@
 
           <div class="slide-grid-2" style="grid-template-columns: 0.85fr 1.15fr;">
             <!-- Left 3 Step Cards -->
-            <div style="display: flex; flex-direction: column; gap: 1rem; height: 100%; justify-content: center;">
-              <div class="glass-card" style="padding: 1.25rem;">
-                <h3 class="card-title" style="color: var(--color-cyan); display: flex; align-items: center; gap: 0.5rem; font-size: 1.05rem; margin-bottom: 0.5rem;">
-                  <span style="background: rgba(6,182,212,0.15); border: 1px solid var(--color-cyan); width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 900;">1</span>
+            <div style="display: flex; flex-direction: column; gap: 1.25rem; height: 100%; justify-content: space-between;">
+              <div class="glass-card" style="padding: 1.5rem 1.6rem; flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                <h3 class="card-title" style="color: var(--color-cyan); display: flex; align-items: center; gap: 0.5rem; font-size: 1.1rem; margin-bottom: 0.5rem;">
+                  <span style="background: rgba(6,182,212,0.15); border: 1px solid var(--color-cyan); width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 900;">1</span>
                   <span>第1步：把供应商报价文件丢进来</span>
                 </h3>
-                <p class="card-text" style="font-size: 0.88rem; line-height: 1.5; color: var(--text-secondary);">
+                <p class="card-text" style="font-size: 0.92rem; line-height: 1.6; color: var(--text-secondary);">
                   不管几家供应商，不管他们的 Excel 格式多么五花八门，全部拖进系统即可。
                 </p>
               </div>
               
-              <div class="glass-card" style="padding: 1.25rem;">
-                <h3 class="card-title" style="color: var(--color-teal); display: flex; align-items: center; gap: 0.5rem; font-size: 1.05rem; margin-bottom: 0.5rem;">
-                  <span style="background: rgba(20,184,166,0.15); border: 1px solid var(--color-teal); width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 900;">2</span>
+              <div class="glass-card" style="padding: 1.5rem 1.6rem; flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                <h3 class="card-title" style="color: var(--color-teal); display: flex; align-items: center; gap: 0.5rem; font-size: 1.1rem; margin-bottom: 0.5rem;">
+                  <span style="background: rgba(20,184,166,0.15); border: 1px solid var(--color-teal); width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 900;">2</span>
                   <span>第2步：系统自动拉平对齐</span>
                 </h3>
-                <p class="card-text" style="font-size: 0.88rem; line-height: 1.5; color: var(--text-secondary);">
+                <p class="card-text" style="font-size: 0.92rem; line-height: 1.6; color: var(--text-secondary);">
                   以招标清单为基准，自动横向对齐所有报价；含税不含税一键切换，运费物流自动折算。
                 </p>
               </div>
               
-              <div class="glass-card" style="padding: 1.25rem;">
-                <h3 class="card-title" style="color: var(--color-emerald); display: flex; align-items: center; gap: 0.5rem; font-size: 1.05rem; margin-bottom: 0.5rem;">
-                  <span style="background: rgba(16,185,129,0.15); border: 1px solid var(--color-emerald); width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 900;">3</span>
+              <div class="glass-card" style="padding: 1.5rem 1.6rem; flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                <h3 class="card-title" style="color: var(--color-emerald); display: flex; align-items: center; gap: 0.5rem; font-size: 1.1rem; margin-bottom: 0.5rem;">
+                  <span style="background: rgba(16,185,129,0.15); border: 1px solid var(--color-emerald); width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 900;">3</span>
                   <span>第3步：最低价高亮，定标自动入库</span>
                 </h3>
-                <p class="card-text" style="font-size: 0.88rem; line-height: 1.5; color: var(--text-secondary);">
+                <p class="card-text" style="font-size: 0.92rem; line-height: 1.6; color: var(--text-secondary);">
                   每行最便宜的报价自动绿色高亮；确认定标后，中标价格写回大库，下一次参考更准。
                 </p>
               </div>
@@ -1515,12 +1526,12 @@
             </div>
             <!-- 筛选 Tabs -->
             <div style="display: flex; gap: 16px; align-items: center;">
-              <div style="background: rgba(255,255,255,0.06); padding: 6px; border-radius: 99px; border: 1px solid var(--border-glass); display: flex; gap: 6px;" id="regionTabContainer">
-                <button class="btn-ctrl" style="width:auto; height:40px; padding:0 20px; border-radius:99px; font-size:18px; font-weight:800; background:var(--grad-cyan-blue); color:white; border:none;" onclick="switchRegion(0)">华东</button>
-                <button class="btn-ctrl" style="width:auto; height:40px; padding:0 20px; border-radius:99px; font-size:18px; font-weight:800; background:transparent; color:var(--text-gray); border:none;" onclick="switchRegion(1)">华南</button>
-                <button class="btn-ctrl" style="width:auto; height:40px; padding:0 20px; border-radius:99px; font-size:18px; font-weight:800; background:transparent; color:var(--text-gray); border:none;" onclick="switchRegion(2)">华北</button>
-                <button class="btn-ctrl" style="width:auto; height:40px; padding:0 20px; border-radius:99px; font-size:18px; font-weight:800; background:transparent; color:var(--text-gray); border:none;" onclick="switchRegion(3)">西南</button>
-                <button class="btn-ctrl" style="width:auto; height:40px; padding:0 20px; border-radius:99px; font-size:18px; font-weight:800; background:transparent; color:var(--text-gray); border:none;" onclick="switchRegion(4)">全国</button>
+              <div style="background: #F1F5F9; padding: 4px; border-radius: 99px; border: 1px solid #E2E8F0; display: flex; gap: 4px;" id="regionTabContainer">
+                <button class="btn-ctrl" style="width:auto; height:38px; padding:0 20px; border-radius:99px; font-size:16px; font-weight:800; background:var(--grad-cyan-blue); color:white; border:none;" onclick="switchRegion(0)">华东</button>
+                <button class="btn-ctrl" style="width:auto; height:38px; padding:0 20px; border-radius:99px; font-size:16px; font-weight:800; background:transparent; color:var(--text-gray); border:none;" onclick="switchRegion(1)">华南</button>
+                <button class="btn-ctrl" style="width:auto; height:38px; padding:0 20px; border-radius:99px; font-size:16px; font-weight:800; background:transparent; color:var(--text-gray); border:none;" onclick="switchRegion(2)">华北</button>
+                <button class="btn-ctrl" style="width:auto; height:38px; padding:0 20px; border-radius:99px; font-size:16px; font-weight:800; background:transparent; color:var(--text-gray); border:none;" onclick="switchRegion(3)">西南</button>
+                <button class="btn-ctrl" style="width:auto; height:38px; padding:0 20px; border-radius:99px; font-size:16px; font-weight:800; background:transparent; color:var(--text-gray); border:none;" onclick="switchRegion(4)">全国</button>
               </div>
             </div>
           </div>
@@ -1530,7 +1541,7 @@
             <!-- Injected by JS -->
           </div>
 
-          <div style="background: rgba(6, 182, 212, 0.12); border-left: 6px solid var(--color-cyan); padding: 14px 24px; border-radius: 0 12px 12px 0; font-size: 1.1rem; color: var(--text-white); font-weight: 700; margin-top: 16px;" id="matInsightText">
+          <div style="background: #F0F9FF; border: 1px solid #BAE6FD; border-left: 6px solid #0284C7; padding: 14px 24px; border-radius: 0 12px 12px 0; font-size: 1.05rem; color: #0C4A6E; font-weight: 700; margin-top: 16px;" id="matInsightText">
             📊 华东地区近 90 天：铜芯电缆受伦铜上行影响涨幅最大 (+3.8%)，建议提前锁价；镀锌钢管处于半年低位，是采购窗口期。
           </div>
         </section>
@@ -1566,7 +1577,7 @@
                 </ul>
               </div>
               
-              <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-glass); border-radius: 12px; padding: 14px 20px; font-size: 0.9rem; font-family: monospace; color: var(--text-secondary);">
+              <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px 20px; font-size: 0.9rem; font-family: monospace; color: var(--text-secondary);">
                 到厂落地价(TCO) = 出厂报价 + (物流运距 * 运费系数) + 其它规费
               </div>
             </div>
@@ -1592,7 +1603,7 @@
                   <!-- Progress Bar container -->
                   <div id="tcoProgressBar" style="width: 100%; height: 6px; background: linear-gradient(90deg, var(--color-teal) 29%, #E2E8F0 29%); border-radius: 99px; margin-top: 4px;"></div>
                   <div id="tcoSubLabel" style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">
-                    范围：50 km ← <strong style="color: var(--color-teal);">${dist} km</strong> → 1,000 km
+                    范围：50 km ← <strong style="color: var(--color-teal);">320 km</strong> → 1,000 km
                   </div>
                 </div>
 
@@ -1951,9 +1962,15 @@
               让每次采购比价有据可依，让节省下来的成本沉淀为经营利润。
             </p>
 
-            <a href="https://anong8090.github.io/procurement-saas/" target="_blank" class="btn-primary" style="padding: 1rem 3rem; font-size: 1.2rem; border-radius: 99px;">
-              <span>查看在线演示</span>
-            </a>
+            <div style="display: flex; gap: 1.25rem; align-items: center; justify-content: center; flex-wrap: wrap;">
+              <a href="https://anong8090.github.io/procurement-saas/" target="_blank" class="btn-primary" style="padding: 0.9rem 2.8rem; font-size: 1.15rem; border-radius: 99px;">
+                <span>查看在线演示</span>
+              </a>
+              <a href="../../index.html" class="btn-ctrl" style="width: auto; height: auto; padding: 0.85rem 2.2rem; font-size: 1.1rem; font-weight: 700; border-radius: 99px; background: #FFFFFF; border: 1px solid #CBD5E1; color: var(--text-primary); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 2px 8px rgba(15,23,42,0.06);">
+                <i data-lucide="home" size="18"></i>
+                <span>返回官网首页</span>
+              </a>
+            </div>
           </div>
         </section>
 
