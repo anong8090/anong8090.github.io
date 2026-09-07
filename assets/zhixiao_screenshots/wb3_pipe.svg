@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" width="1000" height="420">
+  <defs>
+    <linearGradient id="bgGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="10" y="10" width="980" height="400" rx="16" fill="url(#bgGrad3)" stroke="#334155" stroke-width="2"/>
+  <text x="500" y="55" fill="#a78bfa" font-size="22" font-weight="bold" font-family="system-ui, sans-serif" text-anchor="middle">AI 咨询分析 Pipeline 结构化处理流程</text>
+
+  <!-- 阶段 1 -->
+  <rect x="50" y="90" width="260" height="280" rx="12" fill="#1e293b" stroke="#7c3aed" stroke-width="1.5"/>
+  <rect x="70" y="110" width="220" height="36" rx="6" fill="#7c3aed"/>
+  <text x="180" y="133" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">1. 音频解析与角色分离</text>
+  <text x="75" y="180" fill="#e2e8f0" font-size="13">• 降噪与双麦克风音轨对齐</text>
+  <text x="75" y="220" fill="#e2e8f0" font-size="13">• ASR 医美专业词汇精准转写</text>
+  <text x="75" y="260" fill="#e2e8f0" font-size="13">• 声纹分离 [客户/美顾/医生]</text>
+  <text x="75" y="300" fill="#e2e8f0" font-size="13">• 时间戳高亮多轮对话标注</text>
+
+  <polygon points="330,230 345,230 345,224 357,230 345,236 345,230" fill="#a78bfa"/>
+
+  <!-- 阶段 2 -->
+  <rect x="370" y="90" width="260" height="280" rx="12" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+  <rect x="390" y="110" width="220" height="36" rx="6" fill="#2563eb"/>
+  <text x="500" y="133" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">2. 大模型提炼与 10秒跳转</text>
+  <text x="395" y="180" fill="#e2e8f0" font-size="13">• 提取 🎯 10秒关键词跳转标签</text>
+  <text x="395" y="220" fill="#e2e8f0" font-size="13">• 3分钟总结: 需求部位与动机</text>
+  <text x="395" y="260" fill="#e2e8f0" font-size="13">• 未成交归因: 嫌贵/怕痛/恢复期</text>
+  <text x="395" y="300" fill="#e2e8f0" font-size="13">• AI 推荐 3/7/15天跟进策略</text>
+
+  <polygon points="650,230 665,230 665,224 677,230 665,236 665,230" fill="#60a5fa"/>
+
+  <!-- 阶段 3 -->
+  <rect x="690" y="90" width="260" height="280" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+  <rect x="710" y="110" width="220" height="36" rx="6" fill="#059669"/>
+  <text x="820" y="133" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">3. 780px 穿透抽屉展示</text>
+  <text x="715" y="180" fill="#e2e8f0" font-size="13">• Tab 1: 波形播放与10秒跳转</text>
+  <text x="715" y="220" fill="#e2e8f0" font-size="13">• Tab 2: 3分钟结构化总结结论</text>
+  <text x="715" y="260" fill="#e2e8f0" font-size="13">• Tab 3: 六维质检分与违规明细</text>
+  <text x="715" y="300" fill="#e2e8f0" font-size="13">• 一键导出逐字稿 / 推送店长</text>
+</svg>

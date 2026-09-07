@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" width="1000" height="420">
+  <defs>
+    <linearGradient id="bgGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="10" y="10" width="980" height="400" rx="16" fill="url(#bgGrad4)" stroke="#334155" stroke-width="2"/>
+  <text x="500" y="55" fill="#f87171" font-size="22" font-weight="bold" font-family="system-ui, sans-serif" text-anchor="middle">100% 全量 AI 自动质检与红牌预警机制</text>
+
+  <!-- 左侧：全量转写 -->
+  <rect x="50" y="100" width="220" height="260" rx="12" fill="#1e293b" stroke="#64748b" stroke-width="1.5"/>
+  <rect x="70" y="115" width="180" height="36" rx="6" fill="#475569"/>
+  <text x="160" y="138" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">1. 工牌音频全量转写</text>
+  <text x="75" y="185" fill="#e2e8f0" font-size="13">• 替代传统 &lt;5% 人工抽查</text>
+  <text x="75" y="225" fill="#e2e8f0" font-size="13">• 面诊沟通文本 100% 解析</text>
+  <text x="75" y="265" fill="#e2e8f0" font-size="13">• 实时进入规则匹配引擎</text>
+
+  <polygon points="285,230 300,230 300,224 312,230 300,236 300,230" fill="#94a3b8"/>
+
+  <!-- 中间：违规红牌分支 -->
+  <rect x="325" y="100" width="350" height="260" rx="12" fill="#450a0a" stroke="#dc2626" stroke-width="2"/>
+  <rect x="345" y="115" width="310" height="36" rx="6" fill="#dc2626"/>
+  <text x="500" y="138" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">🚩 2. 敏感违规词拦截 (违规红牌)</text>
+  <text x="345" y="185" fill="#fca5a5" font-size="13">• 检出:“100%成功”、“绝对无痛”、“保证有效”</text>
+  <text x="345" y="225" fill="#fca5a5" font-size="13">• 扣除合规维度 20 分，总分标注不及格</text>
+  <text x="345" y="265" fill="#ffffff" font-size="13" font-weight="bold">• 触发秒级告警：微信/系统弹框推送店长</text>
+  <text x="345" y="305" fill="#fca5a5" font-size="13">• 生成红牌记录，要求店长 24小时内督导纠偏</text>
+
+  <polygon points="690,230 705,230 705,224 717,230 705,236 705,230" fill="#f87171"/>
+
+  <!-- 右侧：六维雷达 -->
+  <rect x="730" y="100" width="220" height="260" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+  <rect x="750" y="115" width="180" height="36" rx="6" fill="#059669"/>
+  <text x="840" y="138" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">3. 六维雷达与微课</text>
+  <text x="745" y="185" fill="#e2e8f0" font-size="13">• 评估需求/专业/信任/异议</text>
+  <text x="745" y="225" fill="#e2e8f0" font-size="13">• 自动更新员工六维能力雷达</text>
+  <text x="745" y="265" fill="#e2e8f0" font-size="13">• 智能诊断个人能力短板</text>
+  <text x="745" y="305" fill="#e2e8f0" font-size="13">• 一键下发针对性培训微课</text>
+</svg>

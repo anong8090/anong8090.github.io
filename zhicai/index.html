@@ -10,29 +10,29 @@
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <style>
         :root {
-            --bg-deep:     #020c1b;
-            --bg-section:  #060f1f;
-            --bg-card:     rgba(255,255,255,0.04);
-            --bg-card-hover: rgba(255,255,255,0.07);
-            --border:      rgba(255,255,255,0.08);
-            --border-hover: rgba(99,179,237,0.3);
-            --blue:        #3B82F6;
-            --blue-light:  #60A5FA;
-            --cyan:        #06B6D4;
-            --teal:        #0D9488;
-            --rose:        #F43F5E;
-            --amber:       #F59E0B;
-            --green:       #10B981;
-            --text-1:      #F8FAFC;
-            --text-2:      #94A3B8;
-            --text-3:      #475569;
-            --grad-hero:   linear-gradient(135deg, #3B82F6 0%, #06B6D4 50%, #0D9488 100%);
-            --grad-blue:   linear-gradient(135deg, #1D4ED8, #3B82F6);
+            --bg-deep:     #FFFFFF;
+            --bg-section:  #F8FAFC;
+            --bg-card:     #FFFFFF;
+            --bg-card-hover: #F8FAFC;
+            --border:      #E2E8F0;
+            --border-hover: #CBD5E1;
+            --blue:        #1D4ED8;
+            --blue-light:  #2563EB;
+            --cyan:        #0284C7;
+            --teal:        #0F766E;
+            --rose:        #E11D48;
+            --amber:       #D97706;
+            --green:       #059669;
+            --text-1:      #0F172A;
+            --text-2:      #475569;
+            --text-3:      #64748B;
+            --grad-hero:   linear-gradient(135deg, #1D4ED8 0%, #0284C7 60%, #0F766E 100%);
+            --grad-blue:   linear-gradient(135deg, #1E40AF, #1D4ED8);
             --grad-teal:   linear-gradient(135deg, #0F766E, #0D9488);
-            --grad-rose:   linear-gradient(135deg, #BE123C, #F43F5E);
+            --grad-rose:   linear-gradient(135deg, #BE123C, #E11D48);
             --font-main:   'Outfit', 'Noto Sans SC', sans-serif;
             --radius-card: 16px;
-            --shadow-card: 0 4px 30px rgba(0,0,0,0.4), 0 1px 0 rgba(255,255,255,0.05) inset;
+            --shadow-card: 0 4px 20px rgba(15,23,42,0.06), 0 1px 3px rgba(15,23,42,0.04);
             --transition:  0.3s cubic-bezier(0.4,0,0.2,1);
         }
 
@@ -51,8 +51,8 @@
 
         /* ---- Scrollbar ---- */
         ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: var(--bg-deep); }
-        ::-webkit-scrollbar-thumb { background: rgba(99,179,237,0.3); border-radius: 3px; }
+        ::-webkit-scrollbar-track { background: var(--bg-section); }
+        ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
 
         /* ========================================================
            NAV
@@ -61,68 +61,67 @@
             position: fixed;
             top: 0; left: 0; right: 0;
             z-index: 1000;
-            padding: 0 2rem;
-            height: 68px;
+            padding: 0 2.5rem;
+            height: 74px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            transition: background var(--transition), border-color var(--transition), backdrop-filter var(--transition);
+            background: rgba(255, 255, 255, 0.94);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(16px);
+            transition: background var(--transition), border-color var(--transition), box-shadow var(--transition);
         }
         nav.scrolled {
-            background: rgba(2,12,27,0.9);
-            border-bottom: 1px solid var(--border);
-            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
         }
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
+        .nav-brand { display: flex; align-items: center; gap: 0.85rem; text-decoration: none; }
+        .nav-logo-box {
+            width: 40px; height: 40px; border-radius: 10px;
+            background: linear-gradient(135deg, #1E40AF 0%, #2563EB 100%);
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.2rem; color: #fff;
+            box-shadow: 0 4px 12px rgba(37,99,235,0.25);
         }
-        .nav-logo {
-            width: 36px; height: 36px;
-            border-radius: 10px;
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-        .nav-logo img { width:100%; height:100%; object-fit:cover; }
-        .nav-brand-name {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--text-1);
-            letter-spacing: 0.3px;
-        }
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 0.25rem;
-            align-items: center;
-        }
+        .nav-brand-title { font-size: 1.22rem; font-weight: 800; color: #0F172A; line-height: 1.2; letter-spacing: 0.5px; }
+        .nav-brand-sub { font-size: 0.72rem; color: #1D4ED8; font-weight: 600; }
+        .nav-links { display: flex; list-style: none; gap: 0.5rem; align-items: center; }
         .nav-links a {
-            color: var(--text-2);
-            text-decoration: none;
-            font-size: 0.9rem;
-            padding: 0.45rem 0.85rem;
-            border-radius: 8px;
-            transition: color var(--transition), background var(--transition);
+            color: var(--text-2); text-decoration: none; font-size: 0.92rem;
+            padding: 0.5rem 0.9rem; border-radius: 8px; transition: all var(--transition); font-weight: 500;
+            display: inline-flex; align-items: center; gap: 4px;
         }
-        .nav-links a:hover { color: var(--text-1); background: rgba(255,255,255,0.05); }
-        .nav-cta {
-            background: var(--blue);
-            color: #fff !important;
-            font-weight: 600 !important;
-            padding: 0.5rem 1.25rem !important;
-            border-radius: 10px !important;
-            transition: opacity var(--transition), transform var(--transition) !important;
+        .nav-links a:hover { color: #0F172A; background: #F1F5F9; }
+        .nav-links a.nav-active { color: #1D4ED8; font-weight: 700; background: #EFF6FF; }
+        .nav-pill {
+            font-size: 0.72rem; padding: 2px 8px; border-radius: 99px; font-weight: 600; margin-left: 4px;
         }
-        .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); background: transparent !important; }
-        .nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; color: var(--text-1); }
+        .pill-blue { background: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE; }
+        .pill-green { background: #ECFDF5; color: #059669; border: 1px solid #A7F3D0; }
+        .pill-amber { background: #FFFBEB; color: #B45309; border: 1px solid #FDE68A; }
+        
+        .nav-cta-group { display: flex; align-items: center; gap: 0.6rem; }
+        .nav-btn-link {
+            background: #F8FAFC; color: #334155 !important;
+            border: 1px solid var(--border); font-size: 0.84rem !important; font-weight: 600 !important;
+            padding: 0.5rem 1rem !important; border-radius: 8px !important; text-decoration: none;
+            transition: all var(--transition); display: inline-flex; align-items: center; gap: 0.35rem;
+        }
+        .nav-btn-link:hover { border-color: #93C5FD; background: #EFF6FF !important; color: #1D4ED8 !important; }
+        .nav-btn-main {
+            background: #1D4ED8; color: #fff !important; font-weight: 600 !important;
+            font-size: 0.86rem !important; padding: 0.5rem 1.25rem !important; border-radius: 8px !important;
+            box-shadow: 0 4px 14px rgba(29, 78, 216, 0.25); text-decoration: none;
+            transition: all var(--transition);
+        }
+        .nav-btn-main:hover { background: #1E40AF; transform: translateY(-1px); }
+        .nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; color: #0F172A; }
 
         /* ========================================================
            HERO
         ======================================================== */
         #hero {
-            min-height: 100vh;
+            min-height: 90vh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -131,6 +130,7 @@
             padding: 120px 1.5rem 80px;
             position: relative;
             overflow: hidden;
+            background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
         }
         .hero-bg-mesh {
             position: absolute;
@@ -142,7 +142,7 @@
             position: absolute;
             border-radius: 50%;
             filter: blur(100px);
-            opacity: 0.18;
+            opacity: 0.05;
             animation: blob-drift 12s ease-in-out infinite alternate;
         }
         .blob-1 { width: 700px; height: 700px; background: #3B82F6; top: -20%; left: -15%; animation-delay: 0s; }
@@ -156,8 +156,8 @@
             position: absolute;
             inset: 0;
             background-image:
-                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+                linear-gradient(rgba(15,23,42,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(15,23,42,0.03) 1px, transparent 1px);
             background-size: 60px 60px;
         }
         .hero-content { position: relative; z-index: 1; max-width: 1200px; }
@@ -167,18 +167,18 @@
             gap: 0.5rem;
             padding: 0.35rem 1rem;
             border-radius: 9999px;
-            border: 1px solid rgba(59,130,246,0.35);
-            background: rgba(59,130,246,0.1);
+            border: 1px solid rgba(29,78,216,0.25);
+            background: rgba(29,78,216,0.06);
             font-size: 0.82rem;
             font-weight: 600;
-            color: var(--blue-light);
+            color: var(--blue);
             letter-spacing: 0.5px;
             margin-bottom: 1.75rem;
         }
         .hero-badge-dot {
             width: 7px; height: 7px;
             border-radius: 50%;
-            background: var(--cyan);
+            background: var(--blue);
             animation: pulse-dot 2s ease-in-out infinite;
         }
         @keyframes pulse-dot {
@@ -188,9 +188,10 @@
         h1.hero-title {
             font-size: clamp(2.4rem, 6vw, 4.2rem);
             font-weight: 900;
-            line-height: 1.12;
+            line-height: 1.15;
             letter-spacing: -0.5px;
             margin-bottom: 1.5rem;
+            color: var(--text-1);
         }
         .hero-title-grad {
             background: var(--grad-hero);
@@ -201,7 +202,7 @@
         .hero-subtitle {
             font-size: clamp(0.95rem, 2vw, 1.18rem);
             color: var(--text-2);
-            max-width: 640px;
+            max-width: 680px;
             margin: 0 auto 2.5rem;
             line-height: 1.75;
         }
@@ -210,7 +211,7 @@
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 4rem;
+            margin-bottom: 3.5rem;
         }
         .btn-primary {
             display: inline-flex;
@@ -226,40 +227,40 @@
             border: none;
             cursor: pointer;
             transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
-            box-shadow: 0 4px 20px rgba(59,130,246,0.4);
+            box-shadow: 0 4px 14px rgba(29,78,216,0.25);
             font-family: var(--font-main);
         }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(59,130,246,0.55); opacity: 0.92; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(29,78,216,0.35); opacity: 0.95; }
         .btn-outline {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
             padding: 0.85rem 2rem;
-            background: transparent;
-            color: var(--text-2);
+            background: #FFFFFF;
+            color: var(--text-1);
             font-weight: 600;
             font-size: 1rem;
             border-radius: 12px;
             text-decoration: none;
-            border: 1px solid var(--border);
+            border: 1px solid #CBD5E1;
             cursor: pointer;
             transition: border-color var(--transition), color var(--transition), background var(--transition);
             font-family: var(--font-main);
+            box-shadow: 0 1px 3px rgba(15,23,42,0.04);
         }
-        .btn-outline:hover { border-color: rgba(99,179,237,0.4); color: var(--text-1); background: rgba(255,255,255,0.04); }
+        .btn-outline:hover { border-color: #94A3B8; color: var(--blue); background: #F8FAFC; }
         .hero-screenshot {
             position: relative;
             max-width: 1180px;
             width: 100%;
-            margin: 2.5rem auto 0;
+            margin: 2rem auto 0;
         }
         .hero-screenshot-frame {
-            background: rgba(15, 23, 42, 0.6);
-            border: 1.5px solid rgba(59, 130, 246, 0.35);
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
             border-radius: 18px;
-            padding: 12px;
-            box-shadow: 0 30px 90px rgba(6, 182, 212, 0.2), 0 0 40px rgba(59, 130, 246, 0.15);
-            backdrop-filter: blur(12px);
+            padding: 10px;
+            box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
         }
         .hero-screenshot-bar {
             display: flex;
@@ -277,14 +278,7 @@
             display: block;
         }
         .hero-screenshot::before {
-            content: '';
-            position: absolute;
-            inset: -1px;
-            border-radius: 17px;
-            background: var(--grad-hero);
-            opacity: 0.2;
-            z-index: -1;
-            filter: blur(30px);
+            display: none;
         }
 
         /* ========================================================
@@ -299,12 +293,12 @@
         .stats-inner {
             max-width: 1100px;
             margin: 0 auto;
-            background: rgba(255,255,255,0.04);
+            background: #FFFFFF;
             border: 1px solid var(--border);
             border-radius: 20px;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            backdrop-filter: blur(20px);
+            box-shadow: 0 10px 30px rgba(15,23,42,0.04);
             overflow: hidden;
         }
         .stat-item {
@@ -314,7 +308,7 @@
             transition: background var(--transition);
         }
         .stat-item:last-child { border-right: none; }
-        .stat-item:hover { background: rgba(255,255,255,0.04); }
+        .stat-item:hover { background: #F8FAFC; }
         .stat-number {
             font-size: clamp(1.8rem, 3vw, 2.6rem);
             font-weight: 900;
@@ -448,7 +442,7 @@
             display: flex;
             gap: 0.5rem;
             margin-bottom: 2.5rem;
-            background: rgba(255,255,255,0.03);
+            background: #F1F5F9;
             border: 1px solid var(--border);
             border-radius: 14px;
             padding: 6px;
@@ -473,7 +467,7 @@
         .tab-btn.active {
             background: var(--blue);
             color: #fff;
-            box-shadow: 0 4px 14px rgba(59,130,246,0.35);
+            box-shadow: 0 4px 14px rgba(29,78,216,0.25);
         }
         .tab-content { display: none; }
         .tab-content.active { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
@@ -481,9 +475,9 @@
             width: 100%;
             border-radius: 12px;
             border: 1px solid var(--border);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(15,23,42,0.06);
         }
-        .tab-info h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.25; }
+        .tab-info h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.25; color: var(--text-1); }
         .tab-info p { font-size: 0.92rem; color: var(--text-2); line-height: 1.75; margin-bottom: 1.5rem; }
         .tab-steps { display: flex; flex-direction: column; gap: 0.75rem; }
         .tab-step {
@@ -527,15 +521,15 @@
             align-items: center;
             justify-content: center;
         }
-        .feature-card h3 { font-size: 1.05rem; font-weight: 700; }
+        .feature-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--text-1); }
         .feature-card p { font-size: 0.85rem; color: var(--text-2); line-height: 1.65; flex-grow: 1; }
         .feature-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
         .feature-tag {
             font-size: 0.7rem;
             padding: 0.2rem 0.55rem;
             border-radius: 5px;
-            background: rgba(255,255,255,0.06);
-            color: var(--text-3);
+            background: #F1F5F9;
+            color: var(--text-2);
             border: 1px solid var(--border);
         }
 
@@ -553,13 +547,14 @@
         .arch-node {
             text-align: center;
             padding: 1.75rem 1rem;
-            background: var(--bg-card);
+            background: #FFFFFF;
             border: 1px solid var(--border);
             border-radius: 16px;
             transition: background var(--transition), border-color var(--transition), transform var(--transition);
+            box-shadow: 0 4px 16px rgba(15,23,42,0.03);
             position: relative;
         }
-        .arch-node:hover { background: var(--bg-card-hover); border-color: var(--border-hover); transform: translateY(-4px); }
+        .arch-node:hover { background: #F8FAFC; border-color: var(--border-hover); transform: translateY(-4px); }
         .arch-node-icon {
             width: 52px; height: 52px;
             border-radius: 14px;
@@ -568,7 +563,7 @@
             justify-content: center;
             margin: 0 auto 0.85rem;
         }
-        .arch-node h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.35rem; }
+        .arch-node h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.35rem; color: var(--text-1); }
         .arch-node p { font-size: 0.72rem; color: var(--text-2); line-height: 1.5; }
         .arch-arrow {
             text-align: center;
@@ -581,7 +576,7 @@
             border-radius: 16px;
             overflow: hidden;
             border: 1px solid var(--border);
-            box-shadow: 0 20px 80px rgba(0,0,0,0.5);
+            box-shadow: 0 16px 40px rgba(15,23,42,0.06);
         }
         .arch-screenshot img { width: 100%; display: block; }
 
@@ -606,15 +601,15 @@
             align-items: center;
             justify-content: center;
         }
-        .tech-card h3 { font-size: 1.05rem; font-weight: 700; }
+        .tech-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--text-1); }
         .tech-card p { font-size: 0.85rem; color: var(--text-2); line-height: 1.65; flex-grow: 1; }
         .tech-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
         .tech-tag {
             font-size: 0.7rem;
             padding: 0.2rem 0.55rem;
             border-radius: 5px;
-            background: rgba(255,255,255,0.06);
-            color: var(--text-3);
+            background: #F1F5F9;
+            color: var(--text-2);
             border: 1px solid var(--border);
         }
 
@@ -631,6 +626,9 @@
             text-align: center;
             padding: 2.5rem 1.5rem;
             border-radius: 20px;
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 20px rgba(15,23,42,0.04);
             position: relative;
             overflow: hidden;
         }
@@ -638,7 +636,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            opacity: 0.06;
+            opacity: 0.04;
         }
         .roi-card-blue::before { background: var(--blue); }
         .roi-card-teal::before { background: var(--teal); }
@@ -649,10 +647,10 @@
             line-height: 1;
             margin-bottom: 0.75rem;
         }
-        .roi-card-blue .roi-big-number { color: var(--blue-light); }
-        .roi-card-teal .roi-big-number { color: #2DD4BF; }
-        .roi-card-rose .roi-big-number { color: #FB7185; }
-        .roi-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.75rem; }
+        .roi-card-blue .roi-big-number { color: var(--blue); }
+        .roi-card-teal .roi-big-number { color: var(--teal); }
+        .roi-card-rose .roi-big-number { color: var(--rose); }
+        .roi-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--text-1); }
         .roi-card p { font-size: 0.85rem; color: var(--text-2); line-height: 1.65; }
 
         /* ========================================================
@@ -669,6 +667,7 @@
             border-radius: 20px;
             background: var(--bg-card);
             border: 1px solid var(--border);
+            box-shadow: 0 4px 20px rgba(15,23,42,0.04);
             transition: all var(--transition);
         }
         .industry-card:hover { background: var(--bg-card-hover); border-color: var(--border-hover); transform: translateY(-4px); }
@@ -680,13 +679,16 @@
             justify-content: center;
             margin-bottom: 1.25rem;
         }
-        .industry-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .industry-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-1); }
         .industry-card p { font-size: 0.85rem; color: var(--text-2); line-height: 1.65; margin-bottom: 1.25rem; }
         .industry-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
         .industry-tag {
             font-size: 0.72rem;
             padding: 0.25rem 0.65rem;
             border-radius: 6px;
+            background: #F1F5F9;
+            color: var(--text-2);
+            border: 1px solid var(--border);
             font-weight: 600;
         }
 
@@ -704,6 +706,7 @@
             border-radius: 20px;
             border: 1px solid var(--border);
             background: var(--bg-card);
+            box-shadow: 0 4px 20px rgba(15,23,42,0.04);
             display: flex;
             flex-direction: column;
             gap: 1.25rem;
@@ -720,7 +723,7 @@
             font-weight: 700;
             width: fit-content;
         }
-        .deploy-card h3 { font-size: 1.3rem; font-weight: 800; }
+        .deploy-card h3 { font-size: 1.3rem; font-weight: 800; color: var(--text-1); }
         .deploy-card p { font-size: 0.88rem; color: var(--text-2); line-height: 1.7; }
         .deploy-features { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
         .deploy-features li {
@@ -734,10 +737,10 @@
             content: '';
             width: 16px; height: 16px;
             border-radius: 50%;
-            background: rgba(16,185,129,0.15);
-            border: 1px solid rgba(16,185,129,0.3);
+            background: rgba(5,150,105,0.12);
+            border: 1px solid rgba(5,150,105,0.3);
             flex-shrink: 0;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%2310B981' d='M3 8l3.5 3.5L13 4.5'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23059669' d='M3 8l3.5 3.5L13 4.5'/%3E%3C/svg%3E");
             background-size: 12px;
             background-repeat: no-repeat;
             background-position: center;
@@ -748,7 +751,7 @@
         ======================================================== */
         #cta {
             background: var(--bg-deep);
-            padding: 120px 1.5rem;
+            padding: 100px 1.5rem;
         }
         .cta-inner {
             max-width: 760px;
@@ -759,8 +762,9 @@
             position: relative;
             padding: 4rem 3rem;
             border-radius: 28px;
-            border: 1px solid rgba(59,130,246,0.25);
-            background: linear-gradient(135deg, rgba(59,130,246,0.06), rgba(6,182,212,0.06));
+            border: 1px solid var(--border);
+            background: #FFFFFF;
+            box-shadow: 0 20px 60px rgba(15,23,42,0.06);
             overflow: hidden;
         }
         .cta-glow::before {
@@ -768,10 +772,10 @@
             position: absolute;
             top: -80px; left: 50%; transform: translateX(-50%);
             width: 400px; height: 300px;
-            background: radial-gradient(ellipse, rgba(59,130,246,0.15) 0%, transparent 70%);
+            background: radial-gradient(ellipse, rgba(29,78,216,0.06) 0%, transparent 70%);
             pointer-events: none;
         }
-        .cta-glow h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; margin-bottom: 1rem; }
+        .cta-glow h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; margin-bottom: 1rem; color: var(--text-1); }
         .cta-glow p { font-size: 1rem; color: var(--text-2); margin-bottom: 2.5rem; line-height: 1.7; }
         .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
         .cta-note { margin-top: 1.25rem; font-size: 0.8rem; color: var(--text-3); }
@@ -780,7 +784,7 @@
            FOOTER
         ======================================================== */
         footer {
-            background: #010810;
+            background: #F8FAFC;
             border-top: 1px solid var(--border);
             padding: 3rem 1.5rem 2rem;
         }
@@ -794,11 +798,11 @@
             gap: 3rem;
             margin-bottom: 3rem;
         }
-        .footer-brand p { font-size: 0.85rem; color: var(--text-3); line-height: 1.7; margin-top: 0.85rem; max-width: 260px; }
+        .footer-brand p { font-size: 0.85rem; color: var(--text-2); line-height: 1.7; margin-top: 0.85rem; max-width: 260px; }
         .footer-col h4 { font-size: 0.85rem; font-weight: 700; color: var(--text-1); margin-bottom: 1rem; }
         .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-        .footer-col a { font-size: 0.82rem; color: var(--text-3); text-decoration: none; transition: color var(--transition); }
-        .footer-col a:hover { color: var(--text-2); }
+        .footer-col a { font-size: 0.82rem; color: var(--text-2); text-decoration: none; transition: color var(--transition); }
+        .footer-col a:hover { color: var(--text-1); }
         .footer-bottom {
             border-top: 1px solid var(--border);
             padding-top: 1.5rem;
@@ -823,9 +827,10 @@
                 flex-direction: column;
                 position: fixed;
                 top: 68px; left: 0; right: 0;
-                background: rgba(2,12,27,0.97);
+                background: rgba(255,255,255,0.98);
                 border-bottom: 1px solid var(--border);
                 padding: 1rem 1.5rem 1.5rem;
+                box-shadow: 0 10px 30px rgba(15,23,42,0.08);
                 backdrop-filter: blur(20px);
                 z-index: 999;
             }
@@ -877,34 +882,31 @@
 <!-- ========================================================
      NAV (智采云专属落地页)
 ======================================================== -->
+<!-- NAV (全站统一固定通栏) -->
 <nav id="mainNav">
     <a href="../index.html" class="nav-brand">
-        <div class="nav-logo" style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#1D4ED8,#3B82F6);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.15rem;color:#fff;box-shadow:0 0 16px rgba(59,130,246,0.4);"><img src="../assets/system_screenshots/logo.png" alt="智采云" style="width:100%;height:100%;border-radius:10px;object-fit:cover;"></div>
+        <div class="nav-logo-box">增</div>
         <div>
-            <div style="font-size:1.15rem;font-weight:800;color:#fff;line-height:1.2;">智采云</div>
-            <div style="font-size:0.7rem;color:#60A5FA;font-weight:600;">智增云 · 智能采购比价与合同大库</div>
+            <div class="nav-brand-title">智增云</div>
+            <div class="nav-brand-sub">SmartGrowth Cloud · 采购与合规中枢</div>
         </div>
     </a>
     <ul class="nav-links" id="navLinks">
-        <li><a href="../index.html" style="display:flex;align-items:center;gap:4px;"><i data-lucide="arrow-left" style="width:14px;height:14px;"></i> 返回官网首页</a></li>
-        <li><a href="#pain">行业痛点</a></li>
-        <li><a href="#scenarios">核心场景</a></li>
-        <li><a href="#features">产品功能</a></li>
-        <li><a href="#tech-architecture">技术架构</a></li>
-        <li><a href="#roi">投资回报</a></li>
-        <li><a href="#industries">适用行业</a></li>
-        <li><a href="../zhihe/index.html">前往智核云 <span style="font-size:0.68rem;padding:2px 6px;border-radius:99px;background:rgba(16,185,129,0.2);color:#34D399;font-weight:bold;margin-left:2px;">国企合规</span></a></li>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="index.html" class="nav-active">智采云 <span class="nav-pill pill-blue">采购控价</span></a></li>
+        <li><a href="../zhihe/index.html">智核云 <span class="nav-pill pill-green">智能审批</span></a></li>
+        <li><a href="../zhixiao/index.html">智销售 <span class="nav-pill pill-amber">AI 美顾</span></a></li>
     </ul>
-    <div style="display:flex;align-items:center;gap:0.5rem;">
-        <a href="../apps/ppt-presentation/index.html" class="nav-cta" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);color:#fff!important;font-size:0.82rem!important;padding:0.45rem 0.9rem!important;" target="_blank">
-            <i data-lucide="presentation" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:2px;"></i> 智采云 PPT
+    <div class="nav-cta-group">
+        <a href="../apps/ppt-presentation/index.html" class="nav-btn-link" target="_blank">
+            <i data-lucide="presentation" style="width:14px;height:14px;color:#1D4ED8;"></i> 智采云 PPT
         </a>
-        <a href="../procurement-saas/index.html" class="nav-cta" style="background:#3B82F6;color:#fff!important;font-size:0.84rem!important;padding:0.48rem 1.15rem!important;" target="_blank">
-            <i data-lucide="zap" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:2px;color:#FBBF24;"></i> 在线 DEMO
+        <a href="../procurement-saas/index.html" class="nav-btn-main" target="_blank">
+            <i data-lucide="zap" style="width:14px;height:14px;color:#FBBF24;margin-right:2px;"></i> 在线 DEMO
         </a>
     </div>
     <button class="nav-mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="菜单">
-        <i data-lucide="menu" style="width:24px;height:24px;"></i>
+        <i data-lucide="menu" style="width:22px;height:22px;"></i>
     </button>
 </nav>
 
@@ -1458,8 +1460,8 @@
                 <a href="../index.html" class="nav-brand" style="margin-bottom:0.75rem;">
                     <div class="nav-logo" style="width:32px;height:32px;border-radius:8px;overflow:hidden;"><img src="../assets/system_screenshots/logo.png" alt="智采云" style="width:100%;height:100%;object-fit:cover;"></div>
                     <div>
-                        <span class="nav-brand-name" style="font-size:1.1rem;font-weight:800;color:#fff;">智采云</span>
-                        <div style="font-size:0.7rem;color:#60A5FA;">智增云旗下智能采购平台</div>
+                        <span class="nav-brand-name" style="font-size:1.1rem;font-weight:800;color:var(--text-1);">智采云</span>
+                        <div style="font-size:0.7rem;color:var(--blue);">智增云旗下智能采购平台</div>
                     </div>
                 </a>
                 <p>唤醒沉睡合同价格资产，以多维成交物料大库为核心，实现招标控价、多方比价、定标归仓的全流程数字化闭环采购管理平台。</p>
@@ -1472,7 +1474,7 @@
                     <li><a href="#architecture">业务架构</a></li>
                     <li><a href="#tech-architecture">技术架构</a></li>
                     <li><a href="#roi">ROI 分析</a></li>
-                    <li><a href="../apps/ppt-presentation/index.html" target="_blank">产品 PPT</a></li>
+                    <li><a href="../apps/ppt-presentation/index.html" target="_blank">智采云 PPT</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -1485,12 +1487,13 @@
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>智增云协同产品</h4>
+                <h4>智增云产品矩阵</h4>
                 <ul>
                     <li><a href="../index.html">智增云门户首页</a></li>
-                    <li><a href="../zhihe/index.html">智核云 (国企智能审批)</a></li>
+                    <li><a href="../zhihe/index.html">智核云 (国企智能把关)</a></li>
                     <li><a href="../apps/zhihe-ppt/index.html" target="_blank">智核云 PPT</a></li>
-                    <li><a href="../fde/index.html" target="_blank">智核云在线 DEMO</a></li>
+                    <li><a href="../zhixiao/index.html">智销售 (AI 销售管理)</a></li>
+                    <li><a href="../apps/zhixiao-ppt/index.html" target="_blank">智销售 PPT</a></li>
                 </ul>
             </div>
         </div>

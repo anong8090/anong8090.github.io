@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 460" width="1000" height="460">
+  <defs>
+    <linearGradient id="bgGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="10" y="10" width="980" height="440" rx="16" fill="url(#bgGrad5)" stroke="#334155" stroke-width="2"/>
+  <text x="500" y="55" fill="#34d399" font-size="22" font-weight="bold" font-family="system-ui, sans-serif" text-anchor="middle">客户全生命周期状态地图与追回闭环</text>
+
+  <!-- 节点 1 -->
+  <rect x="50" y="100" width="160" height="70" rx="8" fill="#1e293b" stroke="#3b82f6"/>
+  <text x="130" y="130" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">1. 线上潜客</text>
+  <text x="130" y="152" fill="#93c5fd" font-size="11" text-anchor="middle">小红书/微信加好友</text>
+
+  <path d="M 210 135 L 240 135" stroke="#60a5fa" stroke-width="2"/>
+
+  <!-- 节点 2 -->
+  <rect x="245" y="100" width="160" height="70" rx="8" fill="#1e293b" stroke="#3b82f6"/>
+  <text x="325" y="130" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">2. 预约到店</text>
+  <text x="325" y="152" fill="#93c5fd" font-size="11" text-anchor="middle">咨询师邀约挂号</text>
+
+  <path d="M 405 135 L 435 135" stroke="#60a5fa" stroke-width="2"/>
+
+  <!-- 节点 3 -->
+  <rect x="440" y="100" width="230" height="70" rx="8" fill="#2e1065" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="555" y="130" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">3. 佩戴工牌到店面诊</text>
+  <text x="555" y="152" fill="#ddd6fe" font-size="11" text-anchor="middle">触发 1分钟接待速读卡</text>
+
+  <!-- 分支 1: 已成交 -->
+  <path d="M 670 135 L 740 135" stroke="#10b981" stroke-width="2"/>
+  <rect x="745" y="100" width="205" height="70" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="2"/>
+  <text x="847" y="130" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">4A. 现场已成交</text>
+  <text x="847" y="152" fill="#a7f3d0" font-size="11" text-anchor="middle">签订协议与收银划扣履约</text>
+
+  <!-- 分支 2: 未成交 -->
+  <path d="M 555 170 L 555 240" stroke="#f59e0b" stroke-width="2"/>
+  <rect x="440" y="245" width="230" height="75" rx="8" fill="#451a03" stroke="#f59e0b" stroke-width="2"/>
+  <text x="555" y="275" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">4B. 已面诊未成交</text>
+  <text x="555" y="298" fill="#fde68a" font-size="11" text-anchor="middle">生成 AI 归因 (A/B/C/D意向分级)</text>
+
+  <!-- 追回跟进 -->
+  <path d="M 555 320 L 555 350" stroke="#f59e0b" stroke-width="2"/>
+  <rect x="400" y="355" width="310" height="65" rx="8" fill="#1e293b" stroke="#38bdf8"/>
+  <text x="555" y="382" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">5. 追回跟进中 (自动 3/7/15天跟进待办)</text>
+  <text x="555" y="402" fill="#7dd3fc" font-size="11" text-anchor="middle">一键复制 AI 推荐微信文案 | 30天未跟进划入公海</text>
+
+  <!-- 回流至成交 -->
+  <path d="M 710 387 Q 847 387 847 175" stroke="#10b981" stroke-width="2" stroke-dasharray="4,4"/>
+  <text x="810" y="300" fill="#34d399" font-size="11">二次到店成交</text>
+
+  <!-- 复购与转介绍 -->
+  <path d="M 847 170 L 847 245" stroke="#10b981" stroke-width="2"/>
+  <rect x="745" y="245" width="205" height="75" rx="8" fill="#064e3b" stroke="#10b981"/>
+  <text x="847" y="275" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">6. 术后履约与老客裂变</text>
+  <text x="847" y="298" fill="#a7f3d0" font-size="11" text-anchor="middle">水光/复购关怀与转介绍推荐</text>
+</svg>

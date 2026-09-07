@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" width="1000" height="420">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <filter id="shadow2" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- 大卡片圆角背景 -->
+  <rect x="10" y="10" width="980" height="400" rx="16" fill="url(#bgGrad2)" stroke="#334155" stroke-width="2" filter="url(#shadow2)"/>
+
+  <!-- 顶部主标题 -->
+  <text x="500" y="60" fill="#38bdf8" font-size="22" font-weight="bold" font-family="system-ui, sans-serif" text-anchor="middle">智能工牌无感采集与自动化处理全链路</text>
+
+  <!-- 卡片 1: 1. 线下现场沟通 -->
+  <rect x="50" y="95" width="270" height="275" rx="12" fill="#0f172a" stroke="#0284c7" stroke-width="2"/>
+  <rect x="65" y="115" width="240" height="40" rx="8" fill="#0284c7"/>
+  <text x="185" y="141" fill="#ffffff" font-size="16" font-weight="bold" text-anchor="middle">1. 线下现场沟通</text>
+
+  <text x="85" y="195" fill="#e2e8f0" font-size="13">•  咨询师佩戴轻巧工牌 (28g)</text>
+  <text x="85" y="235" fill="#e2e8f0" font-size="13">•  双麦克风阵列降噪拾音</text>
+  <text x="85" y="275" fill="#e2e8f0" font-size="13">•  本地 AES-256 加密保存</text>
+  <text x="85" y="315" fill="#e2e8f0" font-size="13">•  续航 12 小时满足全天</text>
+
+  <!-- 箭头 1 -->
+  <path d="M 330 230 L 360 230" stroke="#38bdf8" stroke-width="3" marker-end="url(#arrow)"/>
+  <polygon points="360,224 372,230 360,236" fill="#38bdf8"/>
+
+  <!-- 卡片 2: 2. 自动静默上传与解密 -->
+  <rect x="380" y="95" width="270" height="275" rx="12" fill="#0f172a" stroke="#059669" stroke-width="2"/>
+  <rect x="395" y="115" width="240" height="40" rx="8" fill="#059669"/>
+  <text x="515" y="141" fill="#ffffff" font-size="16" font-weight="bold" text-anchor="middle">2. 自动静默上传与解密</text>
+
+  <text x="415" y="195" fill="#e2e8f0" font-size="13">•  插入底座或连 Wi-Fi 触发</text>
+  <text x="415" y="235" fill="#e2e8f0" font-size="13">•  HTTPS 安全传输至平台</text>
+  <text x="415" y="275" fill="#e2e8f0" font-size="13">•  校验设备及咨询师身份</text>
+  <text x="415" y="315" fill="#e2e8f0" font-size="13">•  触发 AI 异步 Pipeline</text>
+
+  <!-- 箭头 2 -->
+  <path d="M 660 230 L 690 230" stroke="#34d399" stroke-width="3"/>
+  <polygon points="690,224 702,230 690,236" fill="#34d399"/>
+
+  <!-- 卡片 3: 3. 3分钟生成总结与质检 -->
+  <rect x="710" y="95" width="240" height="275" rx="12" fill="#0f172a" stroke="#7c3aed" stroke-width="2"/>
+  <rect x="725" y="115" width="210" height="40" rx="8" fill="#7c3aed"/>
+  <text x="830" y="141" fill="#ffffff" font-size="15" font-weight="bold" text-anchor="middle">3. 3分钟生成总结与质检</text>
+
+  <text x="735" y="195" fill="#e2e8f0" font-size="13">•  ASR 医美转写与声纹分离</text>
+  <text x="735" y="235" fill="#e2e8f0" font-size="13">•  提取部位需求与意向打分</text>
+  <text x="735" y="275" fill="#e2e8f0" font-size="13">•  100% 自动质检与红牌告警</text>
+  <text x="735" y="315" fill="#e2e8f0" font-size="13">•  自动生成微信跟进文案</text>
+</svg>

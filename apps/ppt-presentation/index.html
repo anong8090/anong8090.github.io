@@ -52,29 +52,29 @@
   <style>
     /* 1080P 大屏精准演示设计系统 (1920 x 1080 Standard PPT Stage) */
     :root {
-      --bg-dark: #070A13;
-      --bg-card: rgba(15, 23, 42, 0.7);
-      --border-glass: rgba(255, 255, 255, 0.08);
-      --border-glass-hover: rgba(56, 189, 248, 0.35);
+      --bg-dark: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --border-glass: #E2E8F0;
+      --border-glass-hover: #CBD5E1;
       
-      --text-white: #FFFFFF;
-      --text-primary: #F1F5F9;
-      --text-secondary: #DDE7F7;
-      --text-muted: #B7C7E3;
-      --text-gray: #DDE7F7;
+      --text-white: #0F172A;
+      --text-primary: #0F172A;
+      --text-secondary: #475569;
+      --text-muted: #64748B;
+      --text-gray: #475569;
       
-      --color-indigo: #6366F1;
-      --color-teal: #14B8A6;
-      --color-amber: #F59E0B;
-      --color-rose: #F43F5E;
-      --color-emerald: #10B981;
-      --color-cyan: #06B6D4;
-      --color-violet: #A78BFA;
+      --color-indigo: #4F46E5;
+      --color-teal: #0D9488;
+      --color-amber: #D97706;
+      --color-rose: #E11D48;
+      --color-emerald: #059669;
+      --color-cyan: #0284C7;
+      --color-violet: #7C3AED;
       
-      --grad-cyan-blue: linear-gradient(135deg, #06B6D4 0%, #3B82F6 100%);
-      --grad-emerald-teal: linear-gradient(135deg, #10B981 0%, #0D9488 100%);
-      --grad-rose-orange: linear-gradient(135deg, #F43F5E 0%, #F97316 100%);
-      --grad-violet-blue: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%);
+      --grad-cyan-blue: linear-gradient(135deg, #0284C7 0%, #1D4ED8 100%);
+      --grad-emerald-teal: linear-gradient(135deg, #059669 0%, #0F766E 100%);
+      --grad-rose-orange: linear-gradient(135deg, #E11D48 0%, #EA580C 100%);
+      --grad-violet-blue: linear-gradient(135deg, #7C3AED 0%, #1D4ED8 100%);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; user-select: none; }
@@ -85,8 +85,8 @@
     }
 
     body {
-      background-color: #020408;
-      color: var(--text-white);
+      background-color: #F1F5F9;
+      color: var(--text-primary);
       font-family: 'Outfit', 'Noto Sans SC', sans-serif;
       width: 100vw; height: 100vh;
       overflow: hidden;
@@ -110,35 +110,35 @@
     .grid-bg {
       position: absolute; inset: 0;
       background-image: 
-        linear-gradient(rgba(56, 189, 248, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+        linear-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
       background-size: 60px 60px;
       z-index: 1; pointer-events: none;
     }
 
     .glow-blob-1 {
       position: absolute; top: -150px; left: -150px; width: 900px; height: 900px;
-      background: radial-gradient(circle, rgba(6, 182, 212, 0.18) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(2, 132, 199, 0.06) 0%, transparent 70%);
       filter: blur(120px); z-index: 1; pointer-events: none;
     }
 
     .glow-blob-2 {
       position: absolute; bottom: -150px; right: -150px; width: 900px; height: 900px;
-      background: radial-gradient(circle, rgba(59, 130, 246, 0.18) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(29, 78, 216, 0.06) 0%, transparent 70%);
       filter: blur(120px); z-index: 1; pointer-events: none;
     }
 
-    /* ===== 顶栏/底栏：暗黑毛玻璃 chrome ===== */
+    /* ===== 顶栏/底栏：浅色精致 chrome ===== */
     header {
       position: relative;
       height: 76px; flex-shrink: 0;
       padding: 0 3rem;
       display: flex; align-items: center; justify-content: space-between;
       z-index: 300;
-      background: rgba(7, 10, 19, 0.92);
+      background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(148, 163, 184, 0.18);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      border-bottom: 1px solid #E2E8F0;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
     }
     .brand-logo-area { display: flex; align-items: center; gap: 0.75rem; }
     .brand-icon {
@@ -147,14 +147,13 @@
       display: flex; align-items: center; justify-content: center;
     }
     .brand-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
-    .brand-title { font-size: 1.28rem; font-weight: 800; color: var(--text-white); letter-spacing: 0.5px; }
+    .brand-title { font-size: 1.28rem; font-weight: 800; color: var(--text-primary); letter-spacing: 0.5px; }
 
     .system-badge {
       font-size: 0.9rem; font-weight: 800; text-transform: uppercase;
-      letter-spacing: 1.5px; color: #A5F3FC;
+      letter-spacing: 1.5px; color: #0284C7;
       padding: 0.45rem 1rem; border-radius: 9999px;
-      background: rgba(6, 182, 212, 0.12); border: 1px solid rgba(6, 182, 212, 0.35);
-      box-shadow: inset 0 0 18px rgba(6, 182, 212, 0.08);
+      background: #EFF6FF; border: 1px solid #BFDBFE;
     }
 
     footer {
@@ -163,15 +162,15 @@
       padding: 0 3rem;
       display: flex; align-items: center; justify-content: space-between;
       z-index: 300;
-      background: rgba(7, 10, 19, 0.92);
+      background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(16px);
-      border-top: 1px solid rgba(148, 163, 184, 0.18);
-      box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.32);
+      border-top: 1px solid #E2E8F0;
+      box-shadow: 0 -4px 20px rgba(15, 23, 42, 0.04);
     }
     .slide-counter { font-size: 1.08rem; font-weight: 800; color: var(--text-primary); font-variant-numeric: tabular-nums; }
 
     .progress-track {
-      width: 300px; height: 6px; background: rgba(148, 163, 184, 0.18);
+      width: 300px; height: 6px; background: #E2E8F0;
       border-radius: 99px; overflow: hidden;
     }
     .progress-fill { height: 100%; background: linear-gradient(135deg, #3B82F6 0%, #0EA5E9 100%); width: 7.14%; transition: width 0.4s ease; }
@@ -179,32 +178,32 @@
     .ctrl-btns { display: flex; gap: 1.5rem; align-items: center; }
     .btn-ctrl {
       width: 46px; height: 46px; border-radius: 50%;
-      background: rgba(15, 23, 42, 0.86); border: 1px solid rgba(148, 163, 184, 0.22);
+      background: #FFFFFF; border: 1px solid #CBD5E1;
       color: var(--text-primary); display: flex; align-items: center; justify-content: center;
       cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.24);
+      box-shadow: 0 2px 8px rgba(15,23,42,0.06);
     }
     .btn-ctrl:hover {
-      background: rgba(6, 182, 212, 0.18); border-color: rgba(6, 182, 212, 0.55);
-      color: #A5F3FC; transform: scale(1.05);
-      box-shadow: 0 8px 22px rgba(6, 182, 212, 0.18);
+      background: #F8FAFC; border-color: #94A3B8;
+      color: #0284C7; transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(15,23,42,0.1);
     }
 
-    /* 目录抽屉（与浅色版 PPT 一致） */
+    /* 目录抽屉 */
     .index-drawer {
       position: fixed; top: 0; right: -320px; width: 320px; height: 100%;
-      background: rgba(7, 10, 19, 0.98); border-left: 1px solid rgba(148, 163, 184, 0.18);
+      background: rgba(255, 255, 255, 0.98); border-left: 1px solid #E2E8F0;
       z-index: 400; padding: 2rem 1.5rem;
       transition: right 0.4s cubic-bezier(0.25, 1, 0.5, 1);
       display: flex; flex-direction: column;
-      box-shadow: -10px 0 30px rgba(0,0,0,0.45);
+      box-shadow: -10px 0 30px rgba(15,23,42,0.1);
     }
     .index-drawer.open { right: 0; }
     .drawer-header {
       display: flex; justify-content: space-between; align-items: center;
-      margin-bottom: 2rem; border-bottom: 1px solid rgba(148, 163, 184, 0.18); padding-bottom: 1rem;
+      margin-bottom: 2rem; border-bottom: 1px solid #E2E8F0; padding-bottom: 1rem;
     }
-    .drawer-title { font-size: 1.18rem; font-weight: 800; color: var(--text-white); }
+    .drawer-title { font-size: 1.18rem; font-weight: 800; color: var(--text-primary); }
     .btn-close-drawer { background: transparent; border: none; color: var(--text-secondary); cursor: pointer; }
     .drawer-list {
       list-style: none; overflow-y: auto; flex-grow: 1;
@@ -215,10 +214,10 @@
       font-size: 0.95rem; color: var(--text-secondary); cursor: pointer;
       transition: all 0.2s ease; display: flex; align-items: center; gap: 0.75rem;
     }
-    .drawer-item:hover, .drawer-item.active { background: rgba(148, 163, 184, 0.12); color: var(--text-white); }
+    .drawer-item:hover, .drawer-item.active { background: #F1F5F9; color: var(--text-primary); }
     .drawer-item.active {
-      border-left: 3px solid #3B82F6; font-weight: bold;
-      background: rgba(59, 130, 246, 0.14); color: #93C5FD;
+      border-left: 3px solid #1D4ED8; font-weight: bold;
+      background: #EFF6FF; color: #1D4ED8;
     }
 
     /* 主 Slide 视图容器 */
@@ -253,7 +252,7 @@
     .slide-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; flex: 1; min-height: 0; align-items: stretch; }
     .slide-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; flex: 1; min-height: 0; align-items: stretch; }
 
-    /* 暗黑卡片 */
+    /* 白色商务卡片 */
     .glass-card {
       background: var(--bg-card);
       border: 1px solid var(--border-glass);
@@ -261,7 +260,7 @@
       padding: 1.75rem;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
       transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
       position: relative;
       overflow: hidden;
@@ -269,22 +268,22 @@
     .glass-card:hover {
       border-color: var(--border-glass-hover);
       transform: translateY(-4px);
-      box-shadow: 0 16px 40px rgba(6, 182, 212, 0.12);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
     }
 
     .card-icon {
       width: 42px; height: 42px; border-radius: 10px;
-      background: rgba(255, 255, 255, 0.03);
+      background: #F1F5F9;
       display: flex; align-items: center; justify-content: center;
       margin-bottom: 1rem;
       color: var(--color-indigo);
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      border: 1px solid #E2E8F0;
       transition: all 0.3s ease;
     }
     .glass-card:hover .card-icon {
       background: var(--grad-cyan-blue);
       color: white;
-      box-shadow: 0 4px 12px rgba(6, 182, 212, 0.4);
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);
       transform: scale(1.05);
     }
 
@@ -311,14 +310,14 @@
       display: flex;
       align-items: flex-start;
       gap: 0.5rem;
-      background: rgba(15, 23, 42, 0.62);
-      border: 1px solid rgba(148, 163, 184, 0.16);
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
       border-radius: 12px;
       color: var(--text-secondary);
       line-height: 1.58;
     }
     .neon-item strong {
-      color: var(--text-white);
+      color: var(--text-primary);
       font-weight: 900;
     }
     #slide-2 .slide-grid-2 {
@@ -334,7 +333,7 @@
     }
     #slide-2 .glass-card > div:last-child {
       font-size: 1.05rem !important;
-      color: var(--text-white) !important;
+      color: var(--text-primary) !important;
     }
 
     /* 全局可读性增强：覆盖各页内联小字号与偏灰文字 */
@@ -447,13 +446,13 @@
     .sparkline-box { height: 3rem; width: 100%; margin: 0.5rem 0; }
     .sparkline-box svg { width: 100%; height: 100%; }
 
-    .mat-metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; background: rgba(0,0,0,0.3); padding: 0.5rem; border-radius: 8px; text-align: center; }
+    .mat-metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; background: #F1F5F9; border: 1px solid #E2E8F0; padding: 0.5rem; border-radius: 8px; text-align: center; }
     .mat-metrics .lbl { font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 2px; }
-    .mat-metrics .val { font-size: 0.95rem; font-weight: 700; font-family: 'Outfit'; color: var(--text-white); }
+    .mat-metrics .val { font-size: 0.95rem; font-weight: 700; font-family: 'Outfit'; color: var(--text-primary); }
 
     /* Slide 10: TCO 落地计算舱 */
     .calc-panel {
-      background: rgba(15, 23, 42, 0.45);
+      background: #F8FAFC;
       border-radius: 16px;
       padding: 1.5rem;
       border: 1px solid var(--border-glass);
@@ -593,9 +592,9 @@
       border: 1px solid rgba(59, 130, 246, 0.35);
     }
     .chat-bubble-ai {
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      color: var(--text-white);
+      background: #F1F5F9;
+      border: 1px solid #E2E8F0;
+      color: var(--text-primary);
       align-self: flex-start;
       border-top-left-radius: 2px;
     }
@@ -745,10 +744,10 @@
         flex-direction: column !important;
         opacity: 1 !important;
         pointer-events: auto !important;
-        background: rgba(15, 23, 42, 0.7) !important;
-        border: 1px solid rgba(148, 163, 184, 0.18) !important;
+        background: #FFFFFF !important;
+        border: 1px solid #E2E8F0 !important;
         border-radius: 20px !important;
-        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55) !important;
+        box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06) !important;
       }
 
       /* 每页顶部序号角标 */
@@ -902,7 +901,10 @@
           <div class="brand-icon"><img src="../../assets/system_screenshots/logo.png" alt="智采云 Logo"></div>
           <div class="brand-title">智能采购比价与合同管理系统</div>
         </div>
-        <div class="system-badge" id="sectionTag">VALUE PRESENTATION</div>
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <a href="../../zhicai/index.html" style="font-size:0.85rem; color:#0284C7; text-decoration:none; display:flex; align-items:center; gap:0.4rem; padding:0.35rem 0.8rem; background:#EFF6FF; border:1px solid #BFDBFE; border-radius:0.5rem; font-weight:600;"><i data-lucide="arrow-left" style="width:14px;height:14px;"></i> 产品专页</a>
+          <div class="system-badge" id="sectionTag">VALUE PRESENTATION</div>
+        </div>
       </header>
 
       <!-- 全屏演示主视口 PPT Slide Viewport (1920 x 1080) -->

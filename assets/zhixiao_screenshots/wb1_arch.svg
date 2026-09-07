@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 680" width="1000" height="680">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- 大卡片圆角背景 -->
+  <rect x="10" y="10" width="980" height="660" rx="16" fill="url(#bgGrad)" stroke="#334155" stroke-width="2" filter="url(#shadow)"/>
+
+  <!-- 顶部主标题胶囊 -->
+  <rect x="70" y="35" width="860" height="48" rx="12" fill="url(#titleGrad)"/>
+  <text x="500" y="66" fill="#ffffff" font-size="20" font-weight="bold" font-family="system-ui, sans-serif" text-anchor="middle">AI 美顾全景产品功能与业务架构图</text>
+
+  <!-- 【1】硬件采集端 -->
+  <rect x="50" y="110" width="900" height="100" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <rect x="70" y="98" width="140" height="26" rx="6" fill="#2563eb"/>
+  <text x="140" y="115" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">【1】硬件采集端</text>
+  
+  <!-- 子项 -->
+  <rect x="80" y="140" width="260" height="46" rx="8" fill="#0f172a" stroke="#475569"/>
+  <text x="210" y="168" fill="#e2e8f0" font-size="14" text-anchor="middle">AI 智能工牌 (双麦降噪)</text>
+  
+  <rect x="370" y="140" width="260" height="46" rx="8" fill="#0f172a" stroke="#475569"/>
+  <text x="500" y="168" fill="#e2e8f0" font-size="14" text-anchor="middle">本地 AES-256 加密保存</text>
+  
+  <rect x="660" y="140" width="260" height="46" rx="8" fill="#0f172a" stroke="#475569"/>
+  <text x="790" y="168" fill="#e2e8f0" font-size="14" text-anchor="middle">Wi-Fi/4G 静默自动上传</text>
+
+  <!-- 箭头 1 -->
+  <path d="M 500 215 L 500 235" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#arrow)"/>
+
+  <!-- 【2】AI 智能分析引擎 -->
+  <rect x="50" y="240" width="900" height="110" rx="12" fill="#1e293b" stroke="#059669" stroke-width="1.5"/>
+  <rect x="70" y="228" width="160" height="26" rx="6" fill="#059669"/>
+  <text x="150" y="245" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">【2】AI 智能分析引擎</text>
+  
+  <rect x="75" y="270" width="200" height="56" rx="8" fill="#064e3b" stroke="#10b981"/>
+  <text x="175" y="295" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">ASR 医美专用词库</text>
+  <text x="175" y="315" fill="#a7f3d0" font-size="11" text-anchor="middle">热玛吉/超声炮/嗨体等</text>
+
+  <rect x="295" y="270" width="200" height="56" rx="8" fill="#064e3b" stroke="#10b981"/>
+  <text x="395" y="295" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">声纹角色分离</text>
+  <text x="395" y="315" fill="#a7f3d0" font-size="11" text-anchor="middle">[客户] / [咨询师] / [医生]</text>
+
+  <rect x="515" y="270" width="200" height="56" rx="8" fill="#064e3b" stroke="#10b981"/>
+  <text x="615" y="295" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">机构私有 RAG 知识库</text>
+  <text x="615" y="315" fill="#a7f3d0" font-size="11" text-anchor="middle">项目/活动价格/经典话术</text>
+
+  <rect x="735" y="270" width="195" height="56" rx="8" fill="#064e3b" stroke="#10b981"/>
+  <text x="832" y="295" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">需求与意向打分模型</text>
+  <text x="832" y="315" fill="#a7f3d0" font-size="11" text-anchor="middle">A/B/C/D 意向精准分级</text>
+
+  <!-- 箭头 2 -->
+  <path d="M 500 355 L 500 375" stroke="#34d399" stroke-width="2" stroke-dasharray="4,4"/>
+
+  <!-- 【3】核心业务应用 -->
+  <rect x="50" y="380" width="900" height="120" rx="12" fill="#1e293b" stroke="#7c3aed" stroke-width="1.5"/>
+  <rect x="70" y="368" width="140" height="26" rx="6" fill="#7c3aed"/>
+  <text x="140" y="385" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">【3】核心业务应用</text>
+
+  <rect x="75" y="410" width="200" height="66" rx="8" fill="#2e1065" stroke="#8b5cf6"/>
+  <text x="175" y="438" fill="#ffffff" font-size="15" font-weight="bold" text-anchor="middle">AI 咨询分析中心</text>
+  <text x="175" y="460" fill="#ddd6fe" font-size="11" text-anchor="middle">3分钟沟通总结/未成交归因</text>
+
+  <rect x="295" y="410" width="200" height="66" rx="8" fill="#2e1065" stroke="#8b5cf6"/>
+  <text x="395" y="438" fill="#ffffff" font-size="15" font-weight="bold" text-anchor="middle">AI 客户 CRM 360°画像</text>
+  <text x="395" y="460" fill="#ddd6fe" font-size="11" text-anchor="middle">需求部位/预算/动态标签</text>
+
+  <rect x="515" y="410" width="200" height="66" rx="8" fill="#2e1065" stroke="#8b5cf6"/>
+  <text x="615" y="438" fill="#ffffff" font-size="15" font-weight="bold" text-anchor="middle">咨询师 AI Copilot</text>
+  <text x="615" y="460" fill="#ddd6fe" font-size="11" text-anchor="middle">咨询前简报/现场弹框话术</text>
+
+  <rect x="735" y="410" width="195" height="66" rx="8" fill="#2e1065" stroke="#8b5cf6"/>
+  <text x="832" y="438" fill="#ffffff" font-size="15" font-weight="bold" text-anchor="middle">100% AI 质检中心</text>
+  <text x="832" y="460" fill="#ddd6fe" font-size="11" text-anchor="middle">6大维度质检/违规红牌预警</text>
+
+  <!-- 【4】经营管理决策层 -->
+  <rect x="50" y="525" width="900" height="115" rx="12" fill="#1e293b" stroke="#ea580c" stroke-width="1.5"/>
+  <rect x="70" y="513" width="160" height="26" rx="6" fill="#ea580c"/>
+  <text x="150" y="530" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">【4】经营管理决策层</text>
+
+  <rect x="120" y="555" width="340" height="60" rx="8" fill="#431407" stroke="#f97316"/>
+  <text x="290" y="582" fill="#ffffff" font-size="15" font-weight="bold" text-anchor="middle">集团老板 / 院长驾驶舱</text>
+  <text x="290" y="602" fill="#ffedd5" font-size="12" text-anchor="middle">机构总营收 / 多院区转化率对比 / 合规预警</text>
+
+  <rect x="520" y="555" width="360" height="60" rx="8" fill="#431407" stroke="#f97316"/>
+  <text x="700" y="582" fill="#ffffff" font-size="15" font-weight="bold" text-anchor="middle">院区店长驾驶舱</text>
+  <text x="700" y="602" fill="#ffedd5" font-size="12" text-anchor="middle">当班咨询师状态 / 高意向追回清单 / 质检榜</text>
+</svg>

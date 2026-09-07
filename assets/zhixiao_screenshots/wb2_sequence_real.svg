@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" width="1000" height="620">
+  <defs>
+    <linearGradient id="bgGradSeq" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#38bdf8" />
+    </marker>
+    <marker id="arrowhead-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ef4444" />
+    </marker>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#10b981" />
+    </marker>
+  </defs>
+
+  <!-- 大卡片圆角背景 -->
+  <rect x="10" y="10" width="980" height="600" rx="16" fill="url(#bgGradSeq)" stroke="#334155" stroke-width="2"/>
+
+  <!-- 顶部主标题 -->
+  <text x="500" y="50" fill="#38bdf8" font-size="20" font-weight="bold" font-family="system-ui, sans-serif" text-anchor="middle">硬件采集与无感上传交互时序图 (Hardware & Upload Sequence)</text>
+
+  <!-- 参与者 Actor / Participant 头部框 -->
+  <!-- 1. 咨询师 -->
+  <rect x="50" y="75" width="130" height="40" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="115" y="100" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">咨询师 (佩戴工牌)</text>
+  <line x1="115" y1="115" x2="115" y2="560" stroke="#334155" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+  <!-- 2. 到店客户 -->
+  <rect x="210" y="75" width="120" height="40" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="270" y="100" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">到店客户</text>
+  <line x1="270" y1="115" x2="270" y2="560" stroke="#334155" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+  <!-- 3. 智能工牌设备 -->
+  <rect x="360" y="75" width="130" height="40" rx="8" fill="#2e1065" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="425" y="100" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">智能工牌设备</text>
+  <line x1="425" y1="115" x2="425" y2="560" stroke="#334155" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+  <!-- 4. 云端接入网关 -->
+  <rect x="520" y="75" width="130" height="40" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="1.5"/>
+  <text x="585" y="100" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">云端接入网关</text>
+  <line x1="585" y1="115" x2="585" y2="560" stroke="#334155" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+  <!-- 5. ASR & 质检引擎 -->
+  <rect x="680" y="75" width="130" height="40" rx="8" fill="#431407" stroke="#f97316" stroke-width="1.5"/>
+  <text x="745" y="100" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">ASR &amp; 质检引擎</text>
+  <line x1="745" y1="115" x2="745" y2="560" stroke="#334155" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+  <!-- 6. 院区店长 / 系统 -->
+  <rect x="840" y="75" width="120" height="40" rx="8" fill="#450a0a" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="900" y="100" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">院区店长/系统</text>
+  <line x1="900" y1="115" x2="900" y2="560" stroke="#334155" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+  <!-- 时序交互步骤描述线 -->
+  <!-- 1. 按接诊键 -->
+  <line x1="115" y1="140" x2="425" y2="140" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <text x="270" y="133" fill="#7dd3fc" font-size="11" text-anchor="middle">1. 点击按键 / 前台分诊触发接诊</text>
+
+  <!-- 2. 开展沟通 -->
+  <line x1="115" y1="170" x2="270" y2="170" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <text x="192" y="163" fill="#7dd3fc" font-size="11" text-anchor="middle">2. 开展面对面咨询沟通</text>
+
+  <!-- 3. 本地降噪暂存 -->
+  <path d="M 425 190 C 460 190, 460 210, 425 210" fill="none" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <text x="480" y="203" fill="#c4b5fd" font-size="11">3. 双麦降噪 &amp; AES-256 加密保存</text>
+
+  <!-- 阶段块：实时 Copilot 静默听词化解 -->
+  <rect x="100" y="225" width="700" height="110" rx="8" fill="#1e1b4b" stroke="#6366f1" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="110" y="242" fill="#818cf8" font-size="11" font-weight="bold">接诊进行中 (实时 Copilot 话术辅助)</text>
+
+  <line x1="425" y1="260" x2="585" y2="260" stroke="#818cf8" stroke-width="1.5" stroke-dasharray="2,2" marker-end="url(#arrowhead)"/>
+  <text x="505" y="253" fill="#a5b4fc" font-size="11" text-anchor="middle">4. 流式切片音频上传 (WebSocket)</text>
+
+  <line x1="585" y1="285" x2="745" y2="285" stroke="#818cf8" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <text x="665" y="278" fill="#a5b4fc" font-size="11" text-anchor="middle">5. 实时听词匹配私有 RAG 知识库</text>
+
+  <line x1="745" y1="315" x2="115" y2="315" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrowhead-green)"/>
+  <text x="430" y="308" fill="#6ee7b7" font-size="11" text-anchor="middle">6. 手机/平板屏幕静默浮现化解话术弹窗</text>
+
+  <!-- 7. 点击结束接诊 -->
+  <line x1="115" y1="360" x2="425" y2="360" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <text x="270" y="353" fill="#7dd3fc" font-size="11" text-anchor="middle">7. 点击结束接诊 / 插入充电底座</text>
+
+  <!-- 8. 静默上传整段 -->
+  <line x1="425" y1="390" x2="585" y2="390" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrowhead-green)"/>
+  <text x="505" y="383" fill="#6ee7b7" font-size="11" text-anchor="middle">8. HTTPS 静默上传完整音频</text>
+
+  <!-- 9. 触发 AI 3分钟总结 -->
+  <line x1="585" y1="420" x2="745" y2="420" stroke="#f97316" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <text x="665" y="413" fill="#fdba74" font-size="11" text-anchor="middle">9. 声纹分离 &amp; AI 3分钟结构化总结</text>
+
+  <!-- 分支块：质检与红牌告警 -->
+  <rect x="570" y="445" width="370" height="100" rx="8" fill="#450a0a" stroke="#ef4444" stroke-width="1"/>
+  <text x="580" y="462" fill="#fca5a5" font-size="11" font-weight="bold">AI 全量质检与结果下发</text>
+
+  <line x1="745" y1="480" x2="900" y2="480" stroke="#ef4444" stroke-width="1.5" marker-end="url(#arrowhead-red)"/>
+  <text x="822" y="473" fill="#fca5a5" font-size="11" text-anchor="middle">10A. 检出违规敏感词 ➔ 推送 🚩 违规红牌告警</text>
+
+  <line x1="745" y1="520" x2="900" y2="520" stroke="#10b981" stroke-width="1.5" marker-end="url(#arrowhead-green)"/>
+  <text x="822" y="513" fill="#6ee7b7" font-size="11" text-anchor="middle">10B. 正常合规 ➔ 自动更新 CRM 与 3/7/15天待办</text>
+</svg>

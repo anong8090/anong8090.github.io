@@ -4,33 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>智核云 · 国企智能审批合规审查系统 | 零折腾协同 · 1分钟把关 · 终身履职免责</title>
-    <meta name="description" content="智核云（FDE）面向大型国企关键领导岗位，不用推倒现有OA系统，后台自动完成合同与附件初审，毫秒级揪出阴阳差额，对标企业制度红线，生成防伪免责凭单，赋能领导从容定夺、终身免责。">
+    <meta name="description" content="智核云（FDE）面向大型国企关键领导岗位，不用推倒现有OA系统，后台自动完成合同与附件初审，全要素穿透揪出阴阳差额，对标企业制度红线，生成防伪免责凭单，赋能领导从容定夺、终身免责。">
     <meta name="keywords" content="智核云,FDE,国企智能审批,合同把关,三重一大,履职尽责,免责存证,信创合规,智能审批副驾">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <style>
         :root {
-            --bg-deep:     #020c1b;
-            --bg-section:  #060f1f;
-            --bg-card:     rgba(15, 23, 42, 0.75);
-            --bg-card-hover: rgba(15, 23, 42, 0.95);
-            --border:      rgba(255, 255, 255, 0.08);
-            --border-hover: rgba(56, 189, 248, 0.35);
+            --bg-deep:     #FFFFFF;
+            --bg-section:  #F8FAFC;
+            --bg-card:     #FFFFFF;
+            --bg-card-hover: #F8FAFC;
+            --border:      #E2E8F0;
+            --border-hover: #CBD5E1;
             --blue:        #0284C7;
-            --blue-light:  #38BDF8;
-            --emerald:     #10B981;
-            --green-light: #34D399;
-            --amber:       #F59E0B;
-            --rose:        #EF4444;
-            --violet:      #8B5CF6;
-            --text-1:      #F8FAFC;
-            --text-2:      #94A3B8;
-            --text-3:      #475569;
-            --grad-hero:   linear-gradient(135deg, #10B981 0%, #0284C7 50%, #3B82F6 100%);
-            --grad-emerald: linear-gradient(135deg, #059669, #10B981);
+            --blue-light:  #0369A1;
+            --emerald:     #059669;
+            --green-light: #10B981;
+            --amber:       #D97706;
+            --rose:        #DC2626;
+            --violet:      #7C3AED;
+            --text-1:      #0F172A;
+            --text-2:      #475569;
+            --text-3:      #64748B;
+            --grad-hero:   linear-gradient(135deg, #059669 0%, #0284C7 60%, #1D4ED8 100%);
+            --grad-emerald: linear-gradient(135deg, #047857, #059669);
             --font-main:   'Outfit', 'Noto Sans SC', sans-serif;
             --radius-card: 16px;
-            --shadow-card: 0 8px 32px rgba(0,0,0,0.45);
+            --shadow-card: 0 4px 20px rgba(15,23,42,0.06);
             --transition:  0.3s cubic-bezier(0.4,0,0.2,1);
         }
 
@@ -40,61 +40,80 @@
         body { font-family: var(--font-main); background: var(--bg-deep); color: var(--text-1); overflow-x: hidden; line-height: 1.6; }
 
         ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: var(--bg-deep); }
-        ::-webkit-scrollbar-thumb { background: rgba(56,189,248,0.3); border-radius: 3px; }
+        ::-webkit-scrollbar-track { background: var(--bg-section); }
+        ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
 
         /* NAV */
         nav {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-            padding: 0 2rem; height: 72px;
-            display: flex; align-items: center; justify-content: space-between;
-            transition: background var(--transition), border-color var(--transition), backdrop-filter var(--transition);
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 0 2.5rem;
+            height: 74px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.94);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(16px);
+            transition: background var(--transition), border-color var(--transition), box-shadow var(--transition);
         }
-        nav.scrolled { background: rgba(2,12,27,0.92); border-bottom: 1px solid var(--border); backdrop-filter: blur(20px); }
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+        }
         .nav-brand { display: flex; align-items: center; gap: 0.85rem; text-decoration: none; }
         .nav-logo-box {
-            width: 38px; height: 38px; border-radius: 10px;
-            background: linear-gradient(135deg, #0284C7, #10B981);
+            width: 40px; height: 40px; border-radius: 10px;
+            background: linear-gradient(135deg, #1E40AF 0%, #2563EB 100%);
             display: flex; align-items: center; justify-content: center;
-            font-weight: 800; font-size: 1.15rem; color: #fff;
-            box-shadow: 0 0 16px rgba(16,185,129,0.4);
+            font-weight: 800; font-size: 1.2rem; color: #fff;
+            box-shadow: 0 4px 12px rgba(37,99,235,0.25);
         }
-        .nav-brand-title { font-size: 1.15rem; font-weight: 800; color: #fff; line-height: 1.2; }
-        .nav-brand-sub { font-size: 0.72rem; color: var(--green-light); }
-        .nav-links { display: flex; list-style: none; gap: 0.2rem; align-items: center; }
+        .nav-brand-title { font-size: 1.22rem; font-weight: 800; color: #0F172A; line-height: 1.2; letter-spacing: 0.5px; }
+        .nav-brand-sub { font-size: 0.72rem; color: #1D4ED8; font-weight: 600; }
+        .nav-links { display: flex; list-style: none; gap: 0.5rem; align-items: center; }
         .nav-links a {
-            color: var(--text-2); text-decoration: none; font-size: 0.84rem; white-space: nowrap;
-            padding: 0.4rem 0.6rem; border-radius: 8px; transition: all var(--transition);
+            color: var(--text-2); text-decoration: none; font-size: 0.92rem;
+            padding: 0.5rem 0.9rem; border-radius: 8px; transition: all var(--transition); font-weight: 500;
+            display: inline-flex; align-items: center; gap: 4px;
         }
-        .nav-links a:hover { color: var(--text-1); background: rgba(255,255,255,0.06); }
-        .nav-badge-pill {
-            font-size: 0.7rem; padding: 2px 7px; border-radius: 99px; white-space: nowrap;
-            background: rgba(59,130,246,0.2); color: #60A5FA; font-weight: 600; margin-left: 4px;
+        .nav-links a:hover { color: #0F172A; background: #F1F5F9; }
+        .nav-links a.nav-active { color: #059669; font-weight: 700; background: #ECFDF5; }
+        .nav-pill {
+            font-size: 0.72rem; padding: 2px 8px; border-radius: 99px; font-weight: 600; margin-left: 4px;
         }
-        .nav-cta-group { display: flex; align-items: center; gap: 0.5rem; }
-        .nav-cta-ppt {
-            background: rgba(255,255,255,0.06); color: var(--text-1) !important;
-            border: 1px solid var(--border); font-size: 0.82rem !important; font-weight: 600 !important;
-            padding: 0.45rem 0.9rem !important; border-radius: 9px !important;
+        .pill-blue { background: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE; }
+        .pill-green { background: #ECFDF5; color: #059669; border: 1px solid #A7F3D0; }
+        .pill-amber { background: #FFFBEB; color: #B45309; border: 1px solid #FDE68A; }
+        
+        .nav-cta-group { display: flex; align-items: center; gap: 0.6rem; }
+        .nav-btn-link {
+            background: #F8FAFC; color: #334155 !important;
+            border: 1px solid var(--border); font-size: 0.84rem !important; font-weight: 600 !important;
+            padding: 0.5rem 1rem !important; border-radius: 8px !important; text-decoration: none;
+            transition: all var(--transition); display: inline-flex; align-items: center; gap: 0.35rem;
         }
-        .nav-cta-ppt:hover { border-color: rgba(56,189,248,0.5); background: rgba(56,189,248,0.1) !important; }
-        .nav-cta {
+        .nav-btn-link:hover { border-color: #A7F3D0; background: #ECFDF5 !important; color: #059669 !important; }
+        .nav-btn-main {
             background: #059669; color: #fff !important; font-weight: 600 !important;
-            font-size: 0.84rem !important; padding: 0.48rem 1.15rem !important; border-radius: 9px !important;
-            box-shadow: 0 4px 14px rgba(5,150,105,0.35);
+            font-size: 0.86rem !important; padding: 0.5rem 1.25rem !important; border-radius: 8px !important;
+            box-shadow: 0 4px 14px rgba(5, 150, 105, 0.25); text-decoration: none;
+            transition: all var(--transition);
         }
-        .nav-cta:hover { opacity: 0.92; transform: translateY(-1px); }
-        .nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; color: var(--text-1); }
+        .nav-btn-main:hover { background: #047857; transform: translateY(-1px); }
+        .nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; color: #0F172A; }
 
         /* HERO */
         #hero {
-            min-height: 88vh; display: flex; flex-direction: column;
+            min-height: 85vh; display: flex; flex-direction: column;
             align-items: center; justify-content: center; text-align: center;
             padding: 130px 1.5rem 60px; position: relative; overflow: hidden;
+            background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
         }
         .hero-bg-mesh { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
         .hero-blob {
-            position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.18;
+            position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.05;
             animation: blob-drift 12s ease-in-out infinite alternate;
         }
         .blob-1 { width: 700px; height: 700px; background: #0284C7; top: -20%; left: -15%; }
@@ -102,17 +121,17 @@
         @keyframes blob-drift { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(30px, 20px) scale(1.06); } }
         .hero-grid-lines {
             position: absolute; inset: 0;
-            background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-image: linear-gradient(rgba(15,23,42,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(15,23,42,0.03) 1px, transparent 1px);
             background-size: 60px 60px;
         }
         .hero-content { position: relative; z-index: 1; max-width: 1200px; }
         .hero-badge {
             display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.35rem 1.1rem;
-            border-radius: 9999px; border: 1px solid rgba(16,185,129,0.35); background: rgba(16,185,129,0.1);
-            font-size: 0.82rem; font-weight: 600; color: #34D399; margin-bottom: 1.5rem;
+            border-radius: 9999px; border: 1px solid rgba(5,150,105,0.25); background: rgba(5,150,105,0.06);
+            font-size: 0.82rem; font-weight: 600; color: #059669; margin-bottom: 1.5rem;
         }
-        .hero-badge-dot { width: 7px; height: 7px; border-radius: 50%; background: #10B981; }
-        h1.hero-title { font-size: clamp(2.3rem, 4.8vw, 3.9rem); font-weight: 900; line-height: 1.18; margin-bottom: 1.25rem; }
+        .hero-badge-dot { width: 7px; height: 7px; border-radius: 50%; background: #059669; }
+        h1.hero-title { font-size: clamp(2.3rem, 4.8vw, 3.9rem); font-weight: 900; line-height: 1.18; margin-bottom: 1.25rem; color: var(--text-1); }
         .hero-title-grad { background: var(--grad-hero); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .hero-subtitle { font-size: clamp(0.95rem, 1.8vw, 1.15rem); color: var(--text-2); max-width: 740px; margin: 0 auto 2.5rem; line-height: 1.75; }
         .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3.5rem; }
@@ -121,16 +140,17 @@
             display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem;
             background: #059669; color: #fff; font-weight: 700; font-size: 1rem;
             border-radius: 12px; text-decoration: none; border: none; cursor: pointer;
-            box-shadow: 0 4px 20px rgba(5,150,105,0.4); transition: all var(--transition);
+            box-shadow: 0 4px 14px rgba(5,150,105,0.25); transition: all var(--transition);
         }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(5,150,105,0.55); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(5,150,105,0.35); }
         .btn-outline {
             display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem;
-            background: transparent; color: #38BDF8; font-weight: 600; font-size: 1rem;
-            border-radius: 12px; text-decoration: none; border: 1px solid rgba(56,189,248,0.4);
+            background: #FFFFFF; color: var(--text-1); font-weight: 600; font-size: 1rem;
+            border-radius: 12px; text-decoration: none; border: 1px solid #CBD5E1;
             cursor: pointer; transition: all var(--transition);
+            box-shadow: 0 1px 3px rgba(15,23,42,0.04);
         }
-        .btn-outline:hover { background: rgba(56,189,248,0.1); color: #fff; }
+        .btn-outline:hover { background: #F8FAFC; border-color: #94A3B8; color: #059669; }
 
         /* STATS */
         .zhihe-stats-grid {
@@ -138,11 +158,11 @@
             max-width: 1100px; margin: 0 auto;
         }
         .zhihe-stat-card {
-            background: var(--bg-card); border: 1px solid rgba(56, 189, 248, 0.2);
-            border-radius: 14px; padding: 1.6rem 1.2rem; text-align: center; box-shadow: var(--shadow-card);
+            background: #FFFFFF; border: 1px solid var(--border);
+            border-radius: 14px; padding: 1.6rem 1.2rem; text-align: center; box-shadow: 0 4px 20px rgba(15,23,42,0.04);
         }
-        .zhihe-stat-val { font-size: 2.5rem; font-weight: 900; line-height: 1; margin-bottom: 0.4rem; color: #38BDF8; font-variant-numeric: tabular-nums; }
-        .stat-label { font-size: 0.9rem; font-weight: 700; color: #fff; margin-bottom: 0.2rem; }
+        .zhihe-stat-val { font-size: 2.5rem; font-weight: 900; line-height: 1; margin-bottom: 0.4rem; color: #0284C7; font-variant-numeric: tabular-nums; }
+        .stat-label { font-size: 0.9rem; font-weight: 700; color: var(--text-1); margin-bottom: 0.2rem; }
         .stat-sub { font-size: 0.75rem; color: var(--text-2); }
 
         /* SECTION BASE */
@@ -151,47 +171,49 @@
         .section-header { text-align: center; max-width: 760px; margin: 0 auto 4rem; }
         .section-eyebrow {
             display: inline-block; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
-            letter-spacing: 1.5px; color: #34D399; margin-bottom: 0.75rem;
+            letter-spacing: 1.5px; color: #059669; margin-bottom: 0.75rem;
         }
-        .section-title { font-size: clamp(1.8rem, 3.5vw, 2.75rem); font-weight: 800; line-height: 1.25; margin-bottom: 1rem; }
+        .section-title { font-size: clamp(1.8rem, 3.5vw, 2.75rem); font-weight: 800; line-height: 1.25; margin-bottom: 1rem; color: var(--text-1); }
         .section-desc { font-size: 1.05rem; color: var(--text-2); line-height: 1.7; }
 
         /* BENTO MATRIX */
         .zhihe-matrix-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
         .zhihe-bento-card {
-            background: var(--bg-card); border: 1px solid var(--border);
-            border-radius: 16px; padding: 2rem; box-shadow: var(--shadow-card);
+            background: #FFFFFF; border: 1px solid var(--border);
+            border-radius: 16px; padding: 2rem; box-shadow: 0 4px 20px rgba(15,23,42,0.04);
             display: flex; flex-direction: column;
         }
         .highlight-tag {
             font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 6px; font-weight: 600;
         }
-        .bento-tag-red { background: rgba(239,68,68,0.15); color: #F87171; border: 1px solid rgba(239,68,68,0.3); }
-        .bento-tag-green { background: rgba(16,185,129,0.15); color: #34D399; border: 1px solid rgba(16,185,129,0.3); }
+        .bento-tag-red { background: rgba(220,38,38,0.1); color: #DC2626; border: 1px solid rgba(220,38,38,0.25); }
+        .bento-tag-green { background: rgba(5,150,105,0.1); color: #059669; border: 1px solid rgba(5,150,105,0.25); }
 
         /* PIPELINE */
         .pipeline-flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
         .pipe-node {
-            background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px;
+            background: #FFFFFF; border: 1px solid var(--border); border-radius: 14px;
             padding: 1.4rem 1rem; text-align: left;
+            box-shadow: 0 4px 16px rgba(15,23,42,0.03);
         }
         .pipe-node-num {
             width: 28px; height: 28px; border-radius: 50%; background: #0284C7; color: #fff;
             font-size: 0.85rem; font-weight: 800; display: grid; place-items: center; margin-bottom: 0.8rem;
         }
-        .pipe-time { font-size: 0.75rem; color: #38BDF8; font-weight: 700; margin-bottom: 0.4rem; }
+        .pipe-time { font-size: 0.75rem; color: #0284C7; font-weight: 700; margin-bottom: 0.4rem; }
 
         /* CASES */
         .cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
         .case-card {
-            background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
+            background: #FFFFFF; border: 1px solid var(--border); border-radius: 16px;
             padding: 2rem 1.6rem; display: flex; flex-direction: column;
+            box-shadow: 0 4px 20px rgba(15,23,42,0.04);
         }
 
         /* SVG BOX */
         .svg-board-box {
-            background: rgba(15, 23, 42, 0.65); border: 1.5px solid rgba(56, 189, 248, 0.25);
-            border-radius: 18px; padding: 1.5rem; box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            background: #FFFFFF; border: 1px solid var(--border);
+            border-radius: 18px; padding: 1.5rem; box-shadow: 0 10px 30px rgba(15,23,42,0.06);
         }
         .svg-board-box svg { width: 100%; height: auto; display: block; }
 
@@ -199,15 +221,14 @@
         #cta { background: var(--bg-deep); padding: 100px 1.5rem; }
         .cta-inner { max-width: 900px; margin: 0 auto; text-align: center; }
         .cta-glow {
-            background: rgba(15, 23, 42, 0.8); border: 1.5px solid rgba(16,185,129,0.3);
-            border-radius: 24px; padding: 4rem 2.5rem; box-shadow: 0 30px 80px rgba(0,0,0,0.6);
-            backdrop-filter: blur(16px);
+            background: #FFFFFF; border: 1px solid var(--border);
+            border-radius: 24px; padding: 4rem 2.5rem; box-shadow: 0 20px 60px rgba(15,23,42,0.06);
         }
-        .cta-glow h2 { font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 900; margin-bottom: 1.25rem; }
+        .cta-glow h2 { font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 900; margin-bottom: 1.25rem; color: var(--text-1); }
         .cta-glow p { font-size: 1.05rem; color: var(--text-2); max-width: 680px; margin: 0 auto 2.5rem; line-height: 1.7; }
         .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
 
-        footer { background: #010710; border-top: 1px solid var(--border); padding: 70px 1.5rem 40px; }
+        footer { background: #F8FAFC; border-top: 1px solid var(--border); padding: 70px 1.5rem 40px; }
         .footer-inner { max-width: 1200px; margin: 0 auto; }
         .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 50px; }
         .footer-brand p { color: var(--text-2); font-size: 0.88rem; line-height: 1.7; max-width: 320px; margin-top: 0.8rem; }
@@ -216,7 +237,7 @@
         .footer-col a { color: var(--text-2); text-decoration: none; font-size: 0.85rem; }
         .footer-col a:hover { color: var(--text-1); }
         .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.06); padding-top: 25px;
+            border-top: 1px solid var(--border); padding-top: 25px;
             display: flex; justify-content: space-between; align-items: center;
             font-size: 0.82rem; color: var(--text-3); flex-wrap: wrap; gap: 1rem;
         }
@@ -225,47 +246,48 @@
         .reveal.visible { opacity: 1; transform: translateY(0); }
 
         /* SCREENSHOT GALLERY */
-        #gallery { background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        #gallery { background: #F8FAFC; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
         .gallery-container { display: grid; grid-template-columns: 320px 1fr; gap: 1.5rem; align-items: stretch; margin-top: 2rem; }
         .gallery-tabs { display: flex; flex-direction: column; gap: 0.5rem; max-height: 580px; overflow-y: auto; padding-right: 0.4rem; }
         .gallery-tab-item {
-            background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border); border-radius: 10px;
+            background: #FFFFFF; border: 1px solid var(--border); border-radius: 10px;
             padding: 0.85rem 1rem; cursor: pointer; transition: all 0.25s ease; text-align: left;
             display: flex; align-items: flex-start; gap: 0.75rem; color: var(--text-2);
+            box-shadow: 0 1px 3px rgba(15,23,42,0.02);
         }
-        .gallery-tab-item:hover { background: rgba(56, 189, 248, 0.08); border-color: rgba(56, 189, 248, 0.4); color: #fff; }
+        .gallery-tab-item:hover { background: #F1F5F9; border-color: #CBD5E1; color: var(--text-1); }
         .gallery-tab-item.active {
-            background: linear-gradient(135deg, rgba(14, 165, 233, 0.2) 0%, rgba(16, 185, 129, 0.15) 100%);
-            border-color: #38BDF8; color: #fff; box-shadow: 0 4px 20px rgba(56, 189, 248, 0.2);
+            background: #EFF6FF; border-color: #0284C7; color: #0284C7;
+            box-shadow: 0 4px 14px rgba(2,132,199,0.15);
         }
         .gallery-tab-num {
-            flex-shrink: 0; width: 22px; height: 22px; border-radius: 6px; background: rgba(255,255,255,0.1);
+            flex-shrink: 0; width: 22px; height: 22px; border-radius: 6px; background: #F1F5F9; color: var(--text-2);
             display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 800;
         }
         .gallery-tab-item.active .gallery-tab-num { background: #0284C7; color: #fff; }
         .gallery-tab-text { font-size: 0.85rem; font-weight: 600; line-height: 1.4; }
         .gallery-tab-sub { font-size: 0.72rem; color: var(--text-3); margin-top: 0.2rem; }
-        .gallery-tab-item.active .gallery-tab-sub { color: #94a3b8; }
+        .gallery-tab-item.active .gallery-tab-sub { color: #0369A1; }
 
         .gallery-display {
-            background: rgba(15, 23, 42, 0.85); border: 1px solid var(--border); border-radius: 16px;
-            overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            background: #FFFFFF; border: 1px solid var(--border); border-radius: 16px;
+            overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 10px 30px rgba(15,23,42,0.06);
         }
         .gallery-window-bar {
-            background: rgba(30, 41, 59, 0.95); padding: 0.75rem 1.2rem; border-bottom: 1px solid var(--border);
+            background: #F8FAFC; padding: 0.75rem 1.2rem; border-bottom: 1px solid var(--border);
             display: flex; align-items: center; justify-content: space-between;
         }
         .gallery-image-viewport {
-            position: relative; background: #020617; min-height: 380px; max-height: 460px;
+            position: relative; background: #F1F5F9; min-height: 380px; max-height: 460px;
             display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 0.6rem;
         }
         .gallery-image-viewport img {
             max-width: 100%; max-height: 440px; object-fit: contain; border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.7); transition: transform 0.3s ease;
+            box-shadow: 0 4px 20px rgba(15,23,42,0.1); transition: transform 0.3s ease;
         }
         .gallery-image-viewport:hover img { transform: scale(1.012); }
         .gallery-details-card {
-            padding: 1.4rem; background: rgba(15, 23, 42, 0.95); border-top: 1px solid var(--border);
+            padding: 1.4rem; background: #FFFFFF; border-top: 1px solid var(--border);
             display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; flex-wrap: wrap;
         }
 
@@ -290,34 +312,31 @@
 <body>
 
 <!-- NAV -->
+<!-- NAV (全站统一固定通栏) -->
 <nav id="mainNav">
     <a href="../index.html" class="nav-brand">
-        <div class="nav-logo-box">核</div>
+        <div class="nav-logo-box">增</div>
         <div>
-            <div class="nav-brand-title">智核云</div>
-            <div class="nav-brand-sub">智增云 · 国企智能审批把关平台</div>
+            <div class="nav-brand-title">智增云</div>
+            <div class="nav-brand-sub">SmartGrowth Cloud · 采购与合规中枢</div>
         </div>
     </a>
     <ul class="nav-links" id="navLinks">
-        <li><a href="../index.html"><i data-lucide="arrow-left" style="width:14px;height:14px;display:inline-block;vertical-align:middle;"></i> 返回官网</a></li>
-        <li><a href="#pain">把关痛点</a></li>
-        <li><a href="#cockpit">极简审阅</a></li>
-        <li><a href="#pipeline">5步流程</a></li>
-        <li><a href="#cases">实战案例</a></li>
-        <li><a href="#gallery">实机巡礼</a></li>
-        <li><a href="#security">信创底座</a></li>
-        <li><a href="../zhicai/index.html">智采云 <span class="nav-badge-pill">采购控价</span></a></li>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../zhicai/index.html">智采云 <span class="nav-pill pill-blue">采购控价</span></a></li>
+        <li><a href="index.html" class="nav-active">智核云 <span class="nav-pill pill-green">智能审批</span></a></li>
+        <li><a href="../zhixiao/index.html">智销售 <span class="nav-pill pill-amber">AI 美顾</span></a></li>
     </ul>
     <div class="nav-cta-group">
-        <a href="../apps/zhihe-ppt/index.html" class="nav-cta-ppt" target="_blank">
-            <i data-lucide="presentation" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:2px;"></i> 智核云 PPT
+        <a href="../apps/zhihe-ppt/index.html" class="nav-btn-link" target="_blank">
+            <i data-lucide="presentation" style="width:14px;height:14px;color:#059669;"></i> 智核云 PPT
         </a>
-        <a href="../fde/index.html" class="nav-cta" target="_blank">
-            <i data-lucide="play-circle" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:2px;"></i> 在线 DEMO
+        <a href="../fde/index.html" class="nav-btn-main" target="_blank">
+            <i data-lucide="shield-check" style="width:14px;height:14px;color:#fff;margin-right:2px;"></i> 在线 DEMO
         </a>
     </div>
     <button class="nav-mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="菜单">
-        <i data-lucide="menu" style="width:24px;height:24px;"></i>
+        <i data-lucide="menu" style="width:22px;height:22px;"></i>
     </button>
 </nav>
 
@@ -339,7 +358,7 @@
         </h1>
         <p class="hero-subtitle">
             专门面向大型国企（生产制造、食品粮油、大宗商贸及工程建设）领导岗位的智能审批把关副驾。<br>
-            不用推倒现有 OA 系统，插上即用；电脑后台自动把几十页合同和明细翻完，毫秒级算清每笔差额，精准对准企业规章红线，让领导签批更踏实、更省心、审计不背锅。
+            不用推倒现有 OA 系统，插上即用；后台自动穿透几十页合同与货物明细，数分钟内核清每笔差额与多维钩稽关系，精准对准企业规章红线，让领导签批更踏实、更省心、审计不背锅。
         </p>
         <div class="hero-actions">
             <a href="../apps/zhihe-ppt/index.html" class="btn-primary" target="_blank">
@@ -347,7 +366,7 @@
                 查看智核云 PPT
             </a>
             <a href="../fde/index.html" class="btn-outline" target="_blank">
-                <i data-lucide="shield-check" style="width:18px;height:18px;"></i>
+                <i data-lucide="shield-check" style="width:18px;height:18px;color:#059669;"></i>
                 立即体验在线 DEMO
             </a>
         </div>
@@ -363,17 +382,17 @@
             <div class="stat-sub">几十页材料电脑先翻完，原来大半小时现在约1分钟</div>
         </div>
         <div class="zhihe-stat-card">
-            <div class="zhihe-stat-val" style="color:#34D399;">90%+</div>
+            <div class="zhihe-stat-val" style="color:#059669;">90%+</div>
             <div class="stat-label">机械琐碎核算替代</div>
             <div class="stat-sub">领导不用戴老花镜逐行算，精力只盯关键定夺</div>
         </div>
         <div class="zhihe-stat-card">
-            <div class="zhihe-stat-val" style="color:#FBBF24;">100%</div>
+            <div class="zhihe-stat-val" style="color:#D97706;">100%</div>
             <div class="stat-label">算术差额排查率</div>
-            <div class="stat-sub">毫秒级揪出 5 万元阴阳差额与税率矛盾，杜绝假账</div>
+            <div class="stat-sub">自动穿透揪出 5 万元阴阳差额与税率矛盾，杜绝假账</div>
         </div>
         <div class="zhihe-stat-card">
-            <div class="zhihe-stat-val" style="color:#A78BFA;">企业规章</div>
+            <div class="zhihe-stat-val" style="color:#7C3AED;">企业规章</div>
             <div class="stat-label">制度红线自动对标</div>
             <div class="stat-sub">按企业实际动态装载，缺三重一大直接提示</div>
         </div>
@@ -393,55 +412,55 @@
             <div class="zhihe-bento-card" style="border-top:3px solid #EF4444;">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.8rem;">
                     <span class="highlight-tag bento-tag-red">难题 1：材料太厚、催得太急</span>
-                    <span style="font-size:0.75rem; color:#EF4444;">容易疲劳签字</span>
+                    <span style="font-size:0.75rem; color:#EF4444; font-weight:600;">容易疲劳签字</span>
                 </div>
-                <p style="font-size:0.88rem; color:#cbd5e1; margin-bottom:1rem; line-height:1.6;">
+                <p style="font-size:0.88rem; color:var(--text-2); margin-bottom:1rem; line-height:1.6;">
                     大宗采购动辄几十页附件、成百上千行明细。每天十多份呈批单排队，根本没时间细看；下级催着签字，往往只能凭信任签字，潜在风险难以预料。
                 </p>
-                <div style="background:rgba(16,185,129,0.08); border-left:3px solid #10B981; padding:0.8rem; border-radius:0 8px 8px 0; margin-top:auto;">
-                    <div style="font-size:0.82rem; font-weight:bold; color:#34D399; margin-bottom:0.2rem;">✓ 智核云办法：零折腾协同 + 1分钟先把几十页材料初审完</div>
+                <div style="background:rgba(5,150,105,0.06); border-left:3px solid #059669; padding:0.8rem; border-radius:0 8px 8px 0; margin-top:auto;">
+                    <div style="font-size:0.82rem; font-weight:bold; color:#059669; margin-bottom:0.2rem;">✓ 智核云办法：零折腾协同 + 1分钟先把几十页材料初审完</div>
                     <div style="font-size:0.8rem; color:var(--text-2);">现有 OA 流程照旧用，电脑在后台几十秒把所有条款和附件明细扫完，挑出关键要害呈报，领导只看提炼后的重点。</div>
                 </div>
             </div>
 
             <div class="zhihe-bento-card" style="border-top:3px solid #F59E0B;">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.8rem;">
-                    <span class="highlight-tag" style="background:rgba(245,158,11,0.15); color:#FBBF24; border:1px solid rgba(245,158,11,0.3);">难题 2：阴阳合同、隐蔽差额</span>
-                    <span style="font-size:0.75rem; color:#F59E0B;">肉眼根本算不过来</span>
+                    <span class="highlight-tag" style="background:rgba(245,158,11,0.15); color:#B45309; border:1px solid rgba(245,158,11,0.3);">难题 2：阴阳合同、隐蔽差额</span>
+                    <span style="font-size:0.75rem; color:#D97706; font-weight:600;">肉眼根本算不过来</span>
                 </div>
-                <p style="font-size:0.88rem; color:#cbd5e1; margin-bottom:1rem; line-height:1.6;">
+                <p style="font-size:0.88rem; color:var(--text-2); margin-bottom:1rem; line-height:1.6;">
                     呈批表单写着 120 万，附件货物清单逐项相加其实只有 115 万；表单写税率 13%，合同里悄悄写 9%。5 万元差额夹在几百条表格里，肉眼极难查出。
                 </p>
-                <div style="background:rgba(56,189,248,0.08); border-left:3px solid #38BDF8; padding:0.8rem; border-radius:0 8px 8px 0; margin-top:auto;">
-                    <div style="font-size:0.82rem; font-weight:bold; color:#38BDF8; margin-bottom:0.2rem;">✓ 智核云办法：电脑逐行严格验算，有差额当场标红报警</div>
+                <div style="background:rgba(2,132,199,0.06); border-left:3px solid #0284C7; padding:0.8rem; border-radius:0 8px 8px 0; margin-top:auto;">
+                    <div style="font-size:0.82rem; font-weight:bold; color:#0284C7; margin-bottom:0.2rem;">✓ 智核云办法：电脑逐行严格验算，有差额当场标红报警</div>
                     <div style="font-size:0.8rem; color:var(--text-2);">不用大模型猜算术，而是用严格的数学代码逐行求和计算，差一分钱、税率不符当场标红，彻底杜绝糊涂账。</div>
                 </div>
             </div>
 
             <div class="zhihe-bento-card" style="border-top:3px solid #8B5CF6;">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.8rem;">
-                    <span class="highlight-tag" style="background:rgba(139,92,246,0.15); color:#C4B5FD; border:1px solid rgba(139,92,246,0.3);">难题 3：制度庞杂、经办人踩雷</span>
-                    <span style="font-size:0.75rem; color:#C4B5FD;">领导容易被动担责</span>
+                    <span class="highlight-tag" style="background:rgba(139,92,246,0.12); color:#7C3AED; border:1px solid rgba(139,92,246,0.3);">难题 3：制度庞杂、经办人踩雷</span>
+                    <span style="font-size:0.75rem; color:#7C3AED; font-weight:600;">领导容易被动担责</span>
                 </div>
-                <p style="font-size:0.88rem; color:#cbd5e1; margin-bottom:1rem; line-height:1.6;">
+                <p style="font-size:0.88rem; color:var(--text-2); margin-bottom:1rem; line-height:1.6;">
                     国企内部规章很多，大额资金要上党委会、行业质量有硬标准。经办人经验不足或图省事，直接拿供方的格式条款来交差，埋下合规与质量大雷。
                 </p>
-                <div style="background:rgba(139,92,246,0.08); border-left:3px solid #8B5CF6; padding:0.8rem; border-radius:0 8px 8px 0; margin-top:auto;">
-                    <div style="font-size:0.82rem; font-weight:bold; color:#C4B5FD; margin-bottom:0.2rem;">✓ 智核云办法：企业规章装进系统，红线条款直接拦截</div>
+                <div style="background:rgba(124,58,237,0.06); border-left:3px solid #7C3AED; padding:0.8rem; border-radius:0 8px 8px 0; margin-top:auto;">
+                    <div style="font-size:0.82rem; font-weight:bold; color:#7C3AED; margin-bottom:0.2rem;">✓ 智核云办法：企业规章装进系统，红线条款直接拦截</div>
                     <div style="font-size:0.8rem; color:var(--text-2);">按各企业实际制度动态装载；超百万没附“三重一大”党委会纪要直接提醒，关键质量指标不达标坚决一票否决。</div>
                 </div>
             </div>
 
             <div class="zhihe-bento-card" style="border-top:3px solid #0284C7;">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.8rem;">
-                    <span class="highlight-tag" style="background:rgba(2,132,199,0.15); color:#38BDF8; border:1px solid rgba(2,132,199,0.3);">难题 4：审计巡视终身追责</span>
-                    <span style="font-size:0.75rem; color:#38BDF8;">事后难以自证尽责</span>
+                    <span class="highlight-tag" style="background:rgba(2,132,199,0.12); color:#0284C7; border:1px solid rgba(2,132,199,0.3);">难题 4：审计巡视终身追责</span>
+                    <span style="font-size:0.75rem; color:#0284C7; font-weight:600;">事后难以自证尽责</span>
                 </div>
-                <p style="font-size:0.88rem; color:#cbd5e1; margin-bottom:1rem; line-height:1.6;">
+                <p style="font-size:0.88rem; color:var(--text-2); margin-bottom:1rem; line-height:1.6;">
                     国资监管要求“终身追责”。若干年后审计巡视回头看，OA 里往往只留着一句简单的“同意”，很难证明当时领导已经尽职尽责把过关。
                 </p>
-                <div style="background:rgba(16,185,129,0.08); border-left:3px solid #10B981; padding:0.8rem; border-radius:0 8px 8px 0; margin-top:auto;">
-                    <div style="font-size:0.82rem; font-weight:bold; color:#34D399; margin-bottom:0.2rem;">✓ 智核云办法：全程电子留痕 + 防伪存证，终身免责有据可查</div>
+                <div style="background:rgba(5,150,105,0.06); border-left:3px solid #059669; padding:0.8rem; border-radius:0 8px 8px 0; margin-top:auto;">
+                    <div style="font-size:0.82rem; font-weight:bold; color:#059669; margin-bottom:0.2rem;">✓ 智核云办法：全程电子留痕 + 防伪存证，终身免责有据可查</div>
                     <div style="font-size:0.8rem; color:var(--text-2);">每次审阅保留完整检验记录与带章公文凭证，不可篡改、不可倒签，完全符合国资委尽职合规免责标准，退休也踏实。</div>
                 </div>
             </div>
@@ -460,12 +479,12 @@
 
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.8rem; margin-bottom:2rem;" class="reveal">
             <!-- 左栏 -->
-            <div style="background:rgba(15,23,42,0.8); border:1.5px solid rgba(56,189,248,0.3); border-radius:14px; padding:1.4rem;">
+            <div style="background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:14px; padding:1.4rem; box-shadow: 0 4px 20px rgba(15,23,42,0.04);">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; border-bottom:1px solid var(--border); padding-bottom:0.6rem;">
-                    <span style="font-size:0.95rem; font-weight:700; color:#38BDF8;">随附原件预览舱 (3 份) · 真实还原</span>
-                    <span style="font-size:0.75rem; background:#0284C7; color:#fff; padding:2px 8px; border-radius:4px;">红框标疑点</span>
+                    <span style="font-size:0.95rem; font-weight:700; color:var(--text-1);">随附原件预览舱 (3 份) · 真实还原</span>
+                    <span style="font-size:0.75rem; background:#0284C7; color:#fff; padding:2px 8px; border-radius:4px; font-weight:600;">红框标疑点</span>
                 </div>
-                <div style="background:#fff; color:#0f172a; border-radius:8px; padding:1.2rem; font-family:serif; display:flex; flex-direction:column; gap:0.6rem; min-height:280px;">
+                <div style="background:#F8FAFC; border:1px solid var(--border); color:#0f172a; border-radius:8px; padding:1.2rem; font-family:serif; display:flex; flex-direction:column; gap:0.6rem; min-height:280px;">
                     <div style="text-align:center; font-weight:bold; font-size:1.05rem;">《大豆原粮毛油采购与配送合同协议书》</div>
                     <div style="text-align:center; font-size:0.75rem; color:#64748b;">文号：ZR-PO-202609-0081 ｜ 内部商密</div>
                     <div style="font-size:0.8rem; color:#334155;">甲方：中润农业第一食品加工有限公司 ｜ 乙方：中粮油脂控股（北方）销售有限公司</div>
@@ -485,45 +504,45 @@
 
             <!-- 右栏 -->
             <div style="display:flex; flex-direction:column; gap:1rem;">
-                <div style="background:rgba(15,23,42,0.8); border:1px solid var(--border); border-radius:14px; padding:1.4rem; flex:1;">
-                    <span style="font-size:0.95rem; font-weight:700; color:#fff; display:block; margin-bottom:0.8rem;">业务来源单据 10 项核心把关要害（过滤繁杂行政杂质，只看要害）</span>
+                <div style="background:#FFFFFF; border:1px solid var(--border); border-radius:14px; padding:1.4rem; flex:1; box-shadow: 0 4px 20px rgba(15,23,42,0.04);">
+                    <span style="font-size:0.95rem; font-weight:700; color:var(--text-1); display:block; margin-bottom:0.8rem;">业务来源单据 10 项核心把关要害（过滤繁杂行政杂质，只看要害）</span>
                     <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.6rem;">
-                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); padding:0.6rem; border-radius:6px;">
-                            <div style="font-size:0.72rem; color:#94a3b8;">合同事项及文号</div>
-                            <div style="font-size:0.85rem; font-weight:bold; color:#fff;">秋季大豆采购框架协议</div>
+                        <div style="background:#F8FAFC; border:1px solid var(--border); padding:0.6rem; border-radius:6px;">
+                            <div style="font-size:0.72rem; color:var(--text-3);">合同事项及文号</div>
+                            <div style="font-size:0.85rem; font-weight:bold; color:var(--text-1);">秋季大豆采购框架协议</div>
                         </div>
-                        <div style="background:rgba(245,158,11,0.15); border:1px solid #f59e0b; padding:0.6rem; border-radius:6px;">
-                            <div style="font-size:0.72rem; color:#fbbf24;">呈批申报总额 (大额资金)</div>
-                            <div style="font-size:0.95rem; font-weight:bold; color:#f59e0b;">¥1,200,000 元 <span style="font-size:0.72rem; color:#ef4444;">[存在5万差额]</span></div>
+                        <div style="background:#FEF3C7; border:1px solid #F59E0B; padding:0.6rem; border-radius:6px;">
+                            <div style="font-size:0.72rem; color:#B45309; font-weight:600;">呈批申报总额 (大额资金)</div>
+                            <div style="font-size:0.95rem; font-weight:bold; color:#B45309;">¥1,200,000 元 <span style="font-size:0.72rem; color:#DC2626;">[存在5万差额]</span></div>
                         </div>
-                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); padding:0.6rem; border-radius:6px;">
-                            <div style="font-size:0.72rem; color:#94a3b8;">签约相对方</div>
-                            <div style="font-size:0.85rem; font-weight:bold; color:#fff;">中粮油脂控股（AAA级）</div>
+                        <div style="background:#F8FAFC; border:1px solid var(--border); padding:0.6rem; border-radius:6px;">
+                            <div style="font-size:0.72rem; color:var(--text-3);">签约相对方</div>
+                            <div style="font-size:0.85rem; font-weight:bold; color:var(--text-1);">中粮油脂控股（AAA级）</div>
                         </div>
-                        <div style="background:rgba(245,158,11,0.15); border:1px solid #f59e0b; padding:0.6rem; border-radius:6px;">
-                            <div style="font-size:0.72rem; color:#fbbf24;">发票税率核对</div>
-                            <div style="font-size:0.85rem; font-weight:bold; color:#f59e0b;">单据 13% vs 原件 9% (矛盾)</div>
+                        <div style="background:#FEF3C7; border:1px solid #F59E0B; padding:0.6rem; border-radius:6px;">
+                            <div style="font-size:0.72rem; color:#B45309; font-weight:600;">发票税率核对</div>
+                            <div style="font-size:0.85rem; font-weight:bold; color:#B45309;">单据 13% vs 原件 9% (矛盾)</div>
                         </div>
-                        <div style="background:rgba(239,68,68,0.15); border:1px solid #ef4444; padding:0.6rem; border-radius:6px; grid-column:span 2;">
-                            <div style="font-size:0.72rem; color:#f87171;">“三重一大”前置审议</div>
-                            <div style="font-size:0.88rem; font-weight:bold; color:#ef4444;">⚠️ 缺失党委会决议文号（超过百万强制要求纪要）</div>
+                        <div style="background:#FEE2E2; border:1px solid #EF4444; padding:0.6rem; border-radius:6px; grid-column:span 2;">
+                            <div style="font-size:0.72rem; color:#B91C1C; font-weight:600;">“三重一大”前置审议</div>
+                            <div style="font-size:0.88rem; font-weight:bold; color:#DC2626;">⚠️ 缺失党委会决议文号（超过百万强制要求纪要）</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- 裁决工作台 -->
-                <div style="background:rgba(15,23,42,0.8); border:1.5px solid rgba(16,185,129,0.3); border-radius:14px; padding:1.2rem;">
+                <div style="background:#FFFFFF; border:1.5px solid rgba(5,150,105,0.3); border-radius:14px; padding:1.2rem; box-shadow: 0 4px 20px rgba(15,23,42,0.04);">
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.6rem;">
-                        <span style="font-size:0.9rem; font-weight:700; color:#34D399;">领导专属审签权（牢牢在手）：</span>
-                        <span style="font-size:0.75rem; color:#94a3b8;">耗时 ~60s ｜ 置信度 98.8%</span>
+                        <span style="font-size:0.9rem; font-weight:700; color:#059669;">领导专属审签权（牢牢在手）：</span>
+                        <span style="font-size:0.75rem; color:var(--text-3);">耗时 ~60s ｜ 置信度 98.8%</span>
                     </div>
-                    <div style="background:rgba(245,158,11,0.12); border:1px solid rgba(245,158,11,0.3); border-radius:6px; padding:0.6rem; margin-bottom:0.8rem; font-size:0.8rem; color:#fcd34d;">
+                    <div style="background:#FFFBEB; border:1px solid #FCD34D; border-radius:6px; padding:0.6rem; margin-bottom:0.8rem; font-size:0.8rem; color:#92400E;">
                         <strong>把关审查结论</strong>：要素存疑 · 算术差额 5 万元 + 缺三重一大决议。建议退回补正！
                     </div>
                     <div style="display:flex; gap:0.6rem;">
-                        <button style="flex:1; padding:0.5rem; background:rgba(255,255,255,0.06); border:1px solid var(--border); border-radius:6px; color:#94a3b8; font-size:0.8rem;">准予通过</button>
-                        <button style="flex:1.2; padding:0.5rem; background:#d97706; border:none; border-radius:6px; color:#fff; font-weight:bold; font-size:0.8rem;">退回补正 ✓</button>
-                        <button style="flex:1; padding:0.5rem; background:rgba(255,255,255,0.06); border:1px solid var(--border); border-radius:6px; color:#94a3b8; font-size:0.8rem;">坚决否决</button>
+                        <button style="flex:1; padding:0.5rem; background:#F1F5F9; border:1px solid var(--border); border-radius:6px; color:var(--text-2); font-size:0.8rem; cursor:pointer;">准予通过</button>
+                        <button style="flex:1.2; padding:0.5rem; background:#D97706; border:none; border-radius:6px; color:#fff; font-weight:bold; font-size:0.8rem; cursor:pointer;">退回补正 ✓</button>
+                        <button style="flex:1; padding:0.5rem; background:#F1F5F9; border:1px solid var(--border); border-radius:6px; color:var(--text-2); font-size:0.8rem; cursor:pointer;">坚决否决</button>
                         <a href="../fde/index.html" target="_blank" style="flex:1.4; padding:0.5rem; background:#0284C7; border:none; border-radius:6px; color:#fff; font-weight:bold; font-size:0.8rem; text-decoration:none; text-align:center;">提交回写 OA →</a>
                     </div>
                 </div>
@@ -544,32 +563,32 @@
         <div class="pipeline-flow reveal">
             <div class="pipe-node">
                 <div class="pipe-node-num">1</div>
-                <div style="font-size:1rem; font-weight:700; color:#fff; margin-bottom:0.2rem;">接入与要点提取</div>
+                <div style="font-size:1rem; font-weight:700; color:var(--text-1); margin-bottom:0.2rem;">接入与要点提取</div>
                 <div class="pipe-time">耗时：~10s</div>
                 <p style="font-size:0.82rem; color:var(--text-2); line-height:1.5;">OA 经办人一发起，后台自动接收，挑出 10 项把关要害，剔除无关繁琐杂质。</p>
             </div>
             <div class="pipe-node">
                 <div class="pipe-node-num">2</div>
-                <div style="font-size:1rem; font-weight:700; color:#fff; margin-bottom:0.2rem;">合同附件智能扫描</div>
+                <div style="font-size:1rem; font-weight:700; color:var(--text-1); margin-bottom:0.2rem;">合同附件智能扫描</div>
                 <div class="pipe-time">耗时：~20s</div>
                 <p style="font-size:0.82rem; color:var(--text-2); line-height:1.5;">自动识别 PDF/扫描件合同，把几十页货物清单明细与税率表格精准还原。</p>
             </div>
             <div class="pipe-node" style="border-color:#F59E0B;">
                 <div class="pipe-node-num" style="background:#F59E0B;">3</div>
-                <div style="font-size:1rem; font-weight:700; color:#fff; margin-bottom:0.2rem;">算术与差额逐行碰撞</div>
-                <div class="pipe-time" style="color:#FBBF24;">耗时：~15s</div>
-                <p style="font-size:0.82rem; color:var(--text-2); line-height:1.5;">电脑毫秒级逐项累加核算，比对申报总价、税率、单价乘数量是否相符，揪出阴阳差额。</p>
+                <div style="font-size:1rem; font-weight:700; color:var(--text-1); margin-bottom:0.2rem;">算术与差额逐行碰撞</div>
+                <div class="pipe-time" style="color:#D97706;">耗时：~15s</div>
+                <p style="font-size:0.82rem; color:var(--text-2); line-height:1.5;">全要素逐项累加核算，比对申报总价、税率、单价乘数量是否相符，揪出阴阳差额。</p>
             </div>
             <div class="pipe-node">
                 <div class="pipe-node-num">4</div>
-                <div style="font-size:1rem; font-weight:700; color:#fff; margin-bottom:0.2rem;">企业制度红线对标</div>
+                <div style="font-size:1rem; font-weight:700; color:var(--text-1); margin-bottom:0.2rem;">企业制度红线对标</div>
                 <div class="pipe-time">耗时：~10s</div>
                 <p style="font-size:0.82rem; color:var(--text-2); line-height:1.5;">对标企业自有制度，查验大额是否缺“三重一大”党委会纪要、质量指标是否踩底线。</p>
             </div>
-            <div class="pipe-node" style="border-color:#10B981;">
-                <div class="pipe-node-num" style="background:#10B981;">5</div>
-                <div style="font-size:1rem; font-weight:700; color:#fff; margin-bottom:0.2rem;">领导定夺与防伪存证</div>
-                <div class="pipe-time" style="color:#34D399;">耗时：~5s</div>
+            <div class="pipe-node" style="border-color:#059669;">
+                <div class="pipe-node-num" style="background:#059669;">5</div>
+                <div style="font-size:1rem; font-weight:700; color:var(--text-1); margin-bottom:0.2rem;">领导定夺与防伪存证</div>
+                <div class="pipe-time" style="color:#059669;">耗时：~5s</div>
                 <p style="font-size:0.82rem; color:var(--text-2); line-height:1.5;">领导亲手裁决：准予/退回/否决，意见一键回写 OA，自动生成防伪电子凭单入库留痕。</p>
             </div>
         </div>
@@ -589,18 +608,18 @@
             <!-- 案例 1 -->
             <div class="case-card" style="border-top:3px solid #F59E0B;">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.8rem;">
-                    <span class="highlight-tag" style="background:rgba(245,158,11,0.2); color:#FBBF24;">案例一 · 待补正</span>
-                    <span style="font-size:0.75rem; color:#94a3b8;">金额: ¥1,200,000</span>
+                    <span class="highlight-tag" style="background:rgba(245,158,11,0.2); color:#B45309;">案例一 · 待补正</span>
+                    <span style="font-size:0.75rem; color:var(--text-3);">金额: ¥1,200,000</span>
                 </div>
-                <h4 style="font-size:1.05rem; font-weight:700; color:#fff; margin-bottom:0.6rem;">《万吨大豆毛油采购框架协议》</h4>
-                <div style="font-size:0.82rem; color:#cbd5e1; line-height:1.6; margin-bottom:1rem; flex:1;">
+                <h4 style="font-size:1.05rem; font-weight:700; color:var(--text-1); margin-bottom:0.6rem;">《万吨大豆毛油采购框架协议》</h4>
+                <div style="font-size:0.82rem; color:var(--text-2); line-height:1.6; margin-bottom:1rem; flex:1;">
                     ● <strong>算术差额碰撞</strong>：表单申报 120 万 vs 附件货物清单逐项累加为 115 万，存在 <strong>¥50,000 元未列明差额</strong>；税率单据填报 13% 但附件写 9%；<br>
                     ● <strong>制度刚性对标</strong>：超过 100 万元未附党委会“三重一大”前置纪要文号；<br>
                     ● <strong>把关处置建议</strong>：要素存疑，建议退回大宗采购部补正。
                 </div>
-                <div style="border-top:1px solid rgba(255,255,255,0.08); padding-top:0.8rem; display:flex; justify-content:space-between; align-items:center;">
-                    <span style="font-size:0.75rem; color:#FBBF24;">⚠️ 揪出 5 万差额与缺三重一大</span>
-                    <a href="../fde/index.html" target="_blank" style="font-size:0.78rem; color:#38BDF8; text-decoration:none;">在 DEMO 中体验 →</a>
+                <div style="border-top:1px solid var(--border); padding-top:0.8rem; display:flex; justify-content:space-between; align-items:center;">
+                    <span style="font-size:0.75rem; color:#D97706; font-weight:600;">⚠️ 揪出 5 万差额与缺三重一大</span>
+                    <a href="../fde/index.html" target="_blank" style="font-size:0.78rem; color:#0284C7; text-decoration:none; font-weight:600;">在 DEMO 中体验 →</a>
                 </div>
             </div>
 
@@ -608,35 +627,35 @@
             <div class="case-card" style="border-top:3px solid #EF4444;">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.8rem;">
                     <span class="highlight-tag bento-tag-red">案例二 · 坚决否决</span>
-                    <span style="font-size:0.75rem; color:#94a3b8;">金额: ¥380,000</span>
+                    <span style="font-size:0.75rem; color:var(--text-3);">金额: ¥380,000</span>
                 </div>
-                <h4 style="font-size:1.05rem; font-weight:700; color:#fff; margin-bottom:0.6rem;">《复合面包改良剂战略直供协议》</h4>
-                <div style="font-size:0.82rem; color:#cbd5e1; line-height:1.6; margin-bottom:1rem; flex:1;">
+                <h4 style="font-size:1.05rem; font-weight:700; color:var(--text-1); margin-bottom:0.6rem;">《复合面包改良剂战略直供协议》</h4>
+                <div style="font-size:0.82rem; color:var(--text-2); line-height:1.6; margin-bottom:1rem; flex:1;">
                     ● <strong>底线红线冲突</strong>：供方格式条款隐蔽约定“出厂合格率 95.0% 验收即视为合格，免检第三方 CMA 报告”；<br>
                     ● <strong>制度刚性对标</strong>：触犯集团《食品安全质量控制规范》规定的 <strong>99.8% 强制合格率底线</strong>；<br>
                     ● <strong>把关处置建议</strong>：涉及食品安全与合规重大红线，坚决一票否决。
                 </div>
-                <div style="border-top:1px solid rgba(255,255,255,0.08); padding-top:0.8rem; display:flex; justify-content:space-between; align-items:center;">
-                    <span style="font-size:0.75rem; color:#EF4444;">🚫 触犯质量底线一票否决</span>
-                    <a href="../fde/index.html" target="_blank" style="font-size:0.78rem; color:#38BDF8; text-decoration:none;">在 DEMO 中体验 →</a>
+                <div style="border-top:1px solid var(--border); padding-top:0.8rem; display:flex; justify-content:space-between; align-items:center;">
+                    <span style="font-size:0.75rem; color:#DC2626; font-weight:600;">🚫 触犯质量底线一票否决</span>
+                    <a href="../fde/index.html" target="_blank" style="font-size:0.78rem; color:#0284C7; text-decoration:none; font-weight:600;">在 DEMO 中体验 →</a>
                 </div>
             </div>
 
             <!-- 案例 3 -->
-            <div class="case-card" style="border-top:3px solid #10B981;">
+            <div class="case-card" style="border-top:3px solid #059669;">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.8rem;">
                     <span class="highlight-tag bento-tag-green">案例三 · 极速放行</span>
-                    <span style="font-size:0.75rem; color:#94a3b8;">金额: ¥420,000</span>
+                    <span style="font-size:0.75rem; color:var(--text-3);">金额: ¥420,000</span>
                 </div>
-                <h4 style="font-size:1.05rem; font-weight:700; color:#fff; margin-bottom:0.6rem;">《基地鲜活果蔬冷链直采直运协议》</h4>
-                <div style="font-size:0.82rem; color:#cbd5e1; line-height:1.6; margin-bottom:1rem; flex:1;">
+                <h4 style="font-size:1.05rem; font-weight:700; color:var(--text-1); margin-bottom:0.6rem;">《基地鲜活果蔬冷链直采直运协议》</h4>
+                <div style="font-size:0.82rem; color:var(--text-2); line-height:1.6; margin-bottom:1rem; flex:1;">
                     ● <strong>全要素完全对齐</strong>：表单申报总额与附件完全一致，税率与开票主体相符；<br>
                     ● <strong>资质征信穿透</strong>：顺丰冷链入选集团年度 A 级合格供应商名录，且符合冷链免公开招标直采标准；<br>
                     ● <strong>把关处置建议</strong>：合规安全无风险，建议领导准予快速通过，一键批语流转。
                 </div>
-                <div style="border-top:1px solid rgba(255,255,255,0.08); padding-top:0.8rem; display:flex; justify-content:space-between; align-items:center;">
-                    <span style="font-size:0.75rem; color:#10B981;">✓ 要素完备免检快速放行</span>
-                    <a href="../fde/index.html" target="_blank" style="font-size:0.78rem; color:#38BDF8; text-decoration:none;">在 DEMO 中体验 →</a>
+                <div style="border-top:1px solid var(--border); padding-top:0.8rem; display:flex; justify-content:space-between; align-items:center;">
+                    <span style="font-size:0.75rem; color:#059669; font-weight:600;">✓ 要素完备免检快速放行</span>
+                    <a href="../fde/index.html" target="_blank" style="font-size:0.78rem; color:#0284C7; text-decoration:none; font-weight:600;">在 DEMO 中体验 →</a>
                 </div>
             </div>
         </div>
@@ -734,9 +753,9 @@
                         <span style="display:inline-block; width:11px; height:11px; border-radius:50%; background:#EF4444;"></span>
                         <span style="display:inline-block; width:11px; height:11px; border-radius:50%; background:#F59E0B;"></span>
                         <span style="display:inline-block; width:11px; height:11px; border-radius:50%; background:#10B981;"></span>
-                        <span id="galleryWindowTag" style="font-size:0.75rem; color:#94a3b8; margin-left:0.6rem; font-family:monospace;">ZHIHE-VERIFY-01 · 领导专属待办池</span>
+                        <span id="galleryWindowTag" style="font-size:0.75rem; color:#64748B; margin-left:0.6rem; font-family:monospace;">ZHIHE-VERIFY-01 · 领导专属待办池</span>
                     </div>
-                    <span id="galleryBadge" style="font-size:0.72rem; padding:3px 10px; border-radius:12px; background:rgba(56,189,248,0.15); color:#38BDF8; font-weight:600; border:1px solid rgba(56,189,248,0.3);">
+                    <span id="galleryBadge" style="font-size:0.72rem; padding:3px 10px; border-radius:12px; background:#EFF6FF; color:#1D4ED8; font-weight:600; border:1px solid #BFDBFE;">
                         待办审批池 · 分管领导视图
                     </span>
                 </div>
@@ -747,11 +766,11 @@
 
                 <div class="gallery-details-card">
                     <div style="flex:1; min-width:280px;">
-                        <h4 id="galleryTitle" style="font-size:1.15rem; font-weight:700; color:#fff; margin-bottom:0.4rem;">领导专属待办审批池（红黄绿灯区分急缓）</h4>
-                        <p id="galleryDesc" style="font-size:0.85rem; color:#cbd5e1; line-height:1.6; margin-bottom:0.6rem;">
+                        <h4 id="galleryTitle" style="font-size:1.15rem; font-weight:700; color:#0F172A; margin-bottom:0.4rem;">领导专属待办审批池（红黄绿灯区分急缓）</h4>
+                        <p id="galleryDesc" style="font-size:0.85rem; color:#475569; line-height:1.6; margin-bottom:0.6rem;">
                             集中汇总各业务系统推送的待审合同与单据，自动以红黄绿灯标出风险与急缓。领导无需穿梭各个孤岛系统，点开即可直达审阅核心。
                         </p>
-                        <div id="galleryMetrics" style="display:flex; gap:1.2rem; font-size:0.78rem; color:#94a3b8; flex-wrap:wrap;">
+                        <div id="galleryMetrics" style="display:flex; gap:1.2rem; font-size:0.78rem; color:#64748B; flex-wrap:wrap;">
                             <span>📊 <strong>把关价值</strong>: 消除系统孤岛，高管审批省时 95%</span>
                             <span>⚡ <strong>实机指标</strong>: 全业务系统单据自动汇聚</span>
                         </div>
@@ -781,23 +800,23 @@
 
         <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:1.2rem;" class="reveal">
             <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:1.6rem; text-align:center;">
-                <div style="font-size:1.05rem; font-weight:bold; color:#fff; margin-bottom:0.4rem;">信创芯片与算力</div>
-                <div style="font-size:0.82rem; color:#38BDF8; font-weight:bold; margin-bottom:0.5rem;">华为鲲鹏 920 ｜ 海光 7000</div>
+                <div style="font-size:1.05rem; font-weight:bold; color:var(--text-1); margin-bottom:0.4rem;">信创芯片与算力</div>
+                <div style="font-size:0.82rem; color:#0284C7; font-weight:bold; margin-bottom:0.5rem;">华为鲲鹏 920 ｜ 海光 7000</div>
                 <p style="font-size:0.78rem; color:var(--text-2);">原生兼容 ARM64 与 x86 国产算力集群，稳定高效。</p>
             </div>
             <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:1.6rem; text-align:center;">
-                <div style="font-size:1.05rem; font-weight:bold; color:#fff; margin-bottom:0.4rem;">国产操作系统</div>
-                <div style="font-size:0.82rem; color:#34D399; font-weight:bold; margin-bottom:0.5rem;">统信 UOS ｜ 银河麒麟 V10</div>
+                <div style="font-size:1.05rem; font-weight:bold; color:var(--text-1); margin-bottom:0.4rem;">国产操作系统</div>
+                <div style="font-size:0.82rem; color:#059669; font-weight:bold; margin-bottom:0.5rem;">统信 UOS ｜ 银河麒麟 V10</div>
                 <p style="font-size:0.78rem; color:var(--text-2);">完全适配国产 Linux 内核，通过公安部等保三级认证。</p>
             </div>
             <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:1.6rem; text-align:center;">
-                <div style="font-size:1.05rem; font-weight:bold; color:#fff; margin-bottom:0.4rem;">国产数据库</div>
-                <div style="font-size:0.82rem; color:#FBBF24; font-weight:bold; margin-bottom:0.5rem;">达梦 DM8 ｜ 人大金仓</div>
+                <div style="font-size:1.05rem; font-weight:bold; color:var(--text-1); margin-bottom:0.4rem;">国产数据库</div>
+                <div style="font-size:0.82rem; color:#D97706; font-weight:bold; margin-bottom:0.5rem;">达梦 DM8 ｜ 人大金仓</div>
                 <p style="font-size:0.78rem; color:var(--text-2);">支持国密 SM4 全库加密与高可用主备容灾集群。</p>
             </div>
             <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:1.6rem; text-align:center;">
-                <div style="font-size:1.05rem; font-weight:bold; color:#fff; margin-bottom:0.4rem;">私有化信创大模型</div>
-                <div style="font-size:0.82rem; color:#C4B5FD; font-weight:bold; margin-bottom:0.5rem;">通义千问信创版 ｜ 本地部署</div>
+                <div style="font-size:1.05rem; font-weight:bold; color:var(--text-1); margin-bottom:0.4rem;">私有化信创大模型</div>
+                <div style="font-size:0.82rem; color:#7C3AED; font-weight:bold; margin-bottom:0.5rem;">通义千问信创版 ｜ 本地部署</div>
                 <p style="font-size:0.78rem; color:var(--text-2);">物理单向隔离部署，绝不连公网，绝不泄露商业机密。</p>
             </div>
         </div>
@@ -858,6 +877,8 @@
                     <li><a href="../zhicai/index.html">智采云 (采购控价大库)</a></li>
                     <li><a href="../apps/ppt-presentation/index.html" target="_blank">智采云 PPT</a></li>
                     <li><a href="../procurement-saas/index.html" target="_blank">智采云 DEMO</a></li>
+                    <li><a href="../zhixiao/index.html">智销售 (AI美顾与全量质检)</a></li>
+                    <li><a href="../apps/zhixiao-ppt/index.html" target="_blank">智销售 PPT</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -873,6 +894,7 @@
             <div class="footer-bottom-links">
                 <a href="../index.html">智增云首页</a>
                 <a href="../zhicai/index.html">智采云</a>
+                <a href="../zhixiao/index.html">智销售</a>
                 <a href="#">服务条款</a>
             </div>
         </div>
@@ -1018,7 +1040,7 @@
             title: "企业规章与国标制度库：按企业实际装载",
             desc: "收录企业《大额资金审批办法》、《食品质量规范》及国标 GB 1535 等制度，按企业实际数量动态装载，智能检索对标，规章不再束之高阁。",
             val: "规章动态更新，审查依据条条有据可查",
-            stat: "规章条款毫秒级召回匹配",
+            stat: "规章条款精准穿透匹配",
             ppt: "../apps/zhihe-ppt/index.html#slide-13"
         },
         {

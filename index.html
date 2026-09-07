@@ -10,271 +10,377 @@
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <style>
         :root {
-            --bg-deep:     #020c1b;
-            --bg-section:  #060f1f;
-            --bg-card:     rgba(15, 23, 42, 0.75);
-            --bg-card-hover: rgba(15, 23, 42, 0.95);
-            --border:      rgba(255, 255, 255, 0.08);
-            --border-hover: rgba(99, 179, 237, 0.35);
-            --blue:        #3B82F6;
-            --blue-light:  #60A5FA;
-            --cyan:        #06B6D4;
-            --teal:        #0D9488;
-            --emerald:     #10B981;
-            --green-light: #34D399;
-            --amber:       #F59E0B;
-            --rose:        #F43F5E;
-            --text-1:      #F8FAFC;
-            --text-2:      #94A3B8;
-            --text-3:      #475569;
-            --grad-hero:   linear-gradient(135deg, #3B82F6 0%, #06B6D4 50%, #10B981 100%);
-            --font-main:   'Outfit', 'Noto Sans SC', sans-serif;
-            --radius-card: 18px;
-            --shadow-card: 0 10px 40px rgba(0,0,0,0.45);
-            --transition:  0.3s cubic-bezier(0.4,0,0.2,1);
+            --bg-deep:        #FFFFFF;
+            --bg-section:     #F8FAFC;
+            --bg-card:        #FFFFFF;
+            --bg-card-hover:  #FFFFFF;
+            --border:         #E2E8F0;
+            --border-hover:   #93C5FD;
+            --blue:           #1D4ED8;
+            --blue-light:     #2563EB;
+            --blue-subtle:    #EFF6FF;
+            --cyan:           #0284C7;
+            --teal:           #0D9488;
+            --emerald:        #059669;
+            --green-light:    #10B981;
+            --emerald-subtle: #ECFDF5;
+            --amber:          #D97706;
+            --amber-subtle:   #FFFBEB;
+            --rose:           #DC2626;
+            --rose-subtle:    #FEF2F2;
+            --text-1:         #0F172A;
+            --text-2:         #475569;
+            --text-3:         #64748B;
+            --grad-hero:      linear-gradient(135deg, #0F172A 0%, #1E40AF 60%, #2563EB 100%);
+            --font-main:      'Outfit', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+            --radius-card:    16px;
+            --shadow-card:    0 4px 20px -2px rgba(15, 23, 42, 0.07), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+            --shadow-card-hover: 0 16px 36px -4px rgba(15, 23, 42, 0.12), 0 4px 12px -2px rgba(15, 23, 42, 0.06);
+            --transition:     0.25s cubic-bezier(0.4,0,0.2,1);
         }
 
         *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
         section, [id] { scroll-margin-top: 95px; }
-        body { font-family: var(--font-main); background: var(--bg-deep); color: var(--text-1); overflow-x: hidden; line-height: 1.6; }
+        body { font-family: var(--font-main); background: var(--bg-deep); color: var(--text-1); overflow-x: hidden; line-height: 1.68; }
 
         ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: var(--bg-deep); }
-        ::-webkit-scrollbar-thumb { background: rgba(99,179,237,0.3); border-radius: 3px; }
+        ::-webkit-scrollbar-track { background: #F1F5F9; }
+        ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
 
         /* NAV */
         nav {
             position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-            padding: 0 2rem; height: 72px;
+            padding: 0 2.5rem; height: 74px;
             display: flex; align-items: center; justify-content: space-between;
-            transition: background var(--transition), border-color var(--transition), backdrop-filter var(--transition);
+            transition: background var(--transition), border-color var(--transition), box-shadow var(--transition);
+            background: rgba(255, 255, 255, 0.94);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(16px);
         }
-        nav.scrolled { background: rgba(2,12,27,0.92); border-bottom: 1px solid var(--border); backdrop-filter: blur(20px); }
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+        }
         .nav-brand { display: flex; align-items: center; gap: 0.85rem; text-decoration: none; }
         .nav-logo-box {
-            width: 38px; height: 38px; border-radius: 10px;
-            background: linear-gradient(135deg, #0284C7 0%, #3B82F6 100%);
+            width: 40px; height: 40px; border-radius: 10px;
+            background: linear-gradient(135deg, #1E40AF 0%, #2563EB 100%);
             display: flex; align-items: center; justify-content: center;
-            font-weight: 800; font-size: 1.15rem; color: #fff;
-            box-shadow: 0 0 18px rgba(59,130,246,0.4);
+            font-weight: 800; font-size: 1.2rem; color: #fff;
+            box-shadow: 0 4px 12px rgba(37,99,235,0.25);
         }
-        .nav-brand-title { font-size: 1.18rem; font-weight: 800; color: #fff; line-height: 1.2; }
-        .nav-brand-sub { font-size: 0.72rem; color: var(--cyan); font-weight: 600; }
-        .nav-links { display: flex; list-style: none; gap: 0.4rem; align-items: center; }
+        .nav-brand-title { font-size: 1.22rem; font-weight: 800; color: #0F172A; line-height: 1.2; letter-spacing: 0.5px; }
+        .nav-brand-sub { font-size: 0.72rem; color: #1D4ED8; font-weight: 600; }
+        .nav-links { display: flex; list-style: none; gap: 0.5rem; align-items: center; }
         .nav-links a {
-            color: var(--text-2); text-decoration: none; font-size: 0.9rem;
-            padding: 0.45rem 0.85rem; border-radius: 8px; transition: all var(--transition); font-weight: 500;
+            color: var(--text-2); text-decoration: none; font-size: 0.92rem;
+            padding: 0.5rem 0.9rem; border-radius: 8px; transition: all var(--transition); font-weight: 500;
         }
-        .nav-links a:hover { color: var(--text-1); background: rgba(255,255,255,0.06); }
+        .nav-links a:hover { color: #0F172A; background: #F1F5F9; }
+        .nav-links a.nav-active { color: #1D4ED8; font-weight: 700; background: #EFF6FF; }
         .nav-pill {
-            font-size: 0.72rem; padding: 2px 7px; border-radius: 99px; font-weight: 600; margin-left: 4px;
+            font-size: 0.72rem; padding: 2px 8px; border-radius: 99px; font-weight: 600; margin-left: 4px;
         }
-        .pill-blue { background: rgba(59,130,246,0.2); color: #60A5FA; }
-        .pill-green { background: rgba(16,185,129,0.2); color: #34D399; }
+        .pill-blue { background: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE; }
+        .pill-green { background: #ECFDF5; color: #059669; border: 1px solid #A7F3D0; }
+        .pill-amber { background: #FFFBEB; color: #B45309; border: 1px solid #FDE68A; }
         
-        .nav-cta-group { display: flex; align-items: center; gap: 0.5rem; }
+        .nav-cta-group { display: flex; align-items: center; gap: 0.6rem; }
         .nav-btn-link {
-            background: rgba(255,255,255,0.06); color: var(--text-1) !important;
-            border: 1px solid var(--border); font-size: 0.82rem !important; font-weight: 600 !important;
-            padding: 0.45rem 0.9rem !important; border-radius: 9px !important; text-decoration: none;
-            transition: all var(--transition);
+            background: #F8FAFC; color: #334155 !important;
+            border: 1px solid var(--border); font-size: 0.84rem !important; font-weight: 600 !important;
+            padding: 0.5rem 1rem !important; border-radius: 8px !important; text-decoration: none;
+            transition: all var(--transition); display: inline-flex; align-items: center; gap: 0.35rem;
         }
-        .nav-btn-link:hover { border-color: rgba(56,189,248,0.5); background: rgba(56,189,248,0.1) !important; }
+        .nav-btn-link:hover { border-color: #93C5FD; background: #EFF6FF !important; color: #1D4ED8 !important; }
         .nav-btn-main {
-            background: var(--blue); color: #fff !important; font-weight: 600 !important;
-            font-size: 0.84rem !important; padding: 0.48rem 1.15rem !important; border-radius: 9px !important;
-            box-shadow: 0 4px 14px rgba(59,130,246,0.35); text-decoration: none;
+            background: #1D4ED8; color: #fff !important; font-weight: 600 !important;
+            font-size: 0.86rem !important; padding: 0.5rem 1.25rem !important; border-radius: 8px !important;
+            box-shadow: 0 4px 14px rgba(29, 78, 216, 0.25); text-decoration: none;
             transition: all var(--transition);
         }
-        .nav-btn-main:hover { opacity: 0.92; transform: translateY(-1px); }
-        .nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; color: var(--text-1); }
+        .nav-btn-main:hover { background: #1E40AF; transform: translateY(-1px); }
+        .nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; color: #0F172A; }
 
-        /* HERO */
+        /* HERO - 现代国企白底展陈风 (Dropbox / Cloudflare 质感) */
         #hero {
-            min-height: 85vh; display: flex; flex-direction: column;
+            min-height: 84vh; display: flex; flex-direction: column;
             align-items: center; justify-content: center; text-align: center;
-            padding: 135px 1.5rem 50px; position: relative; overflow: hidden;
+            padding: 135px 1.5rem 60px; position: relative; overflow: hidden;
+            background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
+            border-bottom: 1px solid var(--border);
         }
         .hero-bg-mesh { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
-        .hero-blob {
-            position: absolute; border-radius: 50%; filter: blur(110px); opacity: 0.2;
-            animation: blob-drift 12s ease-in-out infinite alternate;
-        }
-        .blob-1 { width: 750px; height: 750px; background: #1D4ED8; top: -20%; left: -15%; }
-        .blob-2 { width: 650px; height: 650px; background: #0D9488; bottom: -20%; right: -10%; animation-delay: -4s; }
-        .blob-3 { width: 500px; height: 500px; background: #8B5CF6; top: 35%; left: 50%; transform: translateX(-50%); animation-delay: -8s; }
-        @keyframes blob-drift { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(30px, 20px) scale(1.06); } }
         .hero-grid-lines {
             position: absolute; inset: 0;
-            background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-            background-size: 60px 60px;
+            background-image: 
+                linear-gradient(rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+            background-size: 56px 56px;
         }
-        .hero-content { position: relative; z-index: 1; max-width: 1200px; }
+        .hero-content { position: relative; z-index: 1; max-width: 1200px; width: 100%; }
         .hero-badge {
-            display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.35rem 1.1rem;
-            border-radius: 9999px; border: 1px solid rgba(59,130,246,0.35); background: rgba(59,130,246,0.1);
-            font-size: 0.82rem; font-weight: 600; color: var(--blue-light); margin-bottom: 1.5rem;
+            display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.4rem 1.2rem;
+            border-radius: 9999px; border: 1px solid #BFDBFE; background: #EFF6FF;
+            font-size: 0.84rem; font-weight: 600; color: #1D4ED8; margin-bottom: 1.6rem; letter-spacing: 0.4px;
         }
-        .hero-badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); }
-        h1.hero-title { font-size: clamp(2.4rem, 5vw, 4.1rem); font-weight: 900; line-height: 1.16; margin-bottom: 1.25rem; }
+        .hero-badge-dot { width: 7px; height: 7px; border-radius: 50%; background: #2563EB; }
+        h1.hero-title {
+            font-size: clamp(1.75rem, 3.1vw, 2.75rem); font-weight: 800; line-height: 1.25;
+            margin-bottom: 1.35rem; letter-spacing: -0.5px; color: #0F172A; white-space: nowrap;
+        }
         .hero-title-grad { background: var(--grad-hero); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .hero-subtitle { font-size: clamp(1rem, 1.8vw, 1.18rem); color: var(--text-2); max-width: 780px; margin: 0 auto 2.8rem; line-height: 1.75; }
+        .hero-subtitle { font-size: clamp(1.02rem, 1.6vw, 1.18rem); color: var(--text-2); max-width: 860px; margin: 0 auto 2.4rem; line-height: 1.8; }
 
-        /* 双旗舰产品 Bento 矩阵卡 */
+        /* HERO CTA 按钮组 */
+        .hero-cta-bar {
+            display: flex; gap: 1.2rem; justify-content: center; align-items: center; flex-wrap: wrap;
+            margin-bottom: 3.2rem;
+        }
+        .hero-btn-primary {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            background: #1D4ED8; color: #fff; font-weight: 700; font-size: 1rem;
+            padding: 0.9rem 2.2rem; border-radius: 12px; text-decoration: none;
+            box-shadow: 0 4px 16px rgba(29, 78, 216, 0.28); transition: all var(--transition);
+        }
+        .hero-btn-primary:hover { background: #1E40AF; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(29, 78, 216, 0.35); }
+        .hero-btn-outline {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: #FFFFFF; color: #334155; font-weight: 600; font-size: 0.96rem;
+            padding: 0.9rem 1.9rem; border-radius: 12px; text-decoration: none;
+            border: 1px solid var(--border); transition: all var(--transition);
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+        }
+        .hero-btn-outline:hover { background: #F8FAFC; border-color: #CBD5E1; color: #0F172A; transform: translateY(-1px); }
+
+        /* 卡片内的 UI 预览微视窗 */
+        .card-visual-frame {
+            margin: 1.2rem 0; border-radius: 10px; overflow: hidden;
+            border: 1px solid var(--border); box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+            position: relative; height: 155px; background: #F8FAFC;
+        }
+        .card-visual-frame img {
+            width: 100%; height: 100%; object-fit: cover; object-position: top center;
+            transition: transform 0.4s ease; display: block;
+        }
+        .portal-card:hover .card-visual-frame img { transform: scale(1.04); }
+        .visual-tag-float {
+            position: absolute; bottom: 8px; right: 8px;
+            background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(8px);
+            border: 1px solid #E2E8F0; padding: 2px 8px; border-radius: 6px;
+            font-size: 0.72rem; font-weight: 600; color: #1D4ED8;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06);
+        }
+
+        /* Cloudflare 风格：痛点 vs 现代方案对比表 (白底清爽典雅) */
+        .comparison-wrapper {
+            background: #FFFFFF; border: 1px solid var(--border);
+            border-radius: var(--radius-card); padding: 2.5rem;
+            box-shadow: var(--shadow-card); margin-bottom: 4rem; text-align: left;
+        }
+        .comp-header-grid {
+            display: grid; grid-template-columns: 2fr 3fr 3fr; gap: 1.2rem;
+            padding-bottom: 1.2rem; border-bottom: 1px solid var(--border);
+            font-size: 0.88rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .comp-row {
+            display: grid; grid-template-columns: 2fr 3fr 3fr; gap: 1.4rem;
+            padding: 1.2rem 0; border-bottom: 1px solid #F1F5F9;
+            font-size: 0.92rem; align-items: flex-start;
+        }
+        .comp-row:last-child { border-bottom: none; }
+        .comp-dimension { font-weight: 700; color: #0F172A; display: flex; align-items: center; gap: 0.5rem; padding-top: 2px; }
+        .comp-trad { color: #64748B; line-height: 1.65; display: flex; align-items: flex-start; gap: 0.85rem; }
+        .comp-trad > span:last-child { flex: 1; }
+        .comp-modern { color: #0F172A; line-height: 1.65; display: flex; align-items: flex-start; gap: 0.85rem; font-weight: 500; }
+        .comp-modern > span:last-child { flex: 1; }
+        .tag-danger-sm {
+            background: #FEE2E2; border: 1px solid #FECACA;
+            color: #DC2626; font-size: 0.74rem; width: 92px; height: 24px;
+            display: inline-flex; align-items: center; justify-content: center;
+            border-radius: 4px; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+            letter-spacing: 0.3px;
+        }
+        .tag-success-sm {
+            background: #DCFCE7; border: 1px solid #BBF7D0;
+            color: #059669; font-size: 0.74rem; width: 92px; height: 24px;
+            display: inline-flex; align-items: center; justify-content: center;
+            border-radius: 4px; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+            letter-spacing: 0.3px;
+        }
+
+        /* 3大产品独立 Bento 矩阵卡 (白底典雅卡片，分开独立展示) */
         .portal-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
-            max-width: 1140px; margin: 0 auto; text-align: left;
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8rem;
+            max-width: 1280px; margin: 0 auto; text-align: left;
         }
         .portal-card {
-            background: var(--bg-card); border: 1.5px solid var(--border);
-            border-radius: var(--radius-card); padding: 2.2rem;
-            box-shadow: var(--shadow-card); backdrop-filter: blur(14px);
+            background: #FFFFFF; border: 1px solid var(--border);
+            border-radius: var(--radius-card); padding: 2.2rem 1.8rem;
+            box-shadow: var(--shadow-card);
             display: flex; flex-direction: column; position: relative;
             transition: all var(--transition);
         }
-        .portal-card:hover { transform: translateY(-5px); box-shadow: 0 20px 60px rgba(0,0,0,0.6); }
-        .card-zhicai:hover { border-color: rgba(59, 130, 246, 0.6); }
-        .card-zhihe:hover { border-color: rgba(16, 185, 129, 0.6); }
+        .portal-card:hover {
+            border-color: #BFDBFE;
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-card-hover);
+        }
+        .card-zhicai:hover { border-color: #93C5FD; }
+        .card-zhihe:hover { border-color: #A7F3D0; }
+        .card-zhixiao:hover { border-color: #FDE68A; }
 
         .card-header-flex { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.2rem; }
         .card-title-group { display: flex; align-items: center; gap: 0.85rem; }
         .card-icon {
-            width: 46px; height: 46px; border-radius: 12px;
+            width: 48px; height: 48px; border-radius: 12px;
             display: flex; align-items: center; justify-content: center;
             font-weight: 900; font-size: 1.35rem; color: #fff;
         }
-        .icon-blue { background: linear-gradient(135deg, #1D4ED8, #3B82F6); box-shadow: 0 0 20px rgba(59,130,246,0.35); }
-        .icon-green { background: linear-gradient(135deg, #0284C7, #10B981); box-shadow: 0 0 20px rgba(16,185,129,0.35); }
-        .card-h2 { font-size: 1.5rem; font-weight: 800; color: #fff; line-height: 1.2; }
-        .card-sub { font-size: 0.8rem; color: var(--text-2); margin-top: 2px; }
+        .icon-blue { background: linear-gradient(135deg, #1E40AF, #2563EB); box-shadow: 0 4px 12px rgba(37,99,235,0.25); }
+        .icon-green { background: linear-gradient(135deg, #047857, #059669); box-shadow: 0 4px 12px rgba(5,150,105,0.25); }
+        .icon-amber { background: linear-gradient(135deg, #B45309, #D97706); box-shadow: 0 4px 12px rgba(217,119,6,0.25); }
+        .card-h2 { font-size: 1.55rem; font-weight: 800; color: #0F172A; line-height: 1.2; }
+        .card-sub { font-size: 0.82rem; color: #64748B; margin-top: 2px; }
         
         .tag-pill {
-            font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 99px;
+            font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.8rem; border-radius: 99px;
         }
-        .tag-blue { background: rgba(59,130,246,0.15); border: 1px solid rgba(59,130,246,0.35); color: #60A5FA; }
-        .tag-green { background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.35); color: #34D399; }
+        .tag-blue { background: #EFF6FF; border: 1px solid #BFDBFE; color: #1D4ED8; }
+        .tag-green { background: #ECFDF5; border: 1px solid #A7F3D0; color: #059669; }
+        .tag-amber { background: #FFFBEB; border: 1px solid #FDE68A; color: #B45309; }
 
-        .card-intro { font-size: 0.95rem; color: var(--text-2); line-height: 1.7; margin-bottom: 1.4rem; }
+        .card-intro { font-size: 0.93rem; color: var(--text-2); line-height: 1.7; margin-bottom: 1.4rem; }
         
         /* 核心战绩数据小条 */
         .card-stats-row {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem;
-            background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.06);
-            border-radius: 12px; padding: 0.9rem 0.8rem; margin-bottom: 1.5rem; text-align: center;
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem;
+            background: #F8FAFC; border: 1px solid var(--border);
+            border-radius: 12px; padding: 0.9rem 0.6rem; margin-bottom: 1.4rem; text-align: center;
         }
-        .card-stat-num { font-size: 1.45rem; font-weight: 900; line-height: 1.1; margin-bottom: 0.2rem; }
-        .card-stat-txt { font-size: 0.72rem; color: var(--text-2); }
+        .card-stat-num { font-size: 1.4rem; font-weight: 900; line-height: 1.1; margin-bottom: 0.2rem; }
+        .card-stat-txt { font-size: 0.72rem; color: var(--text-2); font-weight: 500; }
 
         /* 特性要点 */
-        .feature-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem; flex: 1; }
-        .feature-item { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.88rem; color: var(--text-1); }
-        .feature-bullet { width: 6px; height: 6px; border-radius: 50%; margin-top: 8px; flex-shrink: 0; }
-        .bullet-blue { background: #3B82F6; }
-        .bullet-green { background: #10B981; }
+        .feature-list { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 1.8rem; flex: 1; }
+        .feature-item { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.88rem; color: #334155; line-height: 1.55; }
+        .feature-bullet { width: 7px; height: 7px; border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
+        .bullet-blue { background: #1D4ED8; }
+        .bullet-green { background: #059669; }
+        .bullet-amber { background: #D97706; }
 
         /* 按钮组 */
-        .card-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        .card-actions { display: flex; gap: 0.65rem; flex-wrap: wrap; }
         .btn-enter-page {
-            flex: 1; min-width: 140px; display: inline-flex; align-items: center; justify-content: center;
-            gap: 0.4rem; padding: 0.75rem 1.2rem; border-radius: 10px; font-size: 0.9rem; font-weight: 700;
+            flex: 1; min-width: 130px; display: inline-flex; align-items: center; justify-content: center;
+            gap: 0.35rem; padding: 0.75rem 1rem; border-radius: 10px; font-size: 0.88rem; font-weight: 700;
             text-decoration: none; transition: all var(--transition);
         }
-        .btn-page-blue { background: #2563EB; color: #fff; box-shadow: 0 4px 15px rgba(37,99,235,0.4); }
-        .btn-page-blue:hover { background: #1D4ED8; transform: translateY(-1px); }
-        .btn-page-green { background: #059669; color: #fff; box-shadow: 0 4px 15px rgba(5,150,105,0.4); }
+        .btn-page-blue { background: #1D4ED8; color: #fff; box-shadow: 0 4px 14px rgba(29,78,216,0.25); }
+        .btn-page-blue:hover { background: #1E40AF; transform: translateY(-1px); }
+        .btn-page-green { background: #059669; color: #fff; box-shadow: 0 4px 14px rgba(5,150,105,0.25); }
         .btn-page-green:hover { background: #047857; transform: translateY(-1px); }
+        .btn-page-amber { background: #D97706; color: #fff; box-shadow: 0 4px 14px rgba(217,119,6,0.25); }
+        .btn-page-amber:hover { background: #B45309; transform: translateY(-1px); }
         
         .btn-sub-link {
-            display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.75rem 1rem;
-            border-radius: 10px; font-size: 0.85rem; font-weight: 600; text-decoration: none;
-            background: rgba(255,255,255,0.06); border: 1px solid var(--border); color: var(--text-1);
+            display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.75rem 0.85rem;
+            border-radius: 10px; font-size: 0.84rem; font-weight: 600; text-decoration: none;
+            background: #F8FAFC; border: 1px solid var(--border); color: #334155;
             transition: all var(--transition);
         }
-        .btn-sub-link:hover { background: rgba(255,255,255,0.12); color: #fff; }
+        .btn-sub-link:hover { background: #EFF6FF; border-color: #BFDBFE; color: #1D4ED8; }
 
         /* SECTION BASE */
         section { padding: 90px 1.5rem; position: relative; }
         .section-inner { max-width: 1140px; margin: 0 auto; }
         .section-header { text-align: center; max-width: 760px; margin: 0 auto 3.5rem; }
         .section-eyebrow {
-            display: inline-block; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
-            letter-spacing: 1.5px; color: var(--cyan); margin-bottom: 0.75rem;
+            display: inline-block; font-size: 0.82rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1.5px; color: #1D4ED8; margin-bottom: 0.75rem;
         }
-        .section-title { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800; line-height: 1.25; margin-bottom: 1rem; }
-        .section-desc { font-size: 1.05rem; color: var(--text-2); line-height: 1.7; }
+        .section-title { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800; line-height: 1.25; margin-bottom: 1rem; color: #0F172A; }
+        .section-desc { font-size: 1.05rem; color: var(--text-2); line-height: 1.75; }
 
-        /* 协同全景卡片 */
-        .collab-card {
-            background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-card);
-            padding: 2.5rem; box-shadow: var(--shadow-card);
+        /* COLLAB & GUARANTEE SECTION */
+        #collab { background: var(--bg-section); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 85px 1.5rem; }
+        .collab-grid {
+            display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 1.2rem;
+            align-items: stretch; margin-bottom: 3.5rem;
         }
-        .collab-grid { display: grid; grid-template-columns: 1fr 60px 1fr; gap: 1rem; align-items: center; }
-        .collab-step-box {
-            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 14px; padding: 1.8rem;
+        .collab-step-card {
+            background: #FFFFFF; border: 1px solid var(--border); border-radius: var(--radius-card);
+            padding: 2.2rem 1.8rem; box-shadow: var(--shadow-card); display: flex; flex-direction: column;
+            transition: all var(--transition);
         }
+        .collab-step-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-card-hover); border-color: #BFDBFE; }
         .collab-arrow {
             display: flex; align-items: center; justify-content: center;
-            color: var(--cyan); font-size: 1.5rem;
+            color: #94A3B8; font-size: 1.5rem;
         }
-
-        /* 信创底座网格 */
-        .security-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
-        .security-card {
-            background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px;
-            padding: 1.6rem 1.2rem; text-align: center;
+        .guarantee-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
         }
+        .guarantee-card {
+            background: #FFFFFF; border: 1px solid var(--border); border-radius: 12px;
+            padding: 1.6rem 1.4rem; box-shadow: 0 2px 8px rgba(15,23,42,0.03);
+            transition: all var(--transition);
+        }
+        .guarantee-card:hover { transform: translateY(-2px); border-color: #CBD5E1; box-shadow: var(--shadow-card); }
 
         /* CTA & FOOTER */
-        #cta { background: var(--bg-deep); padding: 80px 1.5rem 100px; }
-        .cta-inner { max-width: 960px; margin: 0 auto; text-align: center; }
+        #cta { background: #FFFFFF; border-top: 1px solid var(--border); padding: 90px 1.5rem 100px; }
+        .cta-inner { max-width: 1060px; margin: 0 auto; text-align: center; }
         .cta-glow {
-            background: rgba(15, 23, 42, 0.85); border: 1.5px solid rgba(59,130,246,0.35);
-            border-radius: 24px; padding: 4rem 2.5rem; box-shadow: 0 30px 80px rgba(0,0,0,0.6);
-            backdrop-filter: blur(16px);
+            background: #FFFFFF; border: 1px solid var(--border);
+            border-radius: 20px; padding: 4rem 2.5rem; box-shadow: var(--shadow-card);
         }
-        .cta-glow h2 { font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 900; margin-bottom: 1.25rem; }
-        .cta-glow p { font-size: 1.05rem; color: var(--text-2); max-width: 720px; margin: 0 auto 2.5rem; line-height: 1.7; }
+        .cta-glow h2 { font-size: clamp(1.75rem, 2.6vw, 2.45rem); font-weight: 800; margin-bottom: 1.25rem; letter-spacing: -0.3px; color: #0F172A; line-height: 1.35; }
+        .cta-glow p { font-size: 1.05rem; color: var(--text-2); max-width: 740px; margin: 0 auto 2.5rem; line-height: 1.8; }
         .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
 
-        footer { background: #010710; border-top: 1px solid var(--border); padding: 70px 1.5rem 40px; }
+        footer { background: #FFFFFF; border-top: 1px solid var(--border); padding: 70px 1.5rem 40px; }
         .footer-inner { max-width: 1200px; margin: 0 auto; }
         .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 50px; }
         .footer-brand p { color: var(--text-2); font-size: 0.88rem; line-height: 1.7; max-width: 320px; margin-top: 0.8rem; }
-        .footer-col h4 { font-size: 0.95rem; font-weight: 700; color: var(--text-1); margin-bottom: 1.25rem; }
+        .footer-col h4 { font-size: 0.95rem; font-weight: 700; color: #0F172A; margin-bottom: 1.25rem; }
         .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
         .footer-col a { color: var(--text-2); text-decoration: none; font-size: 0.85rem; transition: all var(--transition); }
-        .footer-col a:hover { color: var(--text-1); }
+        .footer-col a:hover { color: #1D4ED8; }
         .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.06); padding-top: 25px;
+            border-top: 1px solid var(--border); padding-top: 25px;
             display: flex; justify-content: space-between; align-items: center;
             font-size: 0.82rem; color: var(--text-3); flex-wrap: wrap; gap: 1rem;
         }
+        .footer-bottom a { color: var(--text-2); text-decoration: none; margin-left: 1rem; }
+        .footer-bottom a:hover { color: #1D4ED8; }
 
         .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
         .reveal.visible { opacity: 1; transform: translateY(0); }
 
         @media (max-width: 1024px) {
             .portal-grid { grid-template-columns: 1fr; }
-            .collab-grid { grid-template-columns: 1fr; }
-            .collab-arrow { transform: rotate(90deg); margin: 0.5rem 0; }
-            .security-grid { grid-template-columns: repeat(2, 1fr); }
             .footer-top { grid-template-columns: 1fr 1fr; }
+            .comp-header-grid { display: none; }
+            .comp-row { grid-template-columns: 1fr; gap: 0.6rem; padding: 1.4rem 0; }
         }
         @media (max-width: 768px) {
+            h1.hero-title { white-space: normal; font-size: clamp(1.4rem, 5.5vw, 1.85rem); }
+            nav { padding: 0 1.2rem; }
             .nav-links { display: none; }
             .nav-mobile-toggle { display: block; }
-            .security-grid { grid-template-columns: 1fr; }
             .footer-top { grid-template-columns: 1fr; }
+            .comparison-wrapper { padding: 1.5rem 1.2rem; }
+            .portal-card { padding: 1.8rem 1.4rem; }
         }
     </style>
 </head>
 <body>
 
-<!-- NAV -->
+<!-- NAV (全站统一固定通栏) -->
 <nav id="mainNav">
-    <a href="#" class="nav-brand">
+    <a href="index.html" class="nav-brand">
         <div class="nav-logo-box">增</div>
         <div>
             <div class="nav-brand-title">智增云</div>
@@ -282,14 +388,17 @@
         </div>
     </a>
     <ul class="nav-links" id="navLinks">
-        <li><a href="#matrix">产品矩阵</a></li>
-        <li><a href="zhicai/index.html">智采云 <span class="nav-pill pill-blue">采购比价</span></a></li>
-        <li><a href="zhihe/index.html">智核云 <span class="nav-pill pill-green">国企合规</span></a></li>
-        <li><a href="#collab">业务协同</a></li>
-        <li><a href="#security">信创底座</a></li>
+        <li><a href="index.html" class="nav-active">首页</a></li>
+        <li><a href="zhicai/index.html">智采云 <span class="nav-pill pill-blue">采购控价</span></a></li>
+        <li><a href="zhihe/index.html">智核云 <span class="nav-pill pill-green">智能审批</span></a></li>
+        <li><a href="zhixiao/index.html">智销售 <span class="nav-pill pill-amber">AI 美顾</span></a></li>
     </ul>
+    <div class="nav-cta-group">
+        <a href="#matrix" class="nav-btn-link">产品矩阵</a>
+        <a href="#cta" class="nav-btn-main">预约演示</a>
+    </div>
     <button class="nav-mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="菜单">
-        <i data-lucide="menu" style="width:24px;height:24px;"></i>
+        <i data-lucide="menu" style="width:22px;height:22px;"></i>
     </button>
 </nav>
 
@@ -297,28 +406,130 @@
 <section id="hero">
     <div class="hero-bg-mesh">
         <div class="hero-grid-lines"></div>
-        <div class="hero-blob blob-1"></div>
-        <div class="hero-blob blob-2"></div>
-        <div class="hero-blob blob-3"></div>
     </div>
     <div class="hero-content">
         <div class="hero-badge">
             <span class="hero-badge-dot"></span>
-            AI 驱动 · 企业级智能采购与国企审批合规审查一体化云平台
+            智增云 · 自主可控 · 信创支持 ｜ 面向大型企业与国资央企的现代化数智产品矩阵
         </div>
         <h1 class="hero-title">
-            以数据驱动降本，以智能护航合规<br>
-            <span class="hero-title-grad">智增云 · 企业采购与审批数字化管理中枢</span>
+            驱动精细化降本增效，筑牢合规管理与业务防线
         </h1>
         <p class="hero-subtitle">
-            面向大型制造企业、建设集团与国有央企。以“智采云”构筑企业专属价格大库，实现全流程控价降本；
-            以“智核云”零折腾协同现有 OA，1分钟机器初审把关阻断阴阳差额，为领导干部筑牢经得起国资审计检验的终身履职免责护栏。
+            面向大型企业、国企央企与集团化组织，提供三大独立自主的数智化产品线：以【智采云】激活历史价格大库打破招采黑盒；以【智核云】无感协同现有办公系统、实施分钟级初审把关筑牢免责护栏；以【智销售】基于 AI 智能工牌赋能面对面一线销售与 100% 全量质检。
         </p>
 
-        <!-- 双旗舰产品 Bento 矩阵卡 -->
+        <!-- 核心行动入口 (精炼聚焦，避免与下方各产品专页 PPT 入口重复) -->
+        <div class="hero-cta-bar">
+            <a href="#matrix" class="hero-btn-primary">
+                <span>探索三大产品矩阵</span>
+                <i data-lucide="arrow-down" style="width:18px;height:18px;"></i>
+            </a>
+            <a href="#cta" class="hero-btn-outline">
+                <i data-lucide="sparkles" style="width:18px;height:18px;color:#1D4ED8;"></i>
+                <span>预约方案交流 / 咨询专家</span>
+            </a>
+        </div>
+
+
+
+        <!-- Cloudflare 对标：传统模式 vs 智增云现代化智能闭环对比表 -->
+        <div class="comparison-wrapper">
+            <div style="margin-bottom:1.6rem; text-align:center;">
+                <div style="color:#1D4ED8; font-size:0.82rem; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:0.4rem;">价值重塑 · 质变对照</div>
+                <h2 style="font-size:1.65rem; font-weight:800; color:#0F172A; letter-spacing:-0.3px;">传统管理模式 vs 智增云数智化方案</h2>
+                <p style="font-size:0.92rem; color:var(--text-2); margin-top:0.4rem;">直面控价降本、审批把关与一线销售质检核心痛点，以成熟数智技术赋能经办、审核、定夺与营销全场景</p>
+            </div>
+            <div class="comp-header-grid">
+                <div style="color:#64748B;">业务审查与经营核心维度</div>
+                <div style="color:#DC2626; display:flex; align-items:center; gap:0.4rem;">
+                    <i data-lucide="alert-triangle" style="width:16px;height:16px;"></i> 传统管理模式 (现状与盲区)
+                </div>
+                <div style="color:#059669; display:flex; align-items:center; gap:0.4rem;">
+                    <i data-lucide="check-circle-2" style="width:16px;height:16px;"></i> 智增云数智化方案 (成效与保障)
+                </div>
+            </div>
+            
+            <div class="comp-row">
+                <div class="comp-dimension">
+                    <i data-lucide="database" style="width:16px;height:16px;color:#1D4ED8;"></i>
+                    采购控价与招采定价
+                </div>
+                <div class="comp-trad">
+                    <span class="tag-danger-sm">价格黑盒</span>
+                    <span>历史合同分散在各项目部，价格信息孤岛，招标控制价编制全凭经验，易被供应商串标抬价。</span>
+                </div>
+                <div class="comp-modern">
+                    <span class="tag-success-sm">历史大库</span>
+                    <span>沉淀数万条历史成交价与规格参数，算法精准测算招标最高限价，源头阻断预算虚高，综合降本 2%~5%。</span>
+                </div>
+            </div>
+
+            <div class="comp-row">
+                <div class="comp-dimension">
+                    <i data-lucide="calculator" style="width:16px;height:16px;color:#0284C7;"></i>
+                    附件验算与差额排查
+                </div>
+                <div class="comp-trad">
+                    <span class="tag-danger-sm">肉眼盲区</span>
+                    <span>呈批附件动辄数十页、数百行明细，人工肉眼逐项累加极度耗时，隐蔽阴阳总价与税率差额极难察觉。</span>
+                </div>
+                <div class="comp-modern">
+                    <span class="tag-success-sm">分钟级全验</span>
+                    <span>系统全要素穿透核算申报总额 vs 明细累加，精准排查差额矛盾与重复报销，数分钟内出具详实把关凭单。</span>
+                </div>
+            </div>
+
+            <div class="comp-row">
+                <div class="comp-dimension">
+                    <i data-lucide="scale" style="width:16px;height:16px;color:#D97706;"></i>
+                    制度对标与政策红线
+                </div>
+                <div class="comp-trad">
+                    <span class="tag-danger-sm">靠人脑记</span>
+                    <span>《三重一大》决策流程、限额标准、资质红线难以全员熟背，经办人常因疏忽遗漏导致审计违规。</span>
+                </div>
+                <div class="comp-modern">
+                    <span class="tag-success-sm">制度智核</span>
+                    <span>动态装载企业现行最新章程，超权限申报、拆单规避招标直接亮红拦截，并清晰引述条文章程依据。</span>
+                </div>
+            </div>
+
+            <div class="comp-row">
+                <div class="comp-dimension">
+                    <i data-lucide="users" style="width:16px;height:16px;color:#D97706;"></i>
+                    一线销售与会话质检
+                </div>
+                <div class="comp-trad">
+                    <span class="tag-danger-sm">黑盒失控</span>
+                    <span>线下会话缺少真实留痕，依赖人工主观填报日志，过度承诺与消极服务难察觉，优秀经验难以复制。</span>
+                </div>
+                <div class="comp-modern">
+                    <span class="tag-success-sm">全量数字资产</span>
+                    <span>智能工牌无感采集会话，AI 自动提炼客户画像与真实抗拒点，100% 全量质检排查风险并赋能跟通话术。</span>
+                </div>
+            </div>
+
+            <div class="comp-row">
+                <div class="comp-dimension">
+                    <i data-lucide="shield-check" style="width:16px;height:16px;color:#059669;"></i>
+                    终身责任与审计问责
+                </div>
+                <div class="comp-trad">
+                    <span class="tag-danger-sm">签字如悬剑</span>
+                    <span>国资巡视与任期审计实行“终身追责”，领导签字时缺少全面背书与有效留痕，长期背负合规焦虑。</span>
+                </div>
+                <div class="comp-modern">
+                    <span class="tag-success-sm">存证终身免责</span>
+                    <span>生成包含国密防伪哈希、制度索引条目、机器核算流水与专家签章的免责单据，筑牢领导免责护栏。</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 三大独立数智化产品 Bento 矩阵卡 (分开独立呈现) -->
         <div class="portal-grid" id="matrix">
-            <!-- 旗舰 1: 智采云 -->
-            <div class="portal-card card-zhicai">
+            <!-- 产品 1: 智采云 -->
+            <div class="portal-card card-zhicai" id="card-zhicai">
                 <div class="card-header-flex">
                     <div class="card-title-group">
                         <div class="card-icon icon-blue">采</div>
@@ -327,46 +538,51 @@
                             <div class="card-sub">智能采购比价与合同管理系统</div>
                         </div>
                     </div>
-                    <span class="tag-pill tag-blue">采购降本增效</span>
+                    <span class="tag-pill tag-blue">采购控价降本</span>
                 </div>
                 <p class="card-intro">
-                    唤醒沉睡合同价格资产，以历史成交价格大库为核心驱动。招标控制价预测、多方供应商矩阵平铺比价、定标归仓全链路闭环，彻底打破价格黑箱。
+                    以多维历史成交价格大库为核心驱动，唤醒沉睡合同与招标资产。招标控制价精准预测、多方报价矩阵平铺横向比价、定标数据自动归仓反哺，彻底打破采购价格信息黑盒。
                 </p>
                 <div class="card-stats-row">
                     <div>
-                        <div class="card-stat-num" style="color:#60A5FA;">80%+</div>
+                        <div class="card-stat-num" style="color:#1D4ED8;">80%+</div>
                         <div class="card-stat-txt">比价时效提升</div>
                     </div>
                     <div>
-                        <div class="card-stat-num" style="color:#34D399;">2%~5%</div>
-                        <div class="card-stat-txt">采购直接降本</div>
+                        <div class="card-stat-num" style="color:#059669;">2%~5%</div>
+                        <div class="card-stat-txt">直接采购降本</div>
                     </div>
                     <div>
-                        <div class="card-stat-num" style="color:#FBBF24;">95%+</div>
+                        <div class="card-stat-num" style="color:#D97706;">95%+</div>
                         <div class="card-stat-txt">SKU 智能命中率</div>
                     </div>
                 </div>
+                <!-- 真实界面微视窗预览 -->
+                <div class="card-visual-frame">
+                    <img src="assets/system_screenshots/forecast_dash.png" alt="智采云采购限价预测与比价界面" loading="lazy">
+                    <div class="visual-tag-float">历史沉淀 10万+ 标段</div>
+                </div>
                 <ul class="feature-list">
-                    <li class="feature-item"><span class="feature-bullet bullet-blue"></span> 历史多维成交物料价格大库（品牌、规格、地域价格水位）</li>
-                    <li class="feature-item"><span class="feature-bullet bullet-blue"></span> 招标控制价 AI 算法测算，杜绝高报预算与合谋虚高</li>
-                    <li class="feature-item"><span class="feature-bullet bullet-blue"></span> 多供应商报价清单一键自动结构化，平铺直观比价</li>
-                    <li class="feature-item"><span class="feature-bullet bullet-blue"></span> 合同关键商务条款 OCR 解析与定标数据自动回仓沉淀</li>
+                    <li class="feature-item"><span class="feature-bullet bullet-blue"></span> 沉淀多维历史成交大库（品牌、规格型号、地域价格基线）</li>
+                    <li class="feature-item"><span class="feature-bullet bullet-blue"></span> 招标控制价智能测算，杜绝高报预算与供应商合谋围标</li>
+                    <li class="feature-item"><span class="feature-bullet bullet-blue"></span> 多供应商报价清单自动结构化，一键生成横向平铺对比大表</li>
+                    <li class="feature-item"><span class="feature-bullet bullet-blue"></span> 合同商务条款智能抽取，定标数据自动归仓反哺历史大库</li>
                 </ul>
                 <div class="card-actions">
                     <a href="zhicai/index.html" class="btn-enter-page btn-page-blue">
-                        进入智采云产品专页 →
+                        进入产品专页 →
                     </a>
                     <a href="apps/ppt-presentation/index.html" class="btn-sub-link" target="_blank">
                         <i data-lucide="presentation" style="width:14px;height:14px;"></i> 产品 PPT
                     </a>
                     <a href="https://anong8090.github.io/procurement-saas/" class="btn-sub-link" target="_blank">
-                        <i data-lucide="zap" style="width:14px;height:14px;color:#FBBF24;"></i> 在线 DEMO
+                        <i data-lucide="zap" style="width:14px;height:14px;color:#D97706;"></i> 在线 DEMO
                     </a>
                 </div>
             </div>
 
-            <!-- 旗舰 2: 智核云 -->
-            <div class="portal-card card-zhihe">
+            <!-- 产品 2: 智核云 -->
+            <div class="portal-card card-zhihe" id="card-zhihe">
                 <div class="card-header-flex">
                     <div class="card-title-group">
                         <div class="card-icon icon-green">核</div>
@@ -375,40 +591,98 @@
                             <div class="card-sub">国企智能审批把关系统 (FDE)</div>
                         </div>
                     </div>
-                    <span class="tag-pill tag-green">国企信创合规 · 终身免责</span>
+                    <span class="tag-pill tag-green">智能审批把关 · 履职免责</span>
                 </div>
                 <p class="card-intro">
-                    专门面向国企关键领导岗位的智能审批把关副驾。不用推倒现有 OA 系统，插上即用；电脑后台自动把关初审，毫秒级算清每笔差额，对准企业制度红线，约 1 分钟生成防伪凭单，让领导签批踏实、从容定夺、终身免责。
+                    面向国企关键领导岗位的智能审批把关副驾。无感协同现有办公系统；电脑后台自动把关初审，扫描件与明细表分钟级全要素精准核对，排查算术差额，对齐制度红线，出具防伪凭单，让领导从容定夺、终身免责。
                 </p>
                 <div class="card-stats-row">
                     <div>
-                        <div class="card-stat-num" style="color:#38BDF8;">约 1 分钟</div>
-                        <div class="card-stat-txt">全流程机器初审</div>
+                        <div class="card-stat-num" style="color:#059669;">分钟级</div>
+                        <div class="card-stat-txt">全流程初审把关</div>
                     </div>
                     <div>
-                        <div class="card-stat-num" style="color:#34D399;">90%+</div>
+                        <div class="card-stat-num" style="color:#1D4ED8;">90%+</div>
                         <div class="card-stat-txt">机械核算机器替代</div>
                     </div>
                     <div>
-                        <div class="card-stat-num" style="color:#FBBF24;">100%</div>
+                        <div class="card-stat-num" style="color:#D97706;">100%</div>
                         <div class="card-stat-txt">算术差额排查率</div>
                     </div>
                 </div>
+                <!-- 真实界面微视窗预览 -->
+                <div class="card-visual-frame">
+                    <img src="assets/zhihe_screenshots/01_task_pool.png" alt="智核云智能初审任务池与把关台" loading="lazy">
+                    <div class="visual-tag-float" style="color:#059669;">智能初审待办把关</div>
+                </div>
                 <ul class="feature-list">
-                    <li class="feature-item"><span class="feature-bullet bullet-green"></span> 零折腾协同泛微、致远等主流 OA 与 ERP，经办人照常发起</li>
-                    <li class="feature-item"><span class="feature-bullet bullet-green"></span> 电脑严格验算申报金额 vs 附件逐项累加（毫秒级揪出 5 万差额与税率矛盾）</li>
-                    <li class="feature-item"><span class="feature-bullet bullet-green"></span> 动态装载企业现行规章（超百万缺三重一大直接提醒，质量不达标一票否决）</li>
-                    <li class="feature-item"><span class="feature-bullet bullet-green"></span> 左看合同原件右看要点，领导定夺后一键回写 OA，国密防伪存据免责</li>
+                    <li class="feature-item"><span class="feature-bullet bullet-green"></span> 零折腾协同泛微、致远等主流 OA 与 ERP，经办人员无需改变习惯</li>
+                    <li class="feature-item"><span class="feature-bullet bullet-green"></span> 机器严格验算申报金额 vs 附件逐项累加（精准排查差额矛盾与税率漏洞）</li>
+                    <li class="feature-item"><span class="feature-bullet bullet-green"></span> 动态对标企业制度章程（超额申报、拆单规避招标及时亮红拦截预警）</li>
+                    <li class="feature-item"><span class="feature-bullet bullet-green"></span> 左看原件右看要点，领导定夺后一键回写 OA，国密存据筑牢免责护栏</li>
                 </ul>
                 <div class="card-actions">
                     <a href="zhihe/index.html" class="btn-enter-page btn-page-green">
-                        进入智核云产品专页 →
+                        进入产品专页 →
                     </a>
                     <a href="apps/zhihe-ppt/index.html" class="btn-sub-link" target="_blank">
                         <i data-lucide="presentation" style="width:14px;height:14px;"></i> 产品 PPT
                     </a>
                     <a href="fde/index.html" class="btn-sub-link" target="_blank">
-                        <i data-lucide="shield-check" style="width:14px;height:14px;color:#38BDF8;"></i> 在线 DEMO
+                        <i data-lucide="shield-check" style="width:14px;height:14px;color:#059669;"></i> 审查舱 DEMO
+                    </a>
+                </div>
+            </div>
+
+            <!-- 产品 3: 智销售 -->
+            <div class="portal-card card-zhixiao" id="card-zhixiao">
+                <div class="card-header-flex">
+                    <div class="card-title-group">
+                        <div class="card-icon icon-amber">销</div>
+                        <div>
+                            <div class="card-h2">智销售</div>
+                            <div class="card-sub">智能销售与客户经营系统 (AI 美顾)</div>
+                        </div>
+                    </div>
+                    <span class="tag-pill tag-amber">一线销售赋能 · 全量质检</span>
+                </div>
+                <p class="card-intro">
+                    专为高客单、长决策周期的线下销售团队打造。以轻便智能工牌与专属销售大模型为抓手，无感采集面对面会话语音并精准分离角色。自动提取 360° 客户画像与真实抗拒点，生成销售复盘与智能跟进话术，实现 100% 会话级自动质检。
+                </p>
+                <div class="card-stats-row">
+                    <div>
+                        <div class="card-stat-num" style="color:#D97706;">80%</div>
+                        <div class="card-stat-txt">手工日志录入缩减</div>
+                    </div>
+                    <div>
+                        <div class="card-stat-num" style="color:#059669;">100%</div>
+                        <div class="card-stat-txt">面对面质检覆盖</div>
+                    </div>
+                    <div>
+                        <div class="card-stat-num" style="color:#1D4ED8;">20%+</div>
+                        <div class="card-stat-txt">重点客群转化提升</div>
+                    </div>
+                </div>
+                <!-- 真实界面微视窗预览 -->
+                <div class="card-visual-frame">
+                    <img src="assets/zhixiao_screenshots/system_architecture_ui.png" alt="智销售AI美顾会话分析与全量质检控制台" loading="lazy">
+                    <div class="visual-tag-float" style="color:#D97706;">35g 智能工牌 + AI美顾</div>
+                </div>
+                <ul class="feature-list">
+                    <li class="feature-item"><span class="feature-bullet bullet-amber"></span> 软硬件深度协同：超轻智能工牌全天无感佩戴，高保真降噪与角色声纹分离</li>
+                    <li class="feature-item"><span class="feature-bullet bullet-amber"></span> 会话速记与自动建档：秒级结构化提炼客户画像、真实预算与核心抗拒点</li>
+                    <li class="feature-item"><span class="feature-bullet bullet-amber"></span> 销售副驾全程赋能：面谈前档案速读，面谈后一键生成企微个性化跟进话术</li>
+                    <li class="feature-item"><span class="feature-bullet bullet-amber"></span> 100% 会话级合规质检：智能识别过度承诺与消极应对，全自动输出能力雷达</li>
+                </ul>
+                <div class="card-actions">
+                    <a href="zhixiao/index.html" class="btn-enter-page btn-page-amber">
+                        进入产品专页 →
+                    </a>
+                    <a href="apps/zhixiao-ppt/index.html" class="btn-sub-link" target="_blank">
+                        <i data-lucide="presentation" style="width:14px;height:14px;"></i> 产品 PPT
+                    </a>
+                    <a href="#cta" class="btn-sub-link">
+                        <i data-lucide="calendar" style="width:14px;height:14px;color:#D97706;"></i> 预约场景演示
                     </a>
                 </div>
             </div>
@@ -416,80 +690,155 @@
     </div>
 </section>
 
-<!-- 业务协同闭环全景 -->
-<section id="collab" style="background:var(--bg-section); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
-    <div class="section-inner">
+<!-- 三大产品协同运作业务闭环与企业级交付保障体系 -->
+<section id="collab">
+    <div class="section-inner" style="max-width:1280px;">
         <div class="section-header">
-            <div class="section-eyebrow">闭环协同</div>
-            <h2 class="section-title">智增云端到端协同业务全景</h2>
-            <p class="section-desc">从采购源头的招标控价、比价谈判，到审批终端的合规把关与履职免责，形成完整数字化闭环</p>
+            <div class="section-eyebrow">闭环协同 · 端到端赋能</div>
+            <h2 class="section-title">三大产品协同运作业务闭环</h2>
+            <p class="section-desc">三大产品线既可作为独立模块按需部署、精准解决特定痛点；亦可跨部门、跨业务流无感协同联动，构建从源头控价到审批把关与前线营销的数字化中枢</p>
         </div>
 
-        <div class="collab-card reveal">
-            <div class="collab-grid">
-                <!-- 左侧：智采云 -->
-                <div class="collab-step-box">
-                    <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.8rem;">
-                        <span style="background:var(--blue); color:#fff; font-size:0.75rem; font-weight:bold; padding:2px 8px; border-radius:4px;">源头控价</span>
-                        <h3 style="font-size:1.15rem; font-weight:700; color:#fff;">智采云 · 业务闭环</h3>
-                    </div>
-                    <p style="font-size:0.85rem; color:var(--text-2); line-height:1.6; margin-bottom:1rem;">
-                        需求提报 ➔ 历史价格大库对标 ➔ 控价测算 ➔ 多供应商平铺比选 ➔ 价格压降定标 ➔ 生成规范采购合同。
-                    </p>
-                    <div style="font-size:0.8rem; color:#60A5FA; font-weight:600;">输出：合规清晰的价格基线与电子化招采合同包</div>
+        <!-- 3步业务流全景卡片 -->
+        <div class="collab-grid">
+            <!-- 步骤 1：智采云 -->
+            <div class="collab-step-card" style="border-top:3px solid #1D4ED8;">
+                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem;">
+                    <span style="background:#EFF6FF; color:#1D4ED8; font-size:0.75rem; font-weight:700; padding:3px 10px; border-radius:99px; border:1px solid #BFDBFE;">第一环 · 源头控价</span>
+                    <span style="font-size:0.8rem; font-weight:700; color:#94A3B8;">01</span>
                 </div>
-
-                <!-- 中间箭头 -->
-                <div class="collab-arrow">
-                    <i data-lucide="arrow-right" style="width:32px;height:32px;"></i>
-                </div>
-
-                <!-- 右侧：智核云 -->
-                <div class="collab-step-box" style="border-color:rgba(16,185,129,0.3);">
-                    <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.8rem;">
-                        <span style="background:#059669; color:#fff; font-size:0.75rem; font-weight:bold; padding:2px 8px; border-radius:4px;">终端把关</span>
-                        <h3 style="font-size:1.15rem; font-weight:700; color:#fff;">智核云 · 审批闭环</h3>
+                <h3 style="font-size:1.2rem; font-weight:800; color:#0F172A; margin-bottom:0.6rem;">智采云 · 采购控价大库</h3>
+                <p style="font-size:0.88rem; color:var(--text-2); line-height:1.65; margin-bottom:1.2rem; flex:1;">
+                    汇聚沉淀历史招采价格与参数大库，在采购需求编制与招标控制价阶段算法自动比对历史成交价，源头挤掉虚高水分，杜绝供应商围串标。
+                </p>
+                <div style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:8px; padding:0.85rem; font-size:0.8rem; color:#334155; line-height:1.6;">
+                    <div style="font-weight:700; color:#1D4ED8; margin-bottom:4px; display:flex; align-items:center; gap:4px;">
+                        <i data-lucide="check-circle" style="width:14px;height:14px;"></i> 核心协同输出
                     </div>
-                    <p style="font-size:0.85rem; color:var(--text-2); line-height:1.6; margin-bottom:1rem;">
-                        OA 呈批监听 ➔ 附件智能扫描 ➔ 算术差额验算（防阴阳合同） ➔ 规章红线对标 ➔ 领导从容裁决 ➔ 国密存据免责。
-                    </p>
-                    <div style="font-size:0.8rem; color:#34D399; font-weight:600;">输出：经得起国资巡视与任期审计检验的终身履职免责台账</div>
+                    生成去除虚高水分的最高限价与标准招采合同包，将价格基线与标的信息穿透同步至审批把关中枢。
+                </div>
+                <div style="margin-top:1.2rem;">
+                    <a href="zhicai/index.html" style="font-size:0.85rem; font-weight:700; color:#1D4ED8; text-decoration:none; display:inline-flex; align-items:center; gap:4px;">
+                        了解智采云详情 →
+                    </a>
+                </div>
+            </div>
+
+            <!-- 连接箭头 1 -->
+            <div class="collab-arrow">
+                <i data-lucide="arrow-right" style="width:28px;height:28px;color:#94A3B8;"></i>
+            </div>
+
+            <!-- 步骤 2：智核云 -->
+            <div class="collab-step-card" style="border-top:3px solid #059669;">
+                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem;">
+                    <span style="background:#ECFDF5; color:#059669; font-size:0.75rem; font-weight:700; padding:3px 10px; border-radius:99px; border:1px solid #A7F3D0;">第二环 · 中枢把关</span>
+                    <span style="font-size:0.8rem; font-weight:700; color:#94A3B8;">02</span>
+                </div>
+                <h3 style="font-size:1.2rem; font-weight:800; color:#0F172A; margin-bottom:0.6rem;">智核云 · 智能审批把关</h3>
+                <p style="font-size:0.88rem; color:var(--text-2); line-height:1.65; margin-bottom:1.2rem; flex:1;">
+                    无感监听 OA 呈批流程，数分钟内全要素穿透附件数百行明细，核对申报总额 vs 明细累计差额与规章红线，出具详实防伪凭单与免责台账。
+                </p>
+                <div style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:8px; padding:0.85rem; font-size:0.8rem; color:#334155; line-height:1.6;">
+                    <div style="font-weight:700; color:#059669; margin-bottom:4px; display:flex; align-items:center; gap:4px;">
+                        <i data-lucide="check-circle" style="width:14px;height:14px;"></i> 核心协同输出
+                    </div>
+                    出具经得起国资巡视与任期审计检验的终身履职免责存据，疑点线索与审计底稿全流程机器留痕。
+                </div>
+                <div style="margin-top:1.2rem;">
+                    <a href="zhihe/index.html" style="font-size:0.85rem; font-weight:700; color:#059669; text-decoration:none; display:inline-flex; align-items:center; gap:4px;">
+                        了解智核云详情 →
+                    </a>
+                </div>
+            </div>
+
+            <!-- 连接箭头 2 -->
+            <div class="collab-arrow">
+                <i data-lucide="arrow-right" style="width:28px;height:28px;color:#94A3B8;"></i>
+            </div>
+
+            <!-- 步骤 3：智销售 -->
+            <div class="collab-step-card" style="border-top:3px solid #D97706;">
+                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem;">
+                    <span style="background:#FFFBEB; color:#D97706; font-size:0.75rem; font-weight:700; padding:3px 10px; border-radius:99px; border:1px solid #FDE68A;">第三环 · 前线赋能</span>
+                    <span style="font-size:0.8rem; font-weight:700; color:#94A3B8;">03</span>
+                </div>
+                <h3 style="font-size:1.2rem; font-weight:800; color:#0F172A; margin-bottom:0.6rem;">智销售 · AI 会话分析</h3>
+                <p style="font-size:0.88rem; color:var(--text-2); line-height:1.65; margin-bottom:1.2rem; flex:1;">
+                    通过 35g 超轻智能工牌无感采集线下沟通语音，大模型穿透 360° 客户真实画像与核心抗拒点，赋能销售副驾跟进，100% 全量会话质检。
+                </p>
+                <div style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:8px; padding:0.85rem; font-size:0.8rem; color:#334155; line-height:1.6;">
+                    <div style="font-weight:700; color:#D97706; margin-bottom:4px; display:flex; align-items:center; gap:4px;">
+                        <i data-lucide="check-circle" style="width:14px;height:14px;"></i> 核心协同输出
+                    </div>
+                    沉淀销冠真实打法话术，一线客户真实反馈与价格抗拒点反哺企业采购与经营决策闭环。
+                </div>
+                <div style="margin-top:1.2rem;">
+                    <a href="zhixiao/index.html" style="font-size:0.85rem; font-weight:700; color:#D97706; text-decoration:none; display:inline-flex; align-items:center; gap:4px;">
+                        了解智销售详情 →
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4大企业级交付保障支柱 -->
+        <div style="margin-top:4rem;">
+            <div style="text-align:center; margin-bottom:2rem;">
+                <div style="color:#1D4ED8; font-size:0.82rem; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:0.4rem;">ENTERPRISE ASSURANCE</div>
+                <h3 style="font-size:1.45rem; font-weight:800; color:#0F172A;">企业级交付与全生命周期服务保障</h3>
+            </div>
+            <div class="guarantee-grid">
+                <div class="guarantee-card">
+                    <div style="width:40px; height:40px; border-radius:10px; background:#EFF6FF; border:1px solid #BFDBFE; display:flex; align-items:center; justify-content:center; color:#1D4ED8; margin-bottom:1rem;">
+                        <i data-lucide="plug-zap" style="width:20px;height:20px;"></i>
+                    </div>
+                    <div style="font-size:1rem; font-weight:700; color:#0F172A; margin-bottom:0.4rem;">轻量无感接入</div>
+                    <div style="font-size:0.84rem; color:var(--text-2); line-height:1.6;">适配主流 OA（泛微、致远、蓝凌）及 ERP，业务与领导无需改变日常习惯。</div>
+                </div>
+                <div class="guarantee-card">
+                    <div style="width:40px; height:40px; border-radius:10px; background:#ECFDF5; border:1px solid #A7F3D0; display:flex; align-items:center; justify-content:center; color:#059669; margin-bottom:1rem;">
+                        <i data-lucide="lock" style="width:20px;height:20px;"></i>
+                    </div>
+                    <div style="font-size:1rem; font-weight:700; color:#0F172A; margin-bottom:0.4rem;">纯内网离线脱网</div>
+                    <div style="font-size:0.84rem; color:var(--text-2); line-height:1.6;">支持局域网物理隔离部署，核心合同、敏感价格大库与商务录音绝对不出机房。</div>
+                </div>
+                <div class="guarantee-card">
+                    <div style="width:40px; height:40px; border-radius:10px; background:#FEF3C7; border:1px solid #FDE68A; display:flex; align-items:center; justify-content:center; color:#D97706; margin-bottom:1rem;">
+                        <i data-lucide="rocket" style="width:20px;height:20px;"></i>
+                    </div>
+                    <div style="font-size:1rem; font-weight:700; color:#0F172A; margin-bottom:0.4rem;">开箱即用敏捷上线</div>
+                    <div style="font-size:0.84rem; color:var(--text-2); line-height:1.6;">预置国资央企常用物资品目、合规把关规则与销售 SOP 模板，数周内完成投产。</div>
+                </div>
+                <div class="guarantee-card">
+                    <div style="width:40px; height:40px; border-radius:10px; background:#F1F5F9; border:1px solid #CBD5E1; display:flex; align-items:center; justify-content:center; color:#475569; margin-bottom:1rem;">
+                        <i data-lucide="users" style="width:20px;height:20px;"></i>
+                    </div>
+                    <div style="font-size:1rem; font-weight:700; color:#0F172A; margin-bottom:0.4rem;">原厂专家陪伴保障</div>
+                    <div style="font-size:0.84rem; color:var(--text-2); line-height:1.6;">提供规则对齐、私有模型微调、实操赋能培训与持续运维，保障落地见效。</div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- 信创底座 -->
-<section id="security">
-    <div class="section-inner">
-        <div class="section-header">
-            <div class="section-eyebrow">自主安全可控</div>
-            <h2 class="section-title">国产信创全适配 · 纯内网物理隔离部署</h2>
-            <p class="section-desc">完全满足央国企数字化信创安全标准，纯局域网脱网运行，企业商业机密与物料单价绝对不出机房</p>
-        </div>
 
-        <div class="security-grid reveal">
-            <div class="security-card">
-                <div style="font-size:1rem; font-weight:700; color:#fff; margin-bottom:0.3rem;">信创芯片架构</div>
-                <div style="font-size:0.82rem; color:#38BDF8; font-weight:bold; margin-bottom:0.4rem;">华为鲲鹏 920 ｜ 海光 7000</div>
-                <p style="font-size:0.78rem; color:var(--text-2);">原生支持 ARM64 与 x86 国产算力集群，稳定高效。</p>
+<!-- 信创支持：一笔带过，简洁稳重 -->
+<section id="security" style="padding:48px 1.5rem; background:#F8FAFC; border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+    <div style="max-width:1140px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
+        <div style="display:flex; align-items:center; gap:1.2rem;">
+            <div style="width:44px; height:44px; border-radius:10px; background:#EFF6FF; border:1px solid #BFDBFE; display:flex; align-items:center; justify-content:center; color:#1D4ED8; flex-shrink:0;">
+                <i data-lucide="shield-check" style="width:24px;height:24px;"></i>
             </div>
-            <div class="security-card">
-                <div style="font-size:1rem; font-weight:700; color:#fff; margin-bottom:0.3rem;">国产操作系统</div>
-                <div style="font-size:0.82rem; color:#34D399; font-weight:bold; margin-bottom:0.4rem;">统信 UOS ｜ 银河麒麟</div>
-                <p style="font-size:0.78rem; color:var(--text-2);">通过公安部等保三级与信创兼容性认证。</p>
+            <div>
+                <div style="font-size:1.05rem; font-weight:700; color:#0F172A;">自主可控与信创生态兼容支持</div>
+                <div style="font-size:0.85rem; color:#64748B; margin-top:3px;">智增云全线产品全面支持国产主流软硬件环境，支持纯局域网物理隔离部署，确保商业机密与核心数据自主可控。</div>
             </div>
-            <div class="security-card">
-                <div style="font-size:1rem; font-weight:700; color:#fff; margin-bottom:0.3rem;">国产关系型数据库</div>
-                <div style="font-size:0.82rem; color:#FBBF24; font-weight:bold; margin-bottom:0.4rem;">达梦 DM8 ｜ 人大金仓</div>
-                <p style="font-size:0.78rem; color:var(--text-2);">国密 SM4 透明加密与高可用主备容灾集群。</p>
-            </div>
-            <div class="security-card">
-                <div style="font-size:1rem; font-weight:700; color:#fff; margin-bottom:0.3rem;">本地大模型智核</div>
-                <div style="font-size:0.82rem; color:#C4B5FD; font-weight:bold; margin-bottom:0.4rem;">通义千问信创版 ｜ 本地部署</div>
-                <p style="font-size:0.78rem; color:var(--text-2);">物理单向隔离部署，纯离线推理，绝不连外网。</p>
-            </div>
+        </div>
+        <div style="display:flex; gap:0.6rem; flex-wrap:wrap; font-size:0.8rem; color:#475569; font-weight:500;">
+            <span style="background:#FFFFFF; border:1px solid var(--border); padding:5px 12px; border-radius:6px;">鲲鹏 / 海光芯片</span>
+            <span style="background:#FFFFFF; border:1px solid var(--border); padding:5px 12px; border-radius:6px;">统信 / 麒麟系统</span>
+            <span style="background:#FFFFFF; border:1px solid var(--border); padding:5px 12px; border-radius:6px;">达梦 / 人大金仓</span>
+            <span style="background:#FFFFFF; border:1px solid var(--border); padding:5px 12px; border-radius:6px;">纯内网离线部署</span>
         </div>
     </div>
 </section>
@@ -497,25 +846,28 @@
 <!-- CTA -->
 <section id="cta">
     <div class="cta-inner">
-        <div class="cta-glow reveal">
-            <h2>给企业装上降本引擎，给领导装上把关气囊<br><span class="hero-title-grad">智增云 · 数字化采购与审批管理中枢</span></h2>
+        <div class="cta-glow">
+            <h2>驱动企业精细化降本，筑牢合规管理与业务防线<br><span class="hero-title-grad">智增云 · 现代化企业数智产品矩阵</span></h2>
             <p>
-                深入了解各旗舰产品详细功能与实操原型，预约 30 分钟场景演示，体验端到端智能提效。
+                三大产品线支持独立按需部署，无感协同企业现有 IT 架构。欢迎预约 30 分钟场景演示与方案交流。
             </p>
             <div class="cta-actions">
                 <a href="zhicai/index.html" class="btn-enter-page btn-page-blue" style="flex:none; padding:0.85rem 1.8rem;">
-                    进入智采云产品专页 →
+                    智采云产品专页 →
                 </a>
                 <a href="zhihe/index.html" class="btn-enter-page btn-page-green" style="flex:none; padding:0.85rem 1.8rem;">
-                    进入智核云产品专页 →
+                    智核云产品专页 →
+                </a>
+                <a href="zhixiao/index.html" class="btn-enter-page btn-page-amber" style="flex:none; padding:0.85rem 1.8rem;">
+                    智销售产品专页 →
                 </a>
             </div>
-            <div style="display:flex; justify-content:center; gap:1.5rem; margin-top:1.5rem; flex-wrap:wrap; font-size:0.85rem;">
-                <a href="apps/ppt-presentation/index.html" target="_blank" style="color:#60A5FA; text-decoration:none;">📊 查看智采云 PPT</a>
-                <a href="https://anong8090.github.io/procurement-saas/" target="_blank" style="color:#60A5FA; text-decoration:none;">⚡️ 体验智采云 DEMO</a>
-                <span style="color:rgba(255,255,255,0.2);">|</span>
-                <a href="apps/zhihe-ppt/index.html" target="_blank" style="color:#34D399; text-decoration:none;">📊 查看智核云 PPT</a>
-                <a href="fde/index.html" target="_blank" style="color:#34D399; text-decoration:none;">🛡️ 体验智核云 DEMO</a>
+            <div style="display:flex; justify-content:center; gap:1.5rem; margin-top:1.8rem; flex-wrap:wrap; font-size:0.88rem; font-weight:500;">
+                <a href="apps/ppt-presentation/index.html" target="_blank" style="color:#1D4ED8; text-decoration:none;">📊 智采云 PPT 介绍</a>
+                <span style="color:#CBD5E1;">|</span>
+                <a href="apps/zhihe-ppt/index.html" target="_blank" style="color:#059669; text-decoration:none;">📊 智核云 PPT 介绍</a>
+                <span style="color:#CBD5E1;">|</span>
+                <a href="apps/zhixiao-ppt/index.html" target="_blank" style="color:#D97706; text-decoration:none;">📊 智销售 PPT 介绍</a>
             </div>
         </div>
     </div>
@@ -533,47 +885,51 @@
                         <div class="nav-brand-sub">SmartGrowth Cloud</div>
                     </div>
                 </a>
-                <p>智增云面向大型企业与国资央企，构建“智采云（智能采购价格大库）+ 智核云（国企智能审批把关系统）”双子星产品矩阵，以数据驱动降本，以智能护航合规。</p>
+                <p>智增云面向大型企业与国资央企，构建“智采云（采购控价大库）+ 智核云（智能审批把关）+ 智销售（AI 美顾系统）”三大数智化产品线，以数据驱动降本，以智能护航业务。</p>
             </div>
             <div class="footer-col">
-                <h4>智采云 (采购数字化)</h4>
+                <h4>智采云 (采购控价)</h4>
                 <ul>
                     <li><a href="zhicai/index.html">产品详情落地页</a></li>
                     <li><a href="zhicai/#pain">采购行业痛点</a></li>
                     <li><a href="zhicai/#scenarios">价格大库与核心场景</a></li>
                     <li><a href="zhicai/#features">系统功能截图</a></li>
-                    <li><a href="apps/ppt-presentation/index.html" target="_blank">智采云 PPT (1080P)</a></li>
+                    <li><a href="apps/ppt-presentation/index.html" target="_blank">智采云 PPT</a></li>
                     <li><a href="https://anong8090.github.io/procurement-saas/" target="_blank">智采云在线 DEMO</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>智核云 (国企智能把关)</h4>
+                <h4>智核云 (智能把关)</h4>
                 <ul>
                     <li><a href="zhihe/index.html">产品详情落地页</a></li>
                     <li><a href="zhihe/index.html#pain">领导难处与解法</a></li>
                     <li><a href="zhihe/index.html#cockpit">极简审阅界面</a></li>
-                    <li><a href="zhihe/index.html#gallery">实机界面巡礼 (10大场景)</a></li>
+                    <li><a href="zhihe/index.html#gallery">实机界面巡礼</a></li>
                     <li><a href="apps/zhihe-ppt/index.html" target="_blank">智核云 PPT</a></li>
-                    <li><a href="fde/index.html" target="_blank">智核云在线 DEMO</a></li>
+                    <li><a href="fde/index.html" target="_blank">智核云审查舱 DEMO</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>底座与部署</h4>
+                <h4>智销售 (AI 美顾)</h4>
                 <ul>
-                    <li><a href="#security">国产信创全栈环境</a></li>
-                    <li><a href="#security">局域网物理脱网隔离</a></li>
-                    <li><a href="#collab">端到端业务协同</a></li>
-                    <li><a href="#cta">预约演示与试用</a></li>
+                    <li><a href="apps/zhixiao-ppt/index.html" target="_blank">智销售 PPT 介绍 (1080P)</a></li>
+                    <li><a href="#card-zhixiao">智能工牌与拾音硬件</a></li>
+                    <li><a href="#card-zhixiao">360° 客户画像提取</a></li>
+                    <li><a href="#card-zhixiao">AI 销售副驾驶话术</a></li>
+                    <li><a href="#card-zhixiao">100% 会话级自动质检</a></li>
+                    <li><a href="#card-zhixiao">销售能力雷达评估</a></li>
+                    <li><a href="#cta">预约场景实操演示</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2026 智增云 · SmartGrowth Cloud (智采云 · 智核云). 版权所有.</p>
+            <p>© 2026 智增云 · SmartGrowth Cloud (智采云 · 智核云 · 智销售). 版权所有.</p>
             <div class="footer-bottom-links">
                 <a href="#matrix">产品矩阵</a>
                 <a href="zhicai/index.html">智采云专页</a>
                 <a href="zhihe/index.html">智核云专页</a>
-                <a href="#">隐私与合规政策</a>
+                <a href="zhixiao/index.html">智销售专页</a>
+                <a href="#security">信创支持</a>
             </div>
         </div>
     </div>
