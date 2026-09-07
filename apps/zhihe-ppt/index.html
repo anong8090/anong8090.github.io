@@ -10,8 +10,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   
-  <!-- Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Icons with CDN Fallback -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>
+    if (typeof lucide === 'undefined') {
+      document.write('<script src="https://unpkg.com/lucide@latest"><\/script>');
+    }
+  </script>
 
   <style>
     /* 1080P 大屏精准演示设计系统 (1920 x 1080 Standard PPT Stage) */
@@ -49,39 +54,42 @@
     }
 
     body {
-      background-color: #F1F5F9;
+      background-color: #F8FAFC;
       color: var(--text-primary);
       font-family: 'Outfit', 'Noto Sans SC', sans-serif;
       width: 100vw; height: 100vh;
       overflow: hidden;
+      margin: 0; padding: 0;
     }
 
     /* 全屏视口 Stage Wrapper */
     #stage-wrapper {
       position: relative; width: 100vw; height: 100vh;
       overflow: hidden;
+      background: #F8FAFC;
     }
 
     #stage {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 108rem; height: 60.75rem;
+      position: relative;
+      width: 100%; height: 100%;
       background: #F8FAFC;
       display: flex; flex-direction: column;
       overflow: hidden;
-      border: 1px solid #E2E8F0;
-      box-shadow: 0 10px 40px rgba(15,23,42,0.08);
+      border: none;
+      box-shadow: none;
     }
 
     /* ── 全屏 Fullscreen 适配 ── */
     :fullscreen, :-webkit-full-screen, :-moz-full-screen {
-      background: #F1F5F9 !important;
+      background: #F8FAFC !important;
     }
     :fullscreen #stage-wrapper,
     :-webkit-full-screen #stage-wrapper,
-    :-moz-full-screen #stage-wrapper {
-      width: 100vw; height: 100vh;
+    :-moz-full-screen #stage-wrapper,
+    :fullscreen #stage,
+    :-webkit-full-screen #stage,
+    :-moz-full-screen #stage {
+      width: 100vw !important; height: 100vh !important;
     }
     :fullscreen html,
     :-webkit-full-screen html {
@@ -387,7 +395,7 @@
           <i data-lucide="play-circle" style="width:1rem;height:1rem;"></i> 体验在线 DEMO
         </a>
         <button class="btn-ctrl" onclick="toggleDrawer()" title="打开目录大纲 (M)">
-          <i data-lucide="list" style="width:1.2rem;height:1.2rem;"></i>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
         </button>
       </div>
     </header>
@@ -1451,14 +1459,17 @@
         </div>
       </div>
       <div class="ctrl-btns">
-        <button class="btn-ctrl" onclick="prevSlide()" title="上一页 (←)">
-          <i data-lucide="chevron-left" style="width:1.2rem;height:1.2rem;"></i>
+        <button class="btn-ctrl" onclick="toggleDrawer()" title="打开目录大纲 (M)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
         </button>
-        <button class="btn-ctrl" onclick="nextSlide()" title="下一页 (→ / 空格)">
-          <i data-lucide="chevron-right" style="width:1.2rem;height:1.2rem;"></i>
+        <button class="btn-ctrl" onclick="prevSlide()" title="上一页 (← / PageUp)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
         </button>
-        <button class="btn-ctrl" onclick="toggleFullScreen()" title="全屏演示 (F11)">
-          <i data-lucide="maximize-2" style="width:1.15rem;height:1.15rem;"></i>
+        <button class="btn-ctrl" onclick="nextSlide()" title="下一页 (→ / 空格 / PageDown)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+        <button class="btn-ctrl" id="btnZhiheFullscreen" onclick="toggleFullScreen()" title="全屏演示 (F)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
         </button>
       </div>
     </footer>
@@ -1470,7 +1481,7 @@
   <div class="drawer-header">
     <span class="drawer-title">幻灯片大纲目录</span>
     <button class="btn-close-drawer" onclick="toggleDrawer()">
-      <i data-lucide="x" style="width:1.2rem;height:1.2rem;"></i>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
     </button>
   </div>
   <ul class="drawer-list" id="drawerList">
@@ -1595,16 +1606,17 @@
   }
 
   // 全屏状态变化时更新图标
-  document.addEventListener('fullscreenchange', () => {
-    const btn = document.querySelector('[onclick="toggleFullScreen()"] i');
+  function updateZhiheFullscreenIcon() {
+    const btn = document.getElementById('btnZhiheFullscreen');
     if (!btn) return;
-    if (document.fullscreenElement) {
-      btn.setAttribute('data-lucide', 'minimize-2');
+    if (document.fullscreenElement || document.webkitFullscreenElement) {
+      btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 14 10 14 10 20"></polyline><polyline points="20 10 14 10 14 4"></polyline><line x1="14" y1="10" x2="21" y2="3"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>';
     } else {
-      btn.setAttribute('data-lucide', 'maximize-2');
+      btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>';
     }
-    try { lucide.createIcons(); } catch(e) {}
-  });
+  }
+  document.addEventListener('fullscreenchange', updateZhiheFullscreenIcon);
+  document.addEventListener('webkitfullscreenchange', updateZhiheFullscreenIcon);
 
   // 键盘快捷键支持
   window.addEventListener('keydown', (e) => {

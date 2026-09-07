@@ -10,44 +10,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   
-  <!-- Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Icons with CDN Fallback -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
   <script>
-    // ===== 📱 移动端滑动手势支持 (Mobile Touch Swipe Support) =====
-    let touchStartX = 0;
-    let touchStartY = 0;
-    let touchEndX = 0;
-    let touchEndY = 0;
-
-    document.addEventListener('touchstart', function(e) {
-      if (e.touches && e.touches.length > 0) {
-        touchStartX = e.touches[0].screenX;
-        touchStartY = e.touches[0].screenY;
-      }
-    }, { passive: true });
-
-    document.addEventListener('touchend', function(e) {
-      if (e.changedTouches && e.changedTouches.length > 0) {
-        touchEndX = e.changedTouches[0].screenX;
-        touchEndY = e.changedTouches[0].screenY;
-        handleSwipe();
-      }
-    }, { passive: true });
-
-    function handleSwipe() {
-      const diffX = touchEndX - touchStartX;
-      const diffY = touchEndY - touchStartY;
-      
-      // 仅在水平滑动距离大于垂直滑动，且滑动距离大于 40px 时触发切页
-      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
-        if (diffX < 0) {
-          nextSlide(); // 向左滑 -> 下一页
-        } else {
-          prevSlide(); // 向右滑 -> 上一页
-        }
-      }
+    if (typeof lucide === 'undefined') {
+      document.write('<script src="https://unpkg.com/lucide@latest"><\/script>');
     }
-
   </script>
 
   <style>
@@ -97,6 +65,7 @@
     #stage-wrapper {
       position: relative; width: 100vw; height: 100vh;
       overflow: hidden;
+      background-color: var(--bg-dark);
     }
 
     /* 流式全屏舞台：header + slides + footer 纵向排布 */
@@ -105,6 +74,23 @@
       position: relative;
       display: flex; flex-direction: column;
       overflow: hidden; background-color: var(--bg-dark);
+    }
+
+    /* ── 全屏 Fullscreen 适配 ── */
+    :fullscreen, :-webkit-full-screen, :-moz-full-screen {
+      background: var(--bg-dark) !important;
+    }
+    :fullscreen #stage-wrapper,
+    :-webkit-full-screen #stage-wrapper,
+    :-moz-full-screen #stage-wrapper,
+    :fullscreen #presentation-stage,
+    :-webkit-full-screen #presentation-stage,
+    :-moz-full-screen #presentation-stage {
+      width: 100vw !important; height: 100vh !important;
+    }
+    :fullscreen html,
+    :-webkit-full-screen html {
+      font-size: min(calc(100vw / 108), calc(100vh / 60.75)) !important;
     }
 
     /* 网格背景 */
@@ -234,6 +220,7 @@
       transform: translateY(20px) scale(0.98);
       transition: opacity 0.4s ease, transform 0.4s ease;
       display: flex; flex-direction: column; justify-content: flex-start;
+      overflow-y: auto;
     }
     .slide.active { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; z-index: 10; }
     .slide.prev { transform: translateY(-20px) scale(0.98); }
@@ -685,210 +672,59 @@
     
 
   
-    /* ===== 📱 移动端瀑布流长图浏览模式 CSS (Mobile Waterfall Feed Mode) ===== */
-    @media (max-width: 900px), (max-device-width: 900px) {
-      html {
-        font-size: 15px !important;
-      }
-      body {
-        overflow-x: hidden !important;
-        overflow-y: auto !important;
-        height: auto !important;
-        min-height: 100vh !important;
-        background-color: #F1F5F9 !important;
-      }
-      #stage-wrapper, #presentation-stage {
-        height: auto !important;
-        min-height: 100vh !important;
-        overflow-x: hidden !important;
-        overflow-y: visible !important;
-        position: relative !important;
-        display: block !important;
-        background-color: #F1F5F9 !important;
-      }
-
-      /* 顶部 Sticky Header 栏 */
+    /* ===== 📱 移动端与小屏适配 (保持幻灯片演示模式与底部操作栏) ===== */
+    @media (max-width: 900px) {
       header {
-        position: sticky !important;
-        top: 0 !important;
         height: 52px !important;
         padding: 0 1.2rem !important;
-        z-index: 1000 !important;
-        background: rgba(255, 255, 255, 0.96) !important;
-        backdrop-filter: blur(16px) !important;
-        border-bottom: 1px solid #E2E8F0 !important;
-        box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04) !important;
       }
       .brand-title {
-        font-size: 1.1rem !important;
-        color: #0F172A !important;
+        font-size: 1.05rem !important;
       }
       .system-badge {
         display: none !important;
       }
-
-      /* 彻底隐藏底部翻页按钮与导航条 (NO SWITCHER BUTTONS ON MOBILE) */
-      footer, .ctrl-btns, .progress-track, .slide-counter {
-        display: none !important;
-      }
-
-      /* Slide 瀑布流纵向平铺重构 */
-      #presentation {
-        height: auto !important;
-        min-height: auto !important;
-        overflow-y: visible !important;
-        padding: 1.25rem 1rem 3rem 1rem !important;
+      footer {
         display: flex !important;
-        flex-direction: column !important;
-        gap: 2.2rem !important;
+        height: 54px !important;
+        padding: 0 1.2rem !important;
+      }
+      .slide-counter {
+        font-size: 0.95rem !important;
+      }
+      .progress-track {
+        width: 80px !important;
+      }
+      .ctrl-btns {
+        display: flex !important;
+        gap: 0.6rem !important;
+      }
+      .btn-ctrl {
+        width: 36px !important;
+        height: 36px !important;
       }
       .slide {
-        position: relative !important;
-        inset: auto !important;
-        width: 100% !important;
-        min-height: auto !important;
-        padding: 1.5rem 1.2rem !important;
-        transform: none !important;
-        display: flex !important;
-        flex-direction: column !important;
-        opacity: 1 !important;
-        pointer-events: auto !important;
-        background: #FFFFFF !important;
-        border: 1px solid #E2E8F0 !important;
-        border-radius: 20px !important;
-        box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06) !important;
+        padding: 1.25rem 1.5rem !important;
+        overflow-y: auto !important;
       }
-
-      /* 每页顶部序号角标 */
-      .slide::before {
-        content: attr(data-slide-index);
-        display: inline-block;
-        font-size: 0.75rem;
-        font-weight: 900;
-        letter-spacing: 1.2px;
-        color: #0284C7;
-        background: #F0F9FF;
-        border: 1px solid #BAE6FD;
-        padding: 4px 12px;
-        border-radius: 99px;
-        margin-bottom: 1rem;
-        align-self: flex-start;
-      }
-
-      /* 标题与副标题适配 */
       .slide-title-container {
-        margin-bottom: 1.15rem !important;
+        margin-bottom: 0.8rem !important;
       }
       .slide-main-title {
-        font-size: 1.5rem !important;
-        line-height: 1.3 !important;
-        color: #0F172A !important;
+        font-size: 1.6rem !important;
       }
       .slide-subtitle {
-        font-size: 0.95rem !important;
-        line-height: 1.5 !important;
-        margin-top: 0.35rem !important;
-        color: #475569 !important;
-      }
-
-      /* 所有网格排布单列化 */
-      .slide-grid-2, .slide-grid-3, .slide-grid-4 {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 1rem !important;
-        flex: none !important;
-        min-height: auto !important;
-      }
-
-      /* 卡片细节优化 */
-      .glass-card {
-        padding: 1.25rem !important;
-        border-radius: 14px !important;
-        background: #F8FAFC !important;
-        border: 1px solid #E2E8F0 !important;
-        box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04) !important;
-      }
-      .card-title {
-        font-size: 1.15rem !important;
-        margin-bottom: 0.4rem !important;
-        color: #0F172A !important;
-      }
-      .card-text {
         font-size: 0.92rem !important;
-        line-height: 1.6 !important;
-        color: #475569 !important;
       }
-      .neon-list-item {
-        font-size: 0.95rem !important;
-        line-height: 1.6 !important;
+      .slide-grid-2, .slide-grid-3, .slide-grid-4 {
+        gap: 1rem !important;
       }
-
-      /* Slide 1 封面 */
-      #slide-1 h1 {
-        font-size: 1.95rem !important;
-        line-height: 1.25 !important;
-      }
-      #slide-1 p {
-        font-size: 0.98rem !important;
-        line-height: 1.6 !important;
-      }
-
-      /* Slide 2 痛点 */
-      #slide-2 .neon-item {
-        font-size: 0.95rem !important;
-        padding: 12px 14px !important;
-      }
-      #slide-2 h3 {
-        font-size: 1.3rem !important;
-      }
-
-      /* Slide 3 闭环图 */
-      #slide-3 .loop-viewport {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 0.85rem !important;
-        height: auto !important;
-        padding: 0.5rem 0 !important;
-      }
-      #slide-3 .arrow-box, #slide-3 .loop-connector {
-        display: none !important;
-      }
-
-      /* Slide 8 材料看板 */
-      #slide-8 .material-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 0.85rem !important;
-      }
-      #slide-8 .mat-header {
-        font-size: 1rem !important;
-      }
-      #slide-8 .mat-metrics {
-        font-size: 0.88rem !important;
-      }
-
-      /* 截图大图全展开模式 */
-      .screenshot-frame, .screenshot-frame-large {
-        width: 100% !important;
-        height: auto !important;
-        max-height: none !important;
-        overflow: hidden !important;
-        border-radius: 12px !important;
-        margin-top: 0.75rem !important;
-        border: 1px solid #E2E8F0 !important;
-      }
-      .screenshot-frame img, .screenshot-frame-large img {
-        width: 100% !important;
-        height: auto !important;
-        max-height: none !important;
-        object-fit: contain !important;
-        display: block !important;
-      }
-
-      /* 目录抽屉 */
       .index-drawer {
         width: 85vw !important;
         right: -85vw !important;
+      }
+      .index-drawer.open {
+        right: 0 !important;
       }
     }
 
@@ -913,7 +749,7 @@
           <div class="brand-title">智能采购比价与合同管理系统</div>
         </div>
         <div style="display:flex; align-items:center; gap:1rem;">
-          <a href="../../zhicai/index.html" style="font-size:0.85rem; color:#0284C7; text-decoration:none; display:flex; align-items:center; gap:0.4rem; padding:0.35rem 0.8rem; background:#EFF6FF; border:1px solid #BFDBFE; border-radius:0.5rem; font-weight:600;"><i data-lucide="arrow-left" style="width:14px;height:14px;"></i> 产品专页</a>
+          <a href="../../zhicai/index.html" style="font-size:0.85rem; color:#0284C7; text-decoration:none; display:flex; align-items:center; gap:0.4rem; padding:0.35rem 0.8rem; background:#EFF6FF; border:1px solid #BFDBFE; border-radius:0.5rem; font-weight:600;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg> 产品专页</a>
           <div class="system-badge" id="sectionTag">VALUE PRESENTATION</div>
         </div>
       </header>
@@ -1983,10 +1819,18 @@
           <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
         </div>
         <div class="ctrl-btns">
-          <button class="btn-ctrl" onclick="toggleIndexDrawer()" title="幻灯片大纲"><i data-lucide="list" size="20"></i></button>
-          <button class="btn-ctrl" onclick="prevSlide()" title="上一页 (←)"><i data-lucide="chevron-left" size="20"></i></button>
-          <button class="btn-ctrl" onclick="nextSlide()" title="下一页 (→)"><i data-lucide="chevron-right" size="20"></i></button>
-          <button class="btn-ctrl" onclick="toggleFullscreen()" title="切换全屏 (F)"><i data-lucide="maximize-2" size="20" id="fullScreenIcon"></i></button>
+          <button class="btn-ctrl" onclick="toggleIndexDrawer()" title="幻灯片大纲 (M)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+          </button>
+          <button class="btn-ctrl" onclick="prevSlide()" title="上一页 (← / PageUp)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <button class="btn-ctrl" onclick="nextSlide()" title="下一页 (→ / 空格 / PageDown)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+          <button class="btn-ctrl" id="btnFullscreen" onclick="toggleFullscreen()" title="切换全屏 (F)">
+            <svg id="fullScreenIconSvg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+          </button>
         </div>
       </footer>
 
@@ -1997,7 +1841,9 @@
   <div class="index-drawer" id="indexDrawer">
     <div class="drawer-header">
       <h3 class="drawer-title">幻灯片大纲</h3>
-      <button class="btn-close-drawer" onclick="toggleIndexDrawer()"><i data-lucide="x" size="20"></i></button>
+      <button class="btn-close-drawer" onclick="toggleIndexDrawer()" title="关闭大纲">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
     </div>
     <ul class="drawer-list" id="drawerList">
       <!-- JS 填充 -->
@@ -2005,8 +1851,17 @@
   </div>
 
   <script>
-    // Initialize Lucide Icons
-    lucide.createIcons();
+    // Safe initialization for Lucide Icons
+    function safeCreateIcons() {
+      try {
+        if (typeof lucide !== 'undefined' && lucide && typeof lucide.createIcons === 'function') {
+          lucide.createIcons();
+        }
+      } catch (err) {
+        console.warn('Lucide icon init warning:', err);
+      }
+    }
+    safeCreateIcons();
 
     const totalSlides = 15;
     let currentSlide = 1;
@@ -2065,9 +1920,12 @@
       window.scrollTo(0, 0);
       document.documentElement.scrollTop = 0;
       document.body.scrollTop = 0;
-      document.getElementById('stage-wrapper').scrollTop = 0;
-      document.getElementById('presentation-stage').scrollTop = 0;
-      document.getElementById('presentation').scrollTop = 0;
+      const sw = document.getElementById('stage-wrapper');
+      if (sw) sw.scrollTop = 0;
+      const ps = document.getElementById('presentation-stage');
+      if (ps) ps.scrollTop = 0;
+      const p = document.getElementById('presentation');
+      if (p) p.scrollTop = 0;
     }
 
     function updateNav() {
@@ -2090,8 +1948,8 @@
       requestAnimationFrame(resetStageScroll);
       updateDrawerHighlight();
 
-      // Re-invoke Lucide icons
-      if (window.lucide) setTimeout(() => lucide.createIcons(), 50);
+      // Re-invoke Lucide icons safely
+      setTimeout(safeCreateIcons, 50);
 
       // Trigger slide lifecycle hooks
       onSlideLeave(previousSlide);
@@ -2121,27 +1979,41 @@
     }
 
     function toggleFullscreen() {
-      const icon = document.getElementById('fullScreenIcon');
-      if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen().then(() => {
-          icon.setAttribute('data-lucide', 'minimize-2');
-          lucide.createIcons();
-        }).catch(err => console.log("Full screen request failed: ", err));
+      const el = document.getElementById('stage-wrapper') || document.documentElement;
+      if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+        (el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen).call(el).catch(err => {
+          console.warn("Full screen request failed: ", err);
+        });
       } else {
-        if (document.exitFullscreen) {
-          document.exitFullscreen().then(() => {
-            icon.setAttribute('data-lucide', 'maximize-2');
-            lucide.createIcons();
-          });
-        }
+        (document.exitFullscreen || document.webkitExitFullscreen || document.mozCancelFullScreen).call(document).catch(err => {
+          console.warn("Exit full screen failed: ", err);
+        });
       }
     }
 
+    function updateFullscreenIcon() {
+      const fsIcon = document.getElementById('fullScreenIconSvg');
+      if (!fsIcon) return;
+      if (document.fullscreenElement || document.webkitFullscreenElement) {
+        fsIcon.innerHTML = '<polyline points="4 14 10 14 10 20"></polyline><polyline points="20 10 14 10 14 4"></polyline><line x1="14" y1="10" x2="21" y2="3"></line><line x1="3" y1="21" x2="10" y2="14"></line>';
+      } else {
+        fsIcon.innerHTML = '<polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line>';
+      }
+    }
+
+    document.addEventListener('fullscreenchange', updateFullscreenIcon);
+    document.addEventListener('webkitfullscreenchange', updateFullscreenIcon);
+
     // Keyboard controls
     window.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight' || e.key === 'Space') nextSlide();
-      if (e.key === 'ArrowLeft') prevSlide();
-      if (e.key === 'f' || e.key === 'F') toggleFullscreen();
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') nextSlide();
+      else if (e.key === 'ArrowLeft' || e.key === 'PageUp' || e.key === 'Backspace') prevSlide();
+      else if (e.key === 'f' || e.key === 'F') toggleFullscreen();
+      else if (e.key === 'm' || e.key === 'M') toggleIndexDrawer();
+      else if (e.key === 'Escape') {
+        const d = document.getElementById('indexDrawer');
+        if (d) d.classList.remove('open');
+      }
     });
 
     // Initial hash routing
@@ -2231,7 +2103,7 @@
         `;
       });
       container.innerHTML = html;
-      if (window.lucide) lucide.createIcons();
+      safeCreateIcons();
       document.getElementById('matInsightText').innerText = data.insight;
     }
 
