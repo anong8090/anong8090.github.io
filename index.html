@@ -161,171 +161,15 @@
             text-align: left;
         }
 
-        /* 轮播分段式控制标签 (Tabs) */
-        .hero-carousel-tabs {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0.85rem;
-            margin-bottom: 1rem;
-        }
-        .carousel-tab {
-            position: relative;
-            background: #FFFFFF;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 0.85rem 1rem 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 0.85rem;
-            cursor: pointer;
-            text-align: left;
-            transition: all var(--transition);
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
-            font-family: inherit;
-        }
-        .carousel-tab:hover {
-            border-color: #CBD5E1;
-            background: #F8FAFC;
-            transform: translateY(-1px);
-        }
-        .carousel-tab.active {
-            background: #FFFFFF;
-            border-color: #93C5FD;
-            box-shadow: 0 8px 24px rgba(29, 78, 216, 0.08);
-        }
-        .carousel-tab[data-slide="1"].active {
-            border-color: #86EFAC;
-            box-shadow: 0 8px 24px rgba(5, 150, 105, 0.08);
-        }
-        .carousel-tab[data-slide="2"].active {
-            border-color: #FDE68A;
-            box-shadow: 0 8px 24px rgba(217, 119, 6, 0.08);
-        }
-        .tab-icon {
-            width: 38px;
-            height: 38px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 1.05rem;
-            flex-shrink: 0;
-        }
-        .tab-icon-blue { background: rgba(29, 78, 216, 0.1); color: #1D4ED8; }
-        .tab-icon-green { background: rgba(5, 150, 105, 0.1); color: #059669; }
-        .tab-icon-amber { background: rgba(217, 119, 6, 0.1); color: #D97706; }
-        .tab-text {
-            display: flex;
-            flex-direction: column;
-            min-width: 0;
-        }
-        .tab-name {
-            font-size: 0.92rem;
-            font-weight: 700;
-            color: #0F172A;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .tab-desc {
-            font-size: 0.74rem;
-            color: var(--text-2);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            margin-top: 2px;
-        }
-        .tab-progress-track {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: rgba(226, 232, 240, 0.6);
-        }
-        .tab-progress-bar {
-            height: 100%;
-            width: 0%;
-            background: #1D4ED8;
-            transition: width 0.05s linear;
-        }
-        .carousel-tab[data-slide="1"] .tab-progress-bar { background: #059669; }
-        .carousel-tab[data-slide="2"] .tab-progress-bar { background: #D97706; }
-
-        /* 视窗 Mockup Chrome */
-        .hero-carousel-window {
-            position: relative;
-            background: #FFFFFF;
-            border: 1px solid rgba(148, 163, 184, 0.4);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 20px 48px rgba(15, 23, 42, 0.08), 0 4px 12px rgba(15, 23, 42, 0.04);
-        }
-        .carousel-window-bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.65rem 1.1rem;
-            background: #F8FAFC;
-            border-bottom: 1px solid rgba(226, 232, 240, 0.9);
-            user-select: none;
-        }
-        .window-dots {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .window-dots .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            display: inline-block;
-        }
-        .dot-red { background: #EF4444; }
-        .dot-yellow { background: #F59E0B; }
-        .dot-green { background: #10B981; }
-        .window-url-bar {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            background: #FFFFFF;
-            border: 1px solid rgba(203, 213, 225, 0.8);
-            border-radius: 20px;
-            padding: 3px 14px;
-            font-size: 0.74rem;
-            color: #64748B;
-            font-family: var(--font-mono, ui-monospace, SFMono-Regular, monospace);
-        }
-        .window-actions {
-            display: flex;
-            align-items: center;
-        }
-        .window-link-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: #1D4ED8;
-            text-decoration: none;
-            padding: 3px 10px;
-            border-radius: 6px;
-            background: rgba(29, 78, 216, 0.06);
-            transition: all var(--transition);
-        }
-        .window-link-btn:hover {
-            background: rgba(29, 78, 216, 0.12);
-            color: #1E40AF;
-        }
-
         /* 轮播滑动视口与轨道 */
         .carousel-viewport {
             position: relative;
             overflow: hidden;
             width: 100%;
             background: #F1F5F9;
+            border: 1px solid rgba(148, 163, 184, 0.45);
+            border-radius: 16px;
+            box-shadow: 0 16px 36px rgba(15, 23, 42, 0.10);
         }
         .carousel-track {
             display: flex;
@@ -352,38 +196,23 @@
         .slide-caption {
             position: absolute;
             left: 18px;
-            bottom: 18px;
             right: 18px;
+            bottom: 16px;
             display: flex;
             align-items: center;
             gap: 10px;
-            background: rgba(255, 255, 255, 0.94);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(226, 232, 240, 0.9);
-            padding: 0.55rem 1rem;
-            border-radius: 10px;
-            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.09);
+            padding: 0.55rem 0.9rem;
+            background: rgba(255,255,255,0.94);
+            border: 1px solid rgba(226,232,240,0.9);
+            border-radius: 9px;
+            box-shadow: 0 6px 18px rgba(15,23,42,0.10);
             pointer-events: none;
         }
-        .caption-tag {
-            font-size: 0.76rem;
-            font-weight: 700;
-            padding: 3px 8px;
-            border-radius: 6px;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-        .caption-blue { background: rgba(29, 78, 216, 0.1); color: #1D4ED8; }
-        .caption-green { background: rgba(5, 150, 105, 0.1); color: #059669; }
-        .caption-amber { background: rgba(217, 119, 6, 0.1); color: #D97706; }
-        .caption-detail {
-            font-size: 0.8rem;
-            color: #334155;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+        .caption-tag { font-size: .76rem; font-weight: 700; padding: 3px 8px; border-radius: 6px; white-space: nowrap; }
+        .caption-blue { background: rgba(29,78,216,.1); color:#1D4ED8; }
+        .caption-green { background: rgba(5,150,105,.1); color:#059669; }
+        .caption-amber { background: rgba(217,119,6,.1); color:#D97706; }
+        .caption-detail { font-size: .8rem; color:#334155; white-space: nowrap; overflow:hidden; text-overflow:ellipsis; }
 
         /* 左右切换箭头 */
         .carousel-nav-btn {
@@ -649,19 +478,9 @@
             .comparison-wrapper { padding: 1.5rem 1.2rem; }
             .portal-card { padding: 1.8rem 1.4rem; }
             .hero-carousel-wrapper { margin-bottom: 2.5rem; }
-            .hero-carousel-tabs { gap: 0.35rem; }
-            .carousel-tab { padding: 0.5rem 0.35rem; gap: 0.35rem; border-radius: 9px; justify-content: center; min-width: 0; }
-            .tab-icon { width: 24px; height: 24px; font-size: 0.78rem; border-radius: 6px; }
-            .tab-name { font-size: 0.78rem; font-weight: 700; }
-            .tab-name-extra { display: none; }
-            .tab-desc { display: none; }
-            .window-url-bar { display: none; }
-            .carousel-window-bar { padding: 0.5rem 0.8rem; }
             .carousel-nav-btn { width: 34px; height: 34px; }
             .carousel-nav-btn.nav-prev { left: 8px; }
             .carousel-nav-btn.nav-next { right: 8px; }
-            .slide-caption { left: 10px; right: 10px; bottom: 10px; padding: 0.45rem 0.7rem; }
-            .caption-detail { font-size: 0.72rem; }
             .card-visual-frame { height: 205px; }
         }
     </style>
@@ -725,90 +544,32 @@
 
         <!-- 首屏真实产品界面滚动轮播 -->
         <div class="hero-carousel-wrapper" id="heroCarousel" aria-label="智增云三大产品界面轮播预览">
-            <!-- 轮播切换选项卡 -->
-            <div class="hero-carousel-tabs" role="tablist" aria-label="产品界面切换">
-                <button class="carousel-tab active" data-slide="0" role="tab" aria-selected="true" aria-controls="slide-panel-0" type="button">
-                    <span class="tab-icon tab-icon-blue">采</span>
-                    <div class="tab-text">
-                        <span class="tab-name">智采云<span class="tab-name-extra"> · 回标比价</span></span>
-                        <span class="tab-desc">全流程控价 · 阶梯量比价决策</span>
+            <div class="carousel-viewport">
+                <div class="carousel-track" id="carouselTrack">
+                    <!-- Slide 0: 智采云 -->
+                    <div class="carousel-slide" id="slide-panel-0" role="group" aria-roledescription="幻灯片" aria-label="智采云回标平铺比价">
+                        <img src="assets/system_screenshots/huibiao.png" alt="智采云回标平铺比价定标决策台" loading="eager">
+                        <div class="slide-caption"><span class="caption-tag caption-blue">智采云 · 回标平铺比价</span><span class="caption-detail">多供应商报价自动结构化，快速完成横向比价决策</span></div>
                     </div>
-                    <div class="tab-progress-track"><div class="tab-progress-bar"></div></div>
-                </button>
-                <button class="carousel-tab" data-slide="1" role="tab" aria-selected="false" aria-controls="slide-panel-1" type="button">
-                    <span class="tab-icon tab-icon-green">核</span>
-                    <div class="tab-text">
-                        <span class="tab-name">智核云<span class="tab-name-extra"> · 合规审查</span></span>
-                        <span class="tab-desc">申报与附件差额验算 · 红线拦截</span>
+                    <!-- Slide 1: 智核云 -->
+                    <div class="carousel-slide" id="slide-panel-1" role="group" aria-roledescription="幻灯片" aria-label="智核云合同合规审查">
+                        <img src="assets/zhihe_screenshots/zhihe_review_core.png" alt="智核云合同合规审查与智能分析" loading="lazy">
+                        <div class="slide-caption"><span class="caption-tag caption-green">智核云 · 智能合规审查舱</span><span class="caption-detail">申报与附件逐项验算，及时拦截合规风险</span></div>
                     </div>
-                    <div class="tab-progress-track"><div class="tab-progress-bar"></div></div>
-                </button>
-                <button class="carousel-tab" data-slide="2" role="tab" aria-selected="false" aria-controls="slide-panel-2" type="button">
-                    <span class="tab-icon tab-icon-amber">销</span>
-                    <div class="tab-text">
-                        <span class="tab-name">智销售<span class="tab-name-extra"> · 会话质检</span></span>
-                        <span class="tab-desc">面对面录音 · 100% 会话全量质检</span>
-                    </div>
-                    <div class="tab-progress-track"><div class="tab-progress-bar"></div></div>
-                </button>
-            </div>
-
-            <!-- 视窗 Mockup 外框 -->
-            <div class="hero-carousel-window">
-                <div class="carousel-window-bar">
-                    <div class="window-dots">
-                        <span class="dot dot-red"></span>
-                        <span class="dot dot-yellow"></span>
-                        <span class="dot dot-green"></span>
-                    </div>
-                    <div class="window-url-bar">
-                        <i data-lucide="shield-check" style="width:13px;height:13px;color:#10B981;"></i>
-                        <span id="carouselUrlText">smartgrowth.cloud / zhicai / decision-matrix</span>
-                    </div>
-                    <div class="window-actions">
-                        <a href="zhicai/index.html" class="window-link-btn" id="carouselDirectLink">
-                            <span id="carouselDirectLinkText">进入智采云专页</span>
-                            <i data-lucide="arrow-right" style="width:13px;height:13px;"></i>
-                        </a>
+                    <!-- Slide 2: 智销售 -->
+                    <div class="carousel-slide" id="slide-panel-2" role="group" aria-roledescription="幻灯片" aria-label="智销售咨询分析中心">
+                        <img src="assets/zhixiao_screenshots/zixunfenxizhongxin.png" alt="智销售咨询分析中心与全量质检" loading="lazy">
+                        <div class="slide-caption"><span class="caption-tag caption-amber">智销售 · 咨询分析中心</span><span class="caption-detail">自动提取客户画像与抗拒点，完成全量会话质检</span></div>
                     </div>
                 </div>
 
-                <div class="carousel-viewport">
-                    <div class="carousel-track" id="carouselTrack">
-                        <!-- Slide 0: 智采云 -->
-                        <div class="carousel-slide" id="slide-panel-0" role="tabpanel" aria-label="智采云回标平铺比价">
-                            <img src="assets/system_screenshots/huibiao.png" alt="智采云回标平铺比价定标决策台" loading="eager">
-                            <div class="slide-caption">
-                                <span class="caption-tag caption-blue">智采云 · 回标平铺比价</span>
-                                <span class="caption-detail">多供应商报价清单自动结构化，一键生成横向平铺对比大表，杜绝高报预算</span>
-                            </div>
-                        </div>
-                        <!-- Slide 1: 智核云 -->
-                        <div class="carousel-slide" id="slide-panel-1" role="tabpanel" aria-label="智核云合同合规审查">
-                            <img src="assets/zhihe_screenshots/zhihe_review_core.png" alt="智核云合同合规审查与智能分析" loading="lazy">
-                            <div class="slide-caption">
-                                <span class="caption-tag caption-green">智核云 · 智能合规审查舱</span>
-                                <span class="caption-detail">申报金额 vs 附件逐项验算（¥50,000 差额毫秒排查），命中“三重一大”纪要红线自动拦截</span>
-                            </div>
-                        </div>
-                        <!-- Slide 2: 智销售 -->
-                        <div class="carousel-slide" id="slide-panel-2" role="tabpanel" aria-label="智销售咨询分析中心">
-                            <img src="assets/zhixiao_screenshots/zixunfenxizhongxin.png" alt="智销售咨询分析中心与全量质检" loading="lazy">
-                            <div class="slide-caption">
-                                <span class="caption-tag caption-amber">智销售 · 咨询分析中心</span>
-                                <span class="caption-detail">软硬件深度协同，无感录音角色分离，自动提取画像与抗拒点，100% 自动质检</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 左右切换箭头 -->
-                    <button class="carousel-nav-btn nav-prev" id="carouselPrevBtn" aria-label="上一张" type="button">
-                        <i data-lucide="chevron-left" style="width:20px;height:20px;"></i>
-                    </button>
-                    <button class="carousel-nav-btn nav-next" id="carouselNextBtn" aria-label="下一张" type="button">
-                        <i data-lucide="chevron-right" style="width:20px;height:20px;"></i>
-                    </button>
-                </div>
+                <!-- 左右切换箭头 -->
+                <button class="carousel-nav-btn nav-prev" id="carouselPrevBtn" aria-label="上一张" type="button">
+                    <i data-lucide="chevron-left" style="width:20px;height:20px;"></i>
+                </button>
+                <button class="carousel-nav-btn nav-next" id="carouselNextBtn" aria-label="下一张" type="button">
+                    <i data-lucide="chevron-right" style="width:20px;height:20px;"></i>
+                </button>
             </div>
         </div>
 
@@ -1385,38 +1146,13 @@
     (function initHeroCarousel() {
         const carousel = document.getElementById('heroCarousel');
         const track = document.getElementById('carouselTrack');
-        const tabs = document.querySelectorAll('.carousel-tab');
+        const slides = track ? track.querySelectorAll('.carousel-slide') : [];
         const prevBtn = document.getElementById('carouselPrevBtn');
         const nextBtn = document.getElementById('carouselNextBtn');
-        const urlText = document.getElementById('carouselUrlText');
-        const directLink = document.getElementById('carouselDirectLink');
-        const directLinkText = document.getElementById('carouselDirectLinkText');
-
-        if (!carousel || !track || !tabs.length) return;
-
-        const slidesData = [
-            {
-                url: 'smartgrowth.cloud / zhicai / decision-matrix',
-                btnText: '进入智采云专页',
-                btnHref: 'zhicai/index.html',
-                btnColor: '#1D4ED8'
-            },
-            {
-                url: 'smartgrowth.cloud / zhihe / audit-cabin',
-                btnText: '进入智核云专页',
-                btnHref: 'zhihe/index.html',
-                btnColor: '#059669'
-            },
-            {
-                url: 'smartgrowth.cloud / zhixiao / consult-qc',
-                btnText: '进入智销售专页',
-                btnHref: 'zhixiao/index.html',
-                btnColor: '#D97706'
-            }
-        ];
+        if (!carousel || !track || !slides.length) return;
 
         let currentIndex = 0;
-        const totalSlides = tabs.length;
+        const totalSlides = slides.length;
         const SLIDE_DURATION = 4800; // 每张播放 4.8 秒
         let startTime = null;
         let elapsedBeforePause = 0;
@@ -1427,23 +1163,9 @@
             currentIndex = (index + totalSlides) % totalSlides;
             track.style.transform = `translateX(-${currentIndex * 33.333333}%)`;
 
-            tabs.forEach((tab, i) => {
-                const isActive = i === currentIndex;
-                tab.classList.toggle('active', isActive);
-                tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
-                const bar = tab.querySelector('.tab-progress-bar');
-                if (bar) bar.style.width = '0%';
+            slides.forEach((slide, i) => {
+                slide.setAttribute('aria-hidden', i === currentIndex ? 'false' : 'true');
             });
-
-            const meta = slidesData[currentIndex];
-            if (meta) {
-                if (urlText) urlText.textContent = meta.url;
-                if (directLink) {
-                    directLink.href = meta.btnHref;
-                    directLink.style.color = meta.btnColor;
-                }
-                if (directLinkText) directLinkText.textContent = meta.btnText;
-            }
 
             elapsedBeforePause = 0;
             startTime = performance.now();
@@ -1453,14 +1175,6 @@
             if (!isPaused) {
                 if (!startTime) startTime = now;
                 const elapsed = elapsedBeforePause + (now - startTime);
-                const progress = Math.min(100, (elapsed / SLIDE_DURATION) * 100);
-
-                const activeTab = tabs[currentIndex];
-                if (activeTab) {
-                    const bar = activeTab.querySelector('.tab-progress-bar');
-                    if (bar) bar.style.width = progress + '%';
-                }
-
                 if (elapsed >= SLIDE_DURATION) {
                     updateSlide(currentIndex + 1);
                 }
@@ -1483,13 +1197,6 @@
                 startTime = performance.now();
             }
         }
-
-        // Tab 点击
-        tabs.forEach((tab, idx) => {
-            tab.addEventListener('click', () => {
-                updateSlide(idx);
-            });
-        });
 
         // Prev / Next 按钮
         if (prevBtn) {
