@@ -119,7 +119,7 @@
                 linear-gradient(90deg, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
             background-size: 56px 56px;
         }
-        .hero-content { position: relative; z-index: 1; max-width: 1200px; width: 100%; }
+        .hero-content { position: relative; z-index: 1; max-width: 1280px; width: 100%; }
         .hero-badge {
             display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.4rem 1.2rem;
             border-radius: 9999px; border: 1px solid #BFDBFE; background: #EFF6FF;
@@ -131,7 +131,7 @@
             margin-bottom: 1.35rem; letter-spacing: -0.5px; color: #0F172A; white-space: nowrap;
         }
         .hero-title-grad { background: var(--grad-hero); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .hero-subtitle { font-size: clamp(1.02rem, 1.6vw, 1.18rem); color: var(--text-2); max-width: 860px; margin: 0 auto 2.4rem; line-height: 1.8; }
+        .hero-subtitle { font-size: clamp(1.02rem, 1.6vw, 1.18rem); color: var(--text-2); max-width: 760px; margin: 0 auto 2.4rem; line-height: 1.8; }
 
         /* HERO CTA 按钮组 */
         .hero-cta-bar {
@@ -154,17 +154,44 @@
         }
         .hero-btn-outline:hover { background: #F8FAFC; border-color: #CBD5E1; color: #0F172A; transform: translateY(-1px); }
 
+        /* 首屏产品实景：用真实界面快速传达产品形态 */
+        .hero-showcase {
+            display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 1.2rem;
+            max-width: 1080px; height: 360px; margin: 0 auto 3.4rem; text-align: left;
+        }
+        .hero-showcase-stack { display: grid; grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 1.2rem; min-width: 0; height: 100%; }
+        .hero-shot {
+            position: relative; height: 100%; min-height: 0; overflow: hidden; border-radius: 16px;
+            background: #F1F5F9; border: 1px solid rgba(148,163,184,.45);
+            box-shadow: 0 18px 42px rgba(15,23,42,.12);
+        }
+        .hero-shot-main { min-height: 0; }
+        .hero-shot img { width: 100%; height: 100%; display: block; object-fit: contain; object-position: center; transition: transform .5s ease; }
+        .hero-shot:hover img { transform: scale(1.035); }
+        .hero-shot-label {
+            position: absolute; left: 14px; bottom: 14px; padding: .42rem .72rem;
+            border-radius: 8px; color: #0F172A; background: rgba(255,255,255,.9);
+            border: 1px solid rgba(226,232,240,.9); backdrop-filter: blur(10px);
+            font-size: .78rem; font-weight: 700; box-shadow: 0 4px 12px rgba(15,23,42,.1);
+        }
+
         /* 卡片内的 UI 预览微视窗 */
         .card-visual-frame {
-            margin: 1.2rem 0; border-radius: 10px; overflow: hidden;
+            order: 2; margin: 0 0 1.35rem; border-radius: 12px; overflow: hidden;
             border: 1px solid var(--border); box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
-            position: relative; height: 155px; background: #F8FAFC;
+            position: relative; height: 220px; background: #F1F5F9;
         }
         .card-visual-frame img {
-            width: 100%; height: 100%; object-fit: cover; object-position: top center;
+            width: 100%; height: 100%; object-fit: contain; object-position: center;
             transition: transform 0.4s ease; display: block;
         }
         .portal-card:hover .card-visual-frame img { transform: scale(1.04); }
+        .portal-card .card-header-flex { order: 1; }
+        .portal-card .card-intro { order: 3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 1rem; }
+        .portal-card .card-stats-row { order: 4; }
+        .portal-card .feature-list { order: 5; }
+        .portal-card .card-actions { order: 6; }
+        .card-zhihe .card-visual-frame img { object-position: center; }
         .visual-tag-float {
             position: absolute; bottom: 8px; right: 8px;
             background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(8px);
@@ -257,14 +284,14 @@
         .card-stats-row {
             display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem;
             background: #F8FAFC; border: 1px solid var(--border);
-            border-radius: 12px; padding: 0.9rem 0.6rem; margin-bottom: 1.4rem; text-align: center;
+            border-radius: 12px; padding: 0.75rem 0.6rem; margin-bottom: 1.1rem; text-align: center;
         }
         .card-stat-num { font-size: 1.4rem; font-weight: 900; line-height: 1.1; margin-bottom: 0.2rem; }
         .card-stat-txt { font-size: 0.72rem; color: var(--text-2); font-weight: 500; }
 
         /* 特性要点 */
-        .feature-list { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 1.8rem; flex: 1; }
-        .feature-item { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.88rem; color: #334155; line-height: 1.55; }
+        .feature-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.25rem; flex: 1; }
+        .feature-item { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.84rem; color: #334155; line-height: 1.5; }
         .feature-bullet { width: 7px; height: 7px; border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
         .bullet-blue { background: #1D4ED8; }
         .bullet-green { background: #059669; }
@@ -373,6 +400,12 @@
             .footer-top { grid-template-columns: 1fr; }
             .comparison-wrapper { padding: 1.5rem 1.2rem; }
             .portal-card { padding: 1.8rem 1.4rem; }
+            .hero-showcase { grid-template-columns: 1fr; height: auto; gap: 0.9rem; margin-bottom: 2.5rem; }
+            .hero-showcase-stack { grid-template-columns: 1fr 1fr; grid-template-rows: none; gap: 0.9rem; height: 150px; }
+            .hero-shot-main { height: 210px; }
+            .hero-shot { height: 100%; border-radius: 12px; }
+            .hero-shot-label { left: 9px; bottom: 9px; font-size: .7rem; padding: .34rem .5rem; }
+            .card-visual-frame { height: 205px; }
         }
     </style>
 </head>
@@ -410,13 +443,13 @@
     <div class="hero-content">
         <div class="hero-badge">
             <span class="hero-badge-dot"></span>
-            智增云 · 自主可控 · 信创支持 ｜ 面向大型企业与国资央企的现代化数智产品矩阵
+            智增云 · 自主可控 · 信创支持
         </div>
         <h1 class="hero-title">
             驱动精细化降本增效，筑牢合规管理与业务防线
         </h1>
         <p class="hero-subtitle">
-            面向大型企业、国企央企与集团化组织，提供三大独立自主的数智化产品线：以【智采云】激活历史价格大库打破招采黑盒；以【智核云】无感协同现有办公系统、实施分钟级初审把关筑牢免责护栏；以【智销售】基于 AI 智能工牌赋能面对面一线销售与 100% 全量质检。
+            覆盖采购、审批与销售全流程的企业级智能管理平台，让每一次决策都有数据依据。
         </p>
 
         <!-- 核心行动入口 (精炼聚焦，避免与下方各产品专页 PPT 入口重复) -->
@@ -432,6 +465,24 @@
         </div>
 
 
+
+        <!-- 首屏真实产品界面预览 -->
+        <div class="hero-showcase" aria-label="智增云三大产品界面预览">
+            <div class="hero-shot hero-shot-main">
+                <img src="assets/system_screenshots/huibiao.png" alt="智采云回标平铺比价定标决策台" loading="eager">
+                <span class="hero-shot-label">智采云 · 回标平铺比价</span>
+            </div>
+            <div class="hero-showcase-stack">
+                <div class="hero-shot">
+                    <img src="assets/zhihe_screenshots/06_signed_feedback_full.png" alt="智核云合同合规审查与智能分析" loading="lazy">
+                    <span class="hero-shot-label">智核云 · 合同合规审查</span>
+                </div>
+                <div class="hero-shot">
+                    <img src="assets/zhixiao_screenshots/zixunfenxizhongxin.png" alt="智销售咨询分析中心与全量质检" loading="lazy">
+                    <span class="hero-shot-label">智销售 · 咨询分析中心</span>
+                </div>
+            </div>
+        </div>
 
         <!-- Cloudflare 对标：传统模式 vs 智增云现代化智能闭环对比表 -->
         <div class="comparison-wrapper">
@@ -559,14 +610,13 @@
                 </div>
                 <!-- 真实界面微视窗预览 -->
                 <div class="card-visual-frame">
-                    <img src="assets/system_screenshots/forecast_dash.png" alt="智采云采购限价预测与比价界面" loading="lazy">
-                    <div class="visual-tag-float">历史沉淀 10万+ 标段</div>
+                    <img src="assets/system_screenshots/huibiao.png" alt="智采云回标平铺比价定标决策台" loading="lazy">
+                    <div class="visual-tag-float">回标平铺比价 · 一键定标</div>
                 </div>
                 <ul class="feature-list">
                     <li class="feature-item"><span class="feature-bullet bullet-blue"></span> 沉淀多维历史成交大库（品牌、规格型号、地域价格基线）</li>
                     <li class="feature-item"><span class="feature-bullet bullet-blue"></span> 招标控制价智能测算，杜绝高报预算与供应商合谋围标</li>
                     <li class="feature-item"><span class="feature-bullet bullet-blue"></span> 多供应商报价清单自动结构化，一键生成横向平铺对比大表</li>
-                    <li class="feature-item"><span class="feature-bullet bullet-blue"></span> 合同商务条款智能抽取，定标数据自动归仓反哺历史大库</li>
                 </ul>
                 <div class="card-actions">
                     <a href="zhicai/index.html" class="btn-enter-page btn-page-blue">
@@ -612,14 +662,13 @@
                 </div>
                 <!-- 真实界面微视窗预览 -->
                 <div class="card-visual-frame">
-                    <img src="assets/zhihe_screenshots/01_task_pool.png" alt="智核云智能初审任务池与把关台" loading="lazy">
-                    <div class="visual-tag-float" style="color:#059669;">智能初审待办把关</div>
+                    <img src="assets/zhihe_screenshots/06_signed_feedback_full.png" alt="智核云合同合规审查与智能分析" loading="lazy">
+                    <div class="visual-tag-float" style="color:#059669;">合同合规审查 · 机器留痕</div>
                 </div>
                 <ul class="feature-list">
                     <li class="feature-item"><span class="feature-bullet bullet-green"></span> 零折腾协同泛微、致远等主流 OA 与 ERP，经办人员无需改变习惯</li>
                     <li class="feature-item"><span class="feature-bullet bullet-green"></span> 机器严格验算申报金额 vs 附件逐项累加（精准排查差额矛盾与税率漏洞）</li>
                     <li class="feature-item"><span class="feature-bullet bullet-green"></span> 动态对标企业制度章程（超额申报、拆单规避招标及时亮红拦截预警）</li>
-                    <li class="feature-item"><span class="feature-bullet bullet-green"></span> 左看原件右看要点，领导定夺后一键回写 OA，国密存据筑牢免责护栏</li>
                 </ul>
                 <div class="card-actions">
                     <a href="zhihe/index.html" class="btn-enter-page btn-page-green">
@@ -665,14 +714,13 @@
                 </div>
                 <!-- 真实界面微视窗预览 -->
                 <div class="card-visual-frame">
-                    <img src="assets/zhixiao_screenshots/system_architecture_ui.png" alt="智销售AI美顾会话分析与全量质检控制台" loading="lazy">
-                    <div class="visual-tag-float" style="color:#D97706;">35g 智能工牌 + AI美顾</div>
+                    <img src="assets/zhixiao_screenshots/zixunfenxizhongxin.png" alt="智销售咨询分析中心与全量质检" loading="lazy">
+                    <div class="visual-tag-float" style="color:#D97706;">咨询分析中心 · 全量质检</div>
                 </div>
                 <ul class="feature-list">
                     <li class="feature-item"><span class="feature-bullet bullet-amber"></span> 软硬件深度协同：超轻智能工牌全天无感佩戴，高保真降噪与角色声纹分离</li>
                     <li class="feature-item"><span class="feature-bullet bullet-amber"></span> 会话速记与自动建档：秒级结构化提炼客户画像、真实预算与核心抗拒点</li>
                     <li class="feature-item"><span class="feature-bullet bullet-amber"></span> 销售副驾全程赋能：面谈前档案速读，面谈后一键生成企微个性化跟进话术</li>
-                    <li class="feature-item"><span class="feature-bullet bullet-amber"></span> 100% 会话级合规质检：智能识别过度承诺与消极应对，全自动输出能力雷达</li>
                 </ul>
                 <div class="card-actions">
                     <a href="zhixiao/index.html" class="btn-enter-page btn-page-amber">
